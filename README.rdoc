@@ -14,8 +14,7 @@ run rake fifa:scrape_results as a cron job, with whatever time frame you want
 
 * Static landing page
 * Add backup feed(s) for data
-* Add class to determine knocked out teams by knockout date
-
+* Add CSS class to determine knocked out teams
 ==ENDPOINTS
 
 [url]/teams.json for a list of teams with group ID and FIFA code
