@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  alternate_name: MyString
+  fifa_code: MyString
+  group_id: 1
+  wins: 1
+  draws: 1
+  losses: 1
+  goals_for: 1
+  goals_against: 1
+  knocked_out: false
+
+two:
+  country: MyString
+  alternate_name: MyString
+  fifa_code: MyString
+  group_id: 1
+  wins: 1
+  draws: 1
+  losses: 1
+  goals_for: 1
+  goals_against: 1
+  knocked_out: false
