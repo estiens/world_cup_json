@@ -27,8 +27,10 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
+    config.authorize_with do
+      authenticate_or_request_with_http_basic('Gotta know the codes') do |username, password|
+        username == ENV["ADMIN_LOGIN"] && password == ENV["ADMIN_PASS"]
+      end
+    end
   end
 end
