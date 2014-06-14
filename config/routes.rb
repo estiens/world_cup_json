@@ -2,8 +2,8 @@ WorldCupJson::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :teams, only: [:index, :results]
-  get '/results', :to => 'teams#results'
+  get '/teams', to: 'teams#index'
+  get '/results', to: 'teams#results'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
