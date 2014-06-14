@@ -1,0 +1,197 @@
+[{
+"id": 1,
+"group_id": 1,
+"code": "BRA",
+"name": "Brazil"
+},
+{
+"id": 2,
+"group_id": 1,
+"code": "CRO",
+"name": "Croatia"
+},
+{
+"id": 3,
+"group_id": 1,
+"code": "MEX",
+"name": "Mexico"
+},
+{
+"id": 4,
+"group_id": 1,
+"code": "CMR",
+"name": "Cameroon"
+},
+{
+"id": 5,
+"group_id": 2,
+"code": "ESP",
+"name": "Spain"
+},
+{
+"id": 6,
+"group_id": 2,
+"code": "NED",
+"name": "Netherlands",
+"alternate_name": "Holland"
+},
+{
+"id": 7,
+"group_id": 2,
+"code": "CHI",
+"name": "Chile"
+},
+{
+"id": 8,
+"group_id": 2,
+"code": "AUS",
+"name": "Australia"
+},
+{
+"id": 9,
+"group_id": 3,
+"code": "COL",
+"name": "Colombia"
+},
+{
+"id": 10,
+"group_id": 3,
+"code": "GRE",
+"name": "Greece"
+},
+{
+"id": 11,
+"group_id": 3,
+"code": "CIV",
+"name": "Ivory Coast",
+"alternate_name": "Côte d'Ivoire"
+},
+{
+"id": 12,
+"group_id": 3,
+"code": "JPN",
+"name": "Japan"
+},
+{
+"id": 13,
+"group_id": 4,
+"code": "URU",
+"name": "Uruguay"
+},
+{
+"id": 14,
+"group_id": 4,
+"code": "CRC",
+"name": "Costa Rica"
+},
+{
+"id": 15,
+"group_id": 4,
+"code": "ENG",
+"name": "England"
+},
+{
+"id": 16,
+"group_id": 4,
+"code": "ITA",
+"name": "Italy"
+},
+{
+"id": 17,
+"group_id": 5,
+"code": "SUI",
+"name": "Switzerland"
+},
+{
+"id": 18,
+"group_id": 5,
+"code": "ECU",
+"name": "Ecuador"
+},
+{
+"id": 19,
+"group_id": 5,
+"code": "FRA",
+"name": "France"
+},
+{
+"id": 20,
+"group_id": 5,
+"code": "HND",
+"name": "Honduras"
+},
+{
+"id": 21,
+"group_id": 6,
+"code": "ARG",
+"name": "Argentina"
+},
+{
+"id": 22,
+"group_id": 6,
+"code": "BIH",
+"name": "Bosnia and Herzegovina",
+"alternate_name": "Bosnia-Herzegovina"
+},
+{
+"id": 23,
+"group_id": 6,
+"code": "IRN",
+"name": "Iran"
+},
+{
+"id": 24,
+"group_id": 6,
+"code": "NGA",
+"name": "Nigeria"
+},
+{
+"id": 25,
+"group_id": 7,
+"code": "GER",
+"name": "Germany"
+},
+{
+"id": 26,
+"group_id": 7,
+"code": "POR",
+"name": "Portugal"
+},
+{
+"id": 27,
+"group_id": 7,
+"code": "GHA",
+"name": "Ghana"
+},
+{
+"id": 28,
+"group_id": 7,
+"code": "USA",
+"name": "USA"
+},
+{
+"id": 29,
+"group_id": 8,
+"code": "BEL",
+"name": "Belgium"
+},
+{
+"id": 30,
+"group_id": 8,
+"code": "ALG",
+"name": "Algeria"
+},
+{
+"id": 31,
+"group_id": 8,
+"code": "RUS",
+"name": "Russia"
+},
+{
+"id": 32,
+"group_id": 8,
+"code": "KOR",
+"name": "Korea Republic",
+"alternate_name": "South Korea"
+}]
+
