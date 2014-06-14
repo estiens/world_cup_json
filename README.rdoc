@@ -1,28 +1,23 @@
-== README
+== ABOUT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON.
 
-Things you may want to cover:
+== SETUP
 
-* Ruby version
+Clone the repo
 
-* System dependencies
+run rake setup:generate_teams to generate the teams
 
-* Configuration
+run rake fifa:scrape_results as a cron job, with whatever time frame you want
 
-* Database creation
+==TODO
 
-* Database initialization
+* Static landing page
+* Add backup feed(s) for data
+* Add class to determine knocked out teams by knockout date
 
-* How to run the test suite
+==ENDPOINTS
 
-* Services (job queues, cache servers, search engines, etc.)
+[url]/teams.json for a list of teams with group ID and FIFA code
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[url]/results.json for current results (wins, losses, draws, goals for, goals against, knock out status)
