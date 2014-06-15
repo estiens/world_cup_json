@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails_admin'
 
+gem 'rabl'
+gem 'oj'
+
 group :development do
   gem 'pry-rails'
 end
