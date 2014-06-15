@@ -4,6 +4,7 @@ WorldCupJson::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   get '/teams', to: 'teams#index'
   get '/results', to: 'teams#results'
+  get '/matches', to: 'matches#index'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
