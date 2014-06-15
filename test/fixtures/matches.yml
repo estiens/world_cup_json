@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fifa_id: MyString
+  string: MyString
+  match_number: 1
+  home_team_id: 1
+  away_team_id: 1
+  datetime: 2014-06-15 15:19:54
+  teams_scheduled: false
+  home_team_score: 1
+  away_team_score: 1
+  location: MyString
+  status: MyString
+
+two:
+  fifa_id: MyString
+  string: MyString
+  match_number: 1
+  home_team_id: 1
+  away_team_id: 1
+  datetime: 2014-06-15 15:19:54
+  teams_scheduled: false
+  home_team_score: 1
+  away_team_score: 1
+  location: MyString
+  status: MyString

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614030821) do
+ActiveRecord::Schema.define(version: 20140615201954) do
+
+  create_table "matches", force: true do |t|
+    t.string   "fifa_id"
+    t.integer  "match_number"
+    t.string   "location"
+    t.datetime "datetime"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
+    t.string   "home_team_tbd"
+    t.string   "away_team_tbd"
+    t.boolean  "teams_scheduled"
+    t.integer  "home_team_score"
+    t.integer  "away_team_score"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "country"
