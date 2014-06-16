@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
   end
 
   def current
-    @matches = Match.where(status: "live")
+    @matches = Match.where(status: "in progress")
     render 'index.json.rabl'
   end
 
