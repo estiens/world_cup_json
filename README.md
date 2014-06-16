@@ -10,11 +10,8 @@ Clone the repo
 to generate the teams
 
 Run the following two tasks as cron jobs, to pull is data with whatever time frame you want (every 5 minutes for example)
-    rake fifa:get_group_results 
-This pulls in the standings of the group stages
-
-    rake fifa:get_all_matches 
-This pulls in all matches and updates any that need updating
+```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
+```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
     
 ==TODO
 
