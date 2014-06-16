@@ -6,9 +6,7 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 Clone the repo
 
-run rake setup:generate_teams to generate the teams
-
-run rake fifa:scrape_results as a cron job, with whatever time frame you want
+run 'rake setup:generate_teams' to generate the teams
 
 ==TODO
 
