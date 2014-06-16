@@ -5,7 +5,7 @@ data_class_pairs = {wins:'.tbl-win',losses:'.tbl-lost', draws: '.tbl-draw', goal
 
 namespace :fifa do
   desc "scrape results from FIFA site"
-  task scrape_results: :environment do
+  task get_group_results: :environment do
     page = Nokogiri::HTML(open(BASE_URL))
     team_code_array = page.css('.t-nTri') # array of all objects that have this class
 
