@@ -6,12 +6,16 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 Clone the repo
 
-run rake setup:generate_teams to generate the teams
+    rake setup:generate_teams 
+to generate the teams
 
-run rake fifa:get_group_results as a cron job, with whatever time frame you want - This pulls in the standings of the group stages
+Run the following two tasks as cron jobs, to pull is data with whatever time frame you want (every 5 minutes for example)
+    rake fifa:get_group_results 
+This pulls in the standings of the group stages
 
-run rake fifa:get_all_matches as a cron job, with whatever time frame you want - This pulls in all matches and updates any that need updating
-
+    rake fifa:get_all_matches 
+This pulls in all matches and updates any that need updating
+    
 ==TODO
 
 * Static landing page
@@ -19,22 +23,25 @@ run rake fifa:get_all_matches as a cron job, with whatever time frame you want -
 
 ==ENDPOINTS
 
-[url]/teams.json for a list of teams with group ID and FIFA code
+    [url]/teams.json 
+for a list of teams with group ID and FIFA code
 
-[url]/group_results.json for current results (wins, losses, draws, goals for, goals against, knock out status)
+    [url]/group_results.json 
+for current results (wins, losses, draws, goals for, goals against, knock out status)
 
-[url]/matches.json for all matches (Example JSON object at the bottom of this README)
+    [url]/matches.json 
+for all matches (Example JSON object at the bottom of this README)
 
 ==OTHER ENDPOINTS
 
-[url]/matches/today.json
-[url]/matches/tomorrow.json
+    [url]/matches/today.json
+    [url]/matches/tomorrow.json
 
-(what it says on the tine)
+(what it says on the tin)
 
 You can also retrieve the matches for any team if you know their FIFA code by passing it in as a param.
 
-Example: [url]/matches/country?fifa_code=USA
+    Example: [url]/matches/country?fifa_code=USA
 
 == EXAMPLE RESPONSES
 
