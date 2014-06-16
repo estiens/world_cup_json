@@ -8,7 +8,7 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * ```rake setup:generate_teams``` to generate the teams
 
-* Run the following two tasks as cron jobs, to pull is data with whatever time frame you want (every 5 minutes for example): 
+* Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example): 
 ```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
 ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
     
