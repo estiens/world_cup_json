@@ -21,7 +21,7 @@ namespace :fifa do
             data = path_to_formatted_data(selector, lookup_class)
             if (data > 0) && (team.send(attribute) != data)
               team.send("#{attribute}=",data)
-              puts "Updated #{attribute} for #{team.coun}"
+              puts "Updated #{attribute} for #{team.country}"
             end
           end
         end

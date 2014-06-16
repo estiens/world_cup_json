@@ -5,7 +5,7 @@ namespace :fifa do
   task get_all_matches: :environment do
     match_url = "http://www.fifa.com/worldcup/matches/index.html"
     matches = Nokogiri::HTML(open(match_url))
-
+    counter = 0
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
@@ -53,8 +53,9 @@ namespace :fifa do
       fixture.away_team_score = away_team_score
       fixture.status = status
       fixture.save
+      counter += 1
     end
+    puts "checked matches, retrieved #{counter} matches"
   end
-  puts "checked matches"
 end
 
