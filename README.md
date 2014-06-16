@@ -61,7 +61,8 @@ winner: "Brazil"
 ```
 GROUP RESULTS API
 
-```{
+```json
+{
 country: "Brazil",
 alternate_name: null,
 fifa_code: "BRA",
