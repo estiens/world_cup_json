@@ -25,6 +25,15 @@ class MatchesController < ApplicationController
     render 'index.json.rabl'
   end
 
+  def today
+    @matches = Match.today
+    render 'index.json.rabl'
+  end
+
+  def tomorrow
+    @matches = Match.tomorrow
+    render 'index.json.rabl'
+  end
 end
 
 
