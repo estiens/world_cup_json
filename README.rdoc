@@ -6,7 +6,7 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 Clone the repo
 
-run 'rake setup:generate_teams' to generate the teams
+run `rake setup:generate_teams` to generate the teams
 
 ==TODO
 
