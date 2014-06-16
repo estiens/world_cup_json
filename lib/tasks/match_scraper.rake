@@ -56,5 +56,6 @@ namespace :fifa do
       fixture.save
     end
   end
+  puts "checked matches"
 end
 

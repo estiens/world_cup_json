@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     builder (3.1.4)
+    clockwork (0.7.5)
+      activesupport
+      tzinfo
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -151,6 +154,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  clockwork
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
