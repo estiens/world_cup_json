@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
 
   def index
     @matches = Match.all.order(:match_number)
+    render 'index.json.rabl'
   end
 
   def current

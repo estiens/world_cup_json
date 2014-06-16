@@ -8,12 +8,13 @@ namespace :fifa do
     matches = Nokogiri::HTML(open(MATCH_URL))
 
     matches.css(".col-xs-12 .mu").each do |match|
-      fifa_id = match.first[1]
+      fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
       datetime = match.css(".mu-i-datetime").text.to_time
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
+      #if match is schedule, associate it with a team, eles use tbd variables
       if Team.where(fifa_code: home_team_code).first
         home_team_id = Team.where(fifa_code: home_team_code).first.id
         away_team_id = Team.where(fifa_code: away_team_code).first.id
@@ -23,6 +24,8 @@ namespace :fifa do
         home_team_tbd = home_team_code
         away_team_tbd = away_team_code
       end
+      # FIFA uses the score class to show the time if the match is in the future
+      # We don't want that
       if match.css(".s-scoreText").text.include?("-")
         score_array= match.css(".s-scoreText").text.split("-")
         home_team_score = score_array.first
@@ -30,6 +33,7 @@ namespace :fifa do
       else
         home_team_score = away_team_score = "0"
       end
+      # save match status to use to display live matches via JSON
       if match.css(".s-status").text.downcase.include?("full")
         status = "completed"
       elsif match.attributes["class"].value.include?("live")
