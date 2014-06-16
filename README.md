@@ -36,7 +36,9 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 Example: [url]/matches/country?fifa_code=USA
 
-== EXAMPLE RESPONSE
+== EXAMPLE RESPONSES
+
+MATCH API
 
 ```json
 {
@@ -57,3 +59,18 @@ goals: 1
 winner: "Brazil"
 },
 ```
+GROUP RESULTS API
+
+```{
+country: "Brazil",
+alternate_name: null,
+fifa_code: "BRA",
+group_id: 1,
+wins: 1,
+draws: 0,
+losses: 0,
+goals_for: 3,
+goals_against: 0,
+knocked_out: false,
+updated_at: "2014-06-14T01:06:52.484-05:00"
+},```
