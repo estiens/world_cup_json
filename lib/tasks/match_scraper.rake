@@ -3,9 +3,8 @@ require 'open-uri'
 namespace :fifa do
   desc "scrape results from FIFA site"
   task get_all_matches: :environment do
-    FIFA_SITE = "http://www.fifa.com/"
-    MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
-    matches = Nokogiri::HTML(open(MATCH_URL))
+    match_url = "http://www.fifa.com/worldcup/matches/index.html"
+    matches = Nokogiri::HTML(open(match_url))
 
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
@@ -56,5 +55,6 @@ namespace :fifa do
       fixture.save
     end
   end
+  puts "checked matches"
 end
 

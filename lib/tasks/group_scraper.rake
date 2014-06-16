@@ -1,12 +1,12 @@
 require 'open-uri'
 
-BASE_URL = "http://www.fifa.com/worldcup/groups/index.html"
+base_url = "http://www.fifa.com/worldcup/groups/index.html"
 data_class_pairs = {wins:'.tbl-win',losses:'.tbl-lost', draws: '.tbl-draw', goals_for: '.tbl-goalfor', goals_against: 'tbl-goalagainst'}
 
 namespace :fifa do
   desc "scrape results from FIFA site"
   task get_group_results: :environment do
-    page = Nokogiri::HTML(open(BASE_URL))
+    page = Nokogiri::HTML(open(base_url))
     team_code_array = page.css('.t-nTri') # array of all objects that have this class
 
     #traverse the DOM to get back to the parent with all the scores
@@ -21,6 +21,7 @@ namespace :fifa do
             data = path_to_formatted_data(selector, lookup_class)
             if (data > 0) && (team.send(attribute) != data)
               team.send("#{attribute}=",data)
+              puts "Updated #{attribute} for #{team.coun}"
             end
           end
         end
