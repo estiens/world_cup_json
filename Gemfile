@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 group :development, :test do
-gem 'sqlite3'
-gem 'pry-rails'
+  gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 # Use SCSS for stylesheets
