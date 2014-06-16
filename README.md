@@ -83,6 +83,9 @@ updated_at: "2014-06-14T01:06:52.484-05:00"
 == TRY IT OUT
 
 http://world-cup-json.herokuapp.com/matches
+
 http://world-cup-json.herokuapp.com/matches/today
+
 http://world-cup-json.herokuapp.com/group_results
+
 http://world-cup-json.herokuapp.com/teams
