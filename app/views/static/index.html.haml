@@ -7,7 +7,9 @@
       .large-6.columns
         For background on this project: click here
       .large-6.columns
-        Code on Github: LINK
+        Code on Github:
+        %a{href: "https://github.com/estiens/world_cup_json"}
+          https://github.com/estiens/world_cup_json
     .row
       .large-12.columns
       &nbsp
@@ -15,24 +17,26 @@
       .large-12.columns
         %p
           This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
+    .row
+      .large-12.columns
         %h3 Endpoints
-        .large-6.columns
-          %a{href:"http://worldcup.sfg.io/matches"}
-            http://worldcup.sfg.io/matches
-          %p All match data, updated every minute
-          %a{href:"http://worldcup.sfg.io/matches/today"}
-            http://worldcup.sfg.io/matches/today
-          %p Today's matches
-          %a{href:"http://worldcup.sfg.io/matches/current"}
-            http://worldcup.sfg.io/matches/current
-          %p Returns the current match, if a match is happening, otherwise nothing
-        .large-6.columns
-          %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=USA"}
-            http://worldcup.sfg.io/matches/country?fifa_code=USA
-          %p Matches for any country, by entering their FIFA Code.
-          %a{href:"http://worldcup.sfg.io/group_results"}
-            http://worldcup.sfg.io/group_results
-          %p Results for group stage (wins, losses, draws, goals_for, goals_against)
+      .large-6.columns
+        %a{href:"http://worldcup.sfg.io/matches"}
+          http://worldcup.sfg.io/matches
+        %p All match data, updated every minute
+        %a{href:"http://worldcup.sfg.io/matches/today"}
+          http://worldcup.sfg.io/matches/today
+        %p Today's matches
+        %a{href:"http://worldcup.sfg.io/matches/current"}
+          http://worldcup.sfg.io/matches/current
+        %p Returns the current match, if a match is happening, otherwise nothing
+      .large-6.columns
+        %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=USA"}
+          http://worldcup.sfg.io/matches/country?fifa_code=USA
+        %p Matches for any country, by entering their FIFA Code.
+        %a{href:"http://worldcup.sfg.io/group_results"}
+          http://worldcup.sfg.io/group_results
+        %p Results for group stage (wins, losses, draws, goals_for, goals_against)
 
   %footer
     .row
