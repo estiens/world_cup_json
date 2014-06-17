@@ -39,6 +39,10 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
     Example: [url]/matches/country?fifa_code=USA
 
+==Optional Parameters
+
+You can append `?order=desc` to any query to reverse sort the matches by `match_number`.
+
 == EXAMPLE RESPONSES
 
 MATCH API
