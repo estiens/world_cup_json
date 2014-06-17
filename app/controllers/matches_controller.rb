@@ -2,8 +2,10 @@ class MatchesController < ApplicationController
 
   def ordered_class
     klass = Match
-    if params[:order].present? && params[:order].upcase == 'DESC'
-      klass.order('match_number DESC')
+    if params[:by_date].present? && params[:by_date].upcase == 'DESC'
+      klass.order('datetime DESC')
+    elsif params[:by_date].present? && params[:by_date].upcase == 'ASC'
+      klass.order('datetime ASC')
     else
       klass.order(:match_number)
     end

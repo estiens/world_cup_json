@@ -41,7 +41,11 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 ==Optional Parameters
 
-You can append `?order=desc` to any query to reverse sort the matches by `match_number`.
+You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
+
+    Example:[url]/matches/today/?by_date=DESC
+
+Gives you today's matches in reverse order from latest to earliest.
 
 == EXAMPLE RESPONSES
 
