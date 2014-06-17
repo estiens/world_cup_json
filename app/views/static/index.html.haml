@@ -56,11 +56,13 @@
           #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
           %br
       .row
-        .large-2.large-offset-10.columns
+        .large-3.large-offset-9.columns
           %a{href:"https://twitter.com/MutualArising"}
             %i.fa.fa-twitter
           %a{href:"mailto:eric@softwareforgood.com"}
             %i.fa.fa-envelope
+          %a{href:"http://www.softwareforgood.com"}
+            =image_tag("sfg.png", width: "40", style: "margin-top:-10px")
 
 
 
