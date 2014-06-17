@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
   end
 
   def results
-    @teams=Team.all
+    @teams = Team.find(:all, :order => "group_id, wins DESC, draws DESC")
     render json: @teams.to_json(except: [:id, :created_at])
   end
 end
