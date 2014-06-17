@@ -38,6 +38,7 @@ gem 'clockwork'
 
 gem 'haml-rails'
 gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'pg'

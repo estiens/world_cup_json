@@ -170,6 +170,7 @@ PLATFORMS
 DEPENDENCIES
   clockwork
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   foundation-rails
   haml-rails
   jbuilder (~> 1.2)
