@@ -37,7 +37,12 @@
         %a{href:"http://worldcup.sfg.io/group_results"}
           http://worldcup.sfg.io/group_results
         %p Results for group stage (wins, losses, draws, goals_for, goals_against)
-
+      .large-12.columns
+        %h4 Optional Parameters
+        %p
+          You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
+          %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
+            http://worldcup.sfg.io/matches/today/?by_date=DESC
   %footer
     .row
       .large-6.columns
