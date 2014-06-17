@@ -1,38 +1,47 @@
 class MatchesController < ApplicationController
 
+  def ordered_class
+    klass = Match
+    if params[:order].present? && params[:order].upcase == 'DESC'
+      klass.order('match_number DESC')
+    else
+      klass.order(:match_number)
+    end
+  end
+
   def index
-    @matches = Match.all.order(:match_number)
+    @matches = ordered_class.all
     render 'index.json.rabl'
   end
 
   def current
-    @matches = Match.where(status: "in progress")
+    @matches = ordered_class.where(status: "in progress")
     render 'index.json.rabl'
   end
 
   def complete
-    @matches = Match.where(status: "completed")
+    @matches = ordered_class.where(status: "completed")
     render 'index.json.rabl'
   end
 
   def future
-    @matches = Match.where(status: "future")
+    @matches = ordered_class.where(status: "future")
     render 'index.json.rabl'
   end
 
   def country
     @team = Team.where(fifa_code: params['fifa_code']).first
-    @matches = Match.where("home_team_id = ? OR away_team_id = ?", @team.id, @team.id)
+    @matches = ordered_class.where("home_team_id = ? OR away_team_id = ?", @team.id, @team.id)
     render 'index.json.rabl'
   end
 
   def today
-    @matches = Match.today
+    @matches = ordered_class.today
     render 'index.json.rabl'
   end
 
   def tomorrow
-    @matches = Match.tomorrow
+    @matches = ordered_class.tomorrow
     render 'index.json.rabl'
   end
 end
