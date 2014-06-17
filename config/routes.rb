@@ -12,7 +12,7 @@ WorldCupJson::Application.routes.draw do
   get 'matches/today', to: 'matches#today'
   get 'matches/tomorrow', to: 'matches#tomorrow'
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

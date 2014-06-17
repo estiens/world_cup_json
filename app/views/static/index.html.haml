@@ -1,0 +1,58 @@
+#wrapper
+  %header
+    .row
+      %h2 {WORLD CUP} ...in JSON
+  #container
+    .row
+      .large-6.columns
+        For background on this project: click here
+      .large-6.columns
+        Code on Github: LINK
+    .row
+      .large-12.columns
+      &nbsp
+    .row
+      .large-12.columns
+        %p
+          This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
+        %h3 Endpoints
+        .large-6.columns
+          %a{href:"http://worldcup.sfg.io/matches"}
+            http://worldcup.sfg.io/matches
+          %p All match data, updated every minute
+          %a{href:"http://worldcup.sfg.io/matches/today"}
+            http://worldcup.sfg.io/matches/today
+          %p Today's matches
+          %a{href:"http://worldcup.sfg.io/matches/current"}
+            http://worldcup.sfg.io/matches/current
+          %p Returns the current match, if a match is happening, otherwise nothing
+        .large-6.columns
+          %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=USA"}
+            http://worldcup.sfg.io/matches/country?fifa_code=USA
+          %p Matches for any country, by entering their FIFA Code.
+          %a{href:"http://worldcup.sfg.io/group_results"}
+            http://worldcup.sfg.io/group_results
+          %p Results for group stage (wins, losses, draws, goals_for, goals_against)
+
+  %footer
+    .row
+      .large-6.columns
+        %h3 TODAY'S MATCHES
+        -@today_matches.each do |match|
+          #{match.home_team.country} (#{match.home_team_score}) VS #{match.away_team.country} (#{match.away_team_score}) [#{match.status}]
+          %br
+      .large-6.columns
+        %h3 TOMORROW'S MATCHES
+        -@tomorrow_matches.each do |match|
+          #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+          %br
+
+
+    / .row
+    /   .large-6.large-offset-4.columns#teambox
+    /     -@teams.each do |team|
+    /       .teamname
+    /         %h3{class: ("strike" if team.knocked_out)}
+    /           #{team.country} (W:#{team.wins} L:#{team.losses} D: #{team.draws})
+    /       .flag
+    /         =image_tag("#{team.code.downcase}.png")
