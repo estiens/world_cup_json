@@ -18,7 +18,13 @@ node :away_team do |match|
 end
 node :winner do |match|
   if match.status == "completed"
-    match.home_team_score > match.away_team_score ? match.home_team.country : match.away_team.country
+    if match.home_team_score > match.away_team_score
+      match.home_team.country
+    elsif match.home_team_score < match.away_team_score
+      match.away_team.country
+    else
+      "Draw"
+    end
   end
 end
 
