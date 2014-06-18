@@ -46,7 +46,7 @@
     .large-12.columns
       %h3 OPTIONAL PARAMETERS
       %p
-        You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
+        You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
         %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
           http://worldcup.sfg.io/matches/today/?by_date=DESC
   .row
@@ -59,16 +59,20 @@
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
         %p.match-results #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-%footer
-  %a{href:"https://github.com/estiens/world_cup_json"}
-    %i.fa.fa-github
-  %a{href:"https://twitter.com/MutualArising"}
-    %i.fa.fa-twitter
-  %a{href:"mailto:eric@softwareforgood.com"}
-    %i.fa.fa-envelope
-  %a#sfg-logo{href:"http://www.softwareforgood.com"}
-    =image_tag("sfgwhite.png", width: "40", style: "margin-top:-10px")
-  %br
+.footer
+  %ul
+    %li
+      %a{href:"https://github.com/estiens/world_cup_json"}
+        %i.fa.fa-github
+    %li
+      %a{href:"https://twitter.com/MutualArising"}
+        %i.fa.fa-twitter
+    %li
+      %a{href:"mailto:eric@softwareforgood.com"}
+        %i.fa.fa-envelope
+    %li
+      %a#sfg-logo{href:"http://www.softwareforgood.com"}
+        =image_tag("sfgwhite.png")
   %p
     %a{href: "http://softwareforgood.com/soccer-good/"}
       %em Background on this project
