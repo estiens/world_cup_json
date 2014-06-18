@@ -65,14 +65,11 @@
             %i.fa.fa-envelope
           %a#sfg-logo{href:"http://www.softwareforgood.com"}
             =image_tag("sfg.png", width: "40", style: "margin-top:-10px")
+:javascript
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
-
-    / .row
-    /   .large-6.large-offset-4.columns#teambox
-    /     -@teams.each do |team|
-    /       .teamname
-    /         %h3{class: ("strike" if team.knocked_out)}
-    /           #{team.country} (W:#{team.wins} L:#{team.losses} D: #{team.draws})
-    /       .flag
-    /         =image_tag("#{team.code.downcase}.png")
+  ga('create', 'UA-52055026-1', 'sfg.io');
+  ga('send', 'pageview');
