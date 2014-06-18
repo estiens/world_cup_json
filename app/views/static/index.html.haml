@@ -1,48 +1,47 @@
-#wrapper
-  %header
-    .row
-      %h2 {WORLD CUP} ...in JSON
-  #container
-    .row
-      .large-6.columns
-        For background on this project: <a href="http://softwareforgood.com/soccer-good/">click here</a>
-      .large-6.columns
-        Code on Github:
-        %a{href: "https://github.com/estiens/world_cup_json"}
-          https://github.com/estiens/world_cup_json
-    .row
-      .large-12.columns
-      &nbsp
-    .row
-      .large-12.columns
-        %p
-          This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
-    .row
-      .large-12.columns
-        %h3 Endpoints
-      .large-6.columns
+#container
+  .row
+    .large-10.large-offset-1.columns
+      %p
+        This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
+      %button.large#gh-button
+        CODE ON GITHUB
+  .row
+    .large-12.columns
+      %h2.centered ENDPOINTS
+    .large-6.columns
+      %p
+        All match data, updated every minute
+        %br
         %a{href:"http://worldcup.sfg.io/matches"}
           http://worldcup.sfg.io/matches
-        %p All match data, updated every minute
+      %p
+        Today's matches
+        %br
         %a{href:"http://worldcup.sfg.io/matches/today"}
           http://worldcup.sfg.io/matches/today
-        %p Today's matches
+      %p
+        Returns the current match, if a match is happening, otherwise nothing
+        %br
         %a{href:"http://worldcup.sfg.io/matches/current"}
           http://worldcup.sfg.io/matches/current
-        %p Returns the current match, if a match is happening, otherwise nothing
-      .large-6.columns
+    .large-6.columns
+      %p
+        Matches for any country, by entering their FIFA Code.
+        %br
         %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=USA"}
           http://worldcup.sfg.io/matches/country?fifa_code=USA
-        %p Matches for any country, by entering their FIFA Code.
+      %p
+        Results for group stage (wins, losses, draws, goals_for, goals_against)
+        %br
         %a{href:"http://worldcup.sfg.io/group_results"}
           http://worldcup.sfg.io/group_results
-        %p Results for group stage (wins, losses, draws, goals_for, goals_against)
-      .large-12.columns
-        %h4 Optional Parameters
-        %p
-          You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
-          %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
-            http://worldcup.sfg.io/matches/today/?by_date=DESC
+
+    .large-12.columns
+      %h2.centered OPTIONAL PARAMETERS
+      %p
+        You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
+        %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
+          http://worldcup.sfg.io/matches/today/?by_date=DESC
   %footer
     .row
       .large-6.columns
