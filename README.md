@@ -88,12 +88,17 @@ updated_at: "2014-06-14T01:06:52.484-05:00"
 },
 ```
 
-== TRY IT OUT
+== TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
-http://world-cup-json.herokuapp.com/matches
+http://worldcup.sfg.io/matches
 
-http://world-cup-json.herokuapp.com/matches/today
+http://worldcup.sfg.io/matches/today
 
-http://world-cup-json.herokuapp.com/group_results
+http://worldcup.sfg.io/group_results
 
-http://world-cup-json.herokuapp.com/teams
+http://worldcup.sfg.io/teams
+
+== BACKGROUND
+
+You can read a blog post about building the API here:
+http://softwareforgood.com/soccer-good/
