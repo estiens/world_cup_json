@@ -9,7 +9,7 @@ namespace :fifa do
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
-      datetime = match.css(".mu-i-datetime").text.to_time
+      datetime = match.css(".mu-i-datetime").text
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
@@ -42,7 +42,7 @@ namespace :fifa do
       end
       fixture = Match.find_or_create_by_fifa_id(fifa_id)
       fixture.match_number = match_number
-      fixture.datetime = datetime
+      fixture.datetime = Time.zone.parse(datetime)
       fixture.location = location
       fixture.home_team_id = home_team_id
       fixture.away_team_id = away_team_id
