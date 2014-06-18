@@ -47,6 +47,17 @@ You can append `?by_date=desc` to any query tosort the matches by furthest in th
 
 Gives you today's matches in reverse order from latest to earliest.
 
+There are also a few "fun" sort methods, which may or may not be useful.  Pass any of these as a `by` parameter:
+
+  * `total_goals` will sort matches with the largest number of total goals to the least
+  * `home_team_goals` will sort matches with the largest number of home team goals to the least
+  * `away_team_goals` will sort matches with the largest number of home team goals to the least
+  * `closest_scores` will sort matches with the teams having the closest score at the top (ex: 1-1 being higher than 2-1)
+
+    Example:[url]/matches/current/?by=closest_scores
+
+Gives you the current matches, ordered closest score to the largest margin.
+
 == EXAMPLE RESPONSES
 
 MATCH API

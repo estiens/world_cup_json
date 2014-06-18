@@ -6,9 +6,20 @@ class MatchesController < ApplicationController
       klass.order('datetime DESC')
     elsif params[:by_date].present? && params[:by_date].upcase == 'ASC'
       klass.order('datetime ASC')
+    elsif params[:by].present?
+      if params[:by].downcase == "total_goals"
+        klass.order('home_team_score + away_team_score DESC')
+      elsif params[:by].downcase == "home_team_goals"
+        klass.order('home_team_score DESC')
+      elsif params[:by].downcase == "away_team_goals"
+        klass.order('away_team_score DESC')
+      elsif params[:by].downcase == "closest_scores"
+        klass.order('abs(home_team_score - away_team_score) ASC')
+      end
     else
       klass.order(:match_number)
     end
+    klass
   end
 
   def index
