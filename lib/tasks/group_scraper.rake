@@ -1,7 +1,7 @@
 require 'open-uri'
 
 BASE_URL = "http://www.fifa.com/worldcup/groups/index.html"
-data_class_pairs = {wins:'.tbl-win',losses:'.tbl-lost', draws: '.tbl-draw', goals_for: '.tbl-goalfor', goals_against: 'tbl-goalagainst'}
+data_class_pairs = {wins:'.tbl-win',losses:'.tbl-lost', draws: '.tbl-draw', goals_for: '.tbl-goalfor', goals_against: '.tbl-goalagainst'}
 
 namespace :fifa do
   desc "scrape results from FIFA site"
