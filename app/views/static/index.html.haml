@@ -1,13 +1,19 @@
+.header
+  %img{src:"http://worldcup.sfg.io/wc_logo.jpg"}
 #container
   .row
-    .large-10.large-offset-1.columns
+    .large-12.columns
+      %h1 World Cup
+      %h2 ...in JSON
+  .row
+    .large-10.large-offset-1.columns.intro
       %p
         This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
       %button.large#gh-button
         CODE ON GITHUB
   .row
     .large-12.columns
-      %h2.centered ENDPOINTS
+      %h3 ENDPOINTS
     .large-6.columns
       %p
         All match data, updated every minute
@@ -37,7 +43,7 @@
           http://worldcup.sfg.io/group_results
 
     .large-12.columns
-      %h2.centered OPTIONAL PARAMETERS
+      %h3 OPTIONAL PARAMETERS
       %p
         You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
         %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
