@@ -18,11 +18,20 @@
   }
 }
 
+footer {
+  display: block;
+  margin: 50px 40%;
+  height: 100px;
+  width: 100%;
+  padding: 20px 0;
+}
+
 h1 {
   font-family: 'Lato';
   text-align: center;
   display: block;
   text-transform: uppercase;
+  letter-spacing: 0.0825em;
 }
 
 h2 {
@@ -39,5 +48,11 @@ h3 {
 .intro {
   text-align: center;
 }
+
+.match-results {text-align: center}
+.fa {color:white; font-size: 45px; padding-right: 15px; margin-top:50px;}
+.fa:hover {opacity: .7}
+#sfg-logo {margin-top:-5px}
+#sfg-logo:hover {opacity:.7}
 
 

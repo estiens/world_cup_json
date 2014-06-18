@@ -1,5 +1,5 @@
 .header
-  %img{src:"http://worldcup.sfg.io/wc_logo.jpg"}
+  =image_tag("ball.png")
 #container
   .row
     .large-12.columns
@@ -9,8 +9,9 @@
     .large-10.large-offset-1.columns.intro
       %p
         This is an API for the world cup that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
-      %button.large#gh-button
-        CODE ON GITHUB
+      %a{href:"https://github.com/estiens/world_cup_json"}
+        %button.medium#gh-button
+          CODE ON GITHUB
   .row
     .large-12.columns
       %h3 ENDPOINTS
@@ -48,28 +49,30 @@
         You can append `?by_date=desc` to any query to sort the matches by future to past. `?by_date=asc` does past to future.
         %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
           http://worldcup.sfg.io/matches/today/?by_date=DESC
-  %footer
-    .row
-      .large-6.columns
-        %h3 TODAY'S MATCHES
-        -@today_matches.each do |match|
-          #{match.home_team.country} (#{match.home_team_score}) VS #{match.away_team.country} (#{match.away_team_score}) [#{match.status}]
-          %br
-      .large-6.columns
-        %h3 TOMORROW'S MATCHES
-        -@tomorrow_matches.each do |match|
-          #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-          %br
-      .row
-        .large-3.large-offset-9.columns
-          %a{href:"https://github.com/estiens/world_cup_json"}
-            %i.fa.fa-github
-          %a{href:"https://twitter.com/MutualArising"}
-            %i.fa.fa-twitter
-          %a{href:"mailto:eric@softwareforgood.com"}
-            %i.fa.fa-envelope
-          %a#sfg-logo{href:"http://www.softwareforgood.com"}
-            =image_tag("sfg.png", width: "40", style: "margin-top:-10px")
+  .row
+    .large-6.columns
+      %h3 TODAY'S MATCHES
+      -@today_matches.each do |match|
+        %p.match-results #{match.home_team.country} (#{match.home_team_score}) VS #{match.away_team.country} (#{match.away_team_score}) [#{match.status}]
+
+    .large-6.columns
+      %h3 TOMORROW'S MATCHES
+      -@tomorrow_matches.each do |match|
+        %p.match-results #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+%footer
+  %a{href:"https://github.com/estiens/world_cup_json"}
+    %i.fa.fa-github
+  %a{href:"https://twitter.com/MutualArising"}
+    %i.fa.fa-twitter
+  %a{href:"mailto:eric@softwareforgood.com"}
+    %i.fa.fa-envelope
+  %a#sfg-logo{href:"http://www.softwareforgood.com"}
+    =image_tag("sfgwhite.png", width: "40", style: "margin-top:-10px")
+  %br
+  %p
+    %a{href: "http://softwareforgood.com/soccer-good/"}
+      %em Background on this project
+
 :javascript
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
