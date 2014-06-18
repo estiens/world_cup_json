@@ -18,16 +18,71 @@
   }
 }
 
-footer {
+code {
+  word-wrap: nowrap;
+  font-size: 85%;
+  color: white;
+  padding: 5px;
+  background: white;
+  background: rgba(255,255,255,.2);
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+a {
+  -ms-word-break: break-all;
+
+     /* Be VERY careful with this, breaks normal words wh_erever */
+     word-break: break-all;
+
+     /* Non standard for webkit */
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+}
+
+.footer {
   display: block;
-  margin: 50px 40%;
+  margin: 0;
   height: 100px;
   width: 100%;
-  padding: 20px 0;
+  text-align: center;
+  padding-bottom: 10px;
+
+  ul {
+    list-style-type: none;
+    display: block;
+    margin: 0 auto 30px;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0 10px;
+      height: auto;
+      vertical-align: middle;
+      a {
+        display: block;
+        height: auto;
+        img {
+          vertical-align: top;
+          height: 45px;
+          width: 45px;
+        }
+      }
+    }
+  }
 }
 
 h1 {
   font-family: 'Lato';
+  font-weight: 900;
   text-align: center;
   display: block;
   text-transform: uppercase;
@@ -36,6 +91,9 @@ h1 {
 
 h2 {
   @extend h1;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 26px;
   margin-bottom: 50px;
 }
 
@@ -49,10 +107,14 @@ h3 {
   text-align: center;
 }
 
+button {
+  color: white;
+}
+
 .match-results {text-align: center}
-.fa {color:white; font-size: 45px; padding-right: 15px; margin-top:50px;}
+.fa {color:white; font-size: 45px;}
 .fa:hover {opacity: .7}
-#sfg-logo {margin-top:-5px}
+#sfg-logo {line-height: 0; vertical-align: top;}
 #sfg-logo:hover {opacity:.7}
 
 
