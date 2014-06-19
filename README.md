@@ -52,40 +52,44 @@ Gives you today's matches in reverse order from latest to earliest.
 MATCH API
 
 ```json
-{
-match_number: 1,
-location: "Arena Corinthians",
-datetime: "2014-06-12T17:00:00.000-05:00",
-status: "completed",
-home_team: {
-country: "Brazil",
-code: "BRA",
-goals: 3
-},
-away_team: {
-country: "Croatia",
-code: "CRO",
-goals: 1
-},
-winner: "Brazil"
-},
+[
+    {
+        "match_number": 1,
+        "location": "Arena Corinthians",
+        "datetime": "2014-06-12T17:00:00.000-05:00",
+        "status": "completed",
+        "home_team": {
+            "country": "Brazil",
+            "code": "BRA",
+            "goals": 3
+        },
+        "away_team": {
+            "country": "Croatia",
+            "code": "CRO",
+            "goals": 1
+        },
+        "winner": "Brazil"
+    }
+]
 ```
 GROUP RESULTS API
 
 ```json
-{
-country: "Brazil",
-alternate_name: null,
-fifa_code: "BRA",
-group_id: 1,
-wins: 1,
-draws: 0,
-losses: 0,
-goals_for: 3,
-goals_against: 0,
-knocked_out: false,
-updated_at: "2014-06-14T01:06:52.484-05:00"
-},
+[
+    {
+        "country": "Brazil",
+        "alternate_name": null,
+        "fifa_code": "BRA",
+        "group_id": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "goals_for": 3,
+        "goals_against": 0,
+        "knocked_out": false,
+        "updated_at": "2014-06-14T01:06:52.484-05:00"
+    }
+]
 ```
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
