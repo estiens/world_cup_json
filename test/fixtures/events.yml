@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  player: MyString
+  time: MyString
+  home_team: false
+  match_id: 1
+
+two:
+  type: 
+  player: MyString
+  time: MyString
+  home_team: false
+  match_id: 1
