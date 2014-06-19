@@ -10,6 +10,7 @@ namespace :fifa do
     ALT_TZ = TZInfo::Timezone.get('America/Manaus')
     ALT_TIMEZONE_LOCATION = ['Arena Amazonia', 'Arena Pantanal']
     matches = Nokogiri::HTML(open(MATCH_URL))
+    counter = 0
 
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
