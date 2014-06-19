@@ -5,6 +5,9 @@ namespace :fifa do
   task get_all_matches: :environment do
     FIFA_SITE = "http://www.fifa.com/"
     MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
+    MAIN_TZ = TZInfo::Timezone.get('America/Sao_Paulo')
+    ALT_TZ = TZInfo::Timezone.get('America/Manaus')
+    ALT_TIMEZONE_LOCATION = ['Arena Amazonia', 'Arena Pantanal']
     matches = Nokogiri::HTML(open(MATCH_URL))
 
     matches.css(".col-xs-12 .mu").each do |match|
@@ -41,6 +44,7 @@ namespace :fifa do
       else
         status = "future"
       end
+      Time.zone = (ALT_TIMEZONE_LOCATION.include?(location) ? ALT_TZ : MAIN_TZ)
       fixture = Match.find_or_create_by_fifa_id(fifa_id)
       fixture.match_number = match_number
       fixture.datetime = Time.zone.parse(datetime)
