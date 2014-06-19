@@ -98,6 +98,10 @@ http://worldcup.sfg.io/group_results
 
 http://worldcup.sfg.io/teams
 
+## PAGES USING THIS API
+
+http://alexb.ninja/wc
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
