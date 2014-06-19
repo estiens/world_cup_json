@@ -27,6 +27,23 @@ node :winner do |match|
     end
   end
 end
+node :home_team_events do |match|
+  begin
+    match.home_team.events.where("match_id = ?",match.id).select("id, type_of_event, player, time").sort_by { |e| e.time.to_i }
+  rescue
+    "no events available for this match"
+  end
+end
+node :away_team_events do |match|
+  begin
+    match.away_team.events.where("match_id = ?",match.id).select("id, type_of_event, player, time").sort_by { |e| e.time.to_i }
+  rescue
+    "no events available for this match"
+  end
+end
+
+
+
 
 
 
