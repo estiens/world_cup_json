@@ -15,11 +15,12 @@ class MatchesController < ApplicationController
         klass.order('away_team_score DESC')
       elsif params[:by].downcase == "closest_scores"
         klass.order('abs(home_team_score - away_team_score) ASC')
+      else
+        klass.order(:match_number)
       end
     else
       klass.order(:match_number)
     end
-    klass
   end
 
   def index
