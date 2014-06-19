@@ -27,6 +27,9 @@ node :winner do |match|
     end
   end
 end
+child :events do
+  attributes :player, :type_of_event, :home_team
+end
 
 
 
