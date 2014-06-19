@@ -12,6 +12,7 @@ namespace :fifa do
       #get game events
       url = match.children[0]['href']
       next if url == nil
+      next unless match.attributes["class"].value.include?("live")
       match_info_page = Nokogiri::HTML(open(FIFA_SITE+url))
       home_events =  []
       away_events = []
@@ -26,7 +27,6 @@ namespace :fifa do
         event_type = event.attributes["class"].value.gsub("event ","")
         player = event.parent.parent.parent.css('.p-n').text.titlecase
         time = event.attributes["title"].value.gsub(/[^\d^+]/, '')
-        puts time
         event_hash = event.attributes["data-guid"].value
         away_events << [event_hash, player, event_type, time]
       end
