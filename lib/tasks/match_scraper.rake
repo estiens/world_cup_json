@@ -3,9 +3,19 @@ require 'open-uri'
 namespace :fifa do
   desc "scrape results from FIFA site"
   task get_all_matches: :environment do
+<<<<<<< HEAD
     match_url = "http://www.fifa.com/worldcup/matches/index.html"
     matches = Nokogiri::HTML(open(match_url))
     counter = 0
+=======
+    FIFA_SITE = "http://www.fifa.com/"
+    MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
+    MAIN_TZ = TZInfo::Timezone.get('America/Sao_Paulo')
+    ALT_TZ = TZInfo::Timezone.get('America/Manaus')
+    ALT_TIMEZONE_LOCATION = ['Arena Amazonia', 'Arena Pantanal']
+    matches = Nokogiri::HTML(open(MATCH_URL))
+
+>>>>>>> master
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
@@ -40,6 +50,7 @@ namespace :fifa do
       else
         status = "future"
       end
+      Time.zone = (ALT_TIMEZONE_LOCATION.include?(location) ? ALT_TZ : MAIN_TZ)
       fixture = Match.find_or_create_by_fifa_id(fifa_id)
       fixture.match_number = match_number
       fixture.datetime = Time.zone.parse(datetime)
