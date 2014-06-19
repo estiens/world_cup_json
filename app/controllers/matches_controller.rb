@@ -13,7 +13,6 @@ class MatchesController < ApplicationController
 
   def index
     @matches = ordered_class.all
-    @home_team_events = Event.select{|event| event.home_team == true}
     render 'index.json.rabl'
   end
 
