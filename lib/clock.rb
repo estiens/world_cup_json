@@ -17,7 +17,7 @@ module Clockwork
     rake['fifa:get_all_matches'].invoke
   }
 
-  every(2.minutes, "scrape_groups") {
+  every(1.minute, "scrape_events") {
     rake = Rake::Application.new
     Rake.application = rake
     Rake::Task.define_task(:environment)
