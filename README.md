@@ -1,23 +1,23 @@
-== ABOUT
+# ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON.
 
-== SETUP
+# SETUP
 
 * Clone the repo
 
-* ```rake setup:generate_teams``` to generate the teams
+* ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
 
 * Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example):
 ```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
 ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
 
-==TODO
+## TODO
 
 * Static landing page
 * Add CSS class to determine knocked out teams
 
-==ENDPOINTS
+## ENDPOINTS
 
     [url]/teams/
 for a list of teams with group ID and FIFA code
@@ -28,7 +28,7 @@ for current results (wins, losses, draws, goals for, goals against, knock out st
     [url]/matches/
 for all matches (Example JSON object at the bottom of this README)
 
-==OTHER ENDPOINTS
+## OTHER ENDPOINTS
 
     [url]/matches/today/
     [url]/matches/tomorrow/
@@ -39,7 +39,7 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
     Example: [url]/matches/country?fifa_code=USA
 
-==Optional Parameters
+## Optional Parameters
 
 You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
@@ -47,7 +47,6 @@ You can append `?by_date=desc` to any query tosort the matches by furthest in th
 
 Gives you today's matches in reverse order from latest to earliest.
 
-There are also a few "fun" sort methods, which may or may not be useful.  Pass any of these as a `by` parameter:
 
   * `total_goals` will sort matches with the largest number of total goals to the least
   * `home_team_goals` will sort matches with the largest number of home team goals to the least
@@ -58,48 +57,52 @@ There are also a few "fun" sort methods, which may or may not be useful.  Pass a
 
 Gives you the current matches, ordered closest score to the largest margin.
 
-== EXAMPLE RESPONSES
+## EXAMPLE RESPONSES
 
 MATCH API
 
 ```json
-{
-match_number: 1,
-location: "Arena Corinthians",
-datetime: "2014-06-12T17:00:00.000-05:00",
-status: "completed",
-home_team: {
-country: "Brazil",
-code: "BRA",
-goals: 3
-},
-away_team: {
-country: "Croatia",
-code: "CRO",
-goals: 1
-},
-winner: "Brazil"
-},
+[
+    {
+        "match_number": 1,
+        "location": "Arena Corinthians",
+        "datetime": "2014-06-12T17:00:00.000-05:00",
+        "status": "completed",
+        "home_team": {
+            "country": "Brazil",
+            "code": "BRA",
+            "goals": 3
+        },
+        "away_team": {
+            "country": "Croatia",
+            "code": "CRO",
+            "goals": 1
+        },
+        "winner": "Brazil"
+    }
+]
 ```
 GROUP RESULTS API
 
 ```json
-{
-country: "Brazil",
-alternate_name: null,
-fifa_code: "BRA",
-group_id: 1,
-wins: 1,
-draws: 0,
-losses: 0,
-goals_for: 3,
-goals_against: 0,
-knocked_out: false,
-updated_at: "2014-06-14T01:06:52.484-05:00"
-},
+[
+    {
+        "country": "Brazil",
+        "alternate_name": null,
+        "fifa_code": "BRA",
+        "group_id": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "goals_for": 3,
+        "goals_against": 0,
+        "knocked_out": false,
+        "updated_at": "2014-06-14T01:06:52.484-05:00"
+    }
+]
 ```
 
-== TRY IT OUT (We'll keep this up through the duration of the World Cup)
+## TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
 http://worldcup.sfg.io/matches
 
@@ -109,7 +112,11 @@ http://worldcup.sfg.io/group_results
 
 http://worldcup.sfg.io/teams
 
-== BACKGROUND
+## PAGES USING THIS API
+
+http://alexb.ninja/wc
+
+## BACKGROUND
 
 You can read a blog post about building the API here:
 http://softwareforgood.com/soccer-good/
