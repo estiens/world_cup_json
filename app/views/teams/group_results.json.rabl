@@ -1,1 +1,0 @@
-group_results.json.rabl
