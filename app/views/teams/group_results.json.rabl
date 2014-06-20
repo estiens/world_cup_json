@@ -1,5 +1,5 @@
 collection @groups
-attributes :letter
+attributes :id, :letter
 child :ordered_teams do |team|
 attributes :country, :fifa_code
 node :points do |team|

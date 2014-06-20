@@ -9,6 +9,9 @@ end
 node :losses do |team|
   team.team_losses
 end
+node :games_played do |team|
+  team.games_played
+end
 node :points do |team|
   team.team_points
 end
@@ -17,4 +20,7 @@ node :goals_for do |team|
 end
 node :goals_against do |team|
   team.team_goals_against
+end
+node :goal_differential do |team|
+  team.goal_differential
 end

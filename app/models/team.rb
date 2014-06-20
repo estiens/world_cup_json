@@ -70,6 +70,7 @@ class Team < ActiveRecord::Base
     self.team_wins * 3 + self.team_draws
   end
 
-
-
+  def games_played
+    self.team_wins + self.team_losses + self.team_draws
+  end
 end
