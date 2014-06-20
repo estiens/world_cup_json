@@ -41,21 +41,18 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 ## Optional Parameters
 
-You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
+  * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
-    Example:[url]/matches/today/?by_date=DESC
+    Example:`[url]/matches/today/?by_date=DESC`
 
-Gives you today's matches in reverse order from latest to earliest.
-
+You can also use the by param to get some other sortings of the match list.
 
   * `total_goals` will sort matches with the largest number of total goals to the least
   * `home_team_goals` will sort matches with the largest number of home team goals to the least
-  * `away_team_goals` will sort matches with the largest number of home team goals to the least
-  * `closest_scores` will sort matches with the teams having the closest score at the top (ex: 1-1 being higher than 2-1)
+  * `away_team_goals` will sort matches with the largest number of away team goals to the least
+  * `closest_scores` will sort matches with draws first to largest winning marging
 
-    Example:[url]/matches/current/?by=closest_scores
-
-Gives you the current matches, ordered closest score to the largest margin.
+    Example:`[url]/matches/current/?by=closest_scores`
 
 ## EXAMPLE RESPONSES
 
