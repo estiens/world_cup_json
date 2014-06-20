@@ -5,7 +5,7 @@ WorldCupJson::Application.routes.draw do
   get '/teams', to: 'teams#index'
   get '/group_results', to: 'teams#results'
   get 'teams/results', to: 'teams#new_results'
-  get 'teams/group_results' to: 'teams#group_results'
+  get 'teams/group_results', to: 'teams#group_results'
   get '/matches', to: 'matches#index'
   get '/matches/complete', to: 'matches#complete'
   get '/matches/current', to: 'matches#current'
