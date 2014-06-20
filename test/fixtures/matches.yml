@@ -1,27 +1,1025 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  fifa_id: MyString
-  string: MyString
+---
+matches_001:
+  id: 1
+  fifa_id: '300186477'
+  match_number: 11
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-06-15 22:00:00.000000'
+  home_team_id: 53
+  away_team_id: 54
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:36.746862'
+  updated_at: '2014-06-19 15:47:00.788391'
+matches_002:
+  id: 2
+  fifa_id: '300186456'
   match_number: 1
-  home_team_id: 1
-  away_team_id: 1
-  datetime: 2014-06-15 15:19:54
-  teams_scheduled: false
+  location: Arena Corinthians
+  datetime: '2014-06-12 20:00:00.000000'
+  home_team_id: 33
+  away_team_id: 34
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 3
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:36.801433'
+  updated_at: '2014-06-19 15:47:00.586155'
+matches_003:
+  id: 3
+  fifa_id: '300186492'
+  match_number: 2
+  location: Estadio das Dunas
+  datetime: '2014-06-13 16:00:00.000000'
+  home_team_id: 35
+  away_team_id: 36
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 1
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:36.816121'
+  updated_at: '2014-06-19 15:47:00.623809'
+matches_004:
+  id: 4
+  fifa_id: '300186510'
+  match_number: 3
+  location: Arena Fonte Nova
+  datetime: '2014-06-13 19:00:00.000000'
+  home_team_id: 37
+  away_team_id: 38
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 1
+  away_team_score: 5
+  status: completed
+  created_at: '2014-06-15 21:51:36.830336'
+  updated_at: '2014-06-19 15:47:00.662852'
+matches_005:
+  id: 5
+  fifa_id: '300186473'
+  match_number: 4
+  location: Arena Pantanal
+  datetime: '2014-06-13 22:00:00.000000'
+  home_team_id: 39
+  away_team_id: 40
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 3
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:36.874580'
+  updated_at: '2014-06-20 15:39:52.481726'
+matches_006:
+  id: 6
+  fifa_id: '300186471'
+  match_number: 5
+  location: Estadio Mineirao
+  datetime: '2014-06-14 16:00:00.000000'
+  home_team_id: 41
+  away_team_id: 42
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 3
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:36.888680'
+  updated_at: '2014-06-19 15:47:00.678423'
+matches_007:
+  id: 7
+  fifa_id: '300186489'
+  match_number: 7
+  location: Estadio Castelao
+  datetime: '2014-06-14 19:00:00.000000'
+  home_team_id: 45
+  away_team_id: 46
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 1
+  away_team_score: 3
+  status: completed
+  created_at: '2014-06-15 21:51:36.902914'
+  updated_at: '2014-06-19 15:47:00.715305'
+matches_008:
+  id: 8
+  fifa_id: '300186513'
+  match_number: 8
+  location: Arena Amazonia
+  datetime: '2014-06-14 22:00:00.000000'
+  home_team_id: 47
+  away_team_id: 48
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 1
+  away_team_score: 2
+  status: completed
+  created_at: '2014-06-15 21:51:36.916888'
+  updated_at: '2014-06-20 15:39:52.427312'
+matches_009:
+  id: 9
+  fifa_id: '300186507'
+  match_number: 6
+  location: Arena Pernambuco
+  datetime: '2014-06-15 01:00:00.000000'
+  home_team_id: 43
+  away_team_id: 44
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:36.957962'
+  updated_at: '2014-06-19 15:47:00.728440'
+matches_010:
+  id: 10
+  fifa_id: '300186494'
+  match_number: 9
+  location: Estadio Nacional
+  datetime: '2014-06-15 16:00:00.000000'
+  home_team_id: 49
+  away_team_id: 50
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:36.972240'
+  updated_at: '2014-06-19 15:47:00.739914'
+matches_011:
+  id: 11
+  fifa_id: '300186496'
+  match_number: 10
+  location: Estadio Beira-Rio
+  datetime: '2014-06-15 19:00:00.000000'
+  home_team_id: 51
+  away_team_id: 52
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 3
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:36.986104'
+  updated_at: '2014-06-19 15:47:00.779867'
+matches_012:
+  id: 12
+  fifa_id: '300186475'
+  match_number: 13
+  location: Arena Fonte Nova
+  datetime: '2014-06-16 16:00:00.000000'
+  home_team_id: 57
+  away_team_id: 58
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 4
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:37.030753'
+  updated_at: '2014-06-19 15:47:00.796307'
+matches_013:
+  id: 13
+  fifa_id: '300186505'
+  match_number: 12
+  location: Arena da Baixada
+  datetime: '2014-06-16 19:00:00.000000'
+  home_team_id: 55
+  away_team_id: 56
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:37.043986'
+  updated_at: '2014-06-19 15:47:00.807265'
+matches_014:
+  id: 14
+  fifa_id: '300186512'
+  match_number: 14
+  location: Estadio das Dunas
+  datetime: '2014-06-16 22:00:00.000000'
+  home_team_id: 59
+  away_team_id: 60
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 1
+  away_team_score: 2
+  status: completed
+  created_at: '2014-06-15 21:51:37.056496'
+  updated_at: '2014-06-19 15:47:00.847069'
+matches_015:
+  id: 15
+  fifa_id: '300186479'
+  match_number: 15
+  location: Estadio Mineirao
+  datetime: '2014-06-17 16:00:00.000000'
+  home_team_id: 61
+  away_team_id: 62
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:37.067679'
+  updated_at: '2014-06-19 15:47:00.856194'
+matches_016:
+  id: 16
+  fifa_id: '300186509'
+  match_number: 17
+  location: Estadio Castelao
+  datetime: '2014-06-17 19:00:00.000000'
+  home_team_id: 33
+  away_team_id: 35
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:37.081108'
+  updated_at: '2014-06-19 15:47:00.864124'
+matches_017:
+  id: 17
+  fifa_id: '300186499'
+  match_number: 16
+  location: Arena Pantanal
+  datetime: '2014-06-17 22:00:00.000000'
+  home_team_id: 63
+  away_team_id: 64
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
   home_team_score: 1
   away_team_score: 1
-  location: MyString
-  status: MyString
-
-two:
-  fifa_id: MyString
-  string: MyString
-  match_number: 1
-  home_team_id: 1
-  away_team_id: 1
-  datetime: 2014-06-15 15:19:54
-  teams_scheduled: false
-  home_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:37.160089'
+  updated_at: '2014-06-20 15:39:52.623502'
+matches_018:
+  id: 18
+  fifa_id: '300186478'
+  match_number: 20
+  location: Estadio Beira-Rio
+  datetime: '2014-06-18 16:00:00.000000'
+  home_team_id: 40
+  away_team_id: 38
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 3
+  status: completed
+  created_at: '2014-06-15 21:51:37.173250'
+  updated_at: '2014-06-19 15:47:00.915070'
+matches_019:
+  id: 19
+  fifa_id: '300186498'
+  match_number: 19
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-06-18 19:00:00.000000'
+  home_team_id: 37
+  away_team_id: 39
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 2
+  status: completed
+  created_at: '2014-06-15 21:51:37.186866'
+  updated_at: '2014-06-19 15:47:00.923829'
+matches_020:
+  id: 20
+  fifa_id: '300186453'
+  match_number: 18
+  location: Arena Amazonia
+  datetime: '2014-06-18 22:00:00.000000'
+  home_team_id: 36
+  away_team_id: 34
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 4
+  status: completed
+  created_at: '2014-06-15 21:51:37.200484'
+  updated_at: '2014-06-20 15:39:52.699050'
+matches_021:
+  id: 21
+  fifa_id: '300186468'
+  match_number: 21
+  location: Estadio Nacional
+  datetime: '2014-06-19 16:00:00.000000'
+  home_team_id: 41
+  away_team_id: 43
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
   away_team_score: 1
-  location: MyString
-  status: MyString
+  status: completed
+  created_at: '2014-06-15 21:51:37.214679'
+  updated_at: '2014-06-20 15:39:52.707802'
+matches_022:
+  id: 22
+  fifa_id: '300186486'
+  match_number: 23
+  location: Arena Corinthians
+  datetime: '2014-06-19 19:00:00.000000'
+  home_team_id: 45
+  away_team_id: 47
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 2
+  away_team_score: 1
+  status: completed
+  created_at: '2014-06-15 21:51:37.254655'
+  updated_at: '2014-06-20 15:39:52.747378'
+matches_023:
+  id: 23
+  fifa_id: '300186454'
+  match_number: 22
+  location: Estadio das Dunas
+  datetime: '2014-06-19 22:00:00.000000'
+  home_team_id: 44
+  away_team_id: 42
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: completed
+  created_at: '2014-06-15 21:51:37.269597'
+  updated_at: '2014-06-20 15:39:52.755776'
+matches_024:
+  id: 24
+  fifa_id: '300186500'
+  match_number: 24
+  location: Arena Pernambuco
+  datetime: '2014-06-20 16:00:00.000000'
+  home_team_id: 48
+  away_team_id: 46
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.284201'
+  updated_at: '2014-06-19 15:47:01.017236'
+matches_025:
+  id: 25
+  fifa_id: '300186514'
+  match_number: 25
+  location: Arena Fonte Nova
+  datetime: '2014-06-20 19:00:00.000000'
+  home_team_id: 49
+  away_team_id: 51
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.298472'
+  updated_at: '2014-06-19 15:47:01.085090'
+matches_026:
+  id: 26
+  fifa_id: '300186463'
+  match_number: 26
+  location: Arena da Baixada
+  datetime: '2014-06-20 22:00:00.000000'
+  home_team_id: 52
+  away_team_id: 50
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.312388'
+  updated_at: '2014-06-19 15:47:01.095392'
+matches_027:
+  id: 27
+  fifa_id: '300186466'
+  match_number: 27
+  location: Estadio Mineirao
+  datetime: '2014-06-21 16:00:00.000000'
+  home_team_id: 53
+  away_team_id: 55
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.351226'
+  updated_at: '2014-06-19 15:47:01.103555'
+matches_028:
+  id: 28
+  fifa_id: '300186493'
+  match_number: 29
+  location: Estadio Castelao
+  datetime: '2014-06-21 19:00:00.000000'
+  home_team_id: 57
+  away_team_id: 59
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.367158'
+  updated_at: '2014-06-19 15:47:01.142292'
+matches_029:
+  id: 29
+  fifa_id: '300186511'
+  match_number: 28
+  location: Arena Pantanal
+  datetime: '2014-06-21 22:00:00.000000'
+  home_team_id: 56
+  away_team_id: 54
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.430051'
+  updated_at: '2014-06-20 15:39:52.810178'
+matches_030:
+  id: 30
+  fifa_id: '300186481'
+  match_number: 31
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-06-22 16:00:00.000000'
+  home_team_id: 61
+  away_team_id: 63
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.445316'
+  updated_at: '2014-06-19 15:47:01.158166'
+matches_031:
+  id: 31
+  fifa_id: '300186495'
+  match_number: 32
+  location: Estadio Beira-Rio
+  datetime: '2014-06-22 19:00:00.000000'
+  home_team_id: 64
+  away_team_id: 62
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.518001'
+  updated_at: '2014-06-19 15:47:01.166431'
+matches_032:
+  id: 32
+  fifa_id: '300186483'
+  match_number: 30
+  location: Arena Amazonia
+  datetime: '2014-06-22 22:00:00.000000'
+  home_team_id: 60
+  away_team_id: 58
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.556957'
+  updated_at: '2014-06-20 15:39:52.852897'
+matches_033:
+  id: 33
+  fifa_id: '300186470'
+  match_number: 36
+  location: Arena Corinthians
+  datetime: '2014-06-23 16:00:00.000000'
+  home_team_id: 38
+  away_team_id: 39
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.570599'
+  updated_at: '2014-06-19 15:47:01.211936'
+matches_034:
+  id: 34
+  fifa_id: '300186467'
+  match_number: 35
+  location: Arena da Baixada
+  datetime: '2014-06-23 16:00:00.000000'
+  home_team_id: 40
+  away_team_id: 37
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.594952'
+  updated_at: '2014-06-19 15:47:01.220312'
+matches_035:
+  id: 35
+  fifa_id: '300186472'
+  match_number: 33
+  location: Estadio Nacional
+  datetime: '2014-06-23 20:00:00.000000'
+  home_team_id: 36
+  away_team_id: 33
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.616601'
+  updated_at: '2014-06-19 15:47:01.228501'
+matches_036:
+  id: 36
+  fifa_id: '300186452'
+  match_number: 34
+  location: Arena Pernambuco
+  datetime: '2014-06-23 20:00:00.000000'
+  home_team_id: 34
+  away_team_id: 35
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.648943'
+  updated_at: '2014-06-19 15:47:01.236516'
+matches_037:
+  id: 37
+  fifa_id: '300186465'
+  match_number: 39
+  location: Estadio das Dunas
+  datetime: '2014-06-24 16:00:00.000000'
+  home_team_id: 48
+  away_team_id: 45
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.779402'
+  updated_at: '2014-06-19 15:47:01.244884'
+matches_038:
+  id: 38
+  fifa_id: '300186484'
+  match_number: 40
+  location: Estadio Mineirao
+  datetime: '2014-06-24 16:00:00.000000'
+  home_team_id: 46
+  away_team_id: 47
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.806979'
+  updated_at: '2014-06-19 15:47:01.281134'
+matches_039:
+  id: 39
+  fifa_id: '300186457'
+  match_number: 37
+  location: Arena Pantanal
+  datetime: '2014-06-24 20:00:00.000000'
+  home_team_id: 44
+  away_team_id: 41
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.829386'
+  updated_at: '2014-06-20 15:39:52.914543'
+matches_040:
+  id: 40
+  fifa_id: '300186455'
+  match_number: 38
+  location: Estadio Castelao
+  datetime: '2014-06-24 20:00:00.000000'
+  home_team_id: 42
+  away_team_id: 43
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.845636'
+  updated_at: '2014-06-19 15:47:01.302209'
+matches_041:
+  id: 41
+  fifa_id: '300186458'
+  match_number: 43
+  location: Estadio Beira-Rio
+  datetime: '2014-06-25 16:00:00.000000'
+  home_team_id: 56
+  away_team_id: 53
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.942514'
+  updated_at: '2014-06-19 15:47:01.311147'
+matches_042:
+  id: 42
+  fifa_id: '300186464'
+  match_number: 44
+  location: Arena Fonte Nova
+  datetime: '2014-06-25 16:00:00.000000'
+  home_team_id: 54
+  away_team_id: 55
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:37.995024'
+  updated_at: '2014-06-19 15:47:01.317275'
+matches_043:
+  id: 43
+  fifa_id: '300186482'
+  match_number: 41
+  location: Arena Amazonia
+  datetime: '2014-06-25 20:00:00.000000'
+  home_team_id: 52
+  away_team_id: 49
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.010501'
+  updated_at: '2014-06-20 15:39:52.965504'
+matches_044:
+  id: 44
+  fifa_id: '300186515'
+  match_number: 42
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-06-25 20:00:00.000000'
+  home_team_id: 50
+  away_team_id: 51
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.083240'
+  updated_at: '2014-06-19 15:47:01.363612'
+matches_045:
+  id: 45
+  fifa_id: '300186476'
+  match_number: 46
+  location: Estadio Nacional
+  datetime: '2014-06-26 16:00:00.000000'
+  home_team_id: 58
+  away_team_id: 59
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.098265'
+  updated_at: '2014-06-19 15:47:01.370472'
+matches_046:
+  id: 46
+  fifa_id: '300186469'
+  match_number: 45
+  location: Arena Pernambuco
+  datetime: '2014-06-26 16:00:00.000000'
+  home_team_id: 60
+  away_team_id: 57
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.208076'
+  updated_at: '2014-06-19 15:47:01.379188'
+matches_047:
+  id: 47
+  fifa_id: '300186480'
+  match_number: 47
+  location: Arena Corinthians
+  datetime: '2014-06-26 20:00:00.000000'
+  home_team_id: 64
+  away_team_id: 61
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.250643'
+  updated_at: '2014-06-19 15:47:01.387881'
+matches_048:
+  id: 48
+  fifa_id: '300186506'
+  match_number: 48
+  location: Arena da Baixada
+  datetime: '2014-06-26 20:00:00.000000'
+  home_team_id: 62
+  away_team_id: 63
+  home_team_tbd: 
+  away_team_tbd: 
+  teams_scheduled: t
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.267027'
+  updated_at: '2014-06-19 15:47:01.424983'
+matches_049:
+  id: 49
+  fifa_id: '300186487'
+  match_number: 49
+  location: Estadio Mineirao
+  datetime: '2014-06-28 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1A]'
+  away_team_tbd: '[2B]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.294803'
+  updated_at: '2014-06-19 15:47:01.434695'
+matches_050:
+  id: 50
+  fifa_id: '300186491'
+  match_number: 50
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-06-28 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1C]'
+  away_team_tbd: '[2D]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.394993'
+  updated_at: '2014-06-19 15:47:01.443785'
+matches_051:
+  id: 51
+  fifa_id: '300186508'
+  match_number: 51
+  location: Estadio Castelao
+  datetime: '2014-06-29 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1B]'
+  away_team_tbd: '[2A]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.417021'
+  updated_at: '2014-06-19 15:47:01.452265'
+matches_052:
+  id: 52
+  fifa_id: '300186459'
+  match_number: 52
+  location: Arena Pernambuco
+  datetime: '2014-06-29 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1D]'
+  away_team_tbd: '[2C]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.477859'
+  updated_at: '2014-06-19 15:47:01.458842'
+matches_053:
+  id: 53
+  fifa_id: '300186462'
+  match_number: 53
+  location: Estadio Nacional
+  datetime: '2014-06-30 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1E]'
+  away_team_tbd: '[2F]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.494215'
+  updated_at: '2014-06-19 15:47:01.465854'
+matches_054:
+  id: 54
+  fifa_id: '300186460'
+  match_number: 54
+  location: Estadio Beira-Rio
+  datetime: '2014-06-30 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1G]'
+  away_team_tbd: '[2H]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.514812'
+  updated_at: '2014-06-19 15:47:01.499038'
+matches_055:
+  id: 55
+  fifa_id: '300186503'
+  match_number: 55
+  location: Arena Corinthians
+  datetime: '2014-07-01 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1F]'
+  away_team_tbd: '[2E]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.628660'
+  updated_at: '2014-06-19 15:47:01.508524'
+matches_056:
+  id: 56
+  fifa_id: '300186497'
+  match_number: 56
+  location: Arena Fonte Nova
+  datetime: '2014-07-01 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[1H]'
+  away_team_tbd: '[2G]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.652876'
+  updated_at: '2014-06-19 15:47:01.518170'
+matches_057:
+  id: 57
+  fifa_id: '300186485'
+  match_number: 58
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-07-04 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W53]'
+  away_team_tbd: '[W54]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.670369'
+  updated_at: '2014-06-19 15:47:01.524444'
+matches_058:
+  id: 58
+  fifa_id: '300186461'
+  match_number: 57
+  location: Estadio Castelao
+  datetime: '2014-07-04 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W49]'
+  away_team_tbd: '[W50]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.711168'
+  updated_at: '2014-06-19 15:47:01.532112'
+matches_059:
+  id: 59
+  fifa_id: '300186504'
+  match_number: 60
+  location: Estadio Nacional
+  datetime: '2014-07-05 16:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W55]'
+  away_team_tbd: '[W56]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.762259'
+  updated_at: '2014-06-19 15:47:01.566422'
+matches_060:
+  id: 60
+  fifa_id: '300186488'
+  match_number: 59
+  location: Arena Fonte Nova
+  datetime: '2014-07-05 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W51]'
+  away_team_tbd: '[W52]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.778780'
+  updated_at: '2014-06-19 15:47:01.574191'
+matches_061:
+  id: 61
+  fifa_id: '300186474'
+  match_number: 61
+  location: Estadio Mineirao
+  datetime: '2014-07-08 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W57]'
+  away_team_tbd: '[W58]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.797230'
+  updated_at: '2014-06-19 15:47:01.582435'
+matches_062:
+  id: 62
+  fifa_id: '300186490'
+  match_number: 62
+  location: Arena Corinthians
+  datetime: '2014-07-09 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W59]'
+  away_team_tbd: '[W60]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.872927'
+  updated_at: '2014-06-19 15:47:01.589807'
+matches_063:
+  id: 63
+  fifa_id: '300186502'
+  match_number: 63
+  location: Estadio Nacional
+  datetime: '2014-07-12 20:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[L61]'
+  away_team_tbd: '[L62]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.915028'
+  updated_at: '2014-06-19 15:47:01.595185'
+matches_064:
+  id: 64
+  fifa_id: '300186501'
+  match_number: 64
+  location: Maracanã - Estádio Jornalista Mário Filho
+  datetime: '2014-07-13 19:00:00.000000'
+  home_team_id: 
+  away_team_id: 
+  home_team_tbd: '[W61]'
+  away_team_tbd: '[W62]'
+  teams_scheduled: f
+  home_team_score: 0
+  away_team_score: 0
+  status: future
+  created_at: '2014-06-15 21:51:38.983696'
+  updated_at: '2014-06-19 15:47:01.633518'
