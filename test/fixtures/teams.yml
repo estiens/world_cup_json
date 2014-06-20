@@ -1,25 +1,449 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  country: MyString
-  alternate_name: MyString
-  fifa_code: MyString
+---
+teams_001:
+  id: 33
+  country: Brazil
+  alternate_name: 
+  fifa_code: BRA
   group_id: 1
   wins: 1
   draws: 1
-  losses: 1
-  goals_for: 1
+  losses: 0
+  goals_for: 3
   goals_against: 1
-  knocked_out: false
-
-two:
-  country: MyString
-  alternate_name: MyString
-  fifa_code: MyString
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.363393'
+  updated_at: '2014-06-20 15:40:03.033042'
+teams_002:
+  id: 34
+  country: Croatia
+  alternate_name: 
+  fifa_code: CRO
+  group_id: 1
+  wins: 1
+  draws: 0
+  losses: 1
+  goals_for: 5
+  goals_against: 3
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.369661'
+  updated_at: '2014-06-20 15:40:03.077918'
+teams_003:
+  id: 35
+  country: Mexico
+  alternate_name: 
+  fifa_code: MEX
   group_id: 1
   wins: 1
   draws: 1
+  losses: 0
+  goals_for: 1
+  goals_against: 0
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.373482'
+  updated_at: '2014-06-20 15:40:03.085257'
+teams_004:
+  id: 36
+  country: Cameroon
+  alternate_name: 
+  fifa_code: CMR
+  group_id: 1
+  wins: 0
+  draws: 0
+  losses: 2
+  goals_for: 0
+  goals_against: 5
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.406521'
+  updated_at: '2014-06-20 15:40:03.092398'
+teams_005:
+  id: 37
+  country: Spain
+  alternate_name: 
+  fifa_code: ESP
+  group_id: 2
+  wins: 0
+  draws: 0
+  losses: 2
+  goals_for: 1
+  goals_against: 7
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.410086'
+  updated_at: '2014-06-20 15:40:03.099098'
+teams_006:
+  id: 38
+  country: Netherlands
+  alternate_name: Holland
+  fifa_code: NED
+  group_id: 2
+  wins: 2
+  draws: 0
+  losses: 0
+  goals_for: 8
+  goals_against: 3
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.413461'
+  updated_at: '2014-06-20 15:40:03.133312'
+teams_007:
+  id: 39
+  country: Chile
+  alternate_name: 
+  fifa_code: CHI
+  group_id: 2
+  wins: 2
+  draws: 0
+  losses: 0
+  goals_for: 5
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.417193'
+  updated_at: '2014-06-20 15:40:03.143874'
+teams_008:
+  id: 40
+  country: Australia
+  alternate_name: 
+  fifa_code: AUS
+  group_id: 2
+  wins: 0
+  draws: 0
+  losses: 2
+  goals_for: 3
+  goals_against: 6
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.419792'
+  updated_at: '2014-06-20 15:40:03.152183'
+teams_009:
+  id: 41
+  country: Colombia
+  alternate_name: 
+  fifa_code: COL
+  group_id: 3
+  wins: 2
+  draws: 0
+  losses: 0
+  goals_for: 5
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.423397'
+  updated_at: '2014-06-20 15:40:03.186770'
+teams_010:
+  id: 42
+  country: Greece
+  alternate_name: 
+  fifa_code: GRE
+  group_id: 3
+  wins: 0
+  draws: 1
+  losses: 1
+  goals_for: 0
+  goals_against: 3
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.426507'
+  updated_at: '2014-06-20 15:40:03.195679'
+teams_011:
+  id: 43
+  country: Ivory Coast
+  alternate_name: Côte d'Ivoire
+  fifa_code: CIV
+  group_id: 3
+  wins: 1
+  draws: 0
+  losses: 1
+  goals_for: 3
+  goals_against: 3
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.429957'
+  updated_at: '2014-06-20 15:40:03.203987'
+teams_012:
+  id: 44
+  country: Japan
+  alternate_name: 
+  fifa_code: JPN
+  group_id: 3
+  wins: 0
+  draws: 1
   losses: 1
   goals_for: 1
+  goals_against: 2
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.433275'
+  updated_at: '2014-06-20 15:40:03.239446'
+teams_013:
+  id: 45
+  country: Uruguay
+  alternate_name: 
+  fifa_code: URU
+  group_id: 4
+  wins: 1
+  draws: 0
+  losses: 1
+  goals_for: 3
+  goals_against: 4
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.436055'
+  updated_at: '2014-06-20 15:40:03.246327'
+teams_014:
+  id: 46
+  country: Costa Rica
+  alternate_name: 
+  fifa_code: CRC
+  group_id: 4
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 3
   goals_against: 1
-  knocked_out: false
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.441162'
+  updated_at: '2014-06-20 15:40:03.256795'
+teams_015:
+  id: 47
+  country: England
+  alternate_name: 
+  fifa_code: ENG
+  group_id: 4
+  wins: 0
+  draws: 0
+  losses: 2
+  goals_for: 2
+  goals_against: 4
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.444309'
+  updated_at: '2014-06-20 15:40:03.291517'
+teams_016:
+  id: 48
+  country: Italy
+  alternate_name: 
+  fifa_code: ITA
+  group_id: 4
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 2
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.448186'
+  updated_at: '2014-06-20 15:40:03.300187'
+teams_017:
+  id: 49
+  country: Switzerland
+  alternate_name: 
+  fifa_code: SUI
+  group_id: 5
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 2
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.450953'
+  updated_at: '2014-06-20 15:40:03.306809'
+teams_018:
+  id: 50
+  country: Ecuador
+  alternate_name: 
+  fifa_code: ECU
+  group_id: 5
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 1
+  goals_against: 2
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.462796'
+  updated_at: '2014-06-20 15:40:03.341944'
+teams_019:
+  id: 51
+  country: France
+  alternate_name: 
+  fifa_code: FRA
+  group_id: 5
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 3
+  goals_against: 0
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.473671'
+  updated_at: '2014-06-16 16:46:54.550328'
+teams_020:
+  id: 52
+  country: Honduras
+  alternate_name: 
+  fifa_code: HON
+  group_id: 5
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 0
+  goals_against: 3
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.501057'
+  updated_at: '2014-06-20 15:40:03.352128'
+teams_021:
+  id: 53
+  country: Argentina
+  alternate_name: 
+  fifa_code: ARG
+  group_id: 6
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 2
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.505181'
+  updated_at: '2014-06-20 15:40:03.383348'
+teams_022:
+  id: 54
+  country: Bosnia and Herzegovina
+  alternate_name: Bosnia-Herzegovina
+  fifa_code: BIH
+  group_id: 6
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 1
+  goals_against: 2
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.513359'
+  updated_at: '2014-06-20 15:40:03.390398'
+teams_023:
+  id: 55
+  country: Iran
+  alternate_name: 
+  fifa_code: IRN
+  group_id: 6
+  wins: 0
+  draws: 1
+  losses: 0
+  goals_for: 0
+  goals_against: 0
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.516957'
+  updated_at: '2014-06-20 15:40:03.399164'
+teams_024:
+  id: 56
+  country: Nigeria
+  alternate_name: 
+  fifa_code: NGA
+  group_id: 6
+  wins: 0
+  draws: 1
+  losses: 0
+  goals_for: 0
+  goals_against: 0
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.524507'
+  updated_at: '2014-06-20 15:40:03.407863'
+teams_025:
+  id: 57
+  country: Germany
+  alternate_name: 
+  fifa_code: GER
+  group_id: 7
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 4
+  goals_against: 0
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.532438'
+  updated_at: '2014-06-16 19:04:59.360671'
+teams_026:
+  id: 58
+  country: Portugal
+  alternate_name: 
+  fifa_code: POR
+  group_id: 7
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 0
+  goals_against: 4
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.537050'
+  updated_at: '2014-06-20 15:40:03.444977'
+teams_027:
+  id: 59
+  country: Ghana
+  alternate_name: 
+  fifa_code: GHA
+  group_id: 7
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 1
+  goals_against: 2
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.548026'
+  updated_at: '2014-06-20 15:40:03.451703'
+teams_028:
+  id: 60
+  country: USA
+  alternate_name: 
+  fifa_code: USA
+  group_id: 7
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 2
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.552407'
+  updated_at: '2014-06-20 15:40:03.459222'
+teams_029:
+  id: 61
+  country: Belgium
+  alternate_name: 
+  fifa_code: BEL
+  group_id: 8
+  wins: 1
+  draws: 0
+  losses: 0
+  goals_for: 2
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.562730'
+  updated_at: '2014-06-20 15:40:03.493264'
+teams_030:
+  id: 62
+  country: Algeria
+  alternate_name: 
+  fifa_code: ALG
+  group_id: 8
+  wins: 0
+  draws: 0
+  losses: 1
+  goals_for: 1
+  goals_against: 2
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.568999'
+  updated_at: '2014-06-20 15:40:03.529223'
+teams_031:
+  id: 63
+  country: Russia
+  alternate_name: 
+  fifa_code: RUS
+  group_id: 8
+  wins: 0
+  draws: 1
+  losses: 0
+  goals_for: 1
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.577478'
+  updated_at: '2014-06-20 15:40:03.538257'
+teams_032:
+  id: 64
+  country: Korea Republic
+  alternate_name: South Korea
+  fifa_code: KOR
+  group_id: 8
+  wins: 0
+  draws: 1
+  losses: 0
+  goals_for: 1
+  goals_against: 1
+  knocked_out: f
+  created_at: '2014-06-14 05:17:49.583075'
+  updated_at: '2014-06-20 15:40:03.574262'
