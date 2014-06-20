@@ -31,17 +31,28 @@
         %br
         %a{href:"http://worldcup.sfg.io/matches/current"}
           http://worldcup.sfg.io/matches/current
-    .large-6.columns
       %p
         Matches for any country, by entering their FIFA Code.
         %br
         %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=USA"}
           http://worldcup.sfg.io/matches/country?fifa_code=USA
+    .large-6.columns
       %p
-        Results for group stage (wins, losses, draws, goals_for, goals_against)
+        Results for teams (wins, losses, draws, goals_for, goals_against)
         %br
-        %a{href:"http://worldcup.sfg.io/group_results"}
-          http://worldcup.sfg.io/group_results
+        %a{href:"http://worldcup.sfg.io/teams/results"}
+          http://worldcup.sfg.io/teams/results
+      %p
+        Results for teams by group, ordered by curren group position
+        %br
+        %a{href:"http://worldcup.sfg.io/teams/results"}
+          http://worldcup.sfg.io/teams/group_results
+      %p
+        List of all teams in world cup, along with fifa abbreviation
+        %br
+        %a{href:"http://worldcup.sfg.io/teams/"}
+          http://worldcup.sfg.io/teams/
+
 
     .large-12.columns
       %h3 OPTIONAL PARAMETERS
@@ -49,6 +60,10 @@
         You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
         %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
           http://worldcup.sfg.io/matches/today/?by_date=DESC
+      %p
+        You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
+        %a{href:"http://worldcup.sfg.io/matches/?by=total_goals"}
+          http://worldcup.sfg.io/matches/?by=total_goals
   .row
     .large-6.columns
       %h3 TODAY'S MATCHES
