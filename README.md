@@ -192,9 +192,11 @@ http://worldcup.sfg.io/group_results
 
 http://worldcup.sfg.io/teams
 
-## PAGES USING THIS API
+## PROJECTS USING THIS API
 
-http://alexb.ninja/wc
+* http://alexb.ninja/wc
+
+* https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
 
 ## BACKGROUND
 
