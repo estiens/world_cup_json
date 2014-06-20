@@ -22,9 +22,9 @@ This is a simple backend for a scraper that grabs current world cup results and 
     [url]/teams/
 for a list of teams with group ID and FIFA code
 
-    ~~[url]/group_results/~~
+~~[url]/group_results/~~
 ~~for current results (wins, losses, draws, goals for, goals against, knock out status)~~
-this will still run through the group stages, but it has been depricated in favor of the more comprehensive endpoints below
+(this will still run through the group stages, but it has been depricated in favor of the more comprehensive endpoints below)
 
     [url]/matches/
 for all matches (Example JSON object at the bottom of this README)
