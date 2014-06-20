@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   end
 
   def new_results
-    @teams = Team.all.order(:group_id)
+    @teams = Team.all
     render 'team_results.json.rabl'
   end
 

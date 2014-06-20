@@ -1,7 +1,7 @@
 collection @groups
 attributes :id, :letter
 child :ordered_teams do |team|
-attributes :country, :fifa_code
+attributes :id, :country, :fifa_code
 node :points do |team|
   team.team_points
 end
