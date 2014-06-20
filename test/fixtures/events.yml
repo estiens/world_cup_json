@@ -1,15 +1,2652 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  type: 
-  player: MyString
-  time: MyString
-  home_team: false
+---
+events_001:
+  id: 989
+  type_of_event: goal
+  player: James
+  time: '64'
+  home_team: 
+  match_id: 21
+  created_at: '2014-06-19 17:30:35.000607'
+  updated_at: '2014-06-19 17:30:35.023043'
+  fifa_id: 3c0dc939dc9443f6aa2ac570a7554e6f
+  team_id: 41
+events_002:
+  id: 990
+  type_of_event: substitution-in
+  player: Quintero
+  time: '53'
+  home_team: 
+  match_id: 21
+  created_at: '2014-06-19 17:30:35.067484'
+  updated_at: '2014-06-19 17:30:59.935723'
+  fifa_id: 0c068090b57b4b29878e345fd5f8d1a8
+  team_id: 41
+events_003:
+  id: 991
+  type_of_event: yellow-card
+  player: Zokora
+  time: '55'
+  home_team: 
+  match_id: 21
+  created_at: '2014-06-19 17:30:35.086592'
+  updated_at: '2014-06-19 17:30:35.092277'
+  fifa_id: 3366a6fe84ad4270800161425d8ccf02
+  team_id: 43
+events_004:
+  id: 992
+  type_of_event: substitution-in
+  player: Drogba
+  time: '60'
+  home_team: 
+  match_id: 21
+  created_at: '2014-06-19 17:30:35.097247'
+  updated_at: '2014-06-19 17:30:59.960108'
+  fifa_id: ba2964c571a946f396c87aad0002bf68
+  team_id: 43
+events_005:
+  id: 993
+  type_of_event: substitution-in
+  player: Kalou
+  time: '67'
+  home_team: 
+  match_id: 21
+  created_at: '2014-06-19 17:30:35.106993'
+  updated_at: '2014-06-19 17:30:59.953721'
+  fifa_id: 95802e5dcc77460fba2209e87d9b7022
+  team_id: 43
+events_006:
+  id: 994
+  type_of_event: goal
+  player: Sturridge
+  time: '37'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.735419'
+  updated_at: '2014-06-19 17:30:35.778239'
+  fifa_id: 4b0a662fbf3242b08154d76b443d818d
+  team_id: 47
+events_007:
+  id: 995
+  type_of_event: substitution-in
+  player: Lallana
+  time: '80'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.784307'
+  updated_at: '2014-06-19 17:30:46.131873'
+  fifa_id: 9fcecd82062b482586888b3d07f25387
+  team_id: 47
+events_008:
+  id: 996
+  type_of_event: substitution-in
+  player: Barkley
+  time: '61'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.794448'
+  updated_at: '2014-06-19 17:30:46.137301'
+  fifa_id: 53a453f8c83c44bebd8dd07ea713beb6
+  team_id: 47
+events_009:
+  id: 997
+  type_of_event: substitution-in
+  player: Wilshere
+  time: '73'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.805083'
+  updated_at: '2014-06-19 17:30:46.126598'
+  fifa_id: 207fbe80341c413d9c53da156061be79
+  team_id: 47
+events_010:
+  id: 998
+  type_of_event: yellow-card
+  player: Sterling
+  time: '902'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.815490'
+  updated_at: '2014-06-19 17:30:35.821473'
+  fifa_id: 0e30190677f44470be16e504b47663eb
+  team_id: 47
+events_011:
+  id: 999
+  type_of_event: substitution-in
+  player: Parolo
+  time: '79'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.844051'
+  updated_at: '2014-06-19 17:30:46.168382'
+  fifa_id: 83d109a2d73b4afea3972aff2d6c5b89
+  team_id: 48
+events_012:
+  id: 1000
+  type_of_event: goal
+  player: Marchisio
+  time: '35'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.855435'
+  updated_at: '2014-06-19 17:30:35.859556'
+  fifa_id: cf5dc5bf0a5e4aa69f4c732515318336
+  team_id: 48
+events_013:
+  id: 1001
+  type_of_event: goal
+  player: Balotelli
+  time: '50'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.864812'
+  updated_at: '2014-06-19 17:30:35.869389'
+  fifa_id: a14a2b0815bd47158810b1ab5a251413
+  team_id: 48
+events_014:
+  id: 1002
+  type_of_event: substitution-in
+  player: Immobile
+  time: '73'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.876207'
+  updated_at: '2014-06-19 17:30:46.163512'
+  fifa_id: e78648952708441b9da6a87d8129aa21
+  team_id: 48
+events_015:
+  id: 1003
+  type_of_event: substitution-in
+  player: Thiago Motta
+  time: '57'
+  home_team: 
+  match_id: 8
+  created_at: '2014-06-19 17:30:35.888058'
+  updated_at: '2014-06-19 17:30:46.157755'
+  fifa_id: 270e0b8349b14abcb69c334ea25be058
+  team_id: 48
+events_016:
+  id: 1004
+  type_of_event: goal-own
+  player: Marcelo
+  time: '11'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.522681'
+  updated_at: '2014-06-19 17:30:36.527747'
+  fifa_id: e0b96e6efc134ae19897fe191ab73b68
+  team_id: 33
+events_017:
+  id: 1005
+  type_of_event: substitution-in
+  player: Bernard
+  time: '68'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.533390'
+  updated_at: '2014-06-19 17:30:36.621054'
+  fifa_id: 43a970c9604c4cc3a331d8a53806d6e7
+  team_id: 33
+events_018:
+  id: 1006
+  type_of_event: substitution-in
+  player: Hernanes
+  time: '63'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.543369'
+  updated_at: '2014-06-19 17:30:36.615225'
+  fifa_id: e6cae4aeba764804af83c34e12521ccb
+  team_id: 33
+events_019:
+  id: 1007
+  type_of_event: yellow-card
+  player: Neymar Jr
+  time: '27'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.553701'
+  updated_at: '2014-06-19 17:30:36.557987'
+  fifa_id: 18b9f7516df94d799a78ed9de5dc0572
+  team_id: 33
+events_020:
+  id: 1008
+  type_of_event: goal
+  player: Neymar Jr
+  time: '29'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.561002'
+  updated_at: '2014-06-19 17:30:36.564086'
+  fifa_id: 5e78587e388b49639fcd56efa07886da
+  team_id: 33
+events_021:
+  id: 1009
+  type_of_event: goal-penalty
+  player: Neymar Jr
+  time: '71'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.568194'
+  updated_at: '2014-06-19 17:30:36.571803'
+  fifa_id: a47cb3b2d9e648c5a7f04c16b2197f9d
+  team_id: 33
+events_022:
+  id: 1010
+  type_of_event: substitution-in
+  player: Ramires
+  time: '88'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.577627'
+  updated_at: '2014-06-19 17:30:36.609148'
+  fifa_id: 010be3e4cfec473aa3dd99ffb6a71c45
+  team_id: 33
+events_023:
+  id: 1011
+  type_of_event: goal
+  player: Oscar
+  time: '901'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.588198'
+  updated_at: '2014-06-19 17:30:36.592922'
+  fifa_id: 779ffc3220874cbdafd5b3b2ff2cb68c
+  team_id: 33
+events_024:
+  id: 1012
+  type_of_event: yellow-card
+  player: L Gustavo
+  time: '88'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.598854'
+  updated_at: '2014-06-19 17:30:36.603172'
+  fifa_id: 025c0fc91db34280ac680283d11c9134
+  team_id: 33
+events_025:
+  id: 1013
+  type_of_event: yellow-card
+  player: Corluka
+  time: '66'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.627061'
+  updated_at: '2014-06-19 17:30:36.632430'
+  fifa_id: 10e334f82d9d49ae887f3d699d540a3a
+  team_id: 34
+events_026:
+  id: 1014
+  type_of_event: yellow-card
+  player: Lovren
+  time: '69'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.638225'
+  updated_at: '2014-06-19 17:30:36.642790'
+  fifa_id: 4e7b57b945db4a8396b27547faef6937
+  team_id: 34
+events_027:
+  id: 1015
+  type_of_event: substitution-in
+  player: RebiĆ
+  time: '78'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.649411'
+  updated_at: '2014-06-19 17:30:36.698067'
+  fifa_id: af8527cfef474172a82bcd6c50acf047
+  team_id: 34
+events_028:
+  id: 1016
+  type_of_event: substitution-in
+  player: BrozoviĆ
+  time: '61'
+  home_team: 
+  match_id: 2
+  created_at: '2014-06-19 17:30:36.659669'
+  updated_at: '2014-06-19 17:30:36.691885'
+  fifa_id: 413295ea4b5a426db2cbe92f8dbbc4ca
+  team_id: 34
+events_029:
+  id: 1017
+  type_of_event: substitution-in
+  player: C Salcido
+  time: '901'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.565957'
+  updated_at: '2014-06-19 17:30:38.653040'
+  fifa_id: 3528ab9067f847a789deed51f4bf1fc2
+  team_id: 35
+events_030:
+  id: 1018
+  type_of_event: yellow-card
+  player: H Moreno
+  time: '57'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.611302'
+  updated_at: '2014-06-19 17:30:38.616772'
+  fifa_id: 5440a5c1a8c64fbb9513d4d7756b33a8
+  team_id: 35
+events_031:
+  id: 1019
+  type_of_event: substitution-in
+  player: M Fabian
+  time: '69'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.623092'
+  updated_at: '2014-06-19 17:30:38.658782'
+  fifa_id: f69ec34932e847c798429b036aa4fdda
+  team_id: 35
+events_032:
+  id: 1020
+  type_of_event: goal
+  player: O Peralta
+  time: '61'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.632263'
+  updated_at: '2014-06-19 17:30:38.636733'
+  fifa_id: c8f853e25f234e188bcdc5e482e93f44
+  team_id: 35
+events_033:
+  id: 1021
+  type_of_event: substitution-in
+  player: J Hernandez
+  time: '74'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.642395'
+  updated_at: '2014-06-19 17:30:38.663054'
+  fifa_id: 974f8a2c554143de84018498f30f5d6e
+  team_id: 35
+events_034:
+  id: 1022
+  type_of_event: substitution-in halftime
+  player: Nounkeu
+  time: '46'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.667068'
+  updated_at: '2014-06-19 17:30:38.680763'
+  fifa_id: f556b6b828c74510bb08a31fdca63c43
+  team_id: 36
+events_035:
+  id: 1023
+  type_of_event: substitution-in
+  player: Webo
+  time: '79'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.673989'
+  updated_at: '2014-06-19 17:30:38.690852'
+  fifa_id: b2aa93ccfbbb4afb9fc29213adb3bcd3
+  team_id: 36
+events_036:
+  id: 1024
+  type_of_event: yellow-card
+  player: Nounkeu
+  time: '77'
+  home_team: 
+  match_id: 3
+  created_at: '2014-06-19 17:30:38.684193'
+  updated_at: '2014-06-19 17:30:38.687700'
+  fifa_id: 3f3caf11ccf54a28979213be58169a98
+  team_id: 36
+events_037:
+  id: 1025
+  type_of_event: yellow-card
+  player: I. Casillas
+  time: '65'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.629875'
+  updated_at: '2014-06-19 17:30:39.634799'
+  fifa_id: c40c5d69ebdd427f87e2bcf08cbcb36a
+  team_id: 37
+events_038:
+  id: 1026
+  type_of_event: goal-penalty
+  player: Alonso
+  time: '27'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.639419'
+  updated_at: '2014-06-19 17:30:39.681357'
+  fifa_id: 6acc1bbe63c54ad7b2d69fed140acf8d
+  team_id: 37
+events_039:
+  id: 1027
+  type_of_event: substitution-in
+  player: Pedro
+  time: '62'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.686735'
+  updated_at: '2014-06-19 17:30:39.724930'
+  fifa_id: cb758ef6c3004bdf982194caa305b07d
+  team_id: 37
+events_040:
+  id: 1028
+  type_of_event: substitution-in
+  player: Torres
+  time: '62'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.697735'
+  updated_at: '2014-06-19 17:30:39.713944'
+  fifa_id: e323a82c553c4ab49f5a19b09fcd5968
+  team_id: 37
+events_041:
+  id: 1029
+  type_of_event: substitution-in
+  player: FÁbregas
+  time: '78'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.706634'
+  updated_at: '2014-06-19 17:30:39.719676'
+  fifa_id: 62538ce429974d0e95b14a5bbb03f94a
+  team_id: 37
+events_042:
+  id: 1030
+  type_of_event: yellow-card
+  player: De Vrij
+  time: '41'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.730226'
+  updated_at: '2014-06-19 17:30:39.735383'
+  fifa_id: 37ff1984a0fd45af92147f77631204ea
+  team_id: 38
+events_043:
+  id: 1031
+  type_of_event: goal
+  player: De Vrij
+  time: '65'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.739629'
+  updated_at: '2014-06-19 17:30:39.744143'
+  fifa_id: 96e8cf55e52240ce9ceddcd0ba73e7cc
+  team_id: 38
+events_044:
+  id: 1032
+  type_of_event: substitution-in
+  player: Veltman
+  time: '77'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.749529'
+  updated_at: '2014-06-19 17:30:39.887293'
+  fifa_id: 7d6eda8a40854b89b73144034980db49
+  team_id: 38
+events_045:
+  id: 1033
+  type_of_event: yellow-card
+  player: De Guzman
+  time: '25'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.760802'
+  updated_at: '2014-06-19 17:30:39.765110'
+  fifa_id: 682d7871bb9541b0a90363ee1fda3e5d
+  team_id: 38
+events_046:
+  id: 1034
+  type_of_event: substitution-in
+  player: Wijnaldum
+  time: '62'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.769974'
+  updated_at: '2014-06-19 17:30:39.901725'
+  fifa_id: 23d1e2d64e7242968f17243c17f61bad
+  team_id: 38
+events_047:
+  id: 1035
+  type_of_event: goal
+  player: V. Persie
+  time: '44'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.780892'
+  updated_at: '2014-06-19 17:30:39.786010'
+  fifa_id: e3243107f45b4a41b7c66f78cee2aefa
+  team_id: 38
+events_048:
+  id: 1036
+  type_of_event: yellow-card
+  player: V. Persie
+  time: '66'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.792209'
+  updated_at: '2014-06-19 17:30:39.797006'
+  fifa_id: 9d13b27859044ff6b61b3267e7e296aa
+  team_id: 38
+events_049:
+  id: 1037
+  type_of_event: goal
+  player: V. Persie
+  time: '72'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.803235'
+  updated_at: '2014-06-19 17:30:39.807846'
+  fifa_id: 390eebdbde00494b88a28b36578371ab
+  team_id: 38
+events_050:
+  id: 1038
+  type_of_event: substitution-in
+  player: Lens
+  time: '79'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.819061'
+  updated_at: '2014-06-19 17:30:39.891282'
+  fifa_id: f7c63e2f3f7b4148a6c80da0782e6153
+  team_id: 38
+events_051:
+  id: 1039
+  type_of_event: goal
+  player: Robben
+  time: '53'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.831679'
+  updated_at: '2014-06-19 17:30:39.848623'
+  fifa_id: 007792e00f904820a304427927e7496c
+  team_id: 38
+events_052:
+  id: 1040
+  type_of_event: goal
+  player: Robben
+  time: '80'
+  home_team: 
+  match_id: 4
+  created_at: '2014-06-19 17:30:39.871262'
+  updated_at: '2014-06-19 17:30:39.877095'
+  fifa_id: 8ce390a8f4934299a6fe6a6db67ba045
+  team_id: 38
+events_053:
+  id: 1041
+  type_of_event: goal
+  player: Alexis
+  time: '12'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.685910'
+  updated_at: '2014-06-19 17:30:41.696350'
+  fifa_id: 2d796aa3dab549c9955adc91ab74295b
+  team_id: 39
+events_054:
+  id: 1042
+  type_of_event: substitution-in
+  player: GutiÉrrez
+  time: '60'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.703953'
+  updated_at: '2014-06-19 17:30:41.778035'
+  fifa_id: c6ee677b2b4a4d79ab345c0020f1bf1f
+  team_id: 39
+events_055:
+  id: 1043
+  type_of_event: goal
+  player: Valdivia
+  time: '14'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.715327'
+  updated_at: '2014-06-19 17:30:41.719711'
+  fifa_id: 02603dc6cda146b2977865fc4e7ef474
+  team_id: 39
+events_056:
+  id: 1044
+  type_of_event: substitution-in
+  player: Beausejour
+  time: '68'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.724845'
+  updated_at: '2014-06-19 17:30:41.762495'
+  fifa_id: 270cd485ad1b4f11b12a645cff6633f3
+  team_id: 39
+events_057:
+  id: 1045
+  type_of_event: substitution-in
+  player: Pinilla
+  time: '88'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.735810'
+  updated_at: '2014-06-19 17:30:41.756960'
+  fifa_id: 2c744acd20694a81b41d1867384a6e49
+  team_id: 39
+events_058:
+  id: 1046
+  type_of_event: yellow-card
+  player: Ch. ArÁnguiz
+  time: '86'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.746478'
+  updated_at: '2014-06-19 17:30:41.751349'
+  fifa_id: bc9917f4fdd54c07aabbc63308ef28aa
+  team_id: 39
+events_059:
+  id: 1047
+  type_of_event: goal
+  player: Beausejour
+  time: '902'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.767407'
+  updated_at: '2014-06-19 17:30:41.772281'
+  fifa_id: 450c746d0d7c437584a9f519ffd3ad14
+  team_id: 39
+events_060:
+  id: 1048
+  type_of_event: substitution-in
+  player: Mcgowan
+  time: '49'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.784340'
+  updated_at: '2014-06-19 17:30:41.867756'
+  fifa_id: 4ca60f0f067b47f8b4d991331b7b20ea
+  team_id: 40
+events_061:
+  id: 1049
+  type_of_event: goal
+  player: Cahill
+  time: '35'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.796218'
+  updated_at: '2014-06-19 17:30:41.799349'
+  fifa_id: fbf9353c85c641fd873e84ca46912f21
+  team_id: 40
+events_062:
+  id: 1050
+  type_of_event: yellow-card
+  player: Cahill
+  time: '44'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.803109'
+  updated_at: '2014-06-19 17:30:41.807420'
+  fifa_id: 8dbae9bdd1d44640b1c89ad89d5fdc4f
+  team_id: 40
+events_063:
+  id: 1051
+  type_of_event: yellow-card
+  player: Milligan
+  time: '67'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.812538'
+  updated_at: '2014-06-19 17:30:41.815889'
+  fifa_id: 63882603b449442aae56c181841fa1bd
+  team_id: 40
+events_064:
+  id: 1052
+  type_of_event: substitution-in
+  player: Halloran
+  time: '68'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.822867'
+  updated_at: '2014-06-19 17:30:41.856666'
+  fifa_id: 7275a8583cac467f914a637566b02737
+  team_id: 40
+events_065:
+  id: 1053
+  type_of_event: yellow-card
+  player: Jedinak
+  time: '58'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.833952'
+  updated_at: '2014-06-19 17:30:41.838215'
+  fifa_id: 627df1ebd76e4fa59b2b3ad41cde7584
+  team_id: 40
+events_066:
+  id: 1054
+  type_of_event: substitution-in
+  player: Troisi
+  time: '78'
+  home_team: 
+  match_id: 5
+  created_at: '2014-06-19 17:30:41.844333'
+  updated_at: '2014-06-19 17:30:41.863369'
+  fifa_id: f5fd9f8754d0418c9848e8449316eb08
+  team_id: 40
+events_067:
+  id: 1055
+  type_of_event: yellow-card
+  player: C. Sanchez
+  time: '26'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.399200'
+  updated_at: '2014-06-19 17:30:42.406393'
+  fifa_id: 0355ffe2eced4bf79b20a4e6e8458c7b
+  team_id: 41
+events_068:
+  id: 1056
+  type_of_event: goal
+  player: P. Armero
+  time: '5'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.411870'
+  updated_at: '2014-06-19 17:30:42.416043'
+  fifa_id: 39384d24b1de43748bb9b54328432ca9
+  team_id: 41
+events_069:
+  id: 1057
+  type_of_event: substitution-in
+  player: Arias
+  time: '74'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.422289'
+  updated_at: '2014-06-19 17:30:42.474557'
+  fifa_id: 381fa54745274132ad8723190a390694
+  team_id: 41
+events_070:
+  id: 1058
+  type_of_event: substitution-in
+  player: A. Mejia
+  time: '69'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.432572'
+  updated_at: '2014-06-19 17:30:42.479733'
+  fifa_id: 1bfb90fbe58d480bb6addf5e5f25007d
+  team_id: 41
+events_071:
+  id: 1059
+  type_of_event: goal
+  player: Teo
+  time: '58'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.445105'
+  updated_at: '2014-06-19 17:30:42.449055'
+  fifa_id: f01b88f729e14ce182217849a4ddb2cc
+  team_id: 41
+events_072:
+  id: 1060
+  type_of_event: substitution-in
+  player: Jackson M.
+  time: '76'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.453976'
+  updated_at: '2014-06-19 17:30:42.485861'
+  fifa_id: 1f47970dfd4742ef8a9c8b6e691575b7
+  team_id: 41
+events_073:
+  id: 1061
+  type_of_event: goal
+  player: James
+  time: '903'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.464194'
+  updated_at: '2014-06-19 17:30:42.468227'
+  fifa_id: a8deae5acb28454e86783364b21dcc88
+  team_id: 41
+events_074:
+  id: 1062
+  type_of_event: substitution-in
+  player: Karagounis
+  time: '78'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.492217'
+  updated_at: '2014-06-19 17:30:42.547173'
+  fifa_id: 5e8116efecf545acb437bed97b44549d
+  team_id: 42
+events_075:
+  id: 1063
+  type_of_event: yellow-card
+  player: Salpingidis
+  time: '55'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.503037'
+  updated_at: '2014-06-19 17:30:42.508589'
+  fifa_id: 9b61b88b6592488e8da9151ce31e89e0
+  team_id: 42
+events_076:
+  id: 1064
+  type_of_event: substitution-in
+  player: Fetfatzidis
+  time: '57'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.513999'
+  updated_at: '2014-06-19 17:30:42.552967'
+  fifa_id: b8a7ec6bb95e4515a025c335b90d6841
+  team_id: 42
+events_077:
+  id: 1065
+  type_of_event: substitution-in
+  player: Mitroglou
+  time: '64'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.525055'
+  updated_at: '2014-06-19 17:30:42.541439'
+  fifa_id: 17177ddf1fb64b90b676af60e690067a
+  team_id: 42
+events_078:
+  id: 1066
+  type_of_event: yellow-card
+  player: Sokratis
+  time: '52'
+  home_team: 
+  match_id: 6
+  created_at: '2014-06-19 17:30:42.533024'
+  updated_at: '2014-06-19 17:30:42.536406'
+  fifa_id: d235f368d986406ebabb63b8d302c285
+  team_id: 42
+events_079:
+  id: 1067
+  type_of_event: yellow-card
+  player: D. Lugano
+  time: '50'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.059169'
+  updated_at: '2014-06-19 17:30:44.068609'
+  fifa_id: aa275e040e224026aa74627ee00af3f2
+  team_id: 45
+events_080:
+  id: 1068
+  type_of_event: yellow-card
+  player: W. Gargano
+  time: '56'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.074126'
+  updated_at: '2014-06-19 17:30:44.079009'
+  fifa_id: 4ac9556adb4d4082858b2cc239e1494b
+  team_id: 45
+events_081:
+  id: 1069
+  type_of_event: substitution-in
+  player: A. Gonzalez
+  time: '60'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.084766'
+  updated_at: '2014-06-19 17:30:44.158317'
+  fifa_id: 27f012c8cc014b03a89b71e0aba40202
+  team_id: 45
+events_082:
+  id: 1070
+  type_of_event: substitution-in
+  player: A. Hernandez
+  time: '76'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.096133'
+  updated_at: '2014-06-19 17:30:44.147314'
+  fifa_id: b65b1a0a3a4f4c3fbacb0533f86e12f1
+  team_id: 45
+events_083:
+  id: 1071
+  type_of_event: substitution-in
+  player: N. Lodeiro
+  time: '60'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.106145'
+  updated_at: '2014-06-19 17:30:44.152556'
+  fifa_id: 88c84f44bee8494393a385d2e86bc532
+  team_id: 45
+events_084:
+  id: 1072
+  type_of_event: red-card
+  player: M. Pereira
+  time: '904'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.116128'
+  updated_at: '2014-06-19 17:30:44.121057'
+  fifa_id: 352c522b46324cb78f0b846a05b00480
+  team_id: 45
+events_085:
+  id: 1073
+  type_of_event: goal-penalty
+  player: E. Cavani
+  time: '24'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.126150'
+  updated_at: '2014-06-19 17:30:44.131003'
+  fifa_id: ea8383a418a6459594e4542793020785
+  team_id: 45
+events_086:
+  id: 1074
+  type_of_event: yellow-card
+  player: M. Caceres
+  time: '81'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.136318'
+  updated_at: '2014-06-19 17:30:44.140905'
+  fifa_id: eb7bf527583c4612a24b1064cec8f18c
+  team_id: 45
+events_087:
+  id: 1075
+  type_of_event: goal
+  player: Duarte O.
+  time: '57'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.164644'
+  updated_at: '2014-06-19 17:30:44.170269'
+  fifa_id: 99e831861e1c4c84ac02f0bee9adafc8
+  team_id: 46
+events_088:
+  id: 1076
+  type_of_event: substitution-in
+  player: Barrantes M.
+  time: '89'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.176034'
+  updated_at: '2014-06-19 17:30:44.941403'
+  fifa_id: 28ee7a21975d423d973fdd6ded047b4e
+  team_id: 46
+events_089:
+  id: 1077
+  type_of_event: goal
+  player: Campbell J.
+  time: '54'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.187097'
+  updated_at: '2014-06-19 17:30:44.192004'
+  fifa_id: 2d1e093f027743c0921ad6273cf286ce
+  team_id: 46
+events_090:
+  id: 1078
+  type_of_event: substitution-in
+  player: UreÑa M.
+  time: '83'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.673249'
+  updated_at: '2014-06-19 17:30:44.946919'
+  fifa_id: caafd182ebfa4b168dc0463db97e37b2
+  team_id: 46
+events_091:
+  id: 1079
+  type_of_event: substitution-in
+  player: Cubero J.
+  time: '74'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.930967'
+  updated_at: '2014-06-19 17:30:44.960258'
+  fifa_id: f01f2a683d1247edab0d7ec2cbc5c5f1
+  team_id: 46
+events_092:
+  id: 1080
+  type_of_event: goal
+  player: UreÑa M.
+  time: '84'
+  home_team: 
+  match_id: 7
+  created_at: '2014-06-19 17:30:44.951648'
+  updated_at: '2014-06-19 17:30:44.955480'
+  fifa_id: f86b84ca7e8447f8967baf3b68848a76
+  team_id: 46
+events_093:
+  id: 1081
+  type_of_event: substitution-in
+  player: Djakpa
+  time: '75'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.831203'
+  updated_at: '2014-06-19 17:30:46.998042'
+  fifa_id: 19922a24c5c64565ba343186a559a6cc
+  team_id: 43
+events_094:
+  id: 1082
+  type_of_event: yellow-card
+  player: Zokora
+  time: '58'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.928335'
+  updated_at: '2014-06-19 17:30:46.933954'
+  fifa_id: 4f7dea3c85c94881b15111cd939b5ad3
+  team_id: 43
+events_095:
+  id: 1083
+  type_of_event: goal
+  player: Gervinho
+  time: '66'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.940527'
+  updated_at: '2014-06-19 17:30:46.944994'
+  fifa_id: 3dcaf86783b14f0c835e31bfd69981bd
+  team_id: 43
+events_096:
+  id: 1084
+  type_of_event: goal
+  player: B. Wilfried
+  time: '64'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.950532'
+  updated_at: '2014-06-19 17:30:46.955401'
+  fifa_id: f4126a2373fd491f84b742713045096a
+  team_id: 43
+events_097:
+  id: 1085
+  type_of_event: substitution-in
+  player: Ya Konan
+  time: '78'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.961332'
+  updated_at: '2014-06-19 17:30:46.992717'
+  fifa_id: 08f735a4497b447490463b11974c38d6
+  team_id: 43
+events_098:
+  id: 1086
+  type_of_event: substitution-in
+  player: Drogba
+  time: '62'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.971845'
+  updated_at: '2014-06-19 17:30:46.988564'
+  fifa_id: e5c8f7b1e4a044b9b3b210b9b884e5f6
+  team_id: 43
+events_099:
+  id: 1087
+  type_of_event: yellow-card
+  player: Bamba
+  time: '54'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:46.982196'
+  updated_at: '2014-06-19 17:30:46.985209'
+  fifa_id: a66f48a357194bca95c38d9f0f46286f
+  team_id: 43
+events_100:
+  id: 1088
+  type_of_event: goal
+  player: Honda
+  time: '16'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.001180'
+  updated_at: '2014-06-19 17:30:47.005337'
+  fifa_id: 24d543ead58b426f9dfec517eb21af72
+  team_id: 44
+events_101:
+  id: 1089
+  type_of_event: yellow-card
+  player: Morishige
+  time: '64'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.009056'
+  updated_at: '2014-06-19 17:30:47.011677'
+  fifa_id: 1f044230a7f146adb1b72729e30e6fb0
+  team_id: 44
+events_102:
+  id: 1090
+  type_of_event: substitution-in
+  player: Kakitani
+  time: '86'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.015125'
+  updated_at: '2014-06-19 17:30:47.081042'
+  fifa_id: 58579d07940a42358133b68ba612d308
+  team_id: 44
+events_103:
+  id: 1091
+  type_of_event: substitution-in
+  player: Endo
+  time: '54'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.022475'
+  updated_at: '2014-06-19 17:30:47.076429'
+  fifa_id: 33e2344aa2c743f881f7261929fcd3a0
+  team_id: 44
+events_104:
+  id: 1092
+  type_of_event: substitution-in
+  player: Okubo
+  time: '67'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.030005'
+  updated_at: '2014-06-19 17:30:47.086098'
+  fifa_id: e0d177cc0c094181ba19655ccdf01c85
+  team_id: 44
+events_105:
+  id: 1093
+  type_of_event: yellow-card
+  player: Yoshida
+  time: '23'
+  home_team: 
+  match_id: 9
+  created_at: '2014-06-19 17:30:47.060425'
+  updated_at: '2014-06-19 17:30:47.064205'
+  fifa_id: eec0934f7ea240a5b9cb9d6ccdaaa590
+  team_id: 44
+events_106:
+  id: 1094
+  type_of_event: substitution-in halftime
+  player: Mehmedi
+  time: '46'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.745312'
+  updated_at: '2014-06-19 17:30:48.808830'
+  fifa_id: c8ec50e0b9cf45098913ce2a27b83f83
+  team_id: 49
+events_107:
+  id: 1095
+  type_of_event: substitution-in
+  player: Seferovic
+  time: '75'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.773019'
+  updated_at: '2014-06-19 17:30:48.794258'
+  fifa_id: 7e2ca689ebff48a383bc823281a693ca
+  team_id: 49
+events_108:
+  id: 1096
+  type_of_event: yellow-card
+  player: Djourou
+  time: '84'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.783417'
+  updated_at: '2014-06-19 17:30:48.788289'
+  fifa_id: fa7b07cec62641509e0e23d074655566
+  team_id: 49
+events_109:
+  id: 1097
+  type_of_event: goal
+  player: Seferovic
+  time: '903'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.799251'
+  updated_at: '2014-06-19 17:30:48.803177'
+  fifa_id: 01bedc79a5a343ebbeeab3afd49a38be
+  team_id: 49
+events_110:
+  id: 1098
+  type_of_event: goal
+  player: Mehmedi
+  time: '48'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.814886'
+  updated_at: '2014-06-19 17:30:48.819338'
+  fifa_id: ff1905dfb1b3463498d3ff825e6a5f9a
+  team_id: 49
+events_111:
+  id: 1099
+  type_of_event: yellow-card
+  player: Paredes
+  time: '53'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.824766'
+  updated_at: '2014-06-19 17:30:48.830748'
+  fifa_id: 8b170fde850a49a982ce0bd7d74d6fdb
+  team_id: 50
+events_112:
+  id: 1100
+  type_of_event: substitution-in
+  player: Rojas
+  time: '77'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.836153'
+  updated_at: '2014-06-19 17:30:48.864597'
+  fifa_id: 646d29bb45f34f3488c61c7ed4f3145b
+  team_id: 50
+events_113:
+  id: 1101
+  type_of_event: substitution-in
+  player: Arroyo
+  time: '70'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.845041'
+  updated_at: '2014-06-19 17:30:48.871005'
+  fifa_id: 53c8d8d64b104da194c5c2c428739bb3
+  team_id: 50
+events_114:
+  id: 1102
+  type_of_event: goal
+  player: E. Valencia
+  time: '22'
+  home_team: 
+  match_id: 10
+  created_at: '2014-06-19 17:30:48.854192'
+  updated_at: '2014-06-19 17:30:48.858186'
+  fifa_id: 53e92f5baf704746a6570c834ddde6ec
+  team_id: 50
+events_115:
+  id: 1103
+  type_of_event: yellow-card
+  player: Evra
+  time: '7'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.468741'
+  updated_at: '2014-06-19 17:30:49.478960'
+  fifa_id: b7b387610de5470cb86a21ea6128b568
+  team_id: 51
+events_116:
+  id: 1104
+  type_of_event: yellow-card
+  player: Cabaye
+  time: '452'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.484866'
+  updated_at: '2014-06-19 17:30:49.489751'
+  fifa_id: 44e61afe99a4434fbfc96d7b8342f822
+  team_id: 51
+events_117:
+  id: 1105
+  type_of_event: substitution-in
+  player: Mavuba
+  time: '65'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.495273'
+  updated_at: '2014-06-19 17:30:49.558809'
+  fifa_id: 4e331fd7fe034b99a1924fc14ab5ff85
+  team_id: 51
+events_118:
+  id: 1106
+  type_of_event: substitution-in
+  player: Giroud
+  time: '78'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.505239'
+  updated_at: '2014-06-19 17:30:49.552844'
+  fifa_id: 66e20952ef15489db08746e9caf3c7f8
+  team_id: 51
+events_119:
+  id: 1107
+  type_of_event: goal-penalty
+  player: Benzema
+  time: '45'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.516372'
+  updated_at: '2014-06-19 17:30:49.520736'
+  fifa_id: decf2e61c1a74c60bba4ec73199836d3
+  team_id: 51
+events_120:
+  id: 1108
+  type_of_event: goal
+  player: Benzema
+  time: '72'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.526241'
+  updated_at: '2014-06-19 17:30:49.530895'
+  fifa_id: e50b38357a514347b40bc6c748e6fd70
+  team_id: 51
+events_121:
+  id: 1109
+  type_of_event: yellow-card
+  player: Pogba
+  time: '28'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.535972'
+  updated_at: '2014-06-19 17:30:49.538865'
+  fifa_id: 4c35917c2d04425cbf46241caadaabc6
+  team_id: 51
+events_122:
+  id: 1110
+  type_of_event: substitution-in
+  player: Sissoko
+  time: '57'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.541895'
+  updated_at: '2014-06-19 17:30:49.564095'
+  fifa_id: 32c5be40835444f79416e8840df2e9eb
+  team_id: 51
+events_123:
+  id: 1111
+  type_of_event: goal-own
+  player: Valladares
+  time: '48'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.568287'
+  updated_at: '2014-06-19 17:30:49.574361'
+  fifa_id: 359cd58fc0a84f23bf2a873e427a8616
+  team_id: 52
+events_124:
+  id: 1112
+  type_of_event: substitution-in halftime
+  player: O. Chavez
+  time: '46'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.580127'
+  updated_at: '2014-06-19 17:30:49.678067'
+  fifa_id: 238db85a966842e4825482b2306f9eaf
+  team_id: 52
+events_125:
+  id: 1113
+  type_of_event: yellow-card
+  player: W. Palacios
+  time: '28'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.587009'
+  updated_at: '2014-06-19 17:30:49.590330'
+  fifa_id: fca62687246043b4a1355d43436fbbef
+  team_id: 52
+events_126:
+  id: 1114
+  type_of_event: yellow-card-second
+  player: W. Palacios
+  time: '43'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.593681'
+  updated_at: '2014-06-19 17:30:49.597018'
+  fifa_id: ad235f62f7354281982b4e569019e506
+  team_id: 52
+events_127:
+  id: 1115
+  type_of_event: substitution-in halftime
+  player: Boniek
+  time: '46'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.601221'
+  updated_at: '2014-06-19 17:30:49.683529'
+  fifa_id: 1c8c769922d6444499022879c48da182
+  team_id: 52
+events_128:
+  id: 1116
+  type_of_event: substitution-in
+  player: Claros
+  time: '58'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.646423'
+  updated_at: '2014-06-19 17:30:49.707535'
+  fifa_id: c8836231952e44f0ab97ceb72b0ab67d
+  team_id: 52
+events_129:
+  id: 1117
+  type_of_event: yellow-card
+  player: Garrido
+  time: '83'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.663664'
+  updated_at: '2014-06-19 17:30:49.668083'
+  fifa_id: 6bcc85fc9e7d4861bc49b89011713fe1
+  team_id: 52
+events_130:
+  id: 1118
+  type_of_event: yellow-card
+  player: Boniek
+  time: '53'
+  home_team: 
+  match_id: 11
+  created_at: '2014-06-19 17:30:49.688293'
+  updated_at: '2014-06-19 17:30:49.695604'
+  fifa_id: 126fb65cd9104d508ea8f35b1f8034f9
+  team_id: 52
+events_131:
+  id: 1119
+  type_of_event: substitution-in halftime
+  player: Gago
+  time: '46'
+  home_team: 
   match_id: 1
-
-two:
-  type: 
-  player: MyString
-  time: MyString
-  home_team: false
+  created_at: '2014-06-19 17:30:50.270185'
+  updated_at: '2014-06-19 17:30:50.303726'
+  fifa_id: 1e55725139ca4f1d9eb01a6c8b1409d9
+  team_id: 53
+events_132:
+  id: 1120
+  type_of_event: goal
+  player: Messi
+  time: '65'
+  home_team: 
   match_id: 1
+  created_at: '2014-06-19 17:30:50.278532'
+  updated_at: '2014-06-19 17:30:50.281547'
+  fifa_id: 82305b305bfe44af8c01a64ffebee425
+  team_id: 53
+events_133:
+  id: 1121
+  type_of_event: substitution-in halftime
+  player: Higuain
+  time: '46'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.284651'
+  updated_at: '2014-06-19 17:30:50.310922'
+  fifa_id: b7579d22241e44389739c2558da29c4c
+  team_id: 53
+events_134:
+  id: 1122
+  type_of_event: yellow-card
+  player: Rojo
+  time: '25'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.292014'
+  updated_at: '2014-06-19 17:30:50.294348'
+  fifa_id: c0b7f37c3b7b412489597273e89d9643
+  team_id: 53
+events_135:
+  id: 1123
+  type_of_event: substitution-in
+  player: Biglia
+  time: '87'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.297537'
+  updated_at: '2014-06-19 17:30:50.307256'
+  fifa_id: 8e9a4e4036c14d0286081bd60f68c0dc
+  team_id: 53
+events_136:
+  id: 1124
+  type_of_event: yellow-card
+  player: SpahiĆ
+  time: '63'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.314710'
+  updated_at: '2014-06-19 17:30:50.319069'
+  fifa_id: 24b828c9424c494692da82a751996447
+  team_id: 54
+events_137:
+  id: 1125
+  type_of_event: goal-own
+  player: KolaŠinac
+  time: '3'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.322890'
+  updated_at: '2014-06-19 17:30:50.326112'
+  fifa_id: f4814c22d59b43ce9867eb8e84370074
+  team_id: 54
+events_138:
+  id: 1126
+  type_of_event: substitution-in
+  player: Medunjanin
+  time: '74'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.330544'
+  updated_at: '2014-06-19 17:30:50.416673'
+  fifa_id: 384d116a5441427da91be630c4acacca
+  team_id: 54
+events_139:
+  id: 1127
+  type_of_event: substitution-in
+  player: IbiŠeviĆ
+  time: '69'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.337873'
+  updated_at: '2014-06-19 17:30:50.364092'
+  fifa_id: b0375000d2564fc79d39184666625286
+  team_id: 54
+events_140:
+  id: 1128
+  type_of_event: substitution-in
+  player: ViŠĆa
+  time: '71'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.345087'
+  updated_at: '2014-06-19 17:30:50.427040'
+  fifa_id: c1d2fe76559d48e1aaae4f42add56f07
+  team_id: 54
+events_141:
+  id: 1129
+  type_of_event: goal
+  player: IbiŠeviĆ
+  time: '85'
+  home_team: 
+  match_id: 1
+  created_at: '2014-06-19 17:30:50.385410'
+  updated_at: '2014-06-19 17:30:50.402455'
+  fifa_id: 5229ea70ac084785a44ed3fee0294582
+  team_id: 54
+events_142:
+  id: 1130
+  type_of_event: goal
+  player: Hummels
+  time: '32'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.036856'
+  updated_at: '2014-06-19 17:30:51.056247'
+  fifa_id: cee0bf98b20d42baa498030056cf331c
+  team_id: 57
+events_143:
+  id: 1131
+  type_of_event: substitution-in
+  player: Mustafi
+  time: '73'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.059909'
+  updated_at: '2014-06-19 17:30:51.104230'
+  fifa_id: 712af095ab274760b164952be3e81f14
+  team_id: 57
+events_144:
+  id: 1132
+  type_of_event: substitution-in
+  player: SchÜrrle
+  time: '63'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.066590'
+  updated_at: '2014-06-19 17:30:51.096854'
+  fifa_id: 2eb5502451334415a1de7c095a904887
+  team_id: 57
+events_145:
+  id: 1133
+  type_of_event: goal-penalty
+  player: MÜller
+  time: '12'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.071958'
+  updated_at: '2014-06-19 17:30:51.075040'
+  fifa_id: 36b95bc9db04448da7f22d297f970d58
+  team_id: 57
+events_146:
+  id: 1134
+  type_of_event: goal
+  player: MÜller
+  time: '451'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.078642'
+  updated_at: '2014-06-19 17:30:51.081114'
+  fifa_id: 7baf35d830fb4e499d9938bfffd1ee87
+  team_id: 57
+events_147:
+  id: 1135
+  type_of_event: goal
+  player: MÜller
+  time: '78'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.083862'
+  updated_at: '2014-06-19 17:30:51.086264'
+  fifa_id: bdb635e522eb479bb2b43d15494e9e54
+  team_id: 57
+events_148:
+  id: 1136
+  type_of_event: substitution-in
+  player: Podolski
+  time: '82'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.089733'
+  updated_at: '2014-06-19 17:30:51.100384'
+  fifa_id: 08ae954f30e04c118c72b4c160040970
+  team_id: 57
+events_149:
+  id: 1137
+  type_of_event: red-card
+  player: Pepe
+  time: '37'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.107757'
+  updated_at: '2014-06-19 17:30:51.111483'
+  fifa_id: 9dd4d1efe8a24e8993be4d7fecba5531
+  team_id: 58
+events_150:
+  id: 1138
+  type_of_event: substitution-in halftime
+  player: R. Costa
+  time: '46'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.115364'
+  updated_at: '2014-06-19 17:30:51.204347'
+  fifa_id: ebb642226f3c4ecba8c32097afa19e6b
+  team_id: 58
+events_151:
+  id: 1139
+  type_of_event: substitution-in
+  player: A. Almeida
+  time: '65'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.126692'
+  updated_at: '2014-06-19 17:30:51.210602'
+  fifa_id: 7c212092a0b64ad8ada60a2c966ab77c
+  team_id: 58
+events_152:
+  id: 1140
+  type_of_event: substitution-in
+  player: Éder
+  time: '28'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.144092'
+  updated_at: '2014-06-19 17:30:51.198961'
+  fifa_id: dfc5496bda9541d489195f6c595899b4
+  team_id: 58
+events_153:
+  id: 1141
+  type_of_event: yellow-card
+  player: J. Pereira
+  time: '11'
+  home_team: 
+  match_id: 12
+  created_at: '2014-06-19 17:30:51.182753'
+  updated_at: '2014-06-19 17:30:51.193386'
+  fifa_id: ff7653b30c234099be82c706449b75b5
+  team_id: 58
+events_154:
+  id: 1142
+  type_of_event: substitution-in
+  player: Masoud. Sh
+  time: '89'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.862230'
+  updated_at: '2014-06-19 17:30:52.919035'
+  fifa_id: 1afaf2a4759b4555a399b9b1730e1c90
+  team_id: 55
+events_155:
+  id: 1143
+  type_of_event: yellow-card
+  player: Andranik
+  time: '75'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.897817'
+  updated_at: '2014-06-19 17:30:52.902587'
+  fifa_id: f51b019fd63247f3827cd6b4cea24e90
+  team_id: 55
+events_156:
+  id: 1144
+  type_of_event: substitution-in
+  player: Alireza
+  time: '73'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.908446'
+  updated_at: '2014-06-19 17:30:52.923998'
+  fifa_id: 60d44d6684bb419d9d7e56603d67ed43
+  team_id: 55
+events_157:
+  id: 1145
+  type_of_event: substitution-in
+  player: Ameobi
+  time: '52'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.929551'
+  updated_at: '2014-06-19 17:30:52.973474'
+  fifa_id: 3ca61857ea294239b128105d71897cb2
+  team_id: 56
+events_158:
+  id: 1146
+  type_of_event: substitution-in
+  player: Yobo
+  time: '29'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.940535'
+  updated_at: '2014-06-19 17:30:52.961128'
+  fifa_id: f40babaccced4fa89d3d545ba852e26d
+  team_id: 56
+events_159:
+  id: 1147
+  type_of_event: substitution-in
+  player: Odemwingie
+  time: '69'
+  home_team: 
+  match_id: 13
+  created_at: '2014-06-19 17:30:52.951406'
+  updated_at: '2014-06-19 17:30:52.967345'
+  fifa_id: 3df7516290414cd0a0b47babaadca6a7
+  team_id: 56
+events_160:
+  id: 1148
+  type_of_event: substitution-in
+  player: Adomah
+  time: '78'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.672356'
+  updated_at: '2014-06-19 17:30:53.782531'
+  fifa_id: 0b26e62e233e48cd85cef05bba9f0903
+  team_id: 59
+events_161:
+  id: 1149
+  type_of_event: goal
+  player: A. Ayew
+  time: '82'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.720795'
+  updated_at: '2014-06-19 17:30:53.725838'
+  fifa_id: e997750c381f4267bcdc2622e71fdac7
+  team_id: 59
+events_162:
+  id: 1150
+  type_of_event: yellow-card
+  player: Muntari
+  time: '902'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.730973'
+  updated_at: '2014-06-19 17:30:53.735562'
+  fifa_id: a0f5208d387f406495196acc3429d2c7
+  team_id: 59
+events_163:
+  id: 1151
+  type_of_event: substitution-in
+  player: Prince
+  time: '59'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.740883'
+  updated_at: '2014-06-19 17:30:53.777171'
+  fifa_id: 32719c46170b410b94c05ae1dd5a59ef
+  team_id: 59
+events_164:
+  id: 1152
+  type_of_event: yellow-card
+  player: Rabiu
+  time: '30'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.751137'
+  updated_at: '2014-06-19 17:30:53.755555'
+  fifa_id: 607f03228a89403fa4b6f1a21ba9cd3a
+  team_id: 59
+events_165:
+  id: 1153
+  type_of_event: substitution-in
+  player: Essien
+  time: '71'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.760660'
+  updated_at: '2014-06-19 17:30:53.770878'
+  fifa_id: 91923fab8ae7444aa1f85e497f2d6729
+  team_id: 59
+events_166:
+  id: 1154
+  type_of_event: substitution-in halftime
+  player: Brooks
+  time: '46'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.788054'
+  updated_at: '2014-06-19 17:30:53.832554'
+  fifa_id: da719a2c8b98418192c6eb97357915d4
+  team_id: 60
+events_167:
+  id: 1155
+  type_of_event: goal
+  player: Dempsey
+  time: '1'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.799949'
+  updated_at: '2014-06-19 17:30:53.804983'
+  fifa_id: ebbb5dfead1b4b9b85efa6d4d14b295a
+  team_id: 60
+events_168:
+  id: 1156
+  type_of_event: substitution-in
+  player: Zusi
+  time: '77'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.810579'
+  updated_at: '2014-06-19 17:30:53.853215'
+  fifa_id: d7f84622a5e64f18b7ccacff1b06d934
+  team_id: 60
+events_169:
+  id: 1157
+  type_of_event: substitution-in
+  player: Johannsson
+  time: '23'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.821671'
+  updated_at: '2014-06-19 17:30:53.848379'
+  fifa_id: c881a13c5bcd483dbfca08c7ed7fcd27
+  team_id: 60
+events_170:
+  id: 1158
+  type_of_event: goal
+  player: Brooks
+  time: '86'
+  home_team: 
+  match_id: 14
+  created_at: '2014-06-19 17:30:53.838787'
+  updated_at: '2014-06-19 17:30:53.843483'
+  fifa_id: 6f4425bf8df748f884bce2d31a14c69c
+  team_id: 60
+events_171:
+  id: 1159
+  type_of_event: yellow-card
+  player: Vertonghen
+  time: '24'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.380332'
+  updated_at: '2014-06-19 17:30:54.386161'
+  fifa_id: a04bb5ccf2fa43309a20c72ea82f2f57
+  team_id: 61
+events_172:
+  id: 1160
+  type_of_event: substitution-in
+  player: Origi
+  time: '58'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.391499'
+  updated_at: '2014-06-19 17:30:54.450103'
+  fifa_id: 7bc8fff25cfe42d0bf882bd128b81faf
+  team_id: 61
+events_173:
+  id: 1161
+  type_of_event: substitution-in
+  player: Fellaini
+  time: '65'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.396635'
+  updated_at: '2014-06-19 17:30:54.415528'
+  fifa_id: 40e69e2939be4c25841fb97a08c27588
+  team_id: 61
+events_174:
+  id: 1162
+  type_of_event: substitution-in halftime
+  player: Mertens
+  time: '46'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.404383'
+  updated_at: '2014-06-19 17:30:54.432384'
+  fifa_id: 7aa2b55545a845c7b2443a749a4a3eda
+  team_id: 61
+events_175:
+  id: 1163
+  type_of_event: goal
+  player: Fellaini
+  time: '70'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.421598'
+  updated_at: '2014-06-19 17:30:54.426057'
+  fifa_id: c8c09a7fcd254b6ca3df67b9042bb9e2
+  team_id: 61
+events_176:
+  id: 1164
+  type_of_event: goal
+  player: Mertens
+  time: '80'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.440197'
+  updated_at: '2014-06-19 17:30:54.444636'
+  fifa_id: 7645dd251e644f53b3f46559a247799b
+  team_id: 61
+events_177:
+  id: 1165
+  type_of_event: goal-penalty
+  player: Feghouli
+  time: '25'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.455467'
+  updated_at: '2014-06-19 17:30:54.461040'
+  fifa_id: cc3327f7038543ae859e808e53464a1b
+  team_id: 62
+events_178:
+  id: 1166
+  type_of_event: substitution-in
+  player: Ghilas
+  time: '84'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.467058'
+  updated_at: '2014-06-19 17:30:54.513508'
+  fifa_id: b29c26e8ae1f4ceba6171bffbeb944c9
+  team_id: 62
+events_179:
+  id: 1167
+  type_of_event: yellow-card
+  player: Bentaleb
+  time: '34'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.477250'
+  updated_at: '2014-06-19 17:30:54.481643'
+  fifa_id: 0f7fd6426c87466b8e7cbd422d5627d5
+  team_id: 62
+events_180:
+  id: 1168
+  type_of_event: substitution-in
+  player: Slimani
+  time: '66'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.486896'
+  updated_at: '2014-06-19 17:30:54.519978'
+  fifa_id: e22ca73b65d44333bd29ce59aea4ec0b
+  team_id: 62
+events_181:
+  id: 1169
+  type_of_event: substitution-in
+  player: Lacen
+  time: '71'
+  home_team: 
+  match_id: 15
+  created_at: '2014-06-19 17:30:54.496714'
+  updated_at: '2014-06-19 17:30:54.507382'
+  fifa_id: e1424560cb684d86b65b2653d9e9b96f
+  team_id: 62
+events_182:
+  id: 1170
+  type_of_event: yellow-card
+  player: T Silva
+  time: '79'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.079535'
+  updated_at: '2014-06-19 17:30:55.085782'
+  fifa_id: 8a5b0dee0b864e14a75cfd3acb1af4ba
+  team_id: 33
+events_183:
+  id: 1171
+  type_of_event: substitution-in
+  player: JÔ
+  time: '68'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.091169'
+  updated_at: '2014-06-19 17:30:55.141885'
+  fifa_id: 7d6dd49f9eaa4dbb8ae3687637bd79a2
+  team_id: 33
+events_184:
+  id: 1172
+  type_of_event: substitution-in
+  player: Willian
+  time: '84'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.100640'
+  updated_at: '2014-06-19 17:30:55.131244'
+  fifa_id: 2a0eb18242944fc4be99b28d75e12bc9
+  team_id: 33
+events_185:
+  id: 1173
+  type_of_event: yellow-card
+  player: Ramires
+  time: '45'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.110180'
+  updated_at: '2014-06-19 17:30:55.114189'
+  fifa_id: 5fd100e9415b4e96abeafc143af5e8c4
+  team_id: 33
+events_186:
+  id: 1174
+  type_of_event: substitution-in halftime
+  player: Bernard
+  time: '46'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.120936'
+  updated_at: '2014-06-19 17:30:55.136216'
+  fifa_id: c02eac2cd77c4157bd9702991328a9bc
+  team_id: 33
+events_187:
+  id: 1175
+  type_of_event: substitution-in
+  player: M Fabian
+  time: '76'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.147741'
+  updated_at: '2014-06-19 17:30:55.201872'
+  fifa_id: 8e7107aae5a24283b26684fcf9058744
+  team_id: 35
+events_188:
+  id: 1176
+  type_of_event: substitution-in
+  player: R Jimenez
+  time: '84'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.159403'
+  updated_at: '2014-06-19 17:30:55.208278'
+  fifa_id: b8c38f794ee94d39879ff74f8818387a
+  team_id: 35
+events_189:
+  id: 1177
+  type_of_event: substitution-in
+  player: J Hernandez
+  time: '74'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.169761'
+  updated_at: '2014-06-19 17:30:55.214340'
+  fifa_id: 982ad5f681de4f43864e18247ad57cb3
+  team_id: 35
+events_190:
+  id: 1178
+  type_of_event: yellow-card
+  player: P Aguilar
+  time: '59'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.180891'
+  updated_at: '2014-06-19 17:30:55.185043'
+  fifa_id: 29d1ca6c146943fe80c258ca34fd9c04
+  team_id: 35
+events_191:
+  id: 1179
+  type_of_event: yellow-card
+  player: J Vazquez
+  time: '62'
+  home_team: 
+  match_id: 16
+  created_at: '2014-06-19 17:30:55.190991'
+  updated_at: '2014-06-19 17:30:55.195774'
+  fifa_id: 7a922c9a8b4b42be9057a2291579eaf7
+  team_id: 35
+events_192:
+  id: 1180
+  type_of_event: substitution-in
+  player: Denisov
+  time: '72'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.735369'
+  updated_at: '2014-06-19 17:30:55.777759'
+  fifa_id: e413f8afd9ed42fa9b81a242229401f5
+  team_id: 63
+events_193:
+  id: 1181
+  type_of_event: yellow-card
+  player: Shatov
+  time: '49'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.749146'
+  updated_at: '2014-06-19 17:30:55.754307'
+  fifa_id: 07c1ec9a80d54328b35267d1ea42343e
+  team_id: 63
+events_194:
+  id: 1182
+  type_of_event: substitution-in
+  player: Dzagoev
+  time: '59'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.759597'
+  updated_at: '2014-06-19 17:30:55.783350'
+  fifa_id: b1290b3277414e4d8aa1f9faf7f6fff3
+  team_id: 63
+events_195:
+  id: 1183
+  type_of_event: substitution-in
+  player: Kerzhakov
+  time: '71'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.767613'
+  updated_at: '2014-06-19 17:30:55.789750'
+  fifa_id: e4ad0d17ad724090bf25e908fe5a9e03
+  team_id: 63
+events_196:
+  id: 1184
+  type_of_event: goal
+  player: Kerzhakov
+  time: '74'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.794656'
+  updated_at: '2014-06-19 17:30:55.798877'
+  fifa_id: 5bf6f3de5e38470c93e10ba9f0af5dca
+  team_id: 63
+events_197:
+  id: 1185
+  type_of_event: yellow-card
+  player: H M Son
+  time: '13'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.805052'
+  updated_at: '2014-06-19 17:30:55.809996'
+  fifa_id: ce5e61e3bd8b4774ab44a956ea619b32
+  team_id: 64
+events_198:
+  id: 1186
+  type_of_event: substitution-in
+  player: B K Kim
+  time: '84'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.815823'
+  updated_at: '2014-06-19 17:30:56.219245'
+  fifa_id: 56fde3c040824215bc1f64b3b89fbd3d
+  team_id: 64
+events_199:
+  id: 1187
+  type_of_event: substitution-in
+  player: K H Lee
+  time: '56'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.826521'
+  updated_at: '2014-06-19 17:30:56.350877'
+  fifa_id: bc28417df65c4e729782b20121f8da8f
+  team_id: 64
+events_200:
+  id: 1188
+  type_of_event: yellow-card
+  player: J C Koo
+  time: '90'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.837429'
+  updated_at: '2014-06-19 17:30:55.842337'
+  fifa_id: 2ba8fe5a2c784747a744909978ed3137
+  team_id: 64
+events_201:
+  id: 1189
+  type_of_event: yellow-card
+  player: S Y Ki
+  time: '30'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.849088'
+  updated_at: '2014-06-19 17:30:55.853789'
+  fifa_id: 46e763166e594747acd5724d0433ad74
+  team_id: 64
+events_202:
+  id: 1190
+  type_of_event: substitution-in
+  player: S H Hwang
+  time: '73'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:55.859941'
+  updated_at: '2014-06-19 17:30:55.871578'
+  fifa_id: fa0bad7557d3455c84649b34b2b312f4
+  team_id: 64
+events_203:
+  id: 1191
+  type_of_event: goal
+  player: K H Lee
+  time: '68'
+  home_team: 
+  match_id: 17
+  created_at: '2014-06-19 17:30:56.454776'
+  updated_at: '2014-06-19 17:30:56.492196'
+  fifa_id: 7d965dda0efd4217847cb90513fd6899
+  team_id: 64
+events_204:
+  id: 1192
+  type_of_event: goal
+  player: Cahill
+  time: '21'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.579143'
+  updated_at: '2014-06-19 17:30:57.629926'
+  fifa_id: 9639fbda42484c3885258775d46fbce1
+  team_id: 40
+events_205:
+  id: 1193
+  type_of_event: yellow-card
+  player: Cahill
+  time: '43'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.636074'
+  updated_at: '2014-06-19 17:30:57.640752'
+  fifa_id: 0b193ebfe16e466e991577e6ea351a44
+  team_id: 40
+events_206:
+  id: 1194
+  type_of_event: substitution-in
+  player: Halloran
+  time: '69'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.645891'
+  updated_at: '2014-06-19 17:30:57.694977'
+  fifa_id: 7f784d2180d1437d978858146eda5aa7
+  team_id: 40
+events_207:
+  id: 1195
+  type_of_event: substitution-in
+  player: Taggart
+  time: '77'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.656225'
+  updated_at: '2014-06-19 17:30:57.689114'
+  fifa_id: fc828cc4af984449aa6cffff01a3bfee
+  team_id: 40
+events_208:
+  id: 1196
+  type_of_event: goal-penalty
+  player: Jedinak
+  time: '54'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.666995'
+  updated_at: '2014-06-19 17:30:57.671832'
+  fifa_id: b6df4d5c6c3e46278eb4a562d81404a4
+  team_id: 40
+events_209:
+  id: 1197
+  type_of_event: substitution-in
+  player: Bozanic
+  time: '51'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.677899'
+  updated_at: '2014-06-19 17:30:57.700642'
+  fifa_id: e375823c336144c8baef3178aebf9ef1
+  team_id: 40
+events_210:
+  id: 1198
+  type_of_event: substitution-in
+  player: Memphis
+  time: 45+3
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.706725'
+  updated_at: '2014-06-19 17:30:57.773436'
+  fifa_id: bc7931afa69f4443972a3bf416f2c449
+  team_id: 38
+events_211:
+  id: 1199
+  type_of_event: substitution-in
+  player: Wijnaldum
+  time: '78'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.718163'
+  updated_at: '2014-06-19 17:30:57.769463'
+  fifa_id: 78892520710745b0b97d691a9958c28b
+  team_id: 38
+events_212:
+  id: 1200
+  type_of_event: yellow-card
+  player: V. Persie
+  time: '47'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.729353'
+  updated_at: '2014-06-19 17:30:57.733307'
+  fifa_id: 2651a5eef8fc4059a6a2f1195b057740
+  team_id: 38
+events_213:
+  id: 1201
+  type_of_event: goal
+  player: V. Persie
+  time: '58'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.737597'
+  updated_at: '2014-06-19 17:30:57.742630'
+  fifa_id: b7bfdaaf3bfd4a09b56255982d160b02
+  team_id: 38
+events_214:
+  id: 1202
+  type_of_event: substitution-in
+  player: Lens
+  time: '87'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.748778'
+  updated_at: '2014-06-19 17:30:57.765970'
+  fifa_id: 972e4404eaf64f00ac8fc0ed5d5a217a
+  team_id: 38
+events_215:
+  id: 1203
+  type_of_event: goal
+  player: Robben
+  time: '20'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.758164'
+  updated_at: '2014-06-19 17:30:57.762786'
+  fifa_id: 7b87baf539854ee1911da33cee3050ad
+  team_id: 38
+events_216:
+  id: 1204
+  type_of_event: goal
+  player: Memphis
+  time: '68'
+  home_team: 
+  match_id: 18
+  created_at: '2014-06-19 17:30:57.778498'
+  updated_at: '2014-06-19 17:30:57.783530'
+  fifa_id: 2233f0fc4231458b80c6fa55f7a7319e
+  team_id: 38
+events_217:
+  id: 1205
+  type_of_event: substitution-in
+  player: S. Cazorla
+  time: '76'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.492660'
+  updated_at: '2014-06-19 17:30:58.545944'
+  fifa_id: 98ecd0315bb44b8f922289bb6be4ede5
+  team_id: 37
+events_218:
+  id: 1206
+  type_of_event: yellow-card
+  player: Alonso
+  time: '41'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.510063'
+  updated_at: '2014-06-19 17:30:58.515617'
+  fifa_id: b0e950f827d848beb1c083bd1a5ad4b9
+  team_id: 37
+events_219:
+  id: 1207
+  type_of_event: substitution-in halftime
+  player: Koke
+  time: '46'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.520964'
+  updated_at: '2014-06-19 17:30:58.540983'
+  fifa_id: b4b7918ae516475bbeb5019bd927ba01
+  team_id: 37
+events_220:
+  id: 1208
+  type_of_event: substitution-in
+  player: Torres
+  time: '64'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.529296'
+  updated_at: '2014-06-19 17:30:58.537731'
+  fifa_id: 12bb352c3bae45b599061331b95f7f05
+  team_id: 37
+events_221:
+  id: 1209
+  type_of_event: yellow-card
+  player: Mena
+  time: '61'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.551986'
+  updated_at: '2014-06-19 17:30:58.557345'
+  fifa_id: 9bc96ea096ff4585a87fe45eec172686
+  team_id: 39
+events_222:
+  id: 1210
+  type_of_event: yellow-card
+  player: Vidal
+  time: '26'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.563751'
+  updated_at: '2014-06-19 17:30:58.567971'
+  fifa_id: 5df240e689374fcab965538f337a8433
+  team_id: 39
+events_223:
+  id: 1211
+  type_of_event: substitution-in
+  player: Carmona
+  time: '88'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.573862'
+  updated_at: '2014-06-19 17:30:58.619071'
+  fifa_id: c56d25809572479fb0286a4af4005447
+  team_id: 39
+events_224:
+  id: 1212
+  type_of_event: goal
+  player: Vargas
+  time: '20'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.586295'
+  updated_at: '2014-06-19 17:30:58.591057'
+  fifa_id: 00963a2aa1bc4fc7ab8fc7fd878cfa3d
+  team_id: 39
+events_225:
+  id: 1213
+  type_of_event: substitution-in
+  player: Valdivia
+  time: '85'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.597674'
+  updated_at: '2014-06-19 17:30:58.623968'
+  fifa_id: ad2d603e61f441458d3aa402b4cced48
+  team_id: 39
+events_226:
+  id: 1214
+  type_of_event: goal
+  player: Ch. ArÁnguiz
+  time: '43'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.603274'
+  updated_at: '2014-06-19 17:30:58.606496'
+  fifa_id: cb1465a09aa34c6494d45fa53a9c49de
+  team_id: 39
+events_227:
+  id: 1215
+  type_of_event: substitution-in
+  player: GutiÉrrez
+  time: '64'
+  home_team: 
+  match_id: 19
+  created_at: '2014-06-19 17:30:58.612964'
+  updated_at: '2014-06-19 17:30:58.629897'
+  fifa_id: dd3165e4a0d04ab1bb690f3ca1dfd751
+  team_id: 39
+events_228:
+  id: 1216
+  type_of_event: red-card
+  player: Song
+  time: '40'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.195995'
+  updated_at: '2014-06-19 17:30:59.202728'
+  fifa_id: d90565d5f6994e918ae68fc617dd596f
+  team_id: 36
+events_229:
+  id: 1217
+  type_of_event: substitution-in
+  player: Webo
+  time: '70'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.209383'
+  updated_at: '2014-06-19 17:30:59.251743'
+  fifa_id: 0ecac7a8dd564508b5d17851edbffe2a
+  team_id: 36
+events_230:
+  id: 1218
+  type_of_event: substitution-in
+  player: Salli
+  time: '75'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.222899'
+  updated_at: '2014-06-19 17:30:59.257202'
+  fifa_id: 1eedcaec858648afbf27e104505cb467
+  team_id: 36
+events_231:
+  id: 1219
+  type_of_event: substitution-in halftime
+  player: Nounkeu
+  time: '46'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.233520'
+  updated_at: '2014-06-19 17:30:59.245416'
+  fifa_id: ed26ee1b51c144fe940e556cee7f7b04
+  team_id: 36
+events_232:
+  id: 1220
+  type_of_event: goal
+  player: PeriŠiĆ
+  time: '48'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.264369'
+  updated_at: '2014-06-19 17:30:59.270198'
+  fifa_id: 27ddfc71f4dc435e8ab4a7b1a5c50733
+  team_id: 34
+events_233:
+  id: 1221
+  type_of_event: substitution-in
+  player: RebiĆ
+  time: '78'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.275985'
+  updated_at: '2014-06-19 17:30:59.341500'
+  fifa_id: f6b7769e5f0849a58aae3595ff9e94a6
+  team_id: 34
+events_234:
+  id: 1222
+  type_of_event: goal
+  player: MandŽukiĆ
+  time: '61'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.287043'
+  updated_at: '2014-06-19 17:30:59.291413'
+  fifa_id: 08c0e7cb72a2492690867317f738da65
+  team_id: 34
+events_235:
+  id: 1223
+  type_of_event: goal
+  player: MandŽukiĆ
+  time: '73'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.297871'
+  updated_at: '2014-06-19 17:30:59.302609'
+  fifa_id: eb10625e3f9549d8a027042bd46b3ea2
+  team_id: 34
+events_236:
+  id: 1224
+  type_of_event: goal
+  player: OliĆ
+  time: '11'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.308968'
+  updated_at: '2014-06-19 17:30:59.313973'
+  fifa_id: 1925cb5db688425c9d35b75142d8dba0
+  team_id: 34
+events_237:
+  id: 1225
+  type_of_event: substitution-in
+  player: Eduardo
+  time: '69'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.320568'
+  updated_at: '2014-06-19 17:30:59.354102'
+  fifa_id: c284ef41a71d4ed9a688c480834b8e43
+  team_id: 34
+events_238:
+  id: 1226
+  type_of_event: substitution-in
+  player: KovaČiĆ
+  time: '72'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.331047'
+  updated_at: '2014-06-19 17:30:59.347821'
+  fifa_id: 03c25bcb87e9413cb21552106cf2d29d
+  team_id: 34
+events_239:
+  id: 1227
+  type_of_event: yellow-card
+  player: Eduardo
+  time: '89'
+  home_team: 
+  match_id: 20
+  created_at: '2014-06-19 17:30:59.360646'
+  updated_at: '2014-06-19 17:30:59.364824'
+  fifa_id: af1ba10e273b46a1b4db1c130118d416
+  team_id: 34
+events_240:
+  id: 1228
+  type_of_event: yellow-card
+  player: D. Godin
+  time: '9'
+  home_team: 
+  match_id: 22
+  created_at: '2014-06-19 19:56:54.421032'
+  updated_at: '2014-06-19 19:56:54.473953'
+  fifa_id: 2312daa108334337a07f74adf48fa10a
+  team_id: 45
+events_241:
+  id: 1229
+  type_of_event: goal
+  player: L. Suarez
+  time: '39'
+  home_team: 
+  match_id: 22
+  created_at: '2014-06-19 19:56:54.503154'
+  updated_at: '2014-06-19 19:56:54.507487'
+  fifa_id: 894d9705fffe498481dfc23865757798
+  team_id: 45

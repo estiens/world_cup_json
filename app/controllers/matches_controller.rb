@@ -6,6 +6,19 @@ class MatchesController < ApplicationController
       klass.order('datetime DESC')
     elsif params[:by_date].present? && params[:by_date].upcase == 'ASC'
       klass.order('datetime ASC')
+    elsif params[:by].present?
+      case params[:by].downcase
+      when "total_goals"
+        klass.order('home_team_score + away_team_score DESC')
+      when "home_team_goals"
+        klass.order('home_team_score DESC')
+      when "away_team_goals"
+        klass.order('away_team_score DESC')
+      when "closest_scores"
+        klass.order('abs(home_team_score - away_team_score) ASC')
+      else
+        klass.order(:match_number)
+      end
     else
       klass.order(:match_number)
     end

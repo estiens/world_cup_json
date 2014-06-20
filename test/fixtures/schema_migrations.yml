@@ -1,0 +1,13 @@
+---
+schema_migrations_001:
+  version: '20140614030821'
+schema_migrations_002:
+  version: '20140615201954'
+schema_migrations_003:
+  version: '20140618231324'
+schema_migrations_004:
+  version: '20140618232339'
+schema_migrations_005:
+  version: '20140618233456'
+schema_migrations_006:
+  version: '20140619165809'

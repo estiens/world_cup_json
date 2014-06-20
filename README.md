@@ -41,11 +41,18 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 ## Optional Parameters
 
-You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
+  * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
-    Example:[url]/matches/today/?by_date=DESC
+    Example:`[url]/matches/today/?by_date=DESC`
 
-Gives you today's matches in reverse order from latest to earliest.
+You can also use the by param to get some other sortings of the match list.
+
+  * `total_goals` will sort matches with the largest number of total goals to the least
+  * `home_team_goals` will sort matches with the largest number of home team goals to the least
+  * `away_team_goals` will sort matches with the largest number of away team goals to the least
+  * `closest_scores` will sort matches with draws first to largest winning marging
+
+    Example:`[url]/matches/current/?by=closest_scores`
 
 ## EXAMPLE RESPONSES
 
@@ -56,7 +63,7 @@ MATCH API
     {
         "match_number": 1,
         "location": "Arena Corinthians",
-        "datetime": "2014-06-12T17:00:00.000-05:00",
+        "datetime": "2014-06-12T17:00:00.000-03:00",
         "status": "completed",
         "home_team": {
             "country": "Brazil",
@@ -68,8 +75,91 @@ MATCH API
             "code": "CRO",
             "goals": 1
         },
-        "winner": "Brazil"
-    }
+        "winner": "Brazil",
+
+        "home_team_events": [
+            {
+                "id": 11,
+                "type_of_event": "goal-own",
+                "player": "Marcelo",
+                "time": "11"
+            },
+            {
+                "id": 14,
+                "type_of_event": "yellow-card",
+                "player": "Neymar Jr",
+                "time": "27"
+            },
+            {
+                "id": 15,
+                "type_of_event": "goal",
+                "player": "Neymar Jr",
+                "time": "29"
+            },
+            {
+                "id": 13,
+                "type_of_event": "substitution-in",
+                "player": "Hernanes",
+                "time": "63"
+            },
+            {
+                "id": 12,
+                "type_of_event": "substitution-in",
+                "player": "Bernard",
+                "time": "68"
+            },
+            {
+                "id": 16,
+                "type_of_event": "goal-penalty",
+                "player": "Neymar Jr",
+                "time": "71"
+            },
+            {
+                "id": 19,
+                "type_of_event": "yellow-card",
+                "player": "L Gustavo",
+                "time": "88"
+            },
+            {
+                "id": 17,
+                "type_of_event": "substitution-in",
+                "player": "Ramires",
+                "time": "88"
+            },
+            {
+                "id": 18,
+                "type_of_event": "goal",
+                "player": "Oscar",
+                "time": "901"
+            }
+            ],
+        "away_team_events": [
+            {
+                "id": 23,
+                "type_of_event": "substitution-in",
+                "player": "BrozoviĆ",
+                "time": "61"
+            },
+            {
+                "id": 20,
+                "type_of_event": "yellow-card",
+                "player": "Corluka",
+                "time": "66"
+            },
+            {
+                "id": 21,
+                "type_of_event": "yellow-card",
+                "player": "Lovren",
+                "time": "69"
+            },
+            {
+                "id": 22,
+                "type_of_event": "substitution-in",
+                "player": "RebiĆ",
+                "time": "78"
+            }
+        ]
+    },
 ]
 ```
 GROUP RESULTS API
@@ -102,9 +192,11 @@ http://worldcup.sfg.io/group_results
 
 http://worldcup.sfg.io/teams
 
-## PAGES USING THIS API
+## PROJECTS USING THIS API
 
-http://alexb.ninja/wc
+* http://alexb.ninja/wc
+
+* https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
 
 ## BACKGROUND
 
