@@ -53,12 +53,21 @@
     .large-6.columns
       %h3 TODAY'S MATCHES
       -@today_matches.each do |match|
-        %p.match-results #{match.home_team.country} (#{match.home_team_score}) VS #{match.away_team.country} (#{match.away_team_score}) [#{match.status}]
+        %p.match-results
+          -if match.status== "completed"
+            #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
+          -elsif match.status == "in progress"
+            #live
+              =image_tag(match.home_team.fifa_code.downcase+".png")
+              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
+              =image_tag(match.away_team.fifa_code.downcase+".png")
+          -else
+            #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
     .large-6.columns
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
-        %p.match-results #{match.home_team.country} VS #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+        %p.match-results #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 .footer
   %ul
     %li
