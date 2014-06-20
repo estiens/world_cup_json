@@ -22,11 +22,18 @@ This is a simple backend for a scraper that grabs current world cup results and 
     [url]/teams/
 for a list of teams with group ID and FIFA code
 
-    [url]/group_results/
-for current results (wins, losses, draws, goals for, goals against, knock out status)
+    ~~[url]/group_results/~~
+~~for current results (wins, losses, draws, goals for, goals against, knock out status)~~
+this will still run through the group stages, but it has been depricated in favor of the more comprehensive endpoints below
 
     [url]/matches/
 for all matches (Example JSON object at the bottom of this README)
+
+    [url]/teams/results
+results for each team (wins, losses, points, goals_for, goals_away, games_played) *(replaces `[url]/group_results` endpoint)*
+
+    [url]/teams/group_results
+results for each group, teams ordered by current groups standings. includes group letter, team, points, and goal differential
 
 ## OTHER ENDPOINTS
 
