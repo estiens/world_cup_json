@@ -1,45 +1,68 @@
 class Team < ActiveRecord::Base
 
-  has_many :home_matches, :class_name => Match, :foreign_key => "home_team_id"
-  has_many :away_matches, :class_name => Match, :foreign_key => "away_team_id"
+  has_many :home_matches, :class_name => Match, :foreign_key => "home_team_id" do
+    def completed
+      where("status = ?", 'completed')
+    end
+    def wins
+      where("status = ? AND home_team_score > away_team_score", "completed")
+    end
+    def losses
+      where("status = ? AND home_team_score < away_team_score", "completed")
+    end
+  end
+
+  has_many :away_matches, :class_name => Match, :foreign_key => "away_team_id" do
+    def completed
+      where("status = ?", 'completed')
+    end
+    def wins
+      where("status = ? AND home_team_score < away_team_score", "completed")
+    end
+    def losses
+      where("status = ? AND home_team_score > away_team_score", "completed")
+    end
+  end
+
   has_many :events
   belongs_to :group
 
+  
   def matches
     Match.where("home_team_id = ? OR away_team_id = ?", self.id, self.id)
   end
 
   def home_wins
-    Match.where("status = ? AND home_team_id = ? AND home_team_score > away_team_score", "completed", self.id).count
+    self.home_matches.wins.count
   end
 
   def home_goals_for
-    Match.where("status = ? AND home_team_id = ?", "completed", self.id).sum(:home_team_score)
+    self.home_matches.completed.sum(:home_team_score)
   end
 
   def away_goals_for
-    Match.where("status = ? AND away_team_id = ?", "completed", self.id).sum(:away_team_score)
+    self.away_matches.completed.sum(:away_team_score)
   end
 
   def home_goals_against
-    Match.where("status = ? AND home_team_id = ?", "completed", self.id).sum(:away_team_score)
+    self.home_matches.completed.sum(:away_team_score)
   end
 
   def away_goals_against
-    Match.where("status = ? AND away_team_id = ?", "completed", self.id).sum(:home_team_score)
+    self.away_matches.completed.sum(:home_team_score)
   end
 
   def away_wins
-    Match.where("status = ? AND away_team_id = ? AND home_team_score < away_team_score", "completed", self.id).count
+    self.away_matches.wins.count
   end
 
 
   def home_losses
-    Match.where("status = ? AND home_team_id = ? AND home_team_score < away_team_score", "completed", self.id).count
+    self.home_matches.losses.count
   end
 
   def away_losses
-    Match.where("status = ? AND away_team_id = ? AND home_team_score > away_team_score", "completed", self.id).count
+    self.away_matches.losses.count
   end
 
   def team_draws
