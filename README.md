@@ -205,6 +205,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
 
+* https://github.com/ColtCarder/XMPP-World-Cup-Bot (XMPP bot for the games that will connect to any jabber/xmpp chat server in order to share information) 
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
