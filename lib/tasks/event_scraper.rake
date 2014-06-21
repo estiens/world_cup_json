@@ -18,7 +18,7 @@ namespace :fifa do
       away_events = []
       match_info_page.css("td.home").css(".event").each do |event|
         event_type = event.attributes["class"].value.gsub("event ","")
-        player = event.parent.parent.parent.css('.p-n').text.titlecase
+        player = event.parent.parent.parent.css('.p-n').text.mb_chars.downcase.to_s.titlecase
         time = event.attributes["title"].value.gsub(/[^0-9]/, '')
         event_hash = event.attributes["data-guid"].value
         home_events << [event_hash, player, event_type, time]
