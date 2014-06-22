@@ -32,7 +32,7 @@ gem 'rails_admin'
 gem 'rabl'
 gem 'oj'
 
-group :development do
+group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
