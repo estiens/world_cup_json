@@ -208,7 +208,9 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/gberger/hubot-world-cup-live (Hubot plugin that pushes World Cup goals to a chat room)
 
-* World Cup SMS updates at http://worldcupsms.herokuapp.com/ by @andyjiang 
+* World Cup SMS updates at http://worldcupsms.herokuapp.com/ by @andyjiang
+
+* https://github.com/brenopolanski/chrome-worldcup2014-extension (World Cup 2014 - Chrome Extension)
 
 ## BACKGROUND
 
