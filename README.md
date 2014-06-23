@@ -12,11 +12,6 @@ This is a simple backend for a scraper that grabs current world cup results and 
 ```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
 ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
 
-## TODO
-
-* Static landing page
-* Add CSS class to determine knocked out teams
-
 ## ENDPOINTS
 
     [url]/teams/
@@ -48,6 +43,10 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 ## Optional Parameters
 
+  * You can append `?callback=foo` to get a JSONP response
+
+    Example: `http://worldcup.sfg.io/matches/today?callback=bar`
+    
   * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
     Example:`[url]/matches/today/?by_date=DESC`
