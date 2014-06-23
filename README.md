@@ -205,6 +205,10 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
 
+* https://github.com/ColtCarder/XMPP-World-Cup-Bot (Ruby/Blather XMPP Bot to private message live World Cup events as well as overall results.)
+
+* https://github.com/gberger/hubot-world-cup-live (Hubot plugin that pushes World Cup goals to a chat room)
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
