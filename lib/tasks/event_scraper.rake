@@ -12,7 +12,7 @@ namespace :fifa do
       #get game events
       url = match.children[0]['href']
       next if url == nil
-      next unless match.attributes["class"].value.include?("live")
+      # next unless match.attributes["class"].value.include?("live")
       match_info_page = Nokogiri::HTML(open(FIFA_SITE+url))
       home_events =  []
       away_events = []
