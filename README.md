@@ -209,6 +209,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/gberger/hubot-world-cup-live (Hubot plugin that pushes World Cup goals to a chat room)
 
+* World Cup SMS updates at http://worldcupsms.herokuapp.com/ by @andyjiang 
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
