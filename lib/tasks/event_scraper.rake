@@ -32,6 +32,9 @@ namespace :fifa do
         player = event.parent.parent.parent.css('.p-n').text.titlecase
         time = event.attributes["title"].value.gsub(/[^\d^+]/, '')
         event_hash = event.attributes["data-guid"].value
+        if event_type.downcase.include?("substitution-out")
+          event_hash += "out"
+        end
         away_events << [event_hash, player, event_type, time]
       end
       match = Match.find_or_create_by_fifa_id(fifa_id)
