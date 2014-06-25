@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  after_filter :set_content_type
 
   def index
     @teams=Team.all

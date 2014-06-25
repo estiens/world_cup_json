@@ -12,11 +12,6 @@ This is a simple backend for a scraper that grabs current world cup results and 
 ```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
 ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
 
-## TODO
-
-* Static landing page
-* Add CSS class to determine knocked out teams
-
 ## ENDPOINTS
 
     [url]/teams/
@@ -48,6 +43,10 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
 
 ## Optional Parameters
 
+  * You can append `?callback=foo` to get a JSONP response
+
+    Example: `http://worldcup.sfg.io/matches/today?callback=bar`
+    
   * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
     Example:`[url]/matches/today/?by_date=DESC`
@@ -60,6 +59,26 @@ You can also use the by param to get some other sortings of the match list.
   * `closest_scores` will sort matches with draws first to largest winning marging
 
     Example:`[url]/matches/current/?by=closest_scores`
+
+####JSONP
+
+The API also supports [JSONP](http://en.wikipedia.org/wiki/JSONP) style output via the `callback` parameter, e.g. `[url]/teams/results?callback=processData` responds with
+
+```json
+processData(
+	[
+		{
+				"id": 1,
+				"country": "Brazil",
+				"alternate_name": null,
+				"fifa_code": "BRA",
+				...
+		}
+	]
+)
+```
+
+The response includes the same data output as the regular GET call without parameters, but wrapped inside a function. This can be used to get around cross origin issues.
 
 ## EXAMPLE RESPONSES
 
@@ -208,6 +227,10 @@ http://worldcup.sfg.io/teams
 * https://github.com/ColtCarder/XMPP-World-Cup-Bot (Ruby/Blather XMPP Bot to private message live World Cup events as well as overall results.)
 
 * https://github.com/gberger/hubot-world-cup-live (Hubot plugin that pushes World Cup goals to a chat room)
+
+* World Cup SMS updates at http://worldcupsms.herokuapp.com/ by @andyjiang
+
+* https://github.com/brenopolanski/chrome-worldcup2014-extension (World Cup 2014 - Chrome Extension)
 
 ## BACKGROUND
 
