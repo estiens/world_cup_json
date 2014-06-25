@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  after_filter :set_content_type
 
   def ordered_class
     klass = Match

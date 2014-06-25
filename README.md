@@ -60,6 +60,26 @@ You can also use the by param to get some other sortings of the match list.
 
     Example:`[url]/matches/current/?by=closest_scores`
 
+####JSONP
+
+The API also supports [JSONP](http://en.wikipedia.org/wiki/JSONP) style output via the `callback` parameter, e.g. `[url]/teams/results?callback=processData` responds with
+
+```json
+processData(
+	[
+		{
+				"id": 1,
+				"country": "Brazil",
+				"alternate_name": null,
+				"fifa_code": "BRA",
+				...
+		}
+	]
+)
+```
+
+The response includes the same data output as the regular GET call without parameters, but wrapped inside a function. This can be used to get around cross origin issues.
+
 ## EXAMPLE RESPONSES
 
 MATCH API
