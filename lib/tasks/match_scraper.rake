@@ -19,14 +19,15 @@ namespace :fifa do
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
-      #if match is schedule, associate it with a team, eles use tbd variables
+      #if match is schedule, associate it with a team, else use tbd variables
       if Team.where(fifa_code: home_team_code).first
         home_team_id = Team.where(fifa_code: home_team_code).first.id
-        away_team_id = Team.where(fifa_code: away_team_code).first.id
-        teams_scheduled = true
       else
-        teams_scheduled = false
         home_team_tbd = home_team_code
+      end
+      if Team.where(fifa_code: away_team_code).first
+        away_team_id = Team.where(fifa_code: away_team_code).first.id
+      else
         away_team_tbd = away_team_code
       end
       # FIFA uses the score class to show the time if the match is in the future
@@ -55,7 +56,6 @@ namespace :fifa do
       fixture.away_team_id = away_team_id
       fixture.home_team_tbd = home_team_tbd
       fixture.away_team_tbd = away_team_tbd
-      fixture.teams_scheduled = teams_scheduled
       fixture.home_team_score = home_team_score
       fixture.away_team_score = away_team_score
       fixture.status = status
