@@ -64,8 +64,8 @@ namespace :fifa do
       fixture.home_team_score = home_team_score
       fixture.away_team_score = away_team_score
       if home_team_penalties && away_team_penalties
-        fixture.home_team_penalties == home_team_penalties
-        fixture.away_team_penalties == away_team_penalties
+        fixture.home_team_penalties = home_team_penalties
+        fixture.away_team_penalties = away_team_penalties
       end
       fixture.status = status
       fixture.save
