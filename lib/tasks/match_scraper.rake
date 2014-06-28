@@ -3,12 +3,14 @@ require 'open-uri'
 namespace :fifa do
   desc "scrape results from FIFA site"
   task get_all_matches: :environment do
+
     FIFA_SITE = "http://www.fifa.com/"
     MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
     MAIN_TZ = TZInfo::Timezone.get('America/Sao_Paulo')
     ALT_TZ = TZInfo::Timezone.get('America/Manaus')
     ALT_TIMEZONE_LOCATION = ['Arena Amazonia', 'Arena Pantanal']
     matches = Nokogiri::HTML(open(MATCH_URL))
+    counter = 0
 
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
@@ -17,14 +19,15 @@ namespace :fifa do
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
-      #if match is schedule, associate it with a team, eles use tbd variables
+      #if match is schedule, associate it with a team, else use tbd variables
       if Team.where(fifa_code: home_team_code).first
         home_team_id = Team.where(fifa_code: home_team_code).first.id
-        away_team_id = Team.where(fifa_code: away_team_code).first.id
-        teams_scheduled = true
       else
-        teams_scheduled = false
         home_team_tbd = home_team_code
+      end
+      if Team.where(fifa_code: away_team_code).first
+        away_team_id = Team.where(fifa_code: away_team_code).first.id
+      else
         away_team_tbd = away_team_code
       end
       # FIFA uses the score class to show the time if the match is in the future
@@ -35,6 +38,11 @@ namespace :fifa do
         away_team_score = score_array.last
       else
         home_team_score = away_team_score = "0"
+      end
+      unless match.css(".mu-reasonwin-abbr").text.strip.empty?
+        penalty_array = match.css(".mu-reasonwin-abbr").text.split("-")
+        home_team_penalties = penalty_array[0].gsub(/[^\d]/, "").to_i
+        away_team_penalties = penalty_array[1].gsub(/[^\d]/, "").to_i
       end
       # save match status to use to display live matches via JSON
       if match.css(".s-status").text.downcase.include?("full")
@@ -53,12 +61,17 @@ namespace :fifa do
       fixture.away_team_id = away_team_id
       fixture.home_team_tbd = home_team_tbd
       fixture.away_team_tbd = away_team_tbd
-      fixture.teams_scheduled = teams_scheduled
       fixture.home_team_score = home_team_score
       fixture.away_team_score = away_team_score
+      if home_team_penalties && away_team_penalties
+        fixture.home_team_penalties == home_team_penalties
+        fixture.away_team_penalties == away_team_penalties
+      end
       fixture.status = status
       fixture.save
+      counter += 1
     end
+    puts "checked matches, retrieved #{counter} matches"
   end
 end
 
