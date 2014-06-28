@@ -234,6 +234,8 @@ http://worldcup.sfg.io/teams
 
 * http://worldcup2014.meteor.com/ - betting pool app for @q42 built by @primigenus using @meteor
 
+* https://github.com/Friss/WorldCup - World Cup matches with the arena in the background
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
