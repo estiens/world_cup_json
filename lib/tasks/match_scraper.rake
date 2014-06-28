@@ -39,6 +39,11 @@ namespace :fifa do
       else
         home_team_score = away_team_score = "0"
       end
+      unless match.css(".mu-reasonwin-abbr").text.strip.empty?
+        penalty_array = match.css(".mu-reasonwin-abbr").text.split("-")
+        home_team_penalties = penalty_array[0].gsub(/[^\d]/, "").to_i
+        away_team_penalties = penalty_array[1].gsub(/[^\d]/, "").to_i
+      end
       # save match status to use to display live matches via JSON
       if match.css(".s-status").text.downcase.include?("full")
         status = "completed"
@@ -58,6 +63,10 @@ namespace :fifa do
       fixture.away_team_tbd = away_team_tbd
       fixture.home_team_score = home_team_score
       fixture.away_team_score = away_team_score
+      if home_team_penalties && away_team_penalties
+        fixture.home_team_penalties == home_team_penalties
+        fixture.away_team_penalties == away_team_penalties
+      end
       fixture.status = status
       fixture.save
       counter += 1
