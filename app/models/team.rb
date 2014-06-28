@@ -5,10 +5,10 @@ class Team < ActiveRecord::Base
       where("status = ?", 'completed')
     end
     def wins
-      where("status = ? AND home_team_score > away_team_score", "completed")
+      where("status = ? AND home_team_score > away_team_score OR home_team_penalties > away_team_penalties", "completed")
     end
     def losses
-      where("status = ? AND home_team_score < away_team_score", "completed")
+      where("status = ? AND home_team_score < away_team_score OR home_team_penalties < away_team_penalties", "completed")
     end
   end
 
@@ -17,17 +17,17 @@ class Team < ActiveRecord::Base
       where("status = ?", 'completed')
     end
     def wins
-      where("status = ? AND home_team_score < away_team_score", "completed")
+      where("status = ? AND home_team_score < away_team_score OR home_team_penalties < away_team_penalties", "completed")
     end
     def losses
-      where("status = ? AND home_team_score > away_team_score", "completed")
+      where("status = ? AND home_team_score > away_team_score OR home_team_penalties > away_team_penalties", "completed")
     end
   end
 
   has_many :events
   belongs_to :group
 
-  
+
   def matches
     Match.where("home_team_id = ? OR away_team_id = ?", self.id, self.id)
   end
@@ -66,7 +66,7 @@ class Team < ActiveRecord::Base
   end
 
   def team_draws
-    self.matches.where("status = ? AND home_team_score = away_team_score", "completed").count
+    self.matches.where("status = ? AND home_team_score = away_team_score AND home_team_penalties IS NULL", "completed").count
   end
 
   def team_wins
