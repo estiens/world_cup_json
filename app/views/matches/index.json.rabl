@@ -1,7 +1,9 @@
 collection @matches, object_root: false
 attributes :match_number, :location, :datetime, :status
 node :home_team do |match|
-  if match.home_team
+  if match.home_team_penalties
+      {country: match.home_team.country, code: match.home_team.fifa_code, goals: match.home_team_score, penalties: match.home_team_penalties}
+  elsif match.home_team
     {country: match.home_team.country, code: match.home_team.fifa_code, goals: match.home_team_score}
   else
     {country: "to be determined", code: "TBD"}
@@ -9,7 +11,9 @@ node :home_team do |match|
   end
 end
 node :away_team do |match|
-  if match.away_team
+  if match.away_team_penalties
+      {country: match.away_team.country, code: match.away_team.fifa_code, goals: match.away_team_score, penalties: match.away_team_penalties}
+  elsif match.away_team
     {country: match.away_team.country, code: match.away_team.fifa_code, goals: match.away_team_score}
   else
     {country: "to be determined", code: "TBD"}
@@ -18,7 +22,11 @@ node :away_team do |match|
 end
 node :winner do |match|
   if match.status == "completed"
-    if match.home_team_score > match.away_team_score
+    if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
+      match.home_team.country
+    elsif match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
+      match.away_team_country
+    elsif match.home_team_score > match.away_team_score
       match.home_team.country
     elsif match.home_team_score < match.away_team_score
       match.away_team.country
