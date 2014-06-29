@@ -23,11 +23,26 @@ node :winner do |match|
     if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
       match.home_team.country
     elsif match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
-      match.away_team_country
+      match.away_team.country
     elsif match.home_team_score > match.away_team_score
       match.home_team.country
     elsif match.home_team_score < match.away_team_score
       match.away_team.country
+    else
+      "Draw"
+    end
+  end
+end
+node :winner_code do |match|
+  if match.status == "completed"
+    if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
+      match.home_team.fifa_code
+    elsif match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
+      match.away_team.fifa_code
+    elsif match.home_team_score > match.away_team_score
+      match.home_team.fifa_code
+    elsif match.home_team_score < match.away_team_score
+      match.away_team.fifa_code
     else
       "Draw"
     end
