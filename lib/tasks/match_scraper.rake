@@ -16,7 +16,7 @@ namespace :fifa do
       fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
       datetime = match.css(".mu-i-datetime").text
-      next unless datetime.to_time.beginning_of_day == Time.now.beginning_of_day
+      next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
