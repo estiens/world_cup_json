@@ -16,6 +16,9 @@ namespace :fifa do
       fifa_id = match.first[1] #get unique fifa_id
       match_number = match.css(".mu-i-matchnum").text.gsub("Match ","")
       datetime = match.css(".mu-i-datetime").text
+      # comment next line out for set up and scraping of all matches
+      # reduces overhead on heroku to only scrape current/future matches
+      next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
@@ -40,9 +43,12 @@ namespace :fifa do
         home_team_score = away_team_score = "0"
       end
       unless match.css(".mu-reasonwin-abbr").text.strip.empty?
-        penalty_array = match.css(".mu-reasonwin-abbr").text.split("-")
-        home_team_penalties = penalty_array[0].gsub(/[^\d]/, "").to_i
-        away_team_penalties = penalty_array[1].gsub(/[^\d]/, "").to_i
+        #occasionally appends non penalty shootout messages in this spot
+        if match.css(".mu-reasonwin-abbr").text.downcase.include?("pso")
+          penalty_array = match.css(".mu-reasonwin-abbr").text.split("-")
+          home_team_penalties = penalty_array[0].gsub(/[^\d]/, "").to_i
+          away_team_penalties = penalty_array[1].gsub(/[^\d]/, "").to_i
+        end
       end
       # save match status to use to display live matches via JSON
       if match.css(".s-status").text.downcase.include?("full")
@@ -71,7 +77,7 @@ namespace :fifa do
       fixture.save
       counter += 1
     end
-    puts "checked matches, retrieved #{counter} matches"
+    puts "checked matches, saved #{counter} matches"
   end
 end
 
