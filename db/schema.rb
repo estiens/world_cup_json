@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628190631) do
+ActiveRecord::Schema.define(version: 20140702031332) do
 
   create_table "events", force: true do |t|
     t.string   "type_of_event"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140628190631) do
     t.boolean  "knocked_out"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country_code"
   end
 
 end
