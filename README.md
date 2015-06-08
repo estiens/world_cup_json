@@ -236,6 +236,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/Friss/WorldCup - World Cup matches with the arena in the background
 
+* https://github.com/sestaton/WorldCupStats - World Cup stats and match information at the command line
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
