@@ -17,7 +17,7 @@ namespace :fifa do
       datetime = match.css(".mu-i-datetime").text
       # comment next line out for set up and scraping of all matches
       # reduces overhead on heroku to only scrape current/future matches
-      # next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
+      next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
 
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
