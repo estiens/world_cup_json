@@ -1,6 +1,6 @@
 # ABOUT
 
-This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON.
+This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup.
 
 # SETUP
 
@@ -8,9 +8,11 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
 
-* Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example):
-```rake fifa:get_group_results``` (This pulls in the standings of the group stages)
+* Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example)
+
 ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
+
+```rake fifa:get_all_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
 
 ## ENDPOINTS
 
