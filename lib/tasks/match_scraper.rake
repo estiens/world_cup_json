@@ -50,12 +50,12 @@ namespace :fifa do
         end
       end
       # save match status to use to display live matches via JSON
-      if match.css(".s-status").text.downcase.include?("full")
-        status = "completed"
-      elsif match.attributes["class"].value.include?("live")
-        status = "in progress"
+      if match.css('.s-status').text.downcase.include?('full')
+        status = 'completed'
+      elsif match.attributes['class'].value.include?('live')
+        status = 'in progress'
       else
-        status = "future"
+        status = 'future'
       end
       Time.zone = TZInfo::Timezone.get(timezones[location])
       fixture = Match.find_or_create_by_fifa_id(fifa_id)
