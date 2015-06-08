@@ -5,12 +5,11 @@ namespace :fifa do
   task get_all_matches: :environment do
 
     FIFA_SITE = "http://www.fifa.com/"
-    MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
-    MAIN_TZ = TZInfo::Timezone.get('America/Sao_Paulo')
-    ALT_TZ = TZInfo::Timezone.get('America/Manaus')
-    ALT_TIMEZONE_LOCATION = ['Arena Amazonia', 'Arena Pantanal']
+    MATCH_URL = FIFA_SITE + "womensworldcup/matches/index.html"
     matches = Nokogiri::HTML(open(MATCH_URL))
     counter = 0
+    timezone_file = File.read(Rails.root + "lib/assets/timezones.json")
+    timezones = JSON.parse(timezone_file)
 
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
@@ -18,7 +17,7 @@ namespace :fifa do
       datetime = match.css(".mu-i-datetime").text
       # comment next line out for set up and scraping of all matches
       # reduces overhead on heroku to only scrape current/future matches
-      next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
+      # next unless datetime.to_time.beginning_of_day >= Time.now.beginning_of_day
       location = match.css(".mu-i-stadium").text
       home_team_code = match.css(".home .t-nTri").text
       away_team_code = match.css(".away .t-nTri").text
@@ -58,10 +57,10 @@ namespace :fifa do
       else
         status = "future"
       end
-      Time.zone = (ALT_TIMEZONE_LOCATION.include?(location) ? ALT_TZ : MAIN_TZ)
+      Time.zone = TZInfo::Timezone.get(timezones[location])
       fixture = Match.find_or_create_by_fifa_id(fifa_id)
       fixture.match_number = match_number
-      fixture.datetime = Time.zone.parse(datetime)
+      fixture.datetime = Time.parse(datetime).localtime
       fixture.location = location
       fixture.home_team_id = home_team_id
       fixture.away_team_id = away_team_id
@@ -80,4 +79,3 @@ namespace :fifa do
     puts "checked matches, saved #{counter} matches"
   end
 end
-
