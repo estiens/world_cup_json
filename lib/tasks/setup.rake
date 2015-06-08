@@ -6,6 +6,12 @@ namespace :setup do
     path = Rails.root+"lib/assets/team.json"
     file = File.read(path)
     teams = JSON.parse(file)
+    groups = ('A'..'F').to_a
+    groups.each do |group|
+      new_group = Group.find_or_create_by_letter(group)
+      new_group.letter = group
+      new_group.save
+    end
     teams.each do |team|
       t = Team.new
       t.country = team["name"]
@@ -14,5 +20,9 @@ namespace :setup do
       t.fifa_code = team["code"]
       t.save
     end
+    Group.all.each do |group|
+      raise "Something went wrong" if group.teams.count != 4
+    end
+    puts "#{Team.count} teams created successfully"
   end
 end
