@@ -4,7 +4,7 @@ namespace :fifa do
   desc "scrape events from FIFA site"
   task get_all_events: :environment do
     FIFA_SITE = "http://www.fifa.com/"
-    MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
+    MATCH_URL = FIFA_SITE + "womensworldcup/matches/index.html"
     matches = Nokogiri::HTML(open(MATCH_URL))
     matches.css(".col-xs-12 .mu").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
@@ -30,7 +30,8 @@ namespace :fifa do
         event_hash = event.attributes["data-guid"].value
         away_events << [event_hash, player, event_type, time]
       end
-      match = Match.find_or_create_by_fifa_id(fifa_id)
+      match = Match.find_by_fifa_id(fifa_id)
+      next unless match
       home_events.each do |event_array|
         event = Event.find_or_create_by_fifa_id(event_array[0])
         event.player = event_array[1]
@@ -50,7 +51,6 @@ namespace :fifa do
         event.team_id = match.away_team.id
         event.save
       end
-
     end
   end
 end
