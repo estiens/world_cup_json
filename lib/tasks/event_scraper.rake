@@ -13,7 +13,7 @@ namespace :fifa do
       url = match.children[0]['href']
       next if url == nil
       datetime = match.css(".mu-i-datetime").text
-      next unless datetime.to_time.beginning_of_day == Time.now.beginning_of_day
+      # next unless datetime.to_time.beginning_of_day == Time.now.beginning_of_day
       match_info_page = Nokogiri::HTML(open(FIFA_SITE+url))
       home_events =  []
       away_events = []
