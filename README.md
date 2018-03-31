@@ -1,3 +1,7 @@
+# IMPORTANT
+
+I am recieving tons of inquiries about whether this will work for the 2018 World Cup. The short answer is, I have no idea because it is based on a scraper. If FIFA substantially changed their website, it will need to be completely re-written. If it has only changed a bit, it might just need tweaks, like it did for the Women's World Cup. Unfortunately, we may not know this until after the World Cup results have already started. (My hope was that 4 years later, there'd be a better realtime API). I'm going to start digging into FIFA results pages and see what has changed, but the reality is that the World Cup results site may be entirely different this time around. No guarantees, but stay tuned!
+
 # ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup.
