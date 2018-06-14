@@ -21,6 +21,8 @@ gem 'rails_admin'
 
 gem 'rabl'
 
+gem 'oj'
+
 gem 'clockwork'
 
 gem 'haml-rails'

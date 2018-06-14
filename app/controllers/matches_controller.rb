@@ -28,37 +28,37 @@ class MatchesController < ApplicationController
 
   def index
     @matches = ordered_class.all
-    render json: 'index.json.rabl'
+    render 'index.json.rabl'
   end
 
   def current
     @matches = ordered_class.where(status: "in progress")
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 
   def complete
     @matches = ordered_class.where(status: "completed")
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 
   def future
     @matches = ordered_class.where(status: "future")
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 
   def country
     @team = Team.where(fifa_code: params['fifa_code']).first
     @matches = ordered_class.where("home_team_id = ? OR away_team_id = ?", @team.id, @team.id)
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 
   def today
     @matches = ordered_class.today
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 
   def tomorrow
     @matches = ordered_class.tomorrow
-    render json: 'index.json.rabl'
+    render 'index.json.rabl', callback: params['callback']
   end
 end
