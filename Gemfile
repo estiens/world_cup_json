@@ -17,6 +17,8 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'responders', '~> 2.0'
+
 gem 'rails_admin'
 
 gem 'rabl'
