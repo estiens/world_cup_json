@@ -1,8 +1,14 @@
 {
-    "Commonwealth Stadium": "Canada/Mountain",
-    "Lansdowne Stadium": "Canada/Eastern",
-    "Winnipeg Stadium": "Canada/Central",
-    "BC Place Stadium": "Canada/Pacific",
-    "Moncton Stadium": "Canada/Atlantic",
-    "Olympic Stadium": "Canada/Eastern"
+ "Luzhniki Stadium": "Europe/Moscow",
+ "Ekaterinburg Arena": "Asia/Yekaterinburg",
+ "Saint Petersburg Stadium": "Europe/Moscow",
+ "Fisht Stadium": "Europe/Moscow",
+ "Kazan Arena": "Europe/Moscow",
+ "Spartak Stadium": "Europe/Moscow",
+ "Mordovia Arena": "Europe/Moscow",
+ "Kaliningrad Stadium": "Europe/Kaliningrad",
+ "Samara Arena": "Europe/Samara",
+ "Rostov Arena": "Europe/Moscow",
+ "Nizhny Novgorod Stadium": "Europe/Moscow",
+ "Volgograd Arena": "Europe/Moscow"
 }

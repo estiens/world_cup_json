@@ -1,5 +1,5 @@
 collection @matches, object_root: false
-attributes :match_number, :location, :datetime, :status
+attributes :venue, :location, :datetime, :status
 node :home_team do |match|
   if match.home_team_penalties
       {country: match.home_team.country, code: match.home_team.fifa_code, goals: match.home_team_score, penalties: match.home_team_penalties}
@@ -49,10 +49,3 @@ node :away_team_events do |match|
     "no events available for this match"
   end
 end
-
-
-
-
-
-
-

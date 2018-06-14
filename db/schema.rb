@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628190631) do
+ActiveRecord::Schema.define(version: 20180614060433) do
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "type_of_event"
     t.string   "player"
     t.string   "time"
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20140628190631) do
     t.integer  "team_id"
   end
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
+    t.string   "letter",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "letter"
   end
 
-  create_table "matches", force: true do |t|
+  create_table "matches", force: :cascade do |t|
     t.string   "fifa_id"
     t.integer  "match_number"
     t.string   "location"
@@ -48,9 +48,10 @@ ActiveRecord::Schema.define(version: 20140628190631) do
     t.datetime "updated_at"
     t.integer  "home_team_penalties"
     t.integer  "away_team_penalties"
+    t.string   "venue"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "teams", force: :cascade do |t|
     t.string   "country"
     t.string   "alternate_name"
     t.string   "fifa_code"

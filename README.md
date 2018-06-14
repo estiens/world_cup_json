@@ -1,6 +1,10 @@
-# IMPORTANT
+# FIFA WORLD CUP 2018
 
-I am recieving tons of inquiries about whether this will work for the 2018 World Cup. The short answer is, I have no idea because it is based on a scraper. If FIFA substantially changed their website, it will need to be completely re-written. If it has only changed a bit, it might just need tweaks, like it did for the Women's World Cup. Unfortunately, we may not know this until after the World Cup results have already started. (My hope was that 4 years later, there'd be a better realtime API). I'm going to start digging into FIFA results pages and see what has changed, but the reality is that the World Cup results site may be entirely different this time around. No guarantees, but stay tuned!
+This should be now working for the World Cup in 2018!
+
+Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
+
+FIFA has changed their HTML structure from all previous tournaments. I can surmise how all results and goals show up, but I'm not yet sure about events (cards, subs, etc). I will try to have this working within 24 hours of the first match being played, and add any extra information they are displaying this time.
 
 # ABOUT
 
@@ -52,7 +56,7 @@ You can also retrieve the matches for any team if you know their FIFA code by pa
   * You can append `?callback=foo` to get a JSONP response
 
     Example: `http://worldcup.sfg.io/matches/today?callback=bar`
-    
+
   * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
     Example:`[url]/matches/today/?by_date=DESC`
@@ -93,7 +97,7 @@ MATCH API
 ```json
 [
     {
-        "match_number": 1,
+        "venue":  "Brazil",
         "location": "Arena Corinthians",
         "datetime": "2014-06-12T17:00:00.000-03:00",
         "status": "completed",

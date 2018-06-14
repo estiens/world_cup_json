@@ -1,89 +1,78 @@
 [
     {
         "group_id": 1,
-        "code": "CAN",
-        "name": "Canada"
+        "code": "RUS",
+        "name": "Russia"
     },
     {
-        "group_id": 4,
-        "code": "USA",
-        "name": "United States"
+        "group_id": 1,
+        "code": "KSA",
+        "name": "Saudi Arabia"
     },
     {
-        "group_id": 6,
-        "code": "MEX",
-        "name": "Mexico"
+        "group_id": 1,
+        "code": "EGY",
+        "name": "Egypt"
     },
     {
-        "group_id": 5,
-        "code": "CRC",
-        "name": "Costa Rica"
+        "group_id": 1,
+        "code": "URU",
+        "name": "Uruguay"
     },
     {
-        "group_id": 6,
-        "code": "COL",
-        "name": "Colombia"
+        "group_id": 2,
+        "code": "POR",
+        "name": "Portugal"
     },
     {
-        "group_id": 3,
-        "code": "ECU",
-        "name": "Ecuador"
-    },
-    {
-        "group_id": 5,
-        "code": "BRA",
-        "name": "Brazil"
-    },
-    {
-        "group_id": 6,
-        "code": "ENG",
-        "name": "England"
-    },
-    {
-        "group_id": 6,
-        "code": "FRA",
-        "name": "France"
-    },
-    {
-        "group_id": 5,
+        "group_id": 2,
         "code": "ESP",
         "name": "Spain"
     },
     {
         "group_id": 2,
-        "code": "NOR",
-        "name": "Norway"
-    },
-    {
-        "group_id": 4,
-        "code": "SWE",
-        "name": "Sweden"
-    },
-    {
-        "group_id": 1,
-        "code": "NED",
-        "name": "Netherlands"
-    },
-    {
-        "group_id": 3,
-        "code": "CMR",
-        "name": "Cameroon"
+        "code": "MAR",
+        "name": "Morocco"
     },
     {
         "group_id": 2,
-        "code": "CIV",
-        "name": "Ivory Coast",
-        "alternate_name": "Côte d'Ivoire"
+        "code": "IRN",
+        "name": "Iran"
     },
     {
         "group_id": 3,
-        "code": "JPN",
-        "name": "Japan"
+        "code": "FRA",
+        "name": "France"
     },
     {
         "group_id": 3,
-        "code": "SUI",
-        "name": "Switzerland"
+        "code": "AUS",
+        "name": "Australia"
+    },
+    {
+        "group_id": 3,
+        "code": "PER",
+        "name": "Peru"
+    },
+    {
+        "group_id": 3,
+        "code": "DEN",
+        "name": "Denmark"
+    },
+    {
+        "group_id": 4,
+        "code": "ARG",
+        "name": "Argentina"
+    },
+    {
+        "group_id": 4,
+        "code": "ISL",
+        "name": "Iceland"
+    },
+    {
+        "group_id": 4,
+        "code": "CRO",
+        "name": "Croatia"
     },
     {
         "group_id": 4,
@@ -91,34 +80,83 @@
         "name": "Nigeria"
     },
     {
-        "group_id": 2,
+        "group_id": 5,
+        "code": "BRA",
+        "name": "Brazil"
+    },
+    {
+        "group_id": 5,
+        "code": "SUI",
+        "name": "Switzerland"
+    },
+    {
+        "group_id": 5,
+        "code": "CRC",
+        "name": "Costa Rica"
+    },
+    {
+        "group_id": 5,
+        "code": "SRB",
+        "name": "Serbia"
+    },
+    {
+        "group_id": 6,
         "code": "GER",
         "name": "Germany"
     },
     {
-        "group_id": 5,
+        "group_id": 6,
+        "code": "MEX",
+        "name": "Mexico"
+    },
+    {
+        "group_id": 6,
+        "code": "SWE",
+        "name": "Sweden"
+    },
+    {
+        "group_id": 6,
         "code": "KOR",
-        "name": "Korea Republic",
-        "alternate_name": "South Korea"
+        "name": "Korea Republic"
     },
     {
-        "group_id": 1,
-        "code": "CHN",
-        "name": "China"
+        "group_id": 7,
+        "code": "BEL",
+        "name": "Belgium"
     },
     {
-        "group_id": 2,
-        "code": "THA",
-        "name": "Thailand"
+        "group_id": 7,
+        "code": "PAN",
+        "name": "Panama"
     },
     {
-        "group_id": 1,
-        "code": "NZL",
-        "name": "New Zealand"
+        "group_id": 7,
+        "code": "TUN",
+        "name": "Tunisia"
     },
     {
-        "group_id": 4,
-        "code": "AUS",
-        "name": "Australia"
+        "group_id": 7,
+        "code": "ENG",
+        "name": "England"
+    },
+    {
+        "group_id": 8,
+        "code": "POL",
+        "name": "Poland"
+    },
+    {
+        "group_id": 8,
+        "code": "Sen",
+        "name": "Senegal"
+    },
+    {
+        "group_id": 8,
+        "code": "COL",
+        "name": "Columbia"
+    },
+    {
+        "group_id": 8,
+        "code": "JPN",
+        "name": "Japan"
     }
 ]
