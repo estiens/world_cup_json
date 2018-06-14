@@ -18,10 +18,10 @@ class MatchesController < ApplicationController
       when "closest_scores"
         klass.order('abs(home_team_score - away_team_score) ASC')
       else
-        klass.order(:match_number)
+        klass.all
       end
     else
-      klass.order(:match_number)
+      klass.all
     end
   end
 
@@ -61,5 +61,3 @@ class MatchesController < ApplicationController
     render 'index.json.rabl'
   end
 end
-
-
