@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
   after_filter :set_content_type
   protect_from_forgery with: :null_session
+  layout false
 
   def ordered_class
     klass = Match

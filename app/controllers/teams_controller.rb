@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   after_filter :set_content_type
   protect_from_forgery with: :null_session
+  layout false
 
   def index
     @teams=Team.all
