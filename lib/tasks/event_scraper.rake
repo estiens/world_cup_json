@@ -3,14 +3,14 @@ require 'open-uri'
 namespace :fifa do
   desc "scrape events from FIFA site"
   task get_all_events: :environment do
-    FIFA_SITE = "http://www.fifa.com/"
-    MATCH_URL = FIFA_SITE + "womensworldcup/matches/index.html"
+    FIFA_SITE = "https://www.fifa.com/"
+    MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
     matches = Nokogiri::HTML(open(MATCH_URL))
-    matches.css(".col-xs-12 .mu").each do |match|
+    matches.css(".fixture").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
-
       #get game events
       url = match.children[0]['href']
+      puts url
       next if url == nil
       datetime = match.css(".mu-i-datetime").text
       next unless datetime.to_time.beginning_of_day == Time.now.beginning_of_day

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-
+ruby '2.3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.2'
 
 group :development, :test do
   gem 'sqlite3'
