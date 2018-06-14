@@ -2,7 +2,7 @@
 
 This should be now working for the World Cup in 2018!
 
-Main response endpoint: 
+Main response endpoint:
 http://worldcup.sfg.io/matches
 
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
@@ -30,18 +30,20 @@ This is a simple backend for a scraper that grabs current world cup results and 
     [url]/teams/
 for a list of teams with group ID and FIFA code
 
-~~[url]/group_results/~~
-~~for current results (wins, losses, draws, goals for, goals against, knock out status)~~
-(this will still run through the group stages, but it has been depricated in favor of the more comprehensive endpoints below)
+-
 
     [url]/matches/
 for all matches (Example JSON object at the bottom of this README)
 
+-
+
     [url]/teams/results
-results for each team (wins, losses, points, goals_for, goals_away, games_played) *(replaces `[url]/group_results` endpoint)*
+results for each team (wins, losses, points, goals_for, goals_away, games_played)
+
+-
 
     [url]/teams/group_results
-results for each group, teams ordered by current groups standings. includes group letter, team, points, and goal differential
+results for each group, teams ordered by current groups standings. Includes group letter, team, points, and goal differential
 
 ## OTHER ENDPOINTS
 
@@ -231,7 +233,11 @@ http://worldcup.sfg.io/group_results
 
 http://worldcup.sfg.io/teams
 
-## PROJECTS USING THIS API
+## PROJECTS USING THIS API IN 2018
+
+(What will you build?)
+
+## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
 
