@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180614060433) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
     t.string   "type_of_event"
     t.string   "player"
@@ -33,7 +36,6 @@ ActiveRecord::Schema.define(version: 20180614060433) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "fifa_id"
-    t.integer  "match_number"
     t.string   "location"
     t.datetime "datetime"
     t.integer  "home_team_id"

@@ -3,9 +3,7 @@ ruby '2.3.7'
 
 gem 'rails', '4.2'
 
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'pg', '= 0.20'
 
 gem 'sass-rails', '~> 5.0.0'
 
@@ -34,7 +32,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
