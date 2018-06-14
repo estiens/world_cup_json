@@ -2,6 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$base-font-size: 120%;
+$base-line-height: 160%;
+$body-font-color: #FFFEFF;
+$body-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$primary-color: #8fa3be;
+$header-font-family: 'Lato', 'Helvetica', sans-serif;
+$header-font-weight: 700;
+$header-font-color: #FFFEFF;
+$header-line-height: 1.4;
+$h2-font-size: rem-calc(42);
+$h3-font-size: rem-calc(27);
+$h4-font-size: rem-calc(23);
+$h5-font-size: rem-calc(18);
+$h6-font-size: 1rem;
+$button-font-color: #fff;
+$button-bg: #9dcbff;
+
+body {
+background: image-url("bg.jpg") no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFFEFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #FFFEFF;
+}
+
 .header {
   display: block;
   margin: 50px 0;
@@ -118,5 +148,3 @@ button {
 #sfg-logo:hover {opacity:.7}
 #live {text-align:center}
 #live img {width:25px; border-radius: 10%; margin:-2px 10px 0px 10px}
-
-

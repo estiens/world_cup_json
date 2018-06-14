@@ -4,17 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Women's World Cup...in JSON</title>
+    <title><%= content_for?(:title) ? yield(:title) : "World Cup API 2018" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,900' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+
   </body>
 </html>

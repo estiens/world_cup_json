@@ -12,7 +12,8 @@ namespace :fifa do
     timezones = JSON.parse(timezone_file)
     matches.css(".fixture").each do |match|
       fifa_id = match.first[1] #get unique fifa_id
-      datetime = match.css('.fi-mu__info__datetime')&.first&.attributes['data-utcdate']&.value
+      datetime = match.css('.fi-mu__info__datetime')&.text&.strip
+      datetime = datetime&.downcase&.gsub('local time', '')&.strip&.to_time
       venue = match.css('.fi__info__venue')&.text
       # comment next line out for set up and scraping of all matches
       # reduces overhead on heroku to only scrape current/future matches
@@ -62,7 +63,7 @@ namespace :fifa do
       Time.zone = TZInfo::Timezone.get(timezones[location])
       fixture = Match.find_or_create_by(fifa_id: fifa_id)
       fixture.venue = venue
-      fixture.datetime = Time.parse(datetime).localtime
+      fixture.datetime = Time.parse(datetime.to_s).localtime
       fixture.location = location
       fixture.home_team_id = home_team_id
       fixture.away_team_id = away_team_id
