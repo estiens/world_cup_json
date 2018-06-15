@@ -5,6 +5,9 @@ This should be now working for the World Cup in 2018! (Okay, now really working 
 Main response endpoint:
 http://worldcup.sfg.io/matches
 
+If you need SSL access, please use
+https://world-cup-json.herokuapp.com for the time being until SSL is working on the main domain
+
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
 
 FIFA has changed their HTML structure from all previous tournaments. I can surmise how all results and goals show up, but I'm not yet sure about events (cards, subs, etc). I will try to have this working within 24 hours of the first match being played, and add any extra information they are displaying this time.
