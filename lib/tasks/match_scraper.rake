@@ -14,11 +14,17 @@ def get_page_from_url(url)
   Nokogiri::HTML(browser.html)
 end
 
+def timezones
+  timezone_file = File.read(Rails.root + "lib/assets/timezones.json")
+  JSON.parse(timezone_file)
+end
+
 namespace :fifa do
   desc 'scrape match events from fifa site'
   task get_events: :environment do
     match = Match.where(status: 'in progress').first
     match ||= Match.where(status: 'end of time').first
+    next unless match
     puts "grabbing events for #{match.home_team.fifa_code} vs #{match.away_team.fifa_code}"
     url = "#{EVENTS_URL}#{match.fifa_id}/"
     events = get_page_from_url(url)
@@ -56,28 +62,23 @@ namespace :fifa do
 
   desc "scrape results from FIFA site"
   task get_all_matches: :environment do
-    def get_page_from_url(url)
-      opts = { headless: true }
-      if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-        opts.merge!( options: { binary: chrome_bin } )
-      end
-      browser = Watir::Browser.new :chrome, opts
-      browser.goto(url)
-      Nokogiri::HTML(browser.html)
-    end
-
     def parse_match(match)
-      fifa_id = match.first[1] #get unique fifa_id
+      fifa_id = match.first[1] # get unique fifa_id
       fixture = Match.find_or_create_by(fifa_id: fifa_id)
       return nil if fixture.status == 'completed'
 
       datetime = match.css('.fi-mu__info__datetime')&.text&.strip
       datetime = datetime&.downcase&.gsub('local time', '')&.strip&.to_time
+
       venue = match.css('.fi__info__venue')&.text
+
       # comment next line out for set up and scraping of all matches
       # reduces overhead on heroku to only scrape today's matches
-      return nil unless datetime&.to_time&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
+
+      return nil unless datetime&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
+
       location = match.css(".fi__info__stadium")&.text
+
       home_team_code = match.css(".home .fi-t__nTri")&.text
       away_team_code = match.css(".away .fi-t__nTri")&.text
 
@@ -92,16 +93,17 @@ namespace :fifa do
       else
         away_team_tbd = away_team_code
       end
+
       # FIFA uses the score class to show the time if the match is in the future
       # We don't want that
       if match.css('.fi-s__scoreText')&.text&.include?("-")
         score_array = match.css('.fi-s__scoreText').text.split("-")
-        home_team_score = score_array.first.to_i
-        away_team_score = score_array.last.to_i
+        fixture.home_team_score = score_array.first.to_i
+        fixture.away_team_score = score_array.last.to_i
       else
-        home_team_score = away_team_score = 0
+        fixture.home_team_score ||= 0
+        fixture.away_team_score ||= 0
       end
-
       # this is handled by JS hide/show now will have to figure out how to handle
       penalties = match.css(".fi-mu__reasonwin-text").xpath("//wherever/*[not (@class='hidden')]")
       if penalties.text.downcase.include?("win on penalties")
@@ -112,24 +114,23 @@ namespace :fifa do
       end
       fixture.venue ||= venue
       fixture.location ||= location
+      fixture.datetime ||= datetime
       fixture.home_team_id = home_team_id
       fixture.away_team_id = away_team_id
       fixture.home_team_tbd = home_team_tbd
       fixture.away_team_tbd = away_team_tbd
-      fixture.home_team_score = home_team_score
-      fixture.away_team_score = away_team_score
       if home_team_penalties && away_team_penalties
         fixture.home_team_penalties = home_team_penalties
         fixture.away_team_penalties = away_team_penalties
       end
+
       if match.attributes['class'].value.include?('live')
-        status = 'in progress'
+        fixture.status = 'in progress'
       elsif match.css('.period').css(":not(.hidden)").text.downcase.include?('full-time')
-        status = 'end of time'
+        fixture.status = 'end of time'
       else
-        status = 'future'
+        fixture.status ||= 'future'
       end
-      fixture.status = status
       @counter += 1 if fixture.save
     end
 
