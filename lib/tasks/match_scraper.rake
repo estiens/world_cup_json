@@ -99,7 +99,6 @@ namespace :fifa do
       end
       fixture.venue ||= venue
       fixture.location ||= location
-      end
       fixture.home_team_id = home_team_id
       fixture.away_team_id = away_team_id
       fixture.home_team_tbd = home_team_tbd
