@@ -17,8 +17,20 @@ module Clockwork
   #   rake['fifa:get_events'].invoke
   # }
   seconds = rand(20..29)
-  every(seconds.seconds, 'Get Matches') { `rake fifa:get_all_matches` }
+  every(seconds.seconds, 'Get Matches') do
+    if Match.today.count == Match.completed.today.count
+      puts "Scores All Done For Today"
+    else
+      `rake fifa:get_all_matches`
+    end
+  end
 
   seconds = rand(61..70)
-  every(seconds.seconds, 'Get Events') { `rake fifa:get_events` }
+  every(seconds.seconds, 'Get Events') do
+    if Match.today.count == Match.completed.today.count
+      puts "Events All Done For Today"
+    else
+      `rake fifa:get_events`
+    end
+  end
 end
