@@ -235,7 +235,7 @@ http://worldcup.sfg.io/teams
 
 ## PROJECTS USING THIS API IN 2018
 
-(What will you build?)
+https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
 ## PROJECTS USING THIS API IN 2014
 
