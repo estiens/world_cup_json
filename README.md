@@ -1,9 +1,12 @@
 # FIFA WORLD CUP 2018
 
-This should be now working for the World Cup in 2018!
+This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 
 Main response endpoint:
 http://worldcup.sfg.io/matches
+
+If you need SSL access, please use
+https://world-cup-json.herokuapp.com for the time being until SSL is working on the main domain
 
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
 
@@ -21,9 +24,9 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example)
 
-```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
+```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating with current score)
 
-```rake fifa:get_all_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
+```rake fifa:get_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
 
 ## ENDPOINTS
 
@@ -105,7 +108,8 @@ MATCH API
         "venue":  "Brazil",
         "location": "Arena Corinthians",
         "datetime": "2014-06-12T17:00:00.000-03:00",
-        "status": "completed",
+        "status": "in progress",
+	"time": "halftime",
         "home_team": {
             "country": "Brazil",
             "code": "BRA",
@@ -206,21 +210,7 @@ MATCH API
 GROUP RESULTS API
 
 ```json
-[
-    {
-        "country": "Brazil",
-        "alternate_name": null,
-        "fifa_code": "BRA",
-        "group_id": 1,
-        "wins": 1,
-        "draws": 0,
-        "losses": 0,
-        "goals_for": 3,
-        "goals_against": 0,
-        "knocked_out": false,
-        "updated_at": "2014-06-14T01:06:52.484-05:00"
-    }
-]
+[{"id":1,"country":"Russia","alternate_name":null,"fifa_code":"RUS","group_id":1,"group_letter":"A","wins":1,"draws":0,"losses":0,"games_played":1,"points":3,"goals_for":5,"goals_against":0,"goal_differential":5}...
 ```
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
@@ -229,7 +219,7 @@ http://worldcup.sfg.io/matches
 
 http://worldcup.sfg.io/matches/today
 
-http://worldcup.sfg.io/group_results
+http://worldcup.sfg.io/teams/group_results
 
 http://worldcup.sfg.io/teams
 
@@ -261,3 +251,8 @@ http://worldcup.sfg.io/teams
 
 You can read a blog post about building the API here:
 http://softwareforgood.com/soccer-good/
+
+## WARNING
+
+Most of this was written in a rush 4 years ago, and the rest was written in a rush on day 1 of the World Cup in 2018 to adjust for the new FIFA CMS and live updates via JS. This is not good object oriented code. Scraping is inherently a messy and brittle procedural process. I may try to refactor, but my primary goal was the get something functional. Please do not use as an example of good Rails code!
+
