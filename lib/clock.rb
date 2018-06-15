@@ -18,8 +18,8 @@ module Clockwork
   # }
   seconds = rand(20..29)
   every(seconds.seconds, 'Get Matches') do
-    if Match.today.count == Match.completed.today.count
-      puts "Scores All Done For Today"
+    if Match.today.count == Match.today.where(status: 'completed').count
+      puts 'Scores All Done For Today'
     else
       `rake fifa:get_all_matches`
     end
@@ -27,8 +27,8 @@ module Clockwork
 
   seconds = rand(61..70)
   every(seconds.seconds, 'Get Events') do
-    if Match.today.count == Match.completed.today.count
-      puts "Events All Done For Today"
+    if Match.today.count == Match.today.where(status: 'completed').count
+      puts 'Events All Done For Today'
     else
       `rake fifa:get_events`
     end
