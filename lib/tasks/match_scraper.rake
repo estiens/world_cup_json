@@ -61,9 +61,8 @@ namespace :fifa do
       datetime = datetime&.downcase&.gsub('local time', '')&.strip&.to_time
       venue = match.css('.fi__info__venue')&.text
       # comment next line out for set up and scraping of all matches
-      # reduces overhead on heroku to only scrape current/future matches
-
-      # return nil unless datetime&.to_time&.beginning_of_day >= Time.now.beginning_of_day
+      # reduces overhead on heroku to only scrape today's matches
+      return nil unless datetime&.to_time&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
       location = match.css(".fi__info__stadium")&.text
       home_team_code = match.css(".home .fi-t__nTri")&.text
       away_team_code = match.css(".away .fi-t__nTri")&.text
@@ -141,13 +140,7 @@ namespace :fifa do
       @live_counter += 1
     end
 
-    matches.css(".result").each do |match|
-      parse_match(match)
-      @ended_counter +=1
-    end
-
     puts "checked matches, saved #{@counter} matches"
     puts "checked matches, saved #{@live_counter} live matches"
-    puts "checked matches, saved #{@ended_counter} old matches"
   end
 end
