@@ -219,7 +219,7 @@ http://worldcup.sfg.io/matches
 
 http://worldcup.sfg.io/matches/today
 
-http://worldcup.sfg.io/group_results
+http://worldcup.sfg.io/teams/group_results
 
 http://worldcup.sfg.io/teams
 
