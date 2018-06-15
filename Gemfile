@@ -21,6 +21,10 @@ gem 'rails_admin'
 
 gem 'rabl'
 
+gem 'watir'
+
+gem 'chromedriver-helper'
+
 gem 'oj'
 
 gem 'clockwork'

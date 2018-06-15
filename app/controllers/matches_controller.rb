@@ -6,9 +6,9 @@ class MatchesController < ApplicationController
 
   def ordered_class
     klass = Match
-    if params[:by_date].present? && params[:by_date].upcase == 'DESC'
+    if params[:by_date]&.upcase == 'DESC'
       klass.order('datetime DESC')
-    elsif params[:by_date].present? && params[:by_date].upcase == 'ASC'
+    elsif params[:by_date]&.upcase == 'ASC'
       klass.order('datetime ASC')
     elsif params[:by].present?
       case params[:by].downcase
@@ -21,10 +21,10 @@ class MatchesController < ApplicationController
       when "closest_scores"
         klass.order('abs(home_team_score - away_team_score) ASC')
       else
-        klass.all
+        klass.order('datetime ASC')
       end
     else
-      klass.all
+      klass.order('datetime ASC')
     end
   end
 
