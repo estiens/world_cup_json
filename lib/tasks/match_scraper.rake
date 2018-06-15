@@ -1,10 +1,59 @@
 require 'open-uri'
 
-FIFA_SITE = "https://www.fifa.com/"
-MATCH_URL = FIFA_SITE + "worldcup/matches/index.html"
-EVENTS_URL = FIFA_SITE + "worldcup/matches/match/"
+FIFA_SITE = 'https://www.fifa.com/'.freeze
+MATCH_URL = "#{FIFA_SITE}/worldcup/matches/index.html".freeze
+EVENTS_URL = "#{FIFA_SITE}/worldcup/matches/match/".freeze
+
+def get_page_from_url(url)
+  opts = { headless: true }
+  if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
+    opts[:options] = { binary: chrome_bin }
+  end
+  browser = Watir::Browser.new :chrome, opts
+  browser.goto(url)
+  Nokogiri::HTML(browser.html)
+end
 
 namespace :fifa do
+  desc 'scrape match events from fifa site'
+  task get_events: :environment do
+    match = Match.where(status: 'in progress').first
+    match ||= Match.where(status: 'end of time').first
+    puts "grabbing events for #{match.home_team.fifa_code} vs #{match.away_team.fifa_code}"
+    url = "#{EVENTS_URL}#{match.fifa_id}/"
+    events = get_page_from_url(url)
+    time = events.css('.period').css(":not(.hidden)")&.children&.first&.text&.strip&.downcase
+    match.time = time
+    event_array = []
+    event_list = events.search('.fi-p__events .fi-p__events-wrap')
+    event_list.each do |event|
+      event_type = event.children.css('.fi-p__event')&.first&.attributes['class']&.value&.gsub('fi-p__event','')&.gsub('--','')&.strip
+      event_minute = event.children.css('.fi-p__event')&.first&.attributes['title']&.value&.downcase
+      event_player = event.parent&.parent&.attributes['data-player-name']&.value
+      home = event.parent&.parent&.parent&.attributes['class']&.value&.include?('home')
+      event_hash = { type: event_type, player: event_player, time: event_minute, home: home }
+      event_array << event_hash
+    end
+    event_array.each do |event|
+      team_id = event[:home] ? match.home_team_id : match.away_team_id
+      attrs = { player: event[:player],
+                team_id: team_id,
+                type_of_event: event[:type],
+                time: event[:time],
+                match_id: match.id
+              }
+      next if Event.find_by(attrs)
+      if event = Event.create(attrs)
+        puts "#{attrs} event created"
+      else
+        puts event.errors
+      end
+    end
+    match.status = 'completed' if time == 'full-time'
+    match.save
+    puts "Saved events for #{match.fifa_id}: #{match.status}"
+  end
+
   desc "scrape results from FIFA site"
   task get_all_matches: :environment do
     def get_page_from_url(url)
@@ -15,41 +64,6 @@ namespace :fifa do
       browser = Watir::Browser.new :chrome, opts
       browser.goto(url)
       Nokogiri::HTML(browser.html)
-    end
-
-    def parse_events(match)
-      events_url = EVENTS_URL + "#{match.fifa_id}/"
-      events = get_page_from_url(events_url)
-      time = events.css('.period').css(":not(.hidden)")&.children&.first&.text&.strip&.downcase
-      match.time = time
-      event_array = []
-      event_list = events.search('.fi-p__events .fi-p__events-wrap')
-      event_list.each do |event|
-        event_type = event.children.css('.fi-p__event')&.first&.attributes['class']&.value&.gsub('fi-p__event','')&.gsub('--','')&.strip
-        event_minute = event.children.css('.fi-p__event')&.first&.attributes['title']&.value&.downcase
-        event_player = event.parent&.parent&.attributes['data-player-name']&.value
-        home = event.parent&.parent&.parent&.attributes['class']&.value&.include?('home')
-        event_hash = { type: event_type, player: event_player, time: event_minute, home: home }
-        event_array << event_hash
-      end
-      event_array.each_with_index do |event, idx|
-        team_id = event[:home] ? match.home_team_id : match.away_team_id
-        attrs = { player: event[:player],
-                  team_id: team_id,
-                  type_of_event: event[:type],
-                  time: event[:time],
-                  match_id: match.id
-                }
-        next if Event.find_by(attrs)
-        if event = Event.create(attrs)
-          puts "#{attrs} event created"
-        else
-          puts event.errors
-        end
-      end
-      match.save
-      return true if time == 'full-time'
-      return false
     end
 
     def parse_match(match)
@@ -115,21 +129,13 @@ namespace :fifa do
       else
         status = 'future'
       end
-
-      if status == 'in progress' || status == 'end of time'
-        events = parse_events(fixture)
-        status = 'completed' if events == true
-      end
       fixture.status = status
       @counter += 1 if fixture.save
     end
 
     matches = get_page_from_url(MATCH_URL)
-    timezone_file = File.read(Rails.root + "lib/assets/timezones.json")
-    @timezones = JSON.parse(timezone_file)
     @counter = 0
     @live_counter = 0
-    @ended_counter = 0
 
     matches.css(".fixture").each do |match|
       parse_match(match)

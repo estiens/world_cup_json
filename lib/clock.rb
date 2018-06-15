@@ -14,5 +14,6 @@ module Clockwork
     Rake::Task.define_task(:environment)
     load "#{Rails.root}/lib/tasks/match_scraper.rake"
     rake['fifa:get_all_matches'].invoke
+    rake['fifa:get_events'].invoke
   }
 end
