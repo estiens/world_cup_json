@@ -1,12 +1,18 @@
 # FIFA WORLD CUP 2018
 
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
+http://worldcup.sfg.io
+
+--
 
 Main response endpoint:
-http://worldcup.sfg.io/matches
+http://worldcup.sfg.io/matches/today
 
 If you need SSL access, please use
-https://world-cup-json.herokuapp.com for the time being until SSL is working on the main domain
+https://world-cup-json.herokuapp.com 
+for the time being until SSL is working on the main domain
+
+--
 
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
 
@@ -14,7 +20,7 @@ FIFA has changed their HTML structure from all previous tournaments. I can surmi
 
 # ABOUT
 
-This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. Update 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
+This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
 
 # SETUP
 
@@ -110,6 +116,8 @@ MATCH API
         "datetime": "2014-06-12T17:00:00.000-03:00",
         "status": "in progress",
 	"time": "halftime",
+	"last_score_update_at": "2018-06-15T19:01:58.773Z",
+	"last_event_update_at": "2018-06-15T19:01:58.773Z",
         "home_team": {
             "country": "Brazil",
             "code": "BRA",
@@ -207,7 +215,7 @@ MATCH API
     },
 ]
 ```
-GROUP RESULTS API
+TEAM GROUP RESULTS API
 
 ```json
 [{"id":1,"country":"Russia","alternate_name":null,"fifa_code":"RUS","group_id":1,"group_letter":"A","wins":1,"draws":0,"losses":0,"games_played":1,"points":3,"goals_for":5,"goals_against":0,"goal_differential":5}...
@@ -218,6 +226,8 @@ GROUP RESULTS API
 http://worldcup.sfg.io/matches
 
 http://worldcup.sfg.io/matches/today
+
+http://worldcup.sfg.io/matches/current
 
 http://worldcup.sfg.io/teams/group_results
 
