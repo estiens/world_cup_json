@@ -24,7 +24,9 @@ namespace :fifa do
   task get_events: :environment do
     match = Match.where(status: 'in progress').first
     match ||= Match.where(status: 'end of time').first
+    match ||= Match.where("datetime <= ?", DateTime.now).order("created_at ASC").limit(1).first
     next unless match
+    next if match.status == 'completed'
     puts "grabbing events for #{match.home_team.fifa_code} vs #{match.away_team.fifa_code}"
     url = "#{EVENTS_URL}#{match.fifa_id}/"
     events = get_page_from_url(url)
@@ -94,15 +96,16 @@ namespace :fifa do
         away_team_tbd = away_team_code
       end
 
+      fixture.home_team_score ||= 0
+      fixture.away_team_score ||= 0
       # FIFA uses the score class to show the time if the match is in the future
       # We don't want that
       if match.css('.fi-s__scoreText')&.text&.include?("-")
         score_array = match.css('.fi-s__scoreText').text.split("-")
-        fixture.home_team_score = score_array.first.to_i
-        fixture.away_team_score = score_array.last.to_i
-      else
-        fixture.home_team_score ||= 0
-        fixture.away_team_score ||= 0
+        new_ht_score = score_array.first.to_i
+        new_at_score = score_array.last.to_i
+        fixture.home_team_score = new_ht_score if new_ht_score > fixture.home_team_score
+        fixture.away_team_score = new_at_score if away_team_score > fixture.away_team_score
       end
       # this is handled by JS hide/show now will have to figure out how to handle
       penalties = match.css(".fi-mu__reasonwin-text").xpath("//wherever/*[not (@class='hidden')]")
