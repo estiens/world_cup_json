@@ -259,6 +259,8 @@ https://github.com/justcallmelarry/sportsball (slack integration for updates of 
 
 * https://github.com/sestaton/WorldCupStats - World Cup stats and match information at the command line
 
+* https://github.com/selfish/worldcup-slack - A slack game status announcer, updated for 2018 games
+
 ## BACKGROUND
 
 You can read a blog post about building the API here:
