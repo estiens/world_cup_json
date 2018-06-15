@@ -24,9 +24,9 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example)
 
-```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating)
+```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating with current score)
 
-```rake fifa:get_all_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
+```rake fifa:get_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
 
 ## ENDPOINTS
 
