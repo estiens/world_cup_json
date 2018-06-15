@@ -17,7 +17,7 @@ module Clockwork
   #   rake['fifa:get_events'].invoke
   # }
 
-  every(45.seconds, 'Get Matches') { `rake fifa:get_all_matches` }
+  every(30.seconds, 'Get Matches') { `rake fifa:get_all_matches` }
 
-  every(90.seconds, 'Get Events') { `rake fifa:get_events` }
+  every(60.seconds, 'Get Events') { `rake fifa:get_events` }
 end
