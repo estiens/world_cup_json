@@ -99,16 +99,11 @@ namespace :fifa do
       end
       fixture.venue ||= venue
       fixture.location ||= location
-      begin
-        Time.zone = TZInfo::Timezone.get(@timezones[location])
-        fixture.datetime ||= Time.parse(datetime.to_s).localtime
-      rescue
-        fixture.datetime ||= datetime
       end
-      fixture.home_team_id ||= home_team_id
-      fixture.away_team_id ||= away_team_id
-      fixture.home_team_tbd ||= home_team_tbd
-      fixture.away_team_tbd ||= away_team_tbd
+      fixture.home_team_id = home_team_id
+      fixture.away_team_id = away_team_id
+      fixture.home_team_tbd = home_team_tbd
+      fixture.away_team_tbd = away_team_tbd
       fixture.home_team_score = home_team_score
       fixture.away_team_score = away_team_score
       if home_team_penalties && away_team_penalties
