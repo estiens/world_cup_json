@@ -16,8 +16,9 @@ module Clockwork
   #   rake['fifa:get_all_matches'].invoke
   #   rake['fifa:get_events'].invoke
   # }
+  seconds = rand(20..29)
+  every(seconds.seconds, 'Get Matches') { `rake fifa:get_all_matches` }
 
-  every(30.seconds, 'Get Matches') { `rake fifa:get_all_matches` }
-
-  every(60.seconds, 'Get Events') { `rake fifa:get_events` }
+  seconds = rand(61..70)
+  every(seconds.seconds, 'Get Events') { `rake fifa:get_events` }
 end
