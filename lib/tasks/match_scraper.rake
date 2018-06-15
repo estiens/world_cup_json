@@ -57,6 +57,7 @@ namespace :fifa do
         puts event.errors
       end
     end
+    match.last_event_update_at = Time.now
     match.status = 'completed' if time == 'full-time'
     match.save
     puts "Saved events for #{match.fifa_id}: #{match.status}"
@@ -105,7 +106,7 @@ namespace :fifa do
         new_ht_score = score_array.first.to_i
         new_at_score = score_array.last.to_i
         fixture.home_team_score = new_ht_score if new_ht_score > fixture.home_team_score
-        fixture.away_team_score = new_at_score if away_team_score > fixture.away_team_score
+        fixture.away_team_score = new_at_score if new_at_score > fixture.away_team_score
       end
       # this is handled by JS hide/show now will have to figure out how to handle
       penalties = match.css(".fi-mu__reasonwin-text").xpath("//wherever/*[not (@class='hidden')]")
@@ -134,6 +135,7 @@ namespace :fifa do
       else
         fixture.status ||= 'future'
       end
+      fixture.last_score_update_at = Time.now
       @counter += 1 if fixture.save
     end
 

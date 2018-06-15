@@ -1,5 +1,5 @@
 collection @matches, object_root: false
-attributes :venue, :location, :datetime, :status, :time, :fifa_id
+attributes :venue, :location, :datetime, :status, :time, :fifa_id, :last_event_update_at, :last_score_update_at
 node :home_team do |match|
   if match.home_team_penalties
       {country: match.home_team.country, code: match.home_team.fifa_code, goals: match.home_team_score, penalties: match.home_team_penalties}
