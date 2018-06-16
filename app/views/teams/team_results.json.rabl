@@ -3,27 +3,11 @@ attributes :id, :country, :alternate_name, :fifa_code, :group_id
 node :group_letter do |team|
   team.group.letter
 end
-node :wins do |team|
-  team.team_wins
-end
-node :draws do |team|
-  team.team_draws
-end
-node :losses do |team|
-  team.team_losses
-end
-node :games_played do |team|
-  team.games_played
-end
-node :points do |team|
-  team.team_points
-end
-node :goals_for do |team|
-  team.team_goals_for
-end
-node :goals_against do |team|
-  team.team_goals_against
-end
-node :goal_differential do |team|
-  team.goal_differential
-end
+node :wins, &:team_wins
+node :draws, &:team_draws
+node :losses, &:team_losses
+node :games_played, &:games_played
+node :points, &:team_points
+node :goals_for, &:team_goals_for
+node :goals_against, &:team_goals_against
+node :goal_differential, &:team_goal_differential

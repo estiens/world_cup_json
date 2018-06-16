@@ -86,9 +86,9 @@
             -#   %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
           -elsif match.status == "in progress"
             .live
-              -# =image_tag(match.home_team.fifa_code.downcase+".png")
+              = image_tag("http://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
               #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) (#{match.time})
-              -# =image_tag(match.away_team.fifa_code.downcase+".png")
+              = image_tag("http://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
           -else
             #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
