@@ -241,6 +241,11 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/selfish/worldcup-slack - A slack game status announcer, updated for 2018 games
 
+* https://github.com/dg01d/bitbar-worldcup (BitBar plugin to show current/daily scores and results)
+
+* https://github.com/nicolopignatelli/wc2018-slack-bot (Slack bot for updates about the current match)
+
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc

@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   respond_to :json
 
   def index
-    @teams=Team.all
+    @teams = Team.all
     render 'team_index.json.rabl', callback: params['callback']
   end
 

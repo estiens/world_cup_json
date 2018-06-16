@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180615181627) do
+ActiveRecord::Schema.define(version: 20180616130625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180615181627) do
     t.string   "time"
     t.datetime "last_score_update_at"
     t.datetime "last_event_update_at"
+    t.string   "winner_country"
+    t.string   "winner_code"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -61,14 +63,19 @@ ActiveRecord::Schema.define(version: 20180615181627) do
     t.string   "alternate_name"
     t.string   "fifa_code"
     t.integer  "group_id"
-    t.integer  "wins"
     t.integer  "draws"
-    t.integer  "losses"
-    t.integer  "goals_for"
-    t.integer  "goals_against"
     t.boolean  "knocked_out"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "iso_code"
+    t.integer  "team_wins"
+    t.integer  "team_losses"
+    t.integer  "team_draws"
+    t.integer  "games_played"
+    t.integer  "team_points"
+    t.integer  "team_goals_for"
+    t.integer  "team_goals_against"
+    t.integer  "team_goal_differential"
   end
 
 end

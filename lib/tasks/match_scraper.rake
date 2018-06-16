@@ -28,7 +28,7 @@ namespace :fifa do
     next unless match
     next if match.status == 'completed'
     puts "grabbing events for #{match.home_team.fifa_code} vs #{match.away_team.fifa_code}"
-    url = "#{EVENTS_URL}#{match.fifa_id}/"
+    url = "#{EVENTS_URL}#{match.fifa_id}/#match-lineups"
     events = get_page_from_url(url)
     time = events.css('.period').css(":not(.hidden)")&.children&.first&.text&.strip&.downcase
     match.time = time

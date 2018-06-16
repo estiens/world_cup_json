@@ -5,55 +5,41 @@ gem 'rails', '4.2.10'
 
 gem 'pg', '= 0.20'
 
+gem 'autoprefixer-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0.0'
-
 gem 'uglifier', '>= 1.3.0'
 
-gem 'coffee-rails', '~> 4.0.0'
-
-gem 'jquery-rails'
-
-gem 'jbuilder', '~> 1.2'
-
-gem 'responders', '~> 2.0'
-
-gem 'rails_admin'
-
-gem 'rabl'
-
-gem 'watir'
-
+gem 'airbrake'
 gem 'chromedriver-helper'
-
-gem 'oj'
-
 gem 'clockwork'
-
+gem 'foundation-rails', '~> 5'
 gem 'haml-rails'
-
-gem 'foundation-rails', "~> 5"
-
-gem 'autoprefixer-rails'
-
-gem 'font-awesome-rails'
+gem 'newrelic_rpm'
+gem 'oj'
+gem 'rabl'
+gem 'rack-attack'
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails_autoscale_agent'
+gem 'redis-rails'
+gem 'responders', '~> 2.0'
+gem 'unicorn'
+gem 'watir'
 
 group :production do
   gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'rubocop'
 end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-gem 'unicorn'
-
-gem 'newrelic_rpm'
-
-gem 'rack-cors', require: 'rack/cors'
