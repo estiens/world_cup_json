@@ -239,7 +239,7 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
-* https://github.com/selfish/worldcup-slack - Node.js Slack game status announcer, updated for 2018 games
+* https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
 
 * https://github.com/dg01d/bitbar-worldcup (BitBar plugin to show current/daily scores and results)
 
