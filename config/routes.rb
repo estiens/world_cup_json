@@ -6,6 +6,7 @@ WorldCupJson::Application.routes.draw do
   get '/teams/results', to: 'teams#results', defaults: { format: 'json' }
   get '/teams/group_results', to: 'teams#group_results', defaults: { format: 'json' }
   get '/matches', to: 'matches#index', defaults: { format: 'json' }
+  get '/matches/index', to: 'matches#index', defaults: { format: 'json' }
   get '/matches/complete', to: 'matches#complete', defaults: { format: 'json' }
   get '/matches/current', to: 'matches#current', defaults: { format: 'json' }
   get '/matches/future', to: 'matches#future', defaults: { format: 'json' }
