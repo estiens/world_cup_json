@@ -1,6 +1,5 @@
 if ENV['REDISTOGO_URL']
-  redis_client = Redis.new(url: ENV['REDISTOGO_URL'])
-  Rack::Attack.cache.store = Rack::Attack::StoreProxy::RedisStoreProxy.new(redis_client)
+    Rack::Attack.cache.store = ActiveSupport::Cache::RedisStore.new(ENV['REDISTOGO_URL'], { expires_in: 480.minutes })
 end
 
 Rack::Attack.throttle('requests by ip', limit: 5, period: 2, &:ip)
