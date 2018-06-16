@@ -1,7 +1,3 @@
-if ENV['REDISTOGO_URL']
-    Rack::Attack.cache.store = ActiveSupport::Cache::RedisStore.new(ENV['REDISTOGO_URL'], { expires_in: 480.minutes })
-end
-
 Rack::Attack.throttle('requests by ip', limit: 5, period: 2, &:ip)
 
 Rack::Attack.throttled_response = lambda do |env|
