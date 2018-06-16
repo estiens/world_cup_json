@@ -25,6 +25,8 @@ gem 'redis-rails'
 
 gem 'rabl'
 
+gem 'rails_autoscale_agent'
+
 gem 'watir'
 
 gem 'chromedriver-helper'
