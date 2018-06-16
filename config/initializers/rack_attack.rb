@@ -17,15 +17,3 @@ Rack::Attack.throttled_response = lambda do |env|
 
   [429, headers, ["Throttled\n"]]
 end
-
-ActiveSupport::Notifications.subscribe('rack.attack') do |name, start, finish, request_id, req|
-  if req.env["rack.attack.match_type"] == :throttle
-    request_headers = { "CF-RAY" => req.env["HTTP_CF_RAY"],
-                        "X-Amzn-Trace-Id" => req.env["HTTP_X_AMZN_TRACE_ID"] }
-
-    Rails.logger.info "[Rack::Attack][Blocked]" <<
-                      "remote_ip: \"#{req.remote_ip}\"," <<
-                      "path: \"#{req.path}\", " <<
-                      "headers: #{request_headers.inspect}"
-  end
-end
