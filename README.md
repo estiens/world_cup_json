@@ -243,6 +243,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/nicolopignatelli/wc2018-slack-bot (Slack bot for updates about the current match)
 
+* https://github.com/wildlifehexagon/node-world-cup (Node.js command line app to display results and standings)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
