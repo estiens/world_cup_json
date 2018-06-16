@@ -87,8 +87,9 @@
           -elsif match.status == "in progress"
             .live
               = image_tag("http://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
-              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) (#{match.time})
+              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
               = image_tag("http://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
+              ( #{match.time} )
           -else
             #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
