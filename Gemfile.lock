@@ -145,6 +145,8 @@ GEM
     rabl (0.13.1)
       activesupport (>= 2.3.14)
     rack (1.6.10)
+    rack-attack (5.2.0)
+      rack
     rack-cors (1.0.2)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -268,6 +270,7 @@ DEPENDENCIES
   pg (= 0.20)
   pry-rails
   rabl
+  rack-attack
   rack-cors
   rails (= 4.2.10)
   rails_12factor

@@ -19,6 +19,8 @@ gem 'responders', '~> 2.0'
 
 gem 'rails_admin'
 
+gem 'rack-attack'
+
 gem 'rabl'
 
 gem 'watir'
