@@ -35,9 +35,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    airbrake (7.3.4)
-      airbrake-ruby (~> 2.10)
-    airbrake-ruby (2.10.0)
+    airbrake (5.8.1)
+      airbrake-ruby (~> 1.8)
+    airbrake-ruby (1.8.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (6.0.4)
@@ -240,7 +240,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (~> 7.3)
+  airbrake (~> 5.0)
   autoprefixer-rails
   better_errors
   binding_of_caller

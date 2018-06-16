@@ -11,3 +11,10 @@ end
 
 Airbrake.add_filter(Airbrake::Rack::RequestBodyFilter.new)
 Airbrake.add_filter(Airbrake::Filters::ThreadFilter.new)
+
+
+Airbrake.configure do |config|
+  config.host = 'http://errbit.softwareforgood.com'
+  config.project_id = true
+  config.project_key = ENV['AIRBRAKE_KEY']
+end
