@@ -199,6 +199,7 @@ GEM
     raindrops (0.19.0)
     rake (12.3.1)
     rdoc (6.0.4)
+    redis (4.0.1)
     remotipart (1.4.2)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -275,6 +276,7 @@ DEPENDENCIES
   rails (= 4.2.10)
   rails_12factor
   rails_admin
+  redis
   responders (~> 2.0)
   rubocop
   sass-rails (~> 5.0.0)
