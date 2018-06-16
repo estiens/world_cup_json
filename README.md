@@ -237,7 +237,9 @@ http://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
-https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
+* https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
+
+* https://github.com/dg01d/bitbar-worldcup (BitBar plugin to show current/daily scores and results)
 
 ## PROJECTS USING THIS API IN 2014
 
