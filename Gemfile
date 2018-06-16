@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'airbrake', '~> 5.0'
+gem 'airbrake'
 gem 'chromedriver-helper'
 gem 'clockwork'
 gem 'foundation-rails', '~> 5'
@@ -33,7 +33,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'chromedriver-helper'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'

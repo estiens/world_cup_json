@@ -240,7 +240,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (~> 5.0)
+  airbrake
   autoprefixer-rails
   better_errors
   binding_of_caller
