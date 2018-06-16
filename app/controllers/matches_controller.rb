@@ -49,7 +49,7 @@ class MatchesController < ApplicationController
   end
 
   def country
-    @team = Team.where(fifa_code: params['fifa_code']).first
+    @team = Team.where(fifa_code: params['fifa_code']&.upcase).first
     @matches = ordered_class.where("home_team_id = ? OR away_team_id = ?", @team.id, @team.id)
     render 'index.json.rabl', callback: params['callback']
   end
