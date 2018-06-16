@@ -21,7 +21,7 @@ gem 'rails_admin'
 
 gem 'rack-attack'
 
-gem 'redis'
+gem 'redis-rails'
 
 gem 'rabl'
 
