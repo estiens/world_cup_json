@@ -2,20 +2,27 @@
   =image_tag("ball.png")
 #container
   .row
-    .large-12.columns
+    .small-12.columns
       %h1 World Cup 2018
       %h2 ...in JSON
   .row
-    .large-10.large-offset-1.columns.intro
+    .small-10.small-offset-1.columns.intro
       %p
         This is an API for the World Cup (and now, Women's World Cup!) ((and now the World Cup in 2018!)) that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date. For example responses, including events such as goals, substitutions, and cards, see the GitHub page.
       %a{href:"https://github.com/estiens/world_cup_json"}
         %button.medium#gh-button
           CODE ON GITHUB
   .row
-    .large-12.columns
+    .small-12.columns
       %h3 ENDPOINTS
-    .large-6.columns
+    .small-12.columns
+      %h5.text-center
+        (  If you need HTTPS, please use
+        %a{href:"https://world-cup-json.herokuapp.com/matches/today"}
+          https://world-cup-json.herokuapp.com
+        for now  )
+      %br
+    .small-6.columns
       %p
         All match data, updated every minute
         %br
@@ -36,25 +43,25 @@
         %br
         %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=ARG"}
           http://worldcup.sfg.io/matches/country?fifa_code=ARG
-    .large-6.columns
+    .small-6.columns
       %p
         Results for teams (wins, losses, draws, goals_for, goals_against)
         %br
         %a{href:"http://worldcup.sfg.io/teams/results"}
           http://worldcup.sfg.io/teams/results
       %p
-        Results for teams by group, ordered by curren group position
+        Results for teams by group, ordered by current group position
         %br
         %a{href:"http://worldcup.sfg.io/teams/group_results"}
           http://worldcup.sfg.io/teams/group_results
       %p
-        List of all teams in world cup, along with fifa abbreviation
+        List of all teams in world cup, along with FIFA abbreviation
         %br
         %a{href:"http://worldcup.sfg.io/teams/"}
           http://worldcup.sfg.io/teams/
 
 
-    .large-12.columns
+    .small-12.columns
       %h3 OPTIONAL PARAMETERS
       %p
         You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
@@ -65,30 +72,31 @@
         %a{href:"http://worldcup.sfg.io/matches/?by=total_goals"}
           http://worldcup.sfg.io/matches/?by=total_goals
   .row
-    .large-6.columns
+    .small-6.columns
       %h3 TODAY'S MATCHES
       -@today_matches.each do |match|
-        %p.match-results
+        %p.match-result
           -if match.status== "completed"
             #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-            - if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
-              %br
-              %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.home_team_penalties} to #{match.away_team_penalties}
-            - if match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
-              %br
-              %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
+            -# - if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
+            -#   %br
+            -#   %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.home_team_penalties} to #{match.away_team_penalties}
+            -# - if match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
+            -#   %br
+            -#   %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
           -elsif match.status == "in progress"
-            #live
+            .live
               -# =image_tag(match.home_team.fifa_code.downcase+".png")
-              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
+              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) (#{match.time})
               -# =image_tag(match.away_team.fifa_code.downcase+".png")
           -else
             #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
-    .large-6.columns
+    .small-6.columns
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
-        %p.match-results #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+        %p.match-result
+          #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 .footer
   %ul
     %li
