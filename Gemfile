@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'airbrake', '~> 7.3'
+gem 'chromedriver-helper'
 gem 'clockwork'
 gem 'foundation-rails', '~> 5'
 gem 'haml-rails'
