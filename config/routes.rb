@@ -15,4 +15,7 @@ WorldCupJson::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static#index'
+
+  get '*path' => 'errors#path_not_found', defaults: { format: 'json' }
+  put '*path' => 'errors#unprocesssable_entity', defaults: { format: 'json' }
 end
