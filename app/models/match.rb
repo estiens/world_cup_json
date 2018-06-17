@@ -37,7 +37,7 @@ class Match < ActiveRecord::Base
     scraper = Scrapers::FactScraper.new(match: self)
     begin
       scraper.scrape
-    rescue Selenium::WebDriver::Error
+    rescue 
       puts "Stats scraper failure for #{name}"
     end
   end
