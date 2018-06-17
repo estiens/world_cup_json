@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180616130625) do
+ActiveRecord::Schema.define(version: 20180617210813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,42 @@ ActiveRecord::Schema.define(version: 20180616130625) do
     t.integer  "team_id"
   end
 
+  add_index "events", ["team_id"], name: "index_events_on_team_id", using: :btree
+
   create_table "groups", force: :cascade do |t|
     t.string   "letter",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "match_statistics", force: :cascade do |t|
+    t.integer  "team_id",          null: false
+    t.integer  "match_id",         null: false
+    t.integer  "attempts_on_goal"
+    t.integer  "on_target"
+    t.integer  "off_target"
+    t.integer  "blocked"
+    t.integer  "woodwork"
+    t.integer  "corners"
+    t.integer  "offsides"
+    t.integer  "ball_possession"
+    t.integer  "pass_accuracy"
+    t.integer  "num_passes"
+    t.integer  "passes_completed"
+    t.integer  "distance_covered"
+    t.integer  "balls_recovered"
+    t.integer  "tackles"
+    t.integer  "clearances"
+    t.integer  "yellow_cards"
+    t.integer  "red_cards"
+    t.integer  "fouls_committed"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "match_statistics", ["match_id"], name: "index_match_statistics_on_match_id", using: :btree
+  add_index "match_statistics", ["team_id", "match_id"], name: "index_match_statistics_on_team_id_and_match_id", using: :btree
+  add_index "match_statistics", ["team_id"], name: "index_match_statistics_on_team_id", using: :btree
 
   create_table "matches", force: :cascade do |t|
     t.string   "fifa_id"
@@ -56,7 +87,12 @@ ActiveRecord::Schema.define(version: 20180616130625) do
     t.datetime "last_event_update_at"
     t.string   "winner_country"
     t.string   "winner_code"
+    t.boolean  "stats_complete",       default: false, null: false
   end
+
+  add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree
+  add_index "matches", ["fifa_id"], name: "index_matches_on_fifa_id", using: :btree
+  add_index "matches", ["home_team_id"], name: "index_matches_on_home_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "country"
@@ -77,5 +113,8 @@ ActiveRecord::Schema.define(version: 20180616130625) do
     t.integer  "team_goals_against"
     t.integer  "team_goal_differential"
   end
+
+  add_index "teams", ["fifa_code"], name: "index_teams_on_fifa_code", using: :btree
+  add_index "teams", ["group_id"], name: "index_teams_on_group_id", using: :btree
 
 end
