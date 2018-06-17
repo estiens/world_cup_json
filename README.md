@@ -245,25 +245,18 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/nicolopignatelli/wc2018-slack-bot (Slack bot for updates about the current match)
 
+* https://github.com/wildlifehexagon/node-world-cup (Node.js command line app to display results and standings)
 
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
-
 * https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
-
 * https://github.com/ColtCarder/XMPP-World-Cup-Bot (Ruby/Blather XMPP Bot to private message live World Cup events as well as overall results.)
-
 * https://github.com/gberger/hubot-world-cup-live (Hubot plugin that pushes World Cup goals to a chat room)
-
 * World Cup SMS updates at http://worldcupsms.herokuapp.com/ by @andyjiang
-
 * https://github.com/brenopolanski/chrome-worldcup2014-extension (World Cup 2014 - Chrome Extension)
-
 * http://worldcup2014.meteor.com/ - betting pool app for @q42 built by @primigenus using @meteor
-
 * https://github.com/Friss/WorldCup - World Cup matches with the arena in the background
-
 * https://github.com/sestaton/WorldCupStats - World Cup stats and match information at the command line
 
 ## BACKGROUND
