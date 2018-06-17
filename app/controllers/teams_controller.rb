@@ -19,7 +19,7 @@ class TeamsController < BaseApiController
   private
 
   def limit_team_if_requested
-    return nilt unless params[:team_id] || params[:fifa_code]
+    return nil unless params[:team_id] || params[:fifa_code]
     team = Team.where(id: params[:team_id])
     team = Team.where(fifa_code: params[:fifa_code]&.upcase) if team.empty?
     raise ActiveRecord::RecordNotFound, 'Team Not Found' if team.empty?
