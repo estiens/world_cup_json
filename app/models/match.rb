@@ -34,10 +34,10 @@ class Match < ActiveRecord::Base
 
   def scrape_stats
     puts 'Match still in future, no stats' && return if status == 'future'
-    scraper = Scrapers::FactScraper.new(match: self)
     begin
+      scraper = Scrapers::FactScraper.new(match: self)
       scraper.scrape
-    rescue 
+    rescue Selenium::WebDriver::Error
       puts "Stats scraper failure for #{name}"
     end
   end
