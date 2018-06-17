@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 module Scrapers
   # scrapes match statistics
   class FactScraper < BaseScraper
