@@ -247,6 +247,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/wildlifehexagon/node-world-cup (Node.js command line app to display results and standings)
 
+* https://github.com/iricigor/FIFA2018 (PowerShell wrapper, compatible with both Linux and Windows versions)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
