@@ -249,6 +249,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/iricigor/FIFA2018 (PowerShell wrapper, compatible with both Linux and Windows versions)
 
+* https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
