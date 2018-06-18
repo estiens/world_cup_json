@@ -262,6 +262,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
 
+* https://github.com/sazap10/world-cup-discord-bot (Discord bot to display schedule, match information and standings)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
