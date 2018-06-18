@@ -3,9 +3,12 @@ class Match < ActiveRecord::Base
 
   belongs_to :home_team, class_name: Team, foreign_key: 'home_team_id'
   belongs_to :away_team, class_name: Team, foreign_key: 'away_team_id'
+  belongs_to :winner, class_name: Team, foreign_key: 'winner_id'
+
   has_many :events
   has_many :match_statistics
 
+  before_save :determine_winner
   after_save :update_teams
 
   def self.by_date(start_time, end_time = nil)
@@ -59,6 +62,32 @@ class Match < ActiveRecord::Base
   end
 
   private
+
+  def penalty_winner
+    return nil unless home_team_penalties && away_team_penalties
+    return home_team if home_team_penalties > away_team_penalties
+    return away_team if away_team_penalties > home_team_penalties
+    nil
+  end
+
+  def regulation_winner
+    return nil unless home_team_score && away_team_score
+    return home_team if home_team_score > away_team_score
+    return away_team if away_team_score > home_team_score
+    nil
+  end
+
+  def draw?
+    home_team_score == away_team_score
+  end
+
+  def determine_winner
+    return unless status == 'completed'
+    self.winner = penalty_winner
+    self.winner ||= regulation_winner
+    self.draw = draw?
+    true
+  end
 
   def update_teams
     home_team.save && away_team.save

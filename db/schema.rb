@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180617210813) do
+ActiveRecord::Schema.define(version: 20180618003513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,11 +88,14 @@ ActiveRecord::Schema.define(version: 20180617210813) do
     t.string   "winner_country"
     t.string   "winner_code"
     t.boolean  "stats_complete",       default: false, null: false
+    t.integer  "winner_id"
+    t.boolean  "draw",                 default: false, null: false
   end
 
   add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree
   add_index "matches", ["fifa_id"], name: "index_matches_on_fifa_id", using: :btree
   add_index "matches", ["home_team_id"], name: "index_matches_on_home_team_id", using: :btree
+  add_index "matches", ["winner_id"], name: "index_matches_on_winner_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "country"
