@@ -32,14 +32,8 @@ class Match < ActiveRecord::Base
     where(status: 'completed')
   end
 
-  def scrape_stats
-    puts 'Match still in future, no stats' && return if status == 'future'
-    begin
-      scraper = Scrapers::FactScraper.new(match: self)
-      scraper.scrape
-    rescue Selenium::WebDriver::Error
-      puts "Stats scraper failure for #{name}"
-    end
+  def self.in_progress
+    where(status: 'in progress')
   end
 
   def name
