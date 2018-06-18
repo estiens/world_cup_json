@@ -36,7 +36,7 @@ module Clockwork
     if Match.completed.count == Match.where(stats_complete: true).count
       puts 'No Old Stats to Scrape'
     else
-      Scrapers::ScraperTasks.scrape_old_events
+      Scrapers::ScraperTasks.scrape_old_stats
     end
   end
 
