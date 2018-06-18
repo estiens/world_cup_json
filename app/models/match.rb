@@ -35,8 +35,20 @@ class Match < ActiveRecord::Base
     where(status: 'completed')
   end
 
+  def self.not_completed
+    where.not(status: 'completed')
+  end
+
   def self.in_progress
     where(status: 'in progress')
+  end
+
+  def self.future
+    where(status: 'future')
+  end
+
+  def self.not_future
+    where.not(status: 'future')
   end
 
   def name
