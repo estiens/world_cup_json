@@ -8,9 +8,16 @@ module Scrapers
 
     def self.scrape_for_goals; end
 
-    def self.scrape_old_events; end
+    def self.scrape_old_events
+      matches = Match.completed
+      matches.each { |m| scrape_events(m) }
+    end
 
-    def self.scrape_for_events; end
+    def self.scrape_for_events
+      matches = Match.today.where.not(status: 'completed')
+      puts 'No current matches for events' if matches.empty?
+      matches.each { |m| scrape_events(m) }
+    end
 
     def self.scrape_old_stats
       matches = Match.completed.where(stats_complete: false)
@@ -22,6 +29,13 @@ module Scrapers
       matches = Match.today.not_future.where.not(stats_complete: true)
       puts 'No current matches for stats' if matches.empty?
       matches.each { |m| scrape_stats(m) }
+    end
+
+    def self.scrape_events(match)
+      scraper = Scrapers::EventScraper.new(match: match)
+      scraper.scrape
+    rescue Selenium::WebDriver::Error
+      puts "Event scraper failure for #{m.name}"
     end
 
     def self.scrape_stats(match)
