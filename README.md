@@ -3,11 +3,13 @@
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 http://worldcup.sfg.io
 
-Updates June 17, 2018
+Updates June 18, 2018
 
-* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at the matches endpoints that show a small number of matches (`/today/`, `/current/`) by default. If you want all the details at the main matches endpoint, please pass `/?details=true` as a param to your request`
+* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at all the matches endpoints. If you want a more truncated view of a match (no events or stats) please pass `?details=false` to any match endpoint
 
-* Scrapers are being refactord to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 12-14 rps.
+* You can now retrieve a match by fifa_id if you only want one specific match, just use `/matches/fifa_id/300331499` or as a shortcut just `/matches/300331499`. You'll get a 404 error back if no match has that id.
+
+* Scrapers are being refactored to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 30-40 rps.
 
 
 --
@@ -16,7 +18,7 @@ Main response endpoint:
 http://worldcup.sfg.io/matches/today
 
 If you need SSL access, please use
-https://world-cup-json.herokuapp.com 
+https://world-cup-json.herokuapp.com
 for the time being until SSL is working on the main domain
 
 --
@@ -244,8 +246,6 @@ http://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
-* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup". see screenshots.)
- 
 * https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
 * https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
@@ -263,6 +263,8 @@ http://worldcup.sfg.io/teams
 * https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
 
 * https://github.com/sazap10/world-cup-discord-bot (Discord bot to display schedule, match information and standings)
+
+* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".)
 
 ## PROJECTS USING THIS API IN 2014
 
@@ -284,4 +286,3 @@ http://softwareforgood.com/soccer-good/
 ## WARNING
 
 Most of this was written in a rush 4 years ago, and the rest was written in a rush on day 1 of the World Cup in 2018 to adjust for the new FIFA CMS and live updates via JS. This is not good object oriented code. Scraping is inherently a messy and brittle procedural process. I may try to refactor, but my primary goal was the get something functional. Please do not use as an example of good Rails code!
-
