@@ -50,6 +50,12 @@ class MatchesController < BaseApiController
     render_template
   end
 
+  def show
+    @match = Match.find_by!(fifa_id: params[:id])
+    @matches = Match.where(id: @match.id)
+    render_template
+  end
+
   private
 
   def render_template

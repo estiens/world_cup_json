@@ -12,7 +12,8 @@ WorldCupJson::Application.routes.draw do
   get '/matches/country', to: 'matches#country', defaults: { format: 'json' }
   get '/matches/today', to: 'matches#today', defaults: { format: 'json' }
   get '/matches/tomorrow', to: 'matches#tomorrow', defaults: { format: 'json' }
-
+  get '/matches/:id', to: 'matches#show'
+  get '/matches/fifa_id/:id', to: 'matches#show'
   # You can have the root of your site routed with "root"
   root 'static#index'
 
