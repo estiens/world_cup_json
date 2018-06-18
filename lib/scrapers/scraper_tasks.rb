@@ -22,7 +22,7 @@ module Scrapers
     end
 
     def self.scrape_for_stats
-      matches = Match.in_progress
+      matches = Match.today
       puts 'No current matches for stats' if matches.empty?
       matches.each { |m| scrape_stats(m) }
     end

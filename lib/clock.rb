@@ -25,4 +25,21 @@ module Clockwork
       `rake fifa:get_events`
     end
   end
+
+  every(5.minutes, 'Scrape Old Stats') do
+    if Match.completed.count == Match.where(stats_complete: true).count
+      puts 'No Old Stats to Scrape'
+    else
+      Scrapers::ScraperTasks.scrape_old_events
+    end
+  end
+
+  stats_seconds = rand(45..75)
+  every(stats_seconds.seconds, 'Scrape Current Stats') do
+    if Match.today.count == Match.today.where(stats_complete: true).count
+      puts 'No current stats to scrape'
+    else
+      Scrapers::ScraperTasks.scrape_for_events
+    end
+  end
 end
