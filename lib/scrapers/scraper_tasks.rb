@@ -17,18 +17,14 @@ module Scrapers
     end
 
     def self.scrape_old_stats
-      matches = Match.completed
+      matches = Match.completed.where(status_completed: false)
+      puts 'No old stats to scrape' if matches.empty?
       matches.each { |m| scrape_stats(m) }
-    end
-
-    def self.scrape_live_stats
-      match = Match.in_progress.first
-      scrape_stats(match)
     end
 
     def self.scrape_for_stats
       matches = Match.today.where.not(status: 'future')
-                           .where.not(stats_complete: true)
+                     .where.not(stats_complete: true)
       puts 'No current matches for stats' if matches.empty?
       matches.each { |m| scrape_stats(m) }
     end
