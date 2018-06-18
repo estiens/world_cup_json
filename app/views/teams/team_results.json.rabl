@@ -1,4 +1,5 @@
 collection @teams, object_root: false
+cache "teams_results/#{@teams.pluck(:id).join('')}", expires_in: 1.minute
 attributes :id, :country, :alternate_name, :fifa_code, :group_id
 node :group_letter do |team|
   team.group.letter
