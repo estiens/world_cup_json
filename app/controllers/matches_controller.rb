@@ -1,29 +1,28 @@
+# frozen_string_literal: true
+
 class MatchesController < BaseApiController
+  before_action :detail_level
+
   def index
     @matches = Match.all.order('datetime ASC')
-    details
     order_by_params
     render_template
   end
 
   def current
     @matches = Match.where(status: 'in progress')
-    @details = true
-    details
     order_by_params
     render_template
   end
 
   def complete
     @matches = Match.where(status: 'completed')
-    details
     order_by_params
     render_template
   end
 
   def future
     @matches = Match.where(status: 'future')
-    details
     order_by_params
     render_template
   end
@@ -35,8 +34,6 @@ class MatchesController < BaseApiController
       return
     end
     @matches = @team.matches
-    @details = true
-    details
     order_by_params
     render_template
   end
@@ -44,15 +41,12 @@ class MatchesController < BaseApiController
   def today
     @matches = Match.today
     order_by_params
-    @details = true
-    details
     render_template
   end
 
   def tomorrow
     @matches = Match.tomorrow
     order_by_params
-    details
     render_template
   end
 
@@ -76,9 +70,9 @@ class MatchesController < BaseApiController
 
   def order_by_date
     return unless @date
-    if @date.upcase == 'DESC'
+    if @date.casecmp('DESC').zero?
       @matches = @matches.reorder(nil).order('datetime DESC')
-    elsif @date.upcase == 'ASC'
+    elsif @date.casecmp('ASC').zero?
       @matches = @matches.reorder(nil).order('datetime ASC')
     end
   end
@@ -97,11 +91,7 @@ class MatchesController < BaseApiController
     end
   end
 
-  def details
-    if @details && params['details'] == 'false'
-      @details = false
-    else
-      @details ||= params['details']
-    end
+  def detail_level
+    @details = params['details'] != 'false'
   end
 end
