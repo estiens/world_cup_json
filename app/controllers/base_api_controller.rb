@@ -1,5 +1,4 @@
 class BaseApiController < ApplicationController
-  after_filter :set_content_type
   protect_from_forgery with: :null_session
   after_filter :set_jsonp_format
   layout false
