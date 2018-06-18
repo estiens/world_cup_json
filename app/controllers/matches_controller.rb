@@ -1,8 +1,8 @@
 class MatchesController < BaseApiController
-
   def index
-    @matches = Match.all
+    @matches = Match.all.order('datetime DESC')
     details
+    order_by_params
     render_template
   end
 
