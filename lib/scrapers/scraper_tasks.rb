@@ -28,6 +28,7 @@ module Scrapers
 
     def self.scrape_for_stats
       matches = Match.today.where.not(status: 'future')
+                           .where.not(stats_complete: true)
       puts 'No current matches for stats' if matches.empty?
       matches.each { |m| scrape_stats(m) }
     end

@@ -26,7 +26,7 @@ module Clockwork
     end
   end
 
-  every(5.minutes, 'Scrape Old Stats') do
+  every(10.minutes, 'Scrape Old Stats') do
     if Match.completed.count == Match.where(stats_complete: true).count
       puts 'No Old Stats to Scrape'
     else
@@ -34,7 +34,7 @@ module Clockwork
     end
   end
 
-  stats_seconds = rand(45..75)
+  stats_seconds = rand(61..75)
   every(stats_seconds.seconds, 'Scrape Current Stats') do
     if Match.today.count == Match.today.where(stats_complete: true).count
       puts 'No current stats to scrape'
