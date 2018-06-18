@@ -260,6 +260,8 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
 
+* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
