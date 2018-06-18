@@ -1,26 +1,31 @@
 class MatchesController < BaseApiController
+
   def index
     @matches = Match.all
-    order_by_params
-    render 'index.json.rabl'
+    details
+    render_template
   end
 
   def current
     @matches = Match.where(status: 'in progress')
+    @details = true
+    details
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    render_template
   end
 
   def complete
     @matches = Match.where(status: 'completed')
+    details
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    render_template
   end
 
   def future
     @matches = Match.where(status: 'future')
+    details
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    render_template
   end
 
   def country
@@ -30,23 +35,36 @@ class MatchesController < BaseApiController
       return
     end
     @matches = @team.matches
+    @details = true
+    details
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    render_template
   end
 
   def today
     @matches = Match.today
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    @details = true
+    details
+    render_template
   end
 
   def tomorrow
     @matches = Match.tomorrow
     order_by_params
-    render 'index.json.rabl', callback: params['callback']
+    details
+    render_template
   end
 
   private
+
+  def render_template
+    if @details
+      render 'index.json.rabl', callback: params['callback']
+    else
+      render 'summary.json.rabl', callback: params['callback']
+    end
+  end
 
   def order_by_params
     @matches = @matches.order('datetime DESC')
@@ -76,6 +94,14 @@ class MatchesController < BaseApiController
       @matches = @matches.reorder(nil).order('away_team_score DESC')
     when 'closest_scores'
       @matches = @matches.reorder(nil).order('abs(home_team_score - away_team_score) ASC')
+    end
+  end
+
+  def details
+    if @details && params['details'] == 'false'
+      @details = false
+    else
+      @details ||= params['details']
     end
   end
 end
