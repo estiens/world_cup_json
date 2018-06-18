@@ -57,6 +57,10 @@ class Match < ActiveRecord::Base
     "#{home_team_desc} vs #{away_team_desc}"
   end
 
+  def completed?
+    status == 'completed'
+  end
+
   def home_team_events
     events.where(team: home_team)
   end

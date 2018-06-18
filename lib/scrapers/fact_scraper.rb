@@ -3,10 +3,11 @@
 module Scrapers
   # scrapes match statistics
   class FactScraper < BaseScraper
-    def initialize(match:)
+    def initialize(match:, force: false)
       @match = match
       @url = scraper_url
       @page = scrape_page_from_url
+      @force = force
     end
 
     def scrape
@@ -32,7 +33,9 @@ module Scrapers
     end
 
     def write_match_facts
-      return nil if stats.empty? || @match.stats_complete
+      @match.stats_complete = false if @force
+      return nil if stats.empty?
+      return nil if @match.stats_complete
       return nil unless write_stats
       @match.stats_complete = true if @match.status == 'completed'
       @match.save
