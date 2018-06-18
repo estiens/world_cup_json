@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 collection @matches, object_root: false
+cache "sum_matches/#{@matches.pluck(:id).join('')}", expires_in: 15.seconds
 attributes :venue, :location, :status, :time, :fifa_id
 node :datetime do |match|
   match.datetime&.utc&.iso8601
