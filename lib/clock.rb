@@ -39,7 +39,7 @@ module Clockwork
     if Match.today.count == Match.today.where(stats_complete: true).count
       puts 'No current stats to scrape'
     else
-      Scrapers::ScraperTasks.scrape_for_events
+      Scrapers::ScraperTasks.scrape_for_stats
     end
   end
 end

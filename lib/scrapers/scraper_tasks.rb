@@ -21,6 +21,11 @@ module Scrapers
       matches.each { |m| scrape_stats(m) }
     end
 
+    def self.scrape_live_stats
+      match = Match.in_progress(first)
+      scrape_stats(match)
+    end
+
     def self.scrape_for_stats
       matches = Match.today
       puts 'No current matches for stats' if matches.empty?
