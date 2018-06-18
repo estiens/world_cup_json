@@ -18,7 +18,7 @@ class BaseApiController < ApplicationController
   def set_jsonp_format
     return unless params[:callback] && request.get?
     self.response_body = "#{params[:callback]}(#{response.body})"
-    headers["Content-Type"] = 'application/javascript'
+    headers['Content-Type'] = 'application/javascript'
   end
 
   def record_not_found(error = nil)
