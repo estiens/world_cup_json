@@ -3,6 +3,13 @@
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 http://worldcup.sfg.io
 
+Updates June 17, 2018
+
+* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at the matches endpoints that show a small number of matches (`/today/`, `/current/`) by default. If you want all the details at the main matches endpoint, please pass `/?details=true` as a param to your request`
+
+* Scrapers are being refactord to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 12-14 rps.
+
+
 --
 
 Main response endpoint:
