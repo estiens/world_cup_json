@@ -13,7 +13,7 @@ module Scrapers
     def self.scrape_for_events; end
 
     def self.scrape_old_stats
-      matches = Match.completed.where(stats_completed: false)
+      matches = Match.completed.where(stats_complete: false)
       puts 'No old stats to scrape' if matches.empty?
       matches.each { |m| scrape_stats(m) }
     end
