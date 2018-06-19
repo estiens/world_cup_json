@@ -11,10 +11,10 @@ class Match < ActiveRecord::Base
   before_save :determine_winner
   after_save :update_teams
 
-  def self.by_date(start_time, end_time = nil)
+  def self.for_date(start_time, end_time = nil)
     start_time = Time.parse(start_time) unless start_time.is_a? Time
     if end_time
-      end_time = Time.parse(end_time) unless start_time.is_a? Time
+      end_time = Time.parse(end_time) unless end_time.is_a? Time
     else
       end_time = start_time
     end
@@ -24,11 +24,11 @@ class Match < ActiveRecord::Base
   end
 
   def self.today
-    by_date(Time.now)
+    for_date(Time.now)
   end
 
   def self.tomorrow
-    by_date(Time.now.advance(days: 1))
+    for_date(Time.now.advance(days: 1))
   end
 
   def self.completed

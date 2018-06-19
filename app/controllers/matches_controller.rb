@@ -69,9 +69,16 @@ class MatchesController < BaseApiController
   def order_by_params
     @matches = @matches.order('datetime DESC')
     @date = params[:by_date]
-    @order_by = params[:by]
+    @order_by = params[:by] || params[:order_by]
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    order_and_limit
+  end
+
+  def order_and_limit
     order_by_date
-    order_by_desc
+    order_by_scores
+    limit_to_days
   end
 
   def order_by_date
@@ -83,7 +90,16 @@ class MatchesController < BaseApiController
     end
   end
 
-  def order_by_desc
+  def limit_to_days
+    return unless @start_date
+    @matches = if @end_date
+                 @matches.for_date(@start_date, @end_date)
+               else
+                 @matches.for_date(@start_date)
+               end
+  end
+
+  def order_by_scores
     return unless @order_by
     case @order_by.downcase
     when 'total_goals'
