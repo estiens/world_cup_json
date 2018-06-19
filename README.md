@@ -15,7 +15,7 @@ https://worldcup.sfg.io
 
 * New rate limit -- some of you are really hammering the server. You can now make 3 requests
   every 30 seconds, requests after that will return 429
-  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully 10rps get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
+  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully half of the requests get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
 
 * Better cacheing/fixed broken JSONP cacheing
 
@@ -57,9 +57,9 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example)
 
-```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating with current score)
+  ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating with current score)
 
-```rake fifa:get_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
+  ```rake fifa:get_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
 
 ## ENDPOINTS
 
@@ -79,7 +79,7 @@ results for each team (wins, losses, points, goals_for, goals_away, games_played
 -
 
     [url]/teams/group_results
-results for each group, teams ordered by current groups standings. Includes group letter, team, points, and goal differential
+results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
 
 ## OTHER ENDPOINTS
 
@@ -90,13 +90,14 @@ results for each group, teams ordered by current groups standings. Includes grou
 
 You can also retrieve the matches for any team if you know their FIFA code by passing it in as a param.
 
-    Example: [url]/matches/country?fifa_code=USA
+    Example: [url]/matches/country?fifa_code=ISL
 
-## Optional Parameters
+## Other Params
+  * You can append a start date or a start date and and end date to get the matches for those dates. Example `/matches?start_date=2018-06-19&end_date=2018-06-21` Please use YYYY-MM-DD as your param. `end_date` is optional.
 
   * You can append `?callback=foo` to get a JSONP response
 
-    Example: `http://worldcup.sfg.io/matches/today?callback=bar`
+    Example: `https://worldcup.sfg.io/matches/today?callback=bar`
 
   * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
 
@@ -107,7 +108,7 @@ You can also use the by param to get some other sortings of the match list.
   * `total_goals` will sort matches with the largest number of total goals to the least
   * `home_team_goals` will sort matches with the largest number of home team goals to the least
   * `away_team_goals` will sort matches with the largest number of away team goals to the least
-  * `closest_scores` will sort matches with draws first to largest winning marging
+  * `closest_scores` will sort matches with draws first to largest winning margin
 
     Example:`[url]/matches/current/?by=closest_scores`
 
@@ -136,155 +137,312 @@ The response includes the same data output as the regular GET call without param
 MATCH API
 
 ```json
-[
+{
+  "venue": "Saransk",
+  "location": "Mordovia Arena",
+  "status": "completed",
+  "time": "full-time",
+  "fifa_id": "300331550",
+  "datetime": "2018-06-19T12:00:00Z",
+  "last_event_update_at": "2018-06-19T13:54:02Z",
+  "last_score_update_at": "2018-06-19T13:52:45Z",
+  "home_team": {
+    "country": "Colombia",
+    "code": "COL",
+    "goals": 1
+  },
+  "away_team": {
+    "country": "Japan",
+    "code": "JPN",
+    "goals": 2
+  },
+  "winner": "Japan",
+  "winner_code": "JPN",
+  "home_team_statistics": {
+    "attempts_on_goal": 8,
+    "on_target": 3,
+    "off_target": 1,
+    "blocked": 4,
+    "woodwork": 0,
+    "corners": 3,
+    "offsides": 2,
+    "ball_possession": 42,
+    "pass_accuracy": 78,
+    "num_passes": 363,
+    "passes_completed": 284,
+    "distance_covered": 93,
+    "balls_recovered": 37,
+    "tackles": 17,
+    "clearances": 20,
+    "yellow_cards": 2,
+    "red_cards": 1,
+    "fouls_committed": 15,
+    "country": "Colombia"
+  },
+  "away_team_statistics": {
+    "attempts_on_goal": 14,
+    "on_target": 6,
+    "off_target": 5,
+    "blocked": 3,
+    "woodwork": 0,
+    "corners": 6,
+    "offsides": 1,
+    "ball_possession": 58,
+    "pass_accuracy": 84,
+    "num_passes": 546,
+    "passes_completed": 458,
+    "distance_covered": 101,
+    "balls_recovered": 40,
+    "tackles": 15,
+    "clearances": 24,
+    "yellow_cards": 1,
+    "red_cards": 0,
+    "fouls_committed": 9,
+    "country": "Japan"
+  },
+  "home_team_events": [
     {
-        "venue":  "Brazil",
-        "location": "Arena Corinthians",
-        "datetime": "2014-06-12T17:00:00.000-03:00",
-        "status": "in progress",
-	"time": "halftime",
-	"last_score_update_at": "2018-06-15T19:01:58.773Z",
-	"last_event_update_at": "2018-06-15T19:01:58.773Z",
-        "home_team": {
-            "country": "Brazil",
-            "code": "BRA",
-            "goals": 3
-        },
-        "away_team": {
-            "country": "Croatia",
-            "code": "CRO",
-            "goals": 1
-        },
-        "winner": "Brazil",
-
-        "home_team_events": [
-            {
-                "id": 11,
-                "type_of_event": "goal-own",
-                "player": "Marcelo",
-                "time": "11"
-            },
-            {
-                "id": 14,
-                "type_of_event": "yellow-card",
-                "player": "Neymar Jr",
-                "time": "27"
-            },
-            {
-                "id": 15,
-                "type_of_event": "goal",
-                "player": "Neymar Jr",
-                "time": "29"
-            },
-            {
-                "id": 13,
-                "type_of_event": "substitution-in",
-                "player": "Hernanes",
-                "time": "63"
-            },
-            {
-                "id": 12,
-                "type_of_event": "substitution-in",
-                "player": "Bernard",
-                "time": "68"
-            },
-            {
-                "id": 16,
-                "type_of_event": "goal-penalty",
-                "player": "Neymar Jr",
-                "time": "71"
-            },
-            {
-                "id": 19,
-                "type_of_event": "yellow-card",
-                "player": "L Gustavo",
-                "time": "88"
-            },
-            {
-                "id": 17,
-                "type_of_event": "substitution-in",
-                "player": "Ramires",
-                "time": "88"
-            },
-            {
-                "id": 18,
-                "type_of_event": "goal",
-                "player": "Oscar",
-                "time": "901"
-            }
-            ],
-        "away_team_events": [
-            {
-                "id": 23,
-                "type_of_event": "substitution-in",
-                "player": "BrozoviĆ",
-                "time": "61"
-            },
-            {
-                "id": 20,
-                "type_of_event": "yellow-card",
-                "player": "Corluka",
-                "time": "66"
-            },
-            {
-                "id": 21,
-                "type_of_event": "yellow-card",
-                "player": "Lovren",
-                "time": "69"
-            },
-            {
-                "id": 22,
-                "type_of_event": "substitution-in",
-                "player": "RebiĆ",
-                "time": "78"
-            }
-        ]
+      "id": 203,
+      "type_of_event": "red-card",
+      "player": "Carlos SANCHEZ",
+      "time": "3'"
     },
-]
+    {
+      "id": 206,
+      "type_of_event": "substitution-in",
+      "player": "Wilmar BARRIOS",
+      "time": "31'"
+    },
+    {
+      "id": 205,
+      "type_of_event": "substitution-out",
+      "player": "Juan CUADRADO",
+      "time": "31'"
+    },
+    {
+      "id": 207,
+      "type_of_event": "goal",
+      "player": "Juan QUINTERO",
+      "time": "39'"
+    },
+    {
+      "id": 209,
+      "type_of_event": "substitution-in",
+      "player": "James RODRIGUEZ",
+      "time": "59'"
+    },
+    {
+      "id": 208,
+      "type_of_event": "substitution-out",
+      "player": "Juan QUINTERO",
+      "time": "59'"
+    },
+    {
+      "id": 210,
+      "type_of_event": "yellow-card",
+      "player": "Wilmar BARRIOS",
+      "time": "64'"
+    },
+    {
+      "id": 212,
+      "type_of_event": "substitution-in",
+      "player": "Carlos BACCA",
+      "time": "70'"
+    },
+    {
+      "id": 211,
+      "type_of_event": "substitution-out",
+      "player": "Jose IZQUIERDO",
+      "time": "70'"
+    },
+    {
+      "id": 220,
+      "type_of_event": "yellow-card",
+      "player": "James RODRIGUEZ",
+      "time": "86'"
+    }
+  ],
+  "away_team_events": [
+    {
+      "id": 204,
+      "type_of_event": "goal-penalty",
+      "player": "Shinji KAGAWA",
+      "time": "6'"
+    },
+    {
+      "id": 214,
+      "type_of_event": "substitution-in",
+      "player": "Keisuke HONDA",
+      "time": "70'"
+    },
+    {
+      "id": 213,
+      "type_of_event": "substitution-out",
+      "player": "Shinji KAGAWA",
+      "time": "70'"
+    },
+    {
+      "id": 215,
+      "type_of_event": "goal",
+      "player": "Yuya OSAKO",
+      "time": "73'"
+    },
+    {
+      "id": 217,
+      "type_of_event": "substitution-in",
+      "player": "Hotaru YAMAGUCHI",
+      "time": "80'"
+    },
+    {
+      "id": 216,
+      "type_of_event": "substitution-out",
+      "player": "Gaku SHIBASAKI",
+      "time": "80'"
+    },
+    {
+      "id": 219,
+      "type_of_event": "substitution-in",
+      "player": "Shinji OKAZAKI",
+      "time": "85'"
+    },
+    {
+      "id": 218,
+      "type_of_event": "substitution-out",
+      "player": "Yuya OSAKO",
+      "time": "85'"
+    },
+    {
+      "id": 221,
+      "type_of_event": "yellow-card",
+      "player": "Eiji KAWASHIMA",
+      "time": "90'+4'"
+    }
+  ]
+}
 ```
 TEAM GROUP RESULTS API
 
 ```json
-[{"id":1,"country":"Russia","alternate_name":null,"fifa_code":"RUS","group_id":1,"group_letter":"A","wins":1,"draws":0,"losses":0,"games_played":1,"points":3,"goals_for":5,"goals_against":0,"goal_differential":5}...
+[
+  {
+    "group": {
+      "id": 1,
+      "letter": "A",
+      "teams": [
+        {
+          "team": {
+            "id": 1,
+            "country": "Russia",
+            "fifa_code": "RUS",
+            "points": 6,
+            "wins": 2,
+            "draws": 0,
+            "losses": 0,
+            "games_played": 2,
+            "goals_for": 8,
+            "goals_against": 1,
+            "goal_differential": 7
+          }
+        },
+        {
+          "team": {
+            "id": 4,
+            "country": "Uruguay",
+            "fifa_code": "URU",
+            "points": 3,
+            "wins": 1,
+            "draws": 0,
+            "losses": 0,
+            "games_played": 1,
+            "goals_for": 1,
+            "goals_against": 0,
+            "goal_differential": 1
+          }
+        },
+        {
+          "team": {
+            "id": 3,
+            "country": "Egypt",
+            "fifa_code": "EGY",
+            "points": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2,
+            "games_played": 2,
+            "goals_for": 1,
+            "goals_against": 4,
+            "goal_differential": -3
+          }
+        },
+        {
+          "team": {
+            "id": 2,
+            "country": "Saudi Arabia",
+            "fifa_code": "KSA",
+            "points": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 1,
+            "games_played": 1,
+            "goals_for": 0,
+            "goals_against": 5,
+            "goal_differential": -5
+          }
+        }
+      ]
+    }
+  }
+]
 ```
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
-http://worldcup.sfg.io/matches
+https://worldcup.sfg.io/matches
 
-http://worldcup.sfg.io/matches/today
+https://worldcup.sfg.io/matches/today
 
-http://worldcup.sfg.io/matches/current
+https://worldcup.sfg.io/matches/current
 
-http://worldcup.sfg.io/teams/group_results
+https://worldcup.sfg.io/teams/group_results
 
-http://worldcup.sfg.io/teams
+https://worldcup.sfg.io/teams
 
 ## PROJECTS USING THIS API IN 2018
 
 (Feel free to submit a PR with your project!)
 
-* https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
+* https://github.com/justcallmelarry/sportsball   
+(slack integration for updates of goals, cards and results)  
 
-* https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
+* https://github.com/selfish/worldcup-slack  
+(Node.js Slack game status announcer, updated for 2018 games)
 
-* https://github.com/dg01d/bitbar-worldcup (BitBar plugin to show current/daily scores and results)
+* https://github.com/dg01d/bitbar-worldcup  
+(BitBar plugin to show current/daily scores and results)
 
-* https://github.com/nicolopignatelli/wc2018-slack-bot (Slack bot for updates about the current match)
+* https://github.com/nicolopignatelli/wc2018-slack-bot  
+(Slack bot for updates about the current match)
 
-* https://github.com/wildlifehexagon/node-world-cup (Node.js command line app to display results and standings)
+* https://github.com/wildlifehexagon/node-world-cup  
+(Node.js command line app to display results and standings)
 
-* https://github.com/iricigor/FIFA2018 (PowerShell wrapper, compatible with both Linux and Windows versions)
+* https://github.com/iricigor/FIFA2018  
+(PowerShell wrapper, compatible with both Linux and Windows versions)
 
-* https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
+* https://github.com/pedsm/liveCup  
+(React.js based dashboard with live updates designed for TVs and Computers)
 
-* https://github.com/johnbfox/world-cup-scores-cli (Command line tool for getting the day's scores and goals)
+* https://github.com/johnbfox/world-cup-scores-cli  
+(Command line tool for getting the day's scores and goals)
 
-* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
+* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard   
+(CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
 
-* https://github.com/sazap10/world-cup-discord-bot (Discord bot to display schedule, match information and standings)
+* https://github.com/sazap10/world-cup-discord-bot  
+(Discord bot to display schedule, match information and standings)
 
-* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
+* https://github.com/luridarmawan/Carik/  
+([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
 
 ## PROJECTS USING THIS API IN 2014
 
