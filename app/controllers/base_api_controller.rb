@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class BaseApiController < ApplicationController
   protect_from_forgery with: :null_session
-  after_filter :set_jsonp_format
   layout false
   respond_to :json
+  before_filter :set_cache_time
+  after_filter :set_jsonp_format
 
   rescue_from StandardError do |error|
     notify_airbrake(error)
@@ -14,6 +17,16 @@ class BaseApiController < ApplicationController
   end
 
   private
+
+  def set_cache_time
+    @cache_time = if Match.in_progress.count.positive?
+                    20.seconds
+                  elsif Match.today.future.count.positive?
+                    1.minute
+                  else
+                    10.minutes
+                  end
+  end
 
   def set_jsonp_format
     return unless params[:callback] && request.get?
