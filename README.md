@@ -246,8 +246,6 @@ http://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
-* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup". see screenshots.)
-
 * https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
 * https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
@@ -268,7 +266,7 @@ http://worldcup.sfg.io/teams
 
 * https://github.com/sazap10/world-cup-discord-bot (Discord bot to display schedule, match information and standings)
 
-* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".)
+* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
 
 ## PROJECTS USING THIS API IN 2014
 
