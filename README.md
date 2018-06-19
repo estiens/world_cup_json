@@ -246,6 +246,8 @@ http://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
+* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup". see screenshots.)
+
 * https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
 * https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
@@ -259,6 +261,8 @@ http://worldcup.sfg.io/teams
 * https://github.com/iricigor/FIFA2018 (PowerShell wrapper, compatible with both Linux and Windows versions)
 
 * https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
+
+* https://github.com/johnbfox/world-cup-scores-cli (Command line tool for getting the day's scores and goals)
 
 * https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
 
