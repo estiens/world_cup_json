@@ -2,7 +2,8 @@
 
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 
-http://worldcup.sfg.io
+https://worldcup.sfg.io
+(HTTPS working for default domain now :yay:)
 
 ## TODO
 
@@ -36,11 +37,7 @@ http://worldcup.sfg.io
 --
 
 Main response endpoint:
-http://worldcup.sfg.io/matches/today
-
-If you need SSL access, please use
-https://world-cup-json.herokuapp.com
-for the time being until SSL is working on the main domain
+https://worldcup.sfg.io/matches/today
 
 --
 
