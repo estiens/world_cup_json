@@ -71,6 +71,7 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.7.1)
     erubis (2.7.0)
+    excon (0.62.0)
     execjs (2.7.0)
     ffi (1.9.25)
     font-awesome-rails (4.7.0.4)
@@ -89,6 +90,11 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    heroics (0.0.24)
+      erubis (~> 2.0)
+      excon
+      moneta
+      multi_json (>= 1.9.2)
     html2haml (2.2.0)
       erubis (~> 2.7.0)
       haml (>= 4.0, < 6)
@@ -102,7 +108,6 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    kgio (2.11.2)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -112,6 +117,8 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    moneta (0.8.1)
+    multi_json (1.13.1)
     newrelic_rpm (5.2.0.345)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -120,12 +127,16 @@ GEM
     parser (2.5.1.0)
       ast (~> 2.4.0)
     pg (0.20.0)
+    platform-api (2.1.0)
+      heroics (~> 0.0.23)
+      moneta (~> 0.8.1)
     powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    puma (3.11.4)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
     rack (1.6.10)
@@ -166,7 +177,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (3.0.0)
-    raindrops (0.19.0)
     rake (12.3.1)
     rdoc (6.0.4)
     redis (4.0.1)
@@ -230,9 +240,6 @@ GEM
     uglifier (4.1.11)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.4.0)
-    unicorn (5.4.0)
-      kgio (~> 2.6)
-      raindrops (~> 0.7)
     watir (6.11.0)
       selenium-webdriver (~> 3.4, >= 3.4.1)
 
@@ -254,7 +261,9 @@ DEPENDENCIES
   newrelic_rpm
   oj
   pg (= 0.20)
+  platform-api
   pry-rails
+  puma
   rabl
   rack-attack
   rack-cors
@@ -267,7 +276,6 @@ DEPENDENCIES
   sass-rails (~> 5.0.0)
   sdoc
   uglifier (>= 1.3.0)
-  unicorn
   watir
 
 RUBY VERSION

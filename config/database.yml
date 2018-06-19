@@ -11,7 +11,5 @@ test:
   pool: 5
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: world_cup_prod
-  pool: 5
+  url:  <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>

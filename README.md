@@ -3,11 +3,13 @@
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 http://worldcup.sfg.io
 
-Updates June 17, 2018
+Updates June 18, 2018
 
-* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at the matches endpoints that show a small number of matches (`/today/`, `/current/`) by default. If you want all the details at the main matches endpoint, please pass `/?details=true` as a param to your request`
+* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at all the matches endpoints. If you want a more truncated view of a match (no events or stats) please pass `?details=false` to any match endpoint
 
-* Scrapers are being refactord to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 12-14 rps.
+* You can now retrieve a match by fifa_id if you only want one specific match, just use `/matches/fifa_id/300331499` or as a shortcut just `/matches/300331499`. You'll get a 404 error back if no match has that id.
+
+* Scrapers are being refactored to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 30-40 rps.
 
 
 --
@@ -261,6 +263,12 @@ http://worldcup.sfg.io/teams
 * https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
 
 * https://github.com/johnbfox/world-cup-scores-cli (Command line tool for getting the day's scores and goals)
+
+* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
+
+* https://github.com/sazap10/world-cup-discord-bot (Discord bot to display schedule, match information and standings)
+
+* https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".)
 
 ## PROJECTS USING THIS API IN 2014
 

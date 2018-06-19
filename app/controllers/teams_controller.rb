@@ -1,19 +1,19 @@
 class TeamsController < BaseApiController
   def index
     @teams = Team.all
-    render 'team_index.json.rabl', callback: params['callback']
+    render 'team_index.json.rabl'
   end
 
   def results
     @teams = Team.all
     limit_team_if_requested
-    render 'team_results.json.rabl', callback: params['callback']
+    render 'team_results.json.rabl'
   end
 
   def group_results
     @groups = Group.all
     limit_group_if_requested
-    render 'group_results.json.rabl', callback: params['callback']
+    render 'group_results.json.rabl'
   end
 
   private
