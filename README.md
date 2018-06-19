@@ -21,9 +21,9 @@ https://worldcup.sfg.io
 
 * Scrapers almost finished being reworked
 
-* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`
+* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`  
 
-(If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
+  (If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
 
 ### Updates June 18, 2018
 
@@ -63,32 +63,25 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 ## ENDPOINTS
 
-    [url]/teams/
-for a list of teams with group ID and FIFA code
+`[url]/teams/` for a list of teams with group ID and FIFA code
 
--
-
-    [url]/matches/
+`[url]/matches/`
 for all matches (Example JSON object at the bottom of this README)
 
--
+`[url]/teams/results` results for each team (wins, losses, points, goals_for, goals_away, games_played)
 
-    [url]/teams/results
-results for each team (wins, losses, points, goals_for, goals_away, games_played)
-
--
-
-    [url]/teams/group_results
-results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
+`[url]/teams/group_results` results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
 
 ## OTHER ENDPOINTS
 
-    [url]/matches/today/
-    [url]/matches/tomorrow/
+```
+[url]/matches/today/
+[url]/matches/tomorrow/
+[url]/matches/current/
+```
 
-(what it says on the tin)
 
-You can also retrieve the matches for any team if you know their FIFA code by passing it in as a param.
+You can also retrieve the matches for any team if you know their FIFA code (get fifa code from teams endpoint) by passing it in as a param.
 
     Example: [url]/matches/country?fifa_code=ISL
 
