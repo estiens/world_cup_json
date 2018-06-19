@@ -1,4 +1,4 @@
-Rack::Attack.throttle('requests by ip', limit: 2, period: 30, &:ip)
+Rack::Attack.throttle('requests by ip', limit: 3, period: 30, &:ip)
 
 Rack::Attack.throttled_response = lambda do |env|
   now = Time.now

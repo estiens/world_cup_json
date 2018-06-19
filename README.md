@@ -8,10 +8,12 @@ http://worldcup.sfg.io
 * Figure out how to parse penalties this Cup (hard without penalties)
 * Parse datetime info for knockout matches successfully
 * More automatic scraper restarts on failures or memory errors
-* Smarter/longer caches when no live game
 
 ### Updates June 19, 2018
 
+* New rate limit -- some of you are really hammering the server. You can now make 3 requests
+  every 30 seconds, requests after that will return 429
+  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction.
 * Better cacheing/fixed broken JSONP cacheing
 * Scrapers almost finished being reworked
 * New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`
