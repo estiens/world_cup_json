@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(version: 20180618003513) do
     t.string   "time"
     t.datetime "last_score_update_at"
     t.datetime "last_event_update_at"
-    t.string   "winner_country"
-    t.string   "winner_code"
     t.boolean  "stats_complete",       default: false, null: false
     t.integer  "winner_id"
     t.boolean  "draw",                 default: false, null: false

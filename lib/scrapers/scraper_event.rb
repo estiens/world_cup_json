@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Scrapers
   class ScraperEvent
     def initialize(event)

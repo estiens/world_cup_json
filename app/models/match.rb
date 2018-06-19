@@ -1,5 +1,6 @@
 class Match < ActiveRecord::Base
-  validates_presence_of :home_team, :away_team, :datetime, :status
+  validates_presence_of :location, :venue, :datetime, :status
+  validate :has_teams
 
   belongs_to :home_team, class_name: Team, foreign_key: 'home_team_id'
   belongs_to :away_team, class_name: Team, foreign_key: 'away_team_id'
@@ -97,6 +98,16 @@ class Match < ActiveRecord::Base
     home_team_score == away_team_score
   end
 
+  private
+
+  def has_teams
+    home = (home_team.present? || home_team_tbd.present? )
+    away = (away_team.present? || away_team_tbd.present? )
+    return if home && away
+    errors.add(:base, "Missing home team") unless home
+    errors.add(:base, "Missing away team") unless away
+  end
+
   def determine_winner
     return unless status == 'completed'
     self.winner = penalty_winner
@@ -106,6 +117,6 @@ class Match < ActiveRecord::Base
   end
 
   def update_teams
-    home_team.save && away_team.save
+    home_team&.save && away_team&.save
   end
 end

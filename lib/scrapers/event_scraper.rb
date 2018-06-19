@@ -13,15 +13,15 @@ module Scrapers
     end
 
     def scrape
-      try_match_facts
       try_match_events
+      try_match_facts
       @match.save
     end
 
     private
 
     def scraper_url
-      base_url = 'https://www.fifa.com/worldcup/matches/match'
+      base_url = 'https://www.fifa.com/worldcup/matches/#knockoutphase'
       "#{base_url}/#{@match.fifa_id}/#match-lineups"
     end
 
@@ -44,7 +44,7 @@ module Scrapers
     def write_match_facts
       puts "#{@match.name} already completed" && return if @match.completed?
       check_for_goals
-      @match.time = match_time
+      @match.time = match_time if match_time
       @match.status = 'completed' if match_completed?
       @match.last_score_update_at = Time.now
     end
@@ -114,7 +114,7 @@ module Scrapers
     end
 
     def match_completed?
-      match_time.include? 'full-time'
+      match_time&.include? 'full-time'
     end
 
     def match_time

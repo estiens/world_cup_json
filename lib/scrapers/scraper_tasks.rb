@@ -13,12 +13,29 @@ module Scrapers
       puts 'old events force scraped successfully'
     end
 
+    def self.fix_broken_scores
+      matches = Match.where(status: 'pending_correction')
+      if matches.empty?
+        puts 'No current broken scores'
+      else
+        matches.each do |m|
+          puts "Scraping Events and Goals for #{m.name}"
+          scrape_events(match: m)
+        end
+        puts "event scraping done for #{matches.map(&:name).join(',')}"
+      end
+      @locked = false
+    end
+
     def self.scrape_for_events
       matches = Match.not_future.where.not(status: 'completed')
       if matches.empty?
         puts 'No current matches for events'
       else
-        matches.each { |m| scrape_events(match: m) }
+        matches.each do |m|
+          puts "Scraping Events and Goals for #{m.name}"
+          scrape_events(match: m)
+        end
         puts "event scraping done for #{matches.map(&:name).join(',')}"
       end
       @locked = false
