@@ -1,6 +1,7 @@
 # FIFA WORLD CUP 2018
 
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
+
 http://worldcup.sfg.io
 
 ## TODO
@@ -13,9 +14,12 @@ http://worldcup.sfg.io
 
 * New rate limit -- some of you are really hammering the server. You can now make 3 requests
   every 30 seconds, requests after that will return 429
-  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction.
+  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully 10rps get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
+
 * Better cacheing/fixed broken JSONP cacheing
+
 * Scrapers almost finished being reworked
+
 * New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`
 
 (If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
