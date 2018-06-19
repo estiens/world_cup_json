@@ -1,9 +1,12 @@
 # FIFA WORLD CUP 2018
 
-This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
+This should now be working for the World Cup in 2018!  
+Should have all events and goals and match stats streaming live, please file an issue or hit me up on twitter @mutualarisisg if anything has gone awry.
 
-https://worldcup.sfg.io
+https://worldcup.sfg.io  
 (HTTPS working for default domain now :yay:)
+
+Special thanks to my employer [Software For Good](https://www.softwareforgood) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
 
 ## TODO
 
@@ -42,8 +45,6 @@ https://worldcup.sfg.io/matches/today
 --
 
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
-
-FIFA has changed their HTML structure from all previous tournaments. I can surmise how all results and goals show up, but I'm not yet sure about events (cards, subs, etc). I will try to have this working within 24 hours of the first match being played, and add any extra information they are displaying this time.
 
 # ABOUT
 
@@ -92,7 +93,7 @@ You can also retrieve the matches for any team if you know their FIFA code (get 
 
     Example: `https://worldcup.sfg.io/matches/today?callback=bar`
 
-  * You can append `?by_date=desc` to any query tosort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future.
+  * You can append `?by_date=desc` to any query to sort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future. (ASC is default sort with no params)
 
     Example:`[url]/matches/today/?by_date=DESC`
 
@@ -127,7 +128,7 @@ The response includes the same data output as the regular GET call without param
 
 ## EXAMPLE RESPONSES
 
-MATCH API
+#### MATCH API ENDPOINT
 
 ```json
 {
@@ -313,7 +314,7 @@ MATCH API
   ]
 }
 ```
-TEAM GROUP RESULTS API
+#### TEAM GROUP RESULTS API ENDPOINT
 
 ```json
 [
