@@ -3,7 +3,22 @@
 This should be now working for the World Cup in 2018! (Okay, now really working aside from zone minor time zone issues. Should have all events and goals streaming live, please file an issue if you notice any.)
 http://worldcup.sfg.io
 
-Updates June 18, 2018
+## TODO
+
+* Figure out how to parse penalties this Cup (hard without penalties)
+* Parse datetime info for knockout matches successfully
+* More automatic scraper restarts on failures or memory errors
+* Smarter/longer caches when no live game
+
+### Updates June 19, 2018
+
+* Better cacheing/fixed broken JSONP cacheing
+* Scrapers almost finished being reworked
+* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`
+
+(If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
+
+### Updates June 18, 2018
 
 * We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at all the matches endpoints. If you want a more truncated view of a match (no events or stats) please pass `?details=false` to any match endpoint
 
