@@ -3,6 +3,7 @@ class Group < ActiveRecord::Base
 
   def ordered_teams
     @teams = teams.order(:team_points).order(:team_goal_differential)
+                  .order(:team_goals_for)
     @teams = @teams.reverse
   end
 end
