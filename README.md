@@ -16,7 +16,7 @@ Main response endpoint:
 http://worldcup.sfg.io/matches/today
 
 If you need SSL access, please use
-https://world-cup-json.herokuapp.com 
+https://world-cup-json.herokuapp.com
 for the time being until SSL is working on the main domain
 
 --
@@ -245,7 +245,7 @@ http://worldcup.sfg.io/teams
 (Feel free to submit a PR with your project!)
 
 * https://github.com/luridarmawan/Carik/ ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup". see screenshots.)
- 
+
 * https://github.com/justcallmelarry/sportsball (slack integration for updates of goals, cards and results)
 
 * https://github.com/selfish/worldcup-slack (Node.js Slack game status announcer, updated for 2018 games)
@@ -259,6 +259,8 @@ http://worldcup.sfg.io/teams
 * https://github.com/iricigor/FIFA2018 (PowerShell wrapper, compatible with both Linux and Windows versions)
 
 * https://github.com/pedsm/liveCup (React.js based dashboard with live updates designed for TVs and Computers)
+
+* https://github.com/johnbfox/world-cup-scores-cli (Command line tool for getting the day's scores and goals)
 
 ## PROJECTS USING THIS API IN 2014
 
@@ -280,4 +282,3 @@ http://softwareforgood.com/soccer-good/
 ## WARNING
 
 Most of this was written in a rush 4 years ago, and the rest was written in a rush on day 1 of the World Cup in 2018 to adjust for the new FIFA CMS and live updates via JS. This is not good object oriented code. Scraping is inherently a messy and brittle procedural process. I may try to refactor, but my primary goal was the get something functional. Please do not use as an example of good Rails code!
-
