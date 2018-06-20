@@ -75,28 +75,30 @@
     .small-6.columns
       %h3 TODAY'S MATCHES
       -@today_matches.each do |match|
-        %p.match-result
-          -if match.status== "completed"
-            #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-            -# - if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
-            -#   %br
-            -#   %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.home_team_penalties} to #{match.away_team_penalties}
-            -# - if match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
-            -#   %br
-            -#   %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
-          -elsif match.status == "in progress"
-            .live
-              = image_tag("http://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
-              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
-              = image_tag("http://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
-              ( #{match.time} )
-          -else
-            #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+        -cache(match) do
+          %p.match-result
+            -if match.status== "completed"
+              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
+              -# - if match.home_team_penalties && match.home_team_penalties > match.away_team_penalties
+              -#   %br
+              -#   %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.home_team_penalties} to #{match.away_team_penalties}
+              -# - if match.home_team_penalties && match.home_team_penalties < match.away_team_penalties
+              -#   %br
+              -#   %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
+            -elsif match.status == "in progress"
+              .live
+                = image_tag("http://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
+                #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
+                = image_tag("http://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
+                ( #{match.time} )
+            -else
+              #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
     .small-6.columns
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
-        %p.match-result
+        -cache(match) do
+          %p.match-result
           #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 .footer
   %ul
