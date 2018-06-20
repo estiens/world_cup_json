@@ -13,7 +13,7 @@ class Match < ActiveRecord::Base
 
   def self.for_date(start_time, end_time = nil)
     parse_times(start_time, end_time)
-    return unless @start_time && @end_time
+    return Match.none unless @start_time && @end_time
     where(datetime: @start_time..@end_time)
   end
 
@@ -21,6 +21,7 @@ class Match < ActiveRecord::Base
     start_time = Chronic.parse(start_time.to_s)
     end_time = Chronic.parse(end_time.to_s)
     end_time ||= start_time
+    return unless start_time && end_time
     @start_time = start_time.beginning_of_day
     @end_time = end_time.end_of_day
   end
