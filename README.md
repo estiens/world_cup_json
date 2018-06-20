@@ -16,8 +16,8 @@ Special thanks to my employer [Software For Good](https://www.softwareforgood) f
 
 ### Updates June 19, 2018
 
-* New rate limit -- some of you are really hammering the server. You can now make 3 requests
-  every 30 seconds, requests after that will return 429
+* New rate limit -- some of you are really hammering the server. You can now make 10 requests
+  every 60 seconds, requests after that will return 429
   with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully half of the requests get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
 
 * Better cacheing/fixed broken JSONP cacheing
