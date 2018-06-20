@@ -20,7 +20,7 @@ class BaseApiController < ApplicationController
 
   def set_cache_time
     @cache_time = if Match.in_progress.count.positive?
-                    20.seconds
+                    15.seconds
                   elsif Match.today.future.count.positive?
                     1.minute
                   else

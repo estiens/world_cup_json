@@ -9,7 +9,7 @@ namespace :scraper do
       heroku.formation.update('world-cup-json', 'web', quantity: 3)
     elsif (Time.now + 1.hour).to_i > Match.next&.datetime.to_i
       heroku.formation.update('world-cup-json', 'web', quantity: 2)
-    elsif (Time.now - 1.hour).to_i > Match.completed.last.to_i
+    elsif (Time.now - 1.hour).to_i > Match.recently_completed&.datetime.to_i
       heroku.formation.update('world-cup-json', 'web', quantity: 2)
     else
       heroku.formation.update('world-cup-json', 'web', quantity: 1)

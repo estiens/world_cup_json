@@ -28,6 +28,10 @@ class Match < ActiveRecord::Base
     today.future.reorder(datetime: :asc).first
   end
 
+  def self.recently_completed
+    today.completed.reorder(datetime: :desc).first
+  end
+
   def self.today
     for_date(Time.now)
   end
