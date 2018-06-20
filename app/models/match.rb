@@ -24,6 +24,10 @@ class Match < ActiveRecord::Base
     where(datetime: start_filter..end_filter).order(:datetime)
   end
 
+  def self.next
+    today.future.reorder(datetime: :asc).first
+  end
+
   def self.today
     for_date(Time.now)
   end

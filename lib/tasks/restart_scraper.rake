@@ -7,7 +7,9 @@ namespace :scraper do
     heroku.dyno.restart('world-cup-json', 'clock.1')
     if Match.in_progress.count.positive?
       heroku.formation.update('world-cup-json', 'web', quantity: 3)
-    elsif (Time.now + 1.hour) > Match.today.first&.datetime
+    elsif (Time.now + 1.hour).to_i > Match.next&.datetime.to_i
+      heroku.formation.update('world-cup-json', 'web', quantity: 2)
+    elsif (Time.now - 1.hour).to_i > Match.completed.last.to_i
       heroku.formation.update('world-cup-json', 'web', quantity: 2)
     else
       heroku.formation.update('world-cup-json', 'web', quantity: 1)
