@@ -455,6 +455,10 @@ https://worldcup.sfg.io/teams
 You can read a blog post about building the API here:
 http://softwareforgood.com/soccer-good/
 
+## DONATIONS
+
+Some people have asked if they can make donations. I'd love for you to donate some time writing code or docs or tests, but this is shared totally gratis. If you're interested in throwing some cash someone's way, why not help out organizations working with families separated at the border of the US? At this time of coming together as a human community, let's remember that arbitrary lines on a map still have the power to hurt people. (https://secure.actblue.com/donate/kidsattheborder)
+
 ## WARNING
 
 Most of this was written in a rush 4 years ago, and the rest was written in a rush on day 1 of the World Cup in 2018 to adjust for the new FIFA CMS and live updates via JS. This is not good object oriented code. Scraping is inherently a messy and brittle procedural process. I may try to refactor, but my primary goal was the get something functional. Please do not use as an example of good Rails code!
