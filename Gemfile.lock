@@ -57,6 +57,7 @@ GEM
     chromedriver-helper (1.2.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    chronic (0.10.2)
     clockwork (2.0.3)
       tzinfo
     coderay (1.1.2)
@@ -266,6 +267,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   chromedriver-helper
+  chronic
   clockwork
   coffee-rails (~> 4.0.0)
   connection_pool

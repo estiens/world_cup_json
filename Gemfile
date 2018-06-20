@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'airbrake'
 gem 'chromedriver-helper'
+gem 'chronic'
 gem 'clockwork'
 gem 'connection_pool'
 gem 'foundation-rails', '~> 5'

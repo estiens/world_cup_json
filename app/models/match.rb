@@ -12,14 +12,15 @@ class Match < ActiveRecord::Base
   after_save :update_teams
 
   def self.for_date(start_time, end_time = nil)
-    start_time = Time.parse(start_time) unless start_time.is_a? Time
+    start_time = Chronic.parse(start_time) unless start_time.is_a? Time
     if end_time
-      end_time = Time.parse(end_time) unless end_time.is_a? Time
+      end_time = Chronic.parse(end_time) unless end_time.is_a? Time
     else
       end_time = start_time
     end
     start_filter = start_time.beginning_of_day
     end_filter = end_time.end_of_day
+    return unless start_filter
     where(datetime: start_filter..end_filter).order(:datetime)
   end
 
