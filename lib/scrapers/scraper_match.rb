@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Scrapers
-  class ScraperMatch    
+  class ScraperMatch
+    attr_accessor :match
+
     def initialize(match)
       @match = match
     end

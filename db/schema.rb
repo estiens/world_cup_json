@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180618003513) do
+ActiveRecord::Schema.define(version: 20180620190659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180618003513) do
     t.boolean  "stats_complete",       default: false, null: false
     t.integer  "winner_id"
     t.boolean  "draw",                 default: false, null: false
+    t.boolean  "events_complete",      default: false, null: false
   end
 
   add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree

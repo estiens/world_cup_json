@@ -4,25 +4,26 @@ module Scrapers
   # scrapes match statistics
   class EventScraper < BaseScraper
     def initialize(match:, force: false)
+      super()
       @match = match
       @url = scraper_url
-      @page = scrape_page_from_url
       @force = force
       @counter = 0
       @found = 0
     end
 
     def scrape
-      try_match_events
+      @page = scrape_page_from_url
       try_match_facts
+      try_match_events
       @match.save
     end
 
     private
 
     def scraper_url
-      base_url = 'https://www.fifa.com/worldcup/matches/#knockoutphase'
-      "#{base_url}/#{@match.fifa_id}/#match-lineups"
+      base_url = 'https://www.fifa.com/worldcup/matches/match/'
+      "#{base_url}#{@match.fifa_id}/#match-lineups"
     end
 
     def try_match_events
@@ -42,19 +43,23 @@ module Scrapers
     end
 
     def write_match_facts
-      puts "#{@match.name} already completed" && return if @match.completed?
+      if @match.completed?
+        puts "#{@match.name} already completed"
+        return
+      end
       check_for_goals
       @match.time = match_time if match_time
-      @match.status = 'completed' if match_completed?
       @match.last_score_update_at = Time.now
+      @match.status = 'completed' if match_completed?
     end
 
     def write_match_events
       puts "Grabbing events for #{@match.name}"
       puts "Couldn't find events for #{@match.name}" && return if events.empty?
-      puts "#{@match.name} already completed" && return if @match.completed? && !@force
-      write_events
+      puts "#{@match.name} already completed" && return if @match.events_complete? && !@force
+      return unless write_events
       @match.last_event_update_at = Time.now
+      @match.events_complete = true if @match.status == 'completed'
     end
 
     def check_for_goals
@@ -68,16 +73,20 @@ module Scrapers
     def update_team_score(goals)
       home_team_score = goals.first.to_i
       away_team_score = goals.last.to_i
-      if home_team_score > @match.home_team_score
+      if home_team_score > @match.home_team_score.to_i
         puts "GOOOOOOOL #{@match.home_team.country}"
         @match.home_team_score = home_team_score
       end
-      return unless away_team_score > @match.away_team_score
+      return unless away_team_score > @match.away_team_score.to_i
       puts "GOOOOOOOOL #{@match.away_team.country}"
       @match.away_team_score = away_team_score
     end
 
     def write_events
+      unless events.length.positive?
+        puts "Couldn't find events for match"
+        return false
+      end
       events.each do |event|
         team_id = event[:home] ? @match.home_team_id : @match.away_team_id
         attrs = { player: event[:player], team_id: team_id,
@@ -88,6 +97,7 @@ module Scrapers
       puts "scraped #{events.length} events
            | #{@counter} events created
            | #{@found} existed"
+      true
     end
 
     def find_or_create_event(attrs)

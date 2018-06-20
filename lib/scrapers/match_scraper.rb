@@ -3,38 +3,104 @@
 module Scrapers
   # scrapes all matches to set up times and check for live games
   class MatchScraper < BaseScraper
-    def initialize
+    def initialize(force: false, before_events: false)
+      super()
       @url = scraper_url
-      super(url: scraper_url)
+      @force = force
+      @before_events = before_events
       @matches = nil
+      @counter = 0
+      @page = nil
     end
 
     def verify_past_scores
+      @page = scrape_page_from_url(before_events: false)
       @matches = @page.css('.result')
       check_scores_for_matches
     end
 
-    def overwrite_existing_matches
-      @page = Nokogiri::HTML(browser.html)
+    def write_past_matches
+      @page = scrape_page_from_url(before_events: false)
+      @matches = page.search('.result')
+      if @force
+        @matches.each { |m| write_overwrite_match_data_for_match(m) }
+      else
+        @matches.each { |m| write_new_match_data_for_match(m) }
+      end
+      puts "#{@counter} matches written"
+    end
+
+    def write_future_matches
+      @page = scrape_page_from_url(before_events: true)
       @matches = page.search('.fixture')
-      @matches.each { |m| write_match_data_for_match(m) }
-      @results = page.search('.result')
-      @matches.each { |m| write_match_data_for_match(m) }
+      if @force
+        @matches.each { |m| write_overwrite_match_data_for_match(m) }
+      else
+        @matches.each { |m| write_new_match_data_for_match(m) }
+      end
+      puts "#{@counter} matches written"
+    end
+
+    def check_for_live_status
+      @page = scrape_page_from_url(before_events: false)
+      @matches = page.search('.live')
+      @matches.each { |m| write_status_for_match(m) }
+      return unless Match.in_progress.count.positive?
+      puts "#{Match.in_progress.first.name} in progress"
     end
 
     private
+
+    def before_scrape_events(execute = false)
+      return unless execute
+      # puts @browser.driver.manage.window.size
+      @browser.link(text: 'Knockout Phase').click!
+      @browser.link(text: 'List view').click!
+      @browser.execute_script("$('.fi-knockout-tabs #listview').show();")
+      Watir::Wait.until { @browser.element(id: "listview").visible? }
+    end
 
     def scraper_url
       'https://www.fifa.com/worldcup/matches/'
     end
 
-    def write_match_data_for_match(match)
+    def write_status_for_match(match)
+      fifa_id = match.first[1]
+      fixture = Match.find_or_create_by(fifa_id: fifa_id)
+      scraper_match = Scrapers::ScraperMatch.new(match)
+      determine_status(fixture, scraper_match)
+      save_fixture(fixture, scraper_match)
+    end
+
+    def write_new_match_data_for_match(match)
+      fifa_id = match.first[1]
+      fixture = Match.find_or_create_by(fifa_id: fifa_id)
+      scraper_match = Scrapers::ScraperMatch.new(match)
+      if scraper_match.datetime && scraper_match.datetime != fixture.datetime
+        fixture.datetime = scraper_match.datetime
+      end
+      if scraper_match.venue && scraper_match.venue != fixture.venue
+        fixture.venue = scraper_match.venue
+      end
+      if scraper_match.location && scraper_match.location != fixture.location
+        fixture.location = scraper_match.location
+      end
+      fixture.home_team_score ||= 0
+      fixture.away_team_score ||= 0
+      set_fixture_home_team(fixture, scraper_match)
+      set_fixture_away_team(fixture, scraper_match)
+      save_fixture(fixture, scraper_match)
+    end
+
+    def overwrite_match_data_for_match(match)
       fifa_id = match.first[1]
       fixture = Match.find_or_create_by(fifa_id: fifa_id)
       scraper_match = Scrapers::ScraperMatch.new(match)
       fixture.datetime = scraper_match.datetime
       fixture.location = scraper_match.location
       fixture.venue = scraper_match.venue
+      fixture.home_team_score ||= 0
+      fixture.away_team_score ||= 0
       fixture.status = scraper_match.match_status
       set_fixture_home_team(fixture, scraper_match)
       set_fixture_away_team(fixture, scraper_match)
@@ -44,11 +110,10 @@ module Scrapers
 
     def save_fixture(fixture, scraper_match)
       if fixture.save
+        @counter += 1
         puts "SAVED #{fixture.name}"
-        puts fixture.to_json.to_s
       else
         puts 'Something went wrong'
-        puts fixture.errors.full_messages.to_s
       end
     end
 
@@ -104,10 +169,12 @@ module Scrapers
         true
       else
         fixture.status = 'pending_correction'
-        fixture.save
+        fixture.events_complete = false
         puts "Incorrect Score for #{fixture.name}:
            Scraped Score is #{scraped_scores[0]} - #{scraped_scores[1]}
            and database score is #{fixture.home_team_score} - #{fixture.away_team_score}"
+        fixture.home_team_score = fixture.away_team_score = 0
+        fixture.save
         false
       end
     end
@@ -125,97 +192,3 @@ module Scrapers
     end
   end
 end
-
-#   desc "scrape results from FIFA site"
-#   task get_all_matches: :environment do
-#     def parse_match(match)
-#       fifa_id = match.first[1] # get unique fifa_id
-#       fixture = Match.find_or_create_by(fifa_id: fifa_id)
-#       return nil if fixture.status == 'completed'
-#
-#       datetime = match.css('.fi-mu__info__datetime')&.text&.strip
-#       datetime = datetime&.downcase&.gsub('local time', '')&.strip&.to_time
-#
-#       venue = match.css('.fi__info__venue')&.text
-#
-#       # comment next line out for set up and scraping of all matches
-#       # reduces overhead on heroku to only scrape today's matches
-#
-#       return nil unless datetime&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
-#
-#       location = match.css(".fi__info__stadium")&.text
-#
-#       home_team_code = match.css(".home .fi-t__nTri")&.text
-#       away_team_code = match.css(".away .fi-t__nTri")&.text
-#
-#       # if match is scheduled, associate it with a team, else use tbd variables
-#       if Team.where(fifa_code: home_team_code).first
-#         home_team_id = Team.where(fifa_code: home_team_code).first.id
-#       else
-#         home_team_tbd = home_team_code
-#       end
-#       if Team.where(fifa_code: away_team_code).first
-#         away_team_id = Team.where(fifa_code: away_team_code).first.id
-#       else
-#         away_team_tbd = away_team_code
-#       end
-#
-#       fixture.home_team_score ||= 0
-#       fixture.away_team_score ||= 0
-#       # FIFA uses the score class to show the time if the match is in the future
-#       # We don't want that
-#       if match.css('.fi-s__scoreText')&.text&.include?("-")
-#         score_array = match.css('.fi-s__scoreText').text.split("-")
-#         new_ht_score = score_array.first.to_i
-#         new_at_score = score_array.last.to_i
-#         fixture.home_team_score = new_ht_score if new_ht_score > fixture.home_team_score
-#         fixture.away_team_score = new_at_score if new_at_score > fixture.away_team_score
-#       end
-#       # this is handled by JS hide/show now will have to figure out how to handle
-#       penalties = match.css(".fi-mu__reasonwin-text").xpath("//wherever/*[not (@class='hidden')]")
-#       if penalties.text.downcase.include?("win on penalties")
-#         # not sure is right in 2018
-#         penalty_array = penalties.text.split("-")
-#         home_team_penalties = penalty_array[0].gsub(/[^\d]/, "").to_i
-#         away_team_penalties = penalty_array[1].gsub(/[^\d]/, "").to_i
-#       end
-#       fixture.venue ||= venue
-#       fixture.location ||= location
-#       fixture.datetime ||= datetime
-#       fixture.home_team_id = home_team_id
-#       fixture.away_team_id = away_team_id
-#       fixture.home_team_tbd = home_team_tbd
-#       fixture.away_team_tbd = away_team_tbd
-#       if home_team_penalties && away_team_penalties
-#         fixture.home_team_penalties = home_team_penalties
-#         fixture.away_team_penalties = away_team_penalties
-#       end
-#
-#       if match.attributes['class'].value.include?('live')
-#         fixture.status = 'in progress'
-#       elsif match.css('.period').css(":not(.hidden)").text.downcase.include?('full-time')
-#         fixture.status = 'end of time'
-#       else
-#         fixture.status ||= 'future'
-#       end
-#       fixture.last_score_update_at = Time.now
-#       @counter += 1 if fixture.save
-#     end
-#
-#     matches = get_page_from_url(MATCH_URL)
-#     @counter = 0
-#     @live_counter = 0
-#
-#     matches.css(".fixture").each do |match|
-#       parse_match(match)
-#     end
-#
-#     matches.css(".live").each do |match|
-#       parse_match(match)
-#       @live_counter += 1
-#     end
-#
-#     puts "checked matches, saved #{@counter} matches"
-#     puts "checked matches, saved #{@live_counter} live matches"
-#   end
-# end

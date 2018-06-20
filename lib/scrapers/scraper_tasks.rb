@@ -2,9 +2,31 @@
 
 module Scrapers
   class ScraperTasks
-    def self.scrape_old_matches; end
 
-    def self.scrape_current_matches; end
+    def self.verify_old_scores
+      scrape_matches(event: :verify_past_scores)
+    end
+
+    def self.overwrite_old_matches
+      scrape_matches(event: :write_past_matches, force: true)
+    end
+
+    def self.scrape_old_matches
+      scrape_matches(event: :write_past_matches, force: false)
+    end
+
+    def self.scrape_future_matches
+      scrape_matches(event: :write_future_matches, force: false)
+    end
+
+    def self.overwrite_future_matches
+      scrape_matches(event: :write_future_matches, force: true)
+    end
+
+    def self.check_for_live_game
+      scrape_matches(event: :check_for_live_status)
+      `rake fifa:get_all_matches`
+    end
 
     def self.force_scrape_old_events
       matches = Match.completed
@@ -28,7 +50,7 @@ module Scrapers
     end
 
     def self.scrape_for_events
-      matches = Match.not_future.where.not(status: 'completed')
+      matches = Match.not_future.where.not(events_complete: true)
       if matches.empty?
         puts 'No current matches for events'
       else
@@ -73,6 +95,16 @@ module Scrapers
       thread = Thread.new do
         scraper = Scrapers::EventScraper.new(match: match, force: force)
         scraper.scrape
+      end
+      @locked = false if thread.join
+    end
+
+    def self.scrape_matches(event:, force: false)
+      sleep(5) if @locked
+      @locked = true
+      thread = Thread.new do
+        scraper = Scrapers::MatchScraper.new(force: force)
+        scraper.send(event)
       end
       @locked = false if thread.join
     end
