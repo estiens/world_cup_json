@@ -13,16 +13,18 @@ class Match < ActiveRecord::Base
   after_save :update_teams
 
   def self.for_date(start_time, end_time = nil)
-    start_time = Chronic.parse(start_time) unless start_time.is_a? Time
-    if end_time
-      end_time = Chronic.parse(end_time) unless end_time.is_a? Time
-    else
-      end_time = start_time
-    end
-    start_filter = start_time.beginning_of_day
-    end_filter = end_time.end_of_day
-    return unless start_filter
-    where(datetime: start_filter..end_filter).order(:datetime)
+    parse_times(start_time, end_time)
+    return Match.none unless @start_time && @end_time
+    where(datetime: @start_time..@end_time)
+  end
+
+  def self.parse_times(start_time, end_time)
+    start_time = Chronic.parse(start_time.to_s)
+    end_time = Chronic.parse(end_time.to_s)
+    end_time ||= start_time
+    return unless start_time && end_time
+    @start_time = start_time.beginning_of_day
+    @end_time = end_time.end_of_day
   end
 
   def self.next
@@ -51,6 +53,10 @@ class Match < ActiveRecord::Base
 
   def self.in_progress
     where(status: 'in progress')
+  end
+
+  def self.scheduled_now
+    today.future.where('datetime < ?', Time.now)
   end
 
   def self.future
@@ -110,11 +116,11 @@ class Match < ActiveRecord::Base
   private
 
   def has_teams
-    home = (home_team.present? || home_team_tbd.present? )
-    away = (away_team.present? || away_team_tbd.present? )
+    home = (home_team.present? || home_team_tbd.present?)
+    away = (away_team.present? || away_team_tbd.present?)
     return if home && away
-    errors.add(:base, "Missing home team") unless home
-    errors.add(:base, "Missing away team") unless away
+    errors.add(:base, 'Missing home team') unless home
+    errors.add(:base, 'Missing away team') unless away
   end
 
   def determine_winner
