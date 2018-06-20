@@ -6,7 +6,7 @@ Should have all events and goals and match stats streaming live, please file an 
 https://worldcup.sfg.io  
 (HTTPS working for default domain now :yay:)
 
-Special thanks to my employer [Software For Good](https://www.softwareforgood) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
+Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
 
 ## TODO
 
@@ -437,6 +437,9 @@ https://worldcup.sfg.io/teams
 
 * https://github.com/luridarmawan/Carik/  
 ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
+
+* https://github.com/arghgr/golbot
+(Twitter bot that tweets the word GOL, with varying numbers of Os, whenever a goal is scored - [@worldcupgolbot](https://twitter.com/worldcupgolbot))
 
 ## PROJECTS USING THIS API IN 2014
 
