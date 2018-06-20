@@ -59,15 +59,6 @@ class MatchesController < BaseApiController
   private
 
   def render_template
-    render_callback_template && return if params['callback']
-    if @details
-      render 'index.json.rabl'
-    else
-      render 'summary.json.rabl'
-    end
-  end
-
-  def render_callback_template
     if @details
       render 'index.json.rabl'
     else

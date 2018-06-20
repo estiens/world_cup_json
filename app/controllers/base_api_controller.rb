@@ -38,7 +38,7 @@ class BaseApiController < ApplicationController
     render json: { message: error&.message }, status: :not_found
   end
 
-  def unprocesssable_entity(error = nil)
+  def unprocessable_entity(error = nil)
     render json: { message: error&.message }, status: :unprocesssable_entity
   end
 end
