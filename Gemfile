@@ -15,11 +15,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'airbrake'
 gem 'chromedriver-helper'
 gem 'clockwork'
+gem 'connection_pool'
 gem 'foundation-rails', '~> 5'
 gem 'haml-rails'
-gem 'platform-api'
 gem 'newrelic_rpm'
 gem 'oj'
+gem 'platform-api'
 gem 'puma'
 gem 'rabl'
 gem 'rack-attack'
@@ -31,6 +32,11 @@ gem 'watir'
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :development do
+  gem 'derailed_benchmarks'
+  gem 'stackprof'
 end
 
 group :development, :test do
