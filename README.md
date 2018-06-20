@@ -405,6 +405,9 @@ https://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
+* https://github.com/jthomas/goalbot   
+(Twitter bot ([@WC2018_Goals](https://twitter.com/WC2018_Goals)) which tweets out every goal from the 2018 FIFA World Cup.)  
+
 * https://github.com/justcallmelarry/sportsball   
 (slack integration for updates of goals, cards and results)  
 
