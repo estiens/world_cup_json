@@ -10,25 +10,25 @@ module Clockwork
     puts "Running #{job}"
   end
 
-  seconds = rand(60..75)
+  seconds = rand(25..35)
   every(seconds.seconds, 'Get Matches') do
     if Match.today.count == Match.today.completed.count
-      puts 'No Need To Worry About Checking For Live Matches'
+      puts 'Scores All Done For Today'
     else
-      Scrapers::ScraperTasks.scrape_for_start
+      `rake fifa:get_all_matches`
     end
   end
 
-  events_seconds = if Match.in_progress.count.positive?
-                     rand(20..45)
-                   else
-                     rand(115..125)
-                   end
-  every(events_seconds.seconds, 'Scrape Current Events/Goals') do
+  seconds = if Match.today.not_completed.not_future.count.positive?
+              rand(61..70)
+            else
+              rand(115..125)
+            end
+  every(seconds.seconds, 'Get Events') do
     if Match.today.count == Match.today.completed.count
-      puts 'No current events to scrape'
+      puts 'Events All Done For Today'
     else
-      Scrapers::ScraperTasks.scrape_for_events
+      `rake fifa:get_events`
     end
   end
 
