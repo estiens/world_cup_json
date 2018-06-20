@@ -438,6 +438,9 @@ https://worldcup.sfg.io/teams
 * https://github.com/luridarmawan/Carik/  
 ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
 
+* https://github.com/arghgr/golbot
+(Twitter bot that tweets the word GOL, with varying numbers of Os, whenever a goal is scored - [@worldcupgolbot](https://twitter.com/worldcupgolbot))
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
