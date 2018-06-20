@@ -78,7 +78,7 @@ namespace :fifa do
       # comment next line out for set up and scraping of all matches
       # reduces overhead on heroku to only scrape today's matches
 
-      return nil unless datetime&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
+      # return nil unless datetime&.beginning_of_day&.to_i == Time.now.beginning_of_day.to_i
 
       location = match.css(".fi__info__stadium")&.text
 
@@ -144,6 +144,10 @@ namespace :fifa do
     @live_counter = 0
 
     matches.css(".fixture").each do |match|
+      parse_match(match)
+    end
+
+    matches.css(".result").each do |match|
       parse_match(match)
     end
 

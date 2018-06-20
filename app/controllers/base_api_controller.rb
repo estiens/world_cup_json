@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class BaseApiController < ApplicationController
-  after_filter :set_content_type
   protect_from_forgery with: :null_session
   layout false
   respond_to :json
+  before_filter :set_cache_time
+  after_filter :set_jsonp_format
 
   rescue_from StandardError do |error|
     notify_airbrake(error)
@@ -15,9 +18,20 @@ class BaseApiController < ApplicationController
 
   private
 
-  def set_content_type
-    cb = params['callback']
-    headers['Content-Type'] = 'application/javascript' unless cb.blank?
+  def set_cache_time
+    @cache_time = if Match.in_progress.count.positive?
+                    15.seconds
+                  elsif Match.today.future.count.positive?
+                    1.minute
+                  else
+                    10.minutes
+                  end
+  end
+
+  def set_jsonp_format
+    return unless params[:callback] && request.get?
+    self.response_body = "#{params[:callback]}(#{response.body})"
+    headers['Content-Type'] = 'application/javascript'
   end
 
   def record_not_found(error = nil)
