@@ -6,7 +6,7 @@ Should have all events and goals and match stats streaming live, please file an 
 https://worldcup.sfg.io  
 (HTTPS working for default domain now :yay:)
 
-Special thanks to my employer [Software For Good](https://www.softwareforgood) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
+Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
 
 ## TODO
 
