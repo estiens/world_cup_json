@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 collection @matches, object_root: false
-puts @cache_time
 cache @matches, expires_in: @cache_time
 attributes :venue, :location, :status, :time, :fifa_id
 node :datetime do |match|

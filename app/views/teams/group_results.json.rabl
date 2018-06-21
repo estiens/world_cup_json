@@ -1,5 +1,5 @@
 collection @groups
-cache "groups/#{@groups.pluck(:id).join('')}", expires_in: 1.minute
+cache @groups, expires_in: 1.minute
 attributes :id, :letter
 child :ordered_teams do
   attributes :id, :country, :fifa_code
