@@ -22,7 +22,7 @@ module Scrapers
         options.binary = chrome_bin
         Selenium::WebDriver::Chrome.driver_path = "/app/.chromedriver/bin/chromedriver"
       end
-      options.add_argument "window-size=1920x1080"
+      options.add_argument "window-size=800x600"
       options.add_argument "headless"
       options.add_argument "disable-gpu"
       Watir::Browser.new :chrome, options: options
