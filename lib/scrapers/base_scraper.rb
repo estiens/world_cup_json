@@ -25,7 +25,7 @@ module Scrapers
       options.add_argument "window-size=800x600"
       options.add_argument "headless"
       options.add_argument "disable-gpu"
-      options.add_argument 'disable-setuid-sandbox',
+      options.add_argument 'disable-setuid-sandbox'
       options.add_argument 'disable-dev-shm-usage'
       options.add_argument 'single-process'
       Watir::Browser.new :chrome, options: options
