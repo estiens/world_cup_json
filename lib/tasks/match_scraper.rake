@@ -5,7 +5,7 @@ MATCH_URL = "#{FIFA_SITE}/worldcup/matches/index.html".freeze
 EVENTS_URL = "#{FIFA_SITE}/worldcup/matches/match/".freeze
 
 def get_page_from_url(url)
-  @browser = init_browser
+  browser = init_browser
   browser.goto(url)
   Nokogiri::HTML(browser.html)
 end
