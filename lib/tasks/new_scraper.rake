@@ -8,7 +8,7 @@ namespace :scraper do
     Scrapers::ScraperTasks.hourly_cleanup
   end
 
-  task hourly_cleanup: :environment do
+  task nightly_cleanup: :environment do
     Scrapers::ScraperTasks.nightly_cleanup
   end
 end

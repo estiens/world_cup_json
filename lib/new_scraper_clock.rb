@@ -5,14 +5,8 @@ require File.expand_path('../config/boot',        __dir__)
 require File.expand_path('../config/environment', __dir__)
 require 'rake'
 
-def random_interval
-  seconds = rand(25..50)
-  seconds.seconds
-end
-
 module Clockwork
-  seconds = rand(20..50)
-  every(random_interval, 'scrapers on lock') do
+  every(30.seconds, 'scrapers on lock') do
     `rake scraper:run_scraper`
   end
 
