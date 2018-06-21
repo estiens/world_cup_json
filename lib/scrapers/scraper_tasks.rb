@@ -2,8 +2,7 @@
 
 module Scrapers
   class ScraperTasks
-
-    def self.verify_old_scores
+    def self.verify_past_scores
       scrape_matches(event: :verify_past_scores)
     end
 
@@ -25,14 +24,13 @@ module Scrapers
 
     def self.check_for_live_game
       scrape_matches(event: :check_for_live_status)
-      `rake fifa:get_all_matches`
     end
 
     def self.force_scrape_old_events
       matches = Match.completed
       matches.each { |m| scrape_events(match: m, force: true) }
-      @locked = false
       puts 'old events force scraped successfully'
+      @locked = false
     end
 
     def self.fix_broken_scores
@@ -66,16 +64,16 @@ module Scrapers
     def self.force_scrape_old_stats
       matches = Match.completed
       matches.each { |m| scrape_stats(match: m, force: true) }
-      @locked = false
       puts 'old stats force scraped successfully'
+      @locked = false
     end
 
     def self.scrape_old_stats
       matches = Match.completed.where(stats_complete: false)
       puts 'No old stats to scrape' if matches.empty?
       matches.each { |m| scrape_stats(match: m) }
-      @locked = false
       puts 'old stats scraped successfully'
+      @locked = false
     end
 
     def self.scrape_for_stats

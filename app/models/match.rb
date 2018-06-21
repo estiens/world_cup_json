@@ -10,6 +10,7 @@ class Match < ActiveRecord::Base
   has_many :match_statistics
 
   before_save :determine_winner
+  before_save :set_default_status
   after_save :update_teams
 
   def self.for_date(start_time, end_time = nil)
@@ -114,6 +115,10 @@ class Match < ActiveRecord::Base
   end
 
   private
+
+  def set_default_status
+    self.status ||= 'undetermined'
+  end
 
   def has_teams
     home = (home_team.present? || home_team_tbd.present?)
