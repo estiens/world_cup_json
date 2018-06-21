@@ -34,7 +34,7 @@ class Team < ActiveRecord::Base
       where('status = ? AND home_team_score > away_team_score OR home_team_penalties > away_team_penalties', 'completed')
     end
   end
-  
+
   def matches
     Match.where('home_team_id = ? OR away_team_id = ?', id, id)
   end
@@ -118,9 +118,11 @@ class Team < ActiveRecord::Base
 
   def write_iso_code
     return if iso_code
+    return unless country
     json = File.read(Rails.root.join('lib', 'assets', 'country_code.json'))
     json = JSON.parse(json)
-    code = json.select { |_k, v| v.casecmp(country).zero? }
-    self.iso_code = code.keys.first
+    code = json.map { |h| h['alpha-2'] if h['name'].casecmp(country).zero? }&.compact&.first
+    return unless code
+    self.iso_code = code
   end
 end

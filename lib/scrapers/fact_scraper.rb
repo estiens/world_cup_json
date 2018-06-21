@@ -3,14 +3,16 @@
 module Scrapers
   # scrapes match statistics
   class FactScraper < BaseScraper
-    def initialize(match:)
+    def initialize(match:, force: false)
+      super()
       @match = match
       @url = scraper_url
-      @page = scrape_page_from_url
+      @force = force
     end
 
     def scrape
-      if write_match_facts
+      @page = scrape_page_from_url
+      if write_match_stats
         puts "Stats saved for #{@match.name}"
       else
         puts "Skipped Match: #{@match.name}"
@@ -31,8 +33,10 @@ module Scrapers
          clearances yellow_cards red_cards fouls_committed]
     end
 
-    def write_match_facts
-      return nil if stats.empty? || @match.stats_complete
+    def write_match_stats
+      @match.stats_complete = false if @force
+      return nil if stats.empty?
+      return nil if @match.stats_complete
       return nil unless write_stats
       @match.stats_complete = true if @match.status == 'completed'
       @match.save
