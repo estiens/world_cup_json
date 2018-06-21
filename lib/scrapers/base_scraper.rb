@@ -12,13 +12,16 @@ module Scrapers
     private
 
     def init_browser
-      opts = { headless: true }
+      options = Selenium::WebDriver::Chrome::Options.new
       if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-        opts[:options] = { binary: chrome_bin }
+        options.add_argument "no-sandbox"
+        options.binary = chrome_bin
+        Selenium::WebDriver::Chrome.driver_path = "/app/.chromedriver/bin/chromedriver"
       end
-      @browser = Watir::Browser.new :chrome, opts
-      @browser.driver.manage.window.resize_to(1920, 1080)
-      @browser
+      options.add_argument "window-size=1920x1080"
+      options.add_argument "headless"
+      options.add_argument "disable-gpu"
+      Watir::Browser.new :chrome, options: options
     end
 
     def scrape_page_from_url(before_events: false)
