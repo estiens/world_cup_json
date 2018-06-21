@@ -13,7 +13,6 @@ gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'airbrake'
-gem 'chromedriver-helper'
 gem 'chronic'
 gem 'clockwork'
 gem 'connection_pool'
@@ -38,6 +37,7 @@ end
 group :development do
   gem 'derailed_benchmarks'
   gem 'stackprof'
+  gem 'chromedriver-helper'
 end
 
 group :development, :test do
