@@ -98,31 +98,25 @@ module Scrapers
     def scrape_events(match:, force: false)
       sleep(1) while @locked
       @locked = true
-      thread = Thread.new do
-        scraper = Scrapers::EventScraper.new(match: match, force: force)
-        scraper.scrape
-      end
-      @locked = false if thread.join
+      scraper = Scrapers::EventScraper.new(match: match, force: force)
+      scraper.scrape
+      @locked = false
     end
 
     def scrape_matches(event:, force: false)
       sleep(1) while @locked
       @locked = true
-      thread = Thread.new do
-        scraper = Scrapers::MatchScraper.new(force: force)
-        scraper.send(event)
-      end
-      @locked = false if thread.join
+      scraper = Scrapers::MatchScraper.new(force: force)
+      scraper.send(event)
+      @locked = false
     end
 
     def scrape_stats(match:, force: false)
       sleep(1) while @locked
       @locked = true
-      thread = Thread.new do
-        scraper = Scrapers::FactScraper.new(match: match, force: force)
-        scraper.scrape
-      end
-      @locked = false if thread.join
+      scraper = Scrapers::FactScraper.new(match: match, force: force)
+      scraper.scrape
+      @locked = false
     end
   end
 end
