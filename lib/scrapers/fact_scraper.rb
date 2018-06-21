@@ -35,6 +35,7 @@ module Scrapers
     end
 
     def write_match_stats
+      return nil if @match.stats_complete
       @match.stats_complete = false if @force
       return nil if @try_counter >=5
       if stats.empty?
@@ -42,7 +43,6 @@ module Scrapers
         @try_counter += 1
         self.scrape
       end
-      return nil if @match.stats_complete
       return nil unless write_stats
       @match.stats_complete = true if @match.status == 'completed'
       @match.save
@@ -57,7 +57,11 @@ module Scrapers
         home_stats.update_attribute(stat, home_team_stat(stat))
         away_stats.update_attribute(stat, away_team_stat(stat))
       end
-      home_stats.save && away_stats.save
+      success = home_stats.save && away_stats.save
+      return true if success
+      puts "#{home_stats.errors.full_messages}"
+      puts "#{away_stats.errors.full_messages}"
+      false
     end
 
     def stats
