@@ -13,6 +13,10 @@ module Scrapers
 
     def init_browser
       options = Selenium::WebDriver::Chrome::Options.new
+      chrome_dir = Rails.root.join('tmp', 'chrome')
+      FileUtils.mkdir_p(chrome_dir)
+      user_data_dir = "--user-data-dir=#{chrome_dir}"
+      options.add_argument user_data_dir
       if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
         options.add_argument "no-sandbox"
         options.binary = chrome_bin
