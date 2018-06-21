@@ -12,6 +12,10 @@ module Scrapers
     end
 
     def scrape
+      if @match.stats_complete && !@force
+        puts "Dont need stats for #{@match.name}"
+        return
+      end
       @page = scrape_page_from_url
       if write_match_stats
         puts "Stats saved for #{@match.name}"
@@ -35,8 +39,6 @@ module Scrapers
     end
 
     def write_match_stats
-      return nil if @match.stats_complete
-      @match.stats_complete = false if @force
       return nil if @try_counter >=5
       if stats.empty?
         sleep(2)
