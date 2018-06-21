@@ -151,6 +151,9 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.11.4)
+    puma_worker_killer (0.1.0)
+      get_process_mem (~> 0.2)
+      puma (>= 2.7, < 4)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
     rack (1.6.10)
@@ -282,6 +285,7 @@ DEPENDENCIES
   platform-api
   pry-rails
   puma
+  puma_worker_killer
   rabl
   rack-attack
   rack-cors
