@@ -67,7 +67,7 @@ class MatchesController < BaseApiController
   end
 
   def order_by_params
-    @matches = @matches.order('datetime DESC')
+    @matches = @matches.order('datetime ASC')
     @date = params[:by_date]
     @order_by = params[:by] || params[:order_by]
     @start_date = params[:start_date]
