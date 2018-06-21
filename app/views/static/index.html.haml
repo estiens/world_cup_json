@@ -72,7 +72,7 @@
         %a{href:"http://worldcup.sfg.io/matches/?by=total_goals"}
           http://worldcup.sfg.io/matches/?by=total_goals
   .row
-    .small-6.columns
+    .small-6.columns.text-center
       %h3 TODAY'S MATCHES
       -@today_matches.each do |match|
         -cache(match) do
@@ -94,7 +94,7 @@
             -else
               #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
 
-    .small-6.columns
+    .small-6.columns.text-center
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
         -cache(match) do

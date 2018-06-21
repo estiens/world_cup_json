@@ -12,6 +12,6 @@ Rack::Attack.throttled_response = lambda do |env|
     'X-RateLimit-Reset' => reset
   }
 
-  message = "Throttled\nPlease limit your requests to 1 every 30 seconds\n"
+  message = "Throttled\nPlease limit your requests to 10 every 60 seconds\n"
   [429, headers, [message]]
 end
