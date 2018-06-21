@@ -8,6 +8,7 @@ module Scrapers
       @match = match
       @url = scraper_url
       @force = force
+      @try_counter = 0
     end
 
     def scrape
@@ -35,7 +36,12 @@ module Scrapers
 
     def write_match_stats
       @match.stats_complete = false if @force
-      return nil if stats.empty?
+      return nil if @try_counter >=5
+      if stats.empty?
+        sleep(2)
+        @try_counter += 1
+        self.scrape
+      end
       return nil if @match.stats_complete
       return nil unless write_stats
       @match.stats_complete = true if @match.status == 'completed'
