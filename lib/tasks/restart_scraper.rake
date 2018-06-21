@@ -15,6 +15,7 @@ namespace :scraper do
   task restart_scraper: :environment do
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.dyno.restart('world-cup-json', 'clock.1')
+    return unless ENV['SCALE_FOR_MATCHES']
     if Match.in_progress.count.positive?
       heroku.formation.update('world-cup-json', 'web', quantity: 3)
     elsif upcoming_match?
