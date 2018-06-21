@@ -6,10 +6,7 @@ require File.expand_path('../config/environment', __dir__)
 require 'rake'
 
 module Clockwork
-  every(30.seconds, 'scrapers on lock') do
-    waiting = rand(30)
-    puts "waiting #{waiting}"
-    sleep(waiting)
-    Scrapers::ScraperTasks.scrape_for_goals
+  every(45.seconds, 'scrapers on lock') do
+    `rake scraper:run_scraper`
   end
 end
