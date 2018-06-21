@@ -8,59 +8,47 @@ https://worldcup.sfg.io
 
 Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
 
-## TODO
-
-* Figure out how to parse penalties this Cup (hard without penalties)
-* Parse datetime info for knockout matches successfully
-* More automatic scraper restarts on failures or memory errors
-
-### Updates June 19, 2018
-
-* New rate limit -- some of you are really hammering the server. You can now make 10 requests
-  every 60 seconds, requests after that will return 429
-  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully half of the requests get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
-
-* Better cacheing/fixed broken JSONP cacheing
-
-* Scrapers almost finished being reworked
-
-* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`  
-
-  (If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
-
-### Updates June 18, 2018
-
-* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at all the matches endpoints. If you want a more truncated view of a match (no events or stats) please pass `?details=false` to any match endpoint
-
-* You can now retrieve a match by fifa_id if you only want one specific match, just use `/matches/fifa_id/300331499` or as a shortcut just `/matches/300331499`. You'll get a 404 error back if no match has that id.
-
-* Scrapers are being refactored to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 30-40 rps.
-
-
---
-
 Main response endpoint:
 https://worldcup.sfg.io/matches/today
 
---
+
+### TODO
+
+* Figure out how to parse penalties this Cup (hard without penalties)
+
+### Updates
+
+Updates at the end of the README
+
+### Caveat Emptor
 
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
 
-# ABOUT
+## ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
 
-# SETUP
+## SETUP
 
 * Clone the repo
 
 * ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
 
-* Run the following two tasks as cron jobs, to pull in data with whatever time frame you want (every 5 minutes for example)
+* Run the following three tasks as cron jobs (there are also one off scraper jobs you can hit in the `Scrapers::ScraperTasks` file at `lib/scrapers`)
 
-  ```rake fifa:get_all_matches``` (This pulls in all matches and updates any that need updating with current score)
+  every short_time, `rake scraper:run_scraper`
 
-  ```rake fifa:get_events``` (This scans for events - goals, substitutions, and cards, and updates the match data accordingly)
+  every hour_or_two, `rake scraper:hourly_cleanup`
+
+  every day, `rake scraper:nightly_cleanup`
+
+* If you are setting up mid-tournament you'll need to run the following ScraperTasks: `scrape_old_matches`, `scrape_future_matches`, `scrape_for_stats`, `scrape_for_events`
+
+NOTE: The old scrapers are still there (`lib\tasks\match_scraper.rake`) but the new code is more memory efficient, does some error checking and cleaning up, doesn't break goals and events into two separate scrapes, and is greatly preferred
+
+## RATE LIMITING
+
+The current rate limit is 10 requests every 60 seconds. This is open to change at anytime depending on load, but I'll always keep it so a few requests can fire off in parallel. Please keep your polling down to once a minute or so, 30 seconds if you are feeling greedy, you're not going to get updated information any quicker than that.
 
 ## ENDPOINTS
 
@@ -463,8 +451,36 @@ http://softwareforgood.com/soccer-good/
 
 ## DONATIONS
 
-Some people have asked if they can make donations. I'd love for you to donate some time writing code or docs or tests, but this is shared totally gratis. If you're interested in throwing some cash someone's way, why not help out organizations working with families separated at the border of the US? At this time of coming together as a human community, let's remember that arbitrary lines on a map still have the power to hurt people. (https://secure.actblue.com/donate/kidsattheborder)
+Some people have asked if they can make donations. I'd love for you to donate some time writing code or docs or tests, but this is shared totally gratis. If you're interested in throwing some cash someone's way, why not help out organizations working with families separated at the border of the US? At this time of coming together as a human community, let's remember that arbitrary lines on a map still have the power to hurt people.
+(https://secure.actblue.com/donate/kidsattheborder)
+
+
+## UPDATES
+
+### Updates June 19, 2018
+
+* New rate limit -- some of you are really hammering the server. You can now make 10 requests
+  every 60 seconds, requests after that will return 429
+  with your reset time. Please try to limit polling to once every minute or so and if you are building a SPA please do some cacheing/storing on your side and don't send a request with every user interaction. If you need a whitelist for more requests, please let me know and we can do it, but right now fully half of the requests get throttled and it's a fair amount of load to deal with that many requests coming in more often than 10s apart.
+
+* Better cacheing/fixed broken JSONP cacheing
+
+* Scrapers almost finished being reworked
+
+* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`  
+
+  (If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
+
+### Updates June 18, 2018
+
+* We now retrieve match statistics as well (attempts on goal, saves, etc). This will show up at all the matches endpoints. If you want a more truncated view of a match (no events or stats) please pass `?details=false` to any match endpoint
+
+* You can now retrieve a match by fifa_id if you only want one specific match, just use `/matches/fifa_id/300331499` or as a shortcut just `/matches/300331499`. You'll get a 404 error back if no match has that id.
+
+* Scrapers are being refactored to actually have readable methods, memoize parsed information, etc. Views not calculating anything should increase response time considerably, which is good as we are now at about 30-40 rps.
 
 ## WARNING
 
-Most of this was written in a rush 4 years ago, and the rest was written in a rush on day 1 of the World Cup in 2018 to adjust for the new FIFA CMS and live updates via JS. This is not good object oriented code. Scraping is inherently a messy and brittle procedural process. I may try to refactor, but my primary goal was the get something functional. Please do not use as an example of good Rails code!
+Removing self deprecating warning. I wrote the best code I could 4 years ago and got it working for the whole Cup, and I'm making it better now. Don't apologize for code you write in a rush to build a cool thing! A bad habit! Just make it better if/when you can.
+
+https://www.linkedin.com/pulse/world-cup-api-take-2-eric-stiens/
