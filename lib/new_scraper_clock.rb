@@ -10,9 +10,6 @@ module Clockwork
     waiting = rand(30)
     puts "waiting #{waiting}"
     sleep(waiting)
-    @runner = Scrapers::ScraperTasks.new
-    @runner.check_for_live_game unless Match.in_progress.count.positive?
-    @runner.scrape_for_events
-    @runner.scrape_for_stats
+    Scrapers::ScraperTasks.scrape_for_goals
   end
 end

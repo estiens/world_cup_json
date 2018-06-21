@@ -3,6 +3,13 @@
 module Scrapers
   class ScraperTasks
 
+    def self.scrape_for_goals
+      me = self.new
+      me.check_for_live_game unless Match.in_progress.count.positive?
+      me.scrape_for_events
+      me.scrape_for_stats
+    end
+
     def initialize
       # lock to keep chromedriver from freezing
       @locked = false
