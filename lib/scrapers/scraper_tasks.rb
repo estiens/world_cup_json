@@ -3,12 +3,44 @@
 module Scrapers
   class ScraperTasks
 
-    def self.scrape_for_goals
+    # class methods to be run on schedules
+    # many will return early ideally as there
+    # will be nothing left to scrape
+
+    # only scrape for game status until it switches
+    # then look for goals/events/stats
+    def self.scrape_your_heart_out
       me = self.new
-      me.check_for_live_game unless Match.in_progress.count.positive?
-      me.scrape_for_events
-      me.scrape_for_stats
+      if Match.in_progress.count.positive?
+        me.scrape_for_events
+        me.scrape_for_stats
+      else
+        me.check_for_live_game
+      end
     end
+
+    # sometimes FIFA adds stats/events after the match closes
+    def self.hourly_cleanup
+      me = self.new
+      me.scrape_old_matches
+      matches = Match.today.completed
+      me.force_scrape_old_events(matches: matches)
+      me.force_scrape_old_stats(matches: matches)
+      me.scrape_for_stats
+      me.scrape_for_events
+    end
+
+    # def want to make sure nothing got of whack
+    def self.nightly_cleanup
+      me = self.new
+      me.verify_past_scores
+      me.fix_broken_scores
+      me.scrape_future_matches
+      me.scrape_for_stats
+      me.scrape_for_events
+    end
+
+    # instance methods - can be run as one-offs
 
     def initialize
       # lock to keep chromedriver from freezing
@@ -39,13 +71,6 @@ module Scrapers
       scrape_matches(event: :check_for_live_status)
     end
 
-    def force_scrape_old_events
-      matches = Match.completed
-      matches.each { |m| scrape_events(match: m, force: true) }
-      puts 'old events force scraped successfully'
-      @locked = false
-    end
-
     def fix_broken_scores
       matches = Match.where(status: 'pending_correction')
       if matches.empty?
@@ -57,6 +82,13 @@ module Scrapers
         end
         puts "event scraping done for #{matches.map(&:name).join(',')}"
       end
+      @locked = false
+    end
+
+    def force_scrape_old_events(matches: nil)
+      matches ||= Match.completed
+      matches.each { |m| scrape_events(match: m, force: true) }
+      puts 'old events force scraped successfully'
       @locked = false
     end
 
@@ -74,23 +106,15 @@ module Scrapers
       @locked = false
     end
 
-    def force_scrape_old_stats
-      matches = Match.completed
+    def force_scrape_old_stats(matches: nil)
+      matches ||= Match.completed
       matches.each { |m| scrape_stats(match: m, force: true) }
       puts 'old stats force scraped successfully'
       @locked = false
     end
 
-    def scrape_old_stats
-      matches = Match.completed.where(stats_complete: false)
-      puts 'No old stats to scrape' if matches.empty?
-      matches.each { |m| scrape_stats(match: m) }
-      puts 'old stats scraped successfully'
-      @locked = false
-    end
-
     def scrape_for_stats
-      matches = Match.not_future.where.not(stats_complete: true)
+      matches = Match.not_future.where(stats_complete: false)
       if matches.empty?
         puts 'No current matches for stats'
       else

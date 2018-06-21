@@ -22,26 +22,22 @@ module Scrapers
     def write_past_matches
       @page = scrape_page_from_url(before_events: false)
       @matches = page.search('.result')
-      if @force
-        @matches.each { |m| write_overwrite_match_data_for_match(m) }
-      else
-        @matches.each { |m| write_new_match_data_for_match(m) }
-      end
+      @matches.each { |m| write_match_data_for_match(m) }
       puts "#{@counter} matches written"
     end
 
     def write_future_matches
       @page = scrape_page_from_url(before_events: true)
       @matches = page.search('.fixture')
-      if @force
-        @matches.each { |m| write_overwrite_match_data_for_match(m) }
-      else
-        @matches.each { |m| write_new_match_data_for_match(m) }
-      end
+      @matches.each { |m| write_match_data_for_match(m) }
       puts "#{@counter} matches written"
     end
 
     def check_for_live_status
+      unless Match.today.future.count > 0
+        puts 'no matches to check for!'
+        return
+      end
       @page = scrape_page_from_url(before_events: false)
       @matches = page.search('.live')
       @matches.each { |m| write_status_for_match(m) }
@@ -71,10 +67,22 @@ module Scrapers
       save_fixture
     end
 
-    def write_new_match_data_for_match(match)
+    def write_match_data_for_match(match)
       fifa_id = match.first[1]
       @fixture = Match.find_or_create_by(fifa_id: fifa_id)
+      if @fixture.completed? && !@force
+        puts "Not checking date for #{@fixture.name}. Completed."
+        return
+      end
       scraper_match = Scrapers::ScraperMatch.new(match)
+      check_for_new_values(scraper_match)
+      set_fixture_home_team(scraper_match)
+      set_fixture_away_team(scraper_match)
+      determine_status(scraper_match)
+      save_fixture
+    end
+
+    def check_for_new_values(scraper_match)
       if scraper_match.datetime && scraper_match.datetime != @fixture.datetime
         @fixture.datetime = scraper_match.datetime
       end
@@ -86,26 +94,6 @@ module Scrapers
       end
       @fixture.home_team_score ||= 0
       @fixture.away_team_score ||= 0
-      set_fixture_home_team(scraper_match)
-      set_fixture_away_team(scraper_match)
-      determine_status(scraper_match)
-      save_fixture
-    end
-
-    def overwrite_match_data_for_match(match)
-      fifa_id = match.first[1]
-      @fixture = Match.find_or_create_by(fifa_id: fifa_id)
-      scraper_match = Scrapers::ScraperMatch.new(match)
-      @fixture.datetime = scraper_match.datetime
-      @fixture.location = scraper_match.location
-      @fixture.venue = scraper_match.venue
-      @fixture.home_team_score ||= 0
-      @fixture.away_team_score ||= 0
-      @fixture.status = scraper_match.match_status
-      set_fixture_home_team(scraper_match)
-      set_fixture_away_team(scraper_match)
-      determine_status(scraper_match)
-      save_fixture
     end
 
     def save_fixture

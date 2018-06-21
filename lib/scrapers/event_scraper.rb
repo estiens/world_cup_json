@@ -43,7 +43,7 @@ module Scrapers
     end
 
     def write_match_facts
-      if @match.completed?
+      if @match.completed? && !@force
         puts "#{@match.name} already completed"
         return
       end
@@ -54,9 +54,12 @@ module Scrapers
     end
 
     def write_match_events
+      if @match.events_complete? && !@force
+        puts "#{@match.name} already completed"
+        return
+      end
       puts "Grabbing events for #{@match.name}"
       puts "Couldn't find events for #{@match.name}" && return if events.empty?
-      puts "#{@match.name} already completed" && return if @match.events_complete? && !@force
       return unless write_events
       @match.last_event_update_at = Time.now
       @match.events_complete = true if @match.status == 'completed'
