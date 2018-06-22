@@ -19,6 +19,13 @@ module Scrapers
       end
     end
 
+    def self.check_for_live_game_occasionally
+      me = self.new
+      if Match.in_progress.count == 0
+        me.check_for_live_game
+      end
+    end
+
     # sometimes FIFA adds stats/events after the match closes
     def self.hourly_cleanup
       me = self.new
