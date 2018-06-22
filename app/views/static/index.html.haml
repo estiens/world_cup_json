@@ -15,62 +15,55 @@
   .row
     .small-12.columns
       %h3 ENDPOINTS
-    .small-12.columns
-      %h5.text-center
-        (  If you need HTTPS, please use
-        %a{href:"https://world-cup-json.herokuapp.com/matches/today"}
-          https://world-cup-json.herokuapp.com
-        for now  )
-      %br
     .small-6.columns
       %p
         All match data, updated every minute
         %br
-        %a{href:"http://worldcup.sfg.io/matches"}
-          http://worldcup.sfg.io/matches
+        %a{href:"https://worldcup.sfg.io/matches"}
+          https://worldcup.sfg.io/matches
       %p
         Today's matches
         %br
-        %a{href:"http://worldcup.sfg.io/matches/today"}
-          http://worldcup.sfg.io/matches/today
+        %a{href:"https://worldcup.sfg.io/matches/today"}
+          https://worldcup.sfg.io/matches/today
       %p
         Returns the current match, if a match is happening, otherwise nothing
         %br
-        %a{href:"http://worldcup.sfg.io/matches/current"}
-          http://worldcup.sfg.io/matches/current
+        %a{href:"https://worldcup.sfg.io/matches/current"}
+          https://worldcup.sfg.io/matches/current
       %p
         Matches for any country, by entering their FIFA Code.
         %br
-        %a{href:"http://worldcup.sfg.io/matches/country?fifa_code=ARG"}
-          http://worldcup.sfg.io/matches/country?fifa_code=ARG
+        %a{href:"https://worldcup.sfg.io/matches/country?fifa_code=ARG"}
+          https://worldcup.sfg.io/matches/country?fifa_code=ARG
     .small-6.columns
       %p
         Results for teams (wins, losses, draws, goals_for, goals_against)
         %br
-        %a{href:"http://worldcup.sfg.io/teams/results"}
-          http://worldcup.sfg.io/teams/results
+        %a{href:"https://worldcup.sfg.io/teams/results"}
+          https://worldcup.sfg.io/teams/results
       %p
         Results for teams by group, ordered by current group position
         %br
-        %a{href:"http://worldcup.sfg.io/teams/group_results"}
-          http://worldcup.sfg.io/teams/group_results
+        %a{href:"https://worldcup.sfg.io/teams/group_results"}
+          https://worldcup.sfg.io/teams/group_results
       %p
         List of all teams in world cup, along with FIFA abbreviation
         %br
-        %a{href:"http://worldcup.sfg.io/teams/"}
-          http://worldcup.sfg.io/teams/
+        %a{href:"https://worldcup.sfg.io/teams/"}
+          https://worldcup.sfg.io/teams/
 
 
     .small-12.columns
       %h3 OPTIONAL PARAMETERS
       %p
         You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
-        %a{href:"http://worldcup.sfg.io/matches/today/?by_date=DESC"}
-          http://worldcup.sfg.io/matches/today/?by_date=DESC
+        %a{href:"https://worldcup.sfg.io/matches/today/?by_date=DESC"}
+          https://worldcup.sfg.io/matches/today/?by_date=DESC
       %p
         You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
-        %a{href:"http://worldcup.sfg.io/matches/?by=total_goals"}
-          http://worldcup.sfg.io/matches/?by=total_goals
+        %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
+          https://worldcup.sfg.io/matches/?by=total_goals
   .row
     .small-6.columns.text-center
       %h3 TODAY'S MATCHES
@@ -87,9 +80,9 @@
               -#   %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
             -elsif match.status == "in progress"
               .live
-                = image_tag("http://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
+                = image_tag("https://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
                 #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
-                = image_tag("http://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
+                = image_tag("https://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
                 ( #{match.time} )
             -else
               #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
@@ -115,7 +108,7 @@
       %a#sfg-logo{href:"http://www.softwareforgood.com"}
         =image_tag("sfgwhite.png")
   %p
-    %a{href: "http://softwareforgood.com/soccer-good/"}
+    %a{href: "https://softwareforgood.com/soccer-good/"}
       %em Background on this project
 
 :javascript
