@@ -4,6 +4,10 @@ namespace :scraper do
     Scrapers::ScraperTasks.scrape_your_heart_out
   end
 
+  task backup_check: :environment do
+    Scrapers::ScraperTasks.check_for_live_game_occasionally
+  end
+
   task hourly_cleanup: :environment do
     Scrapers::ScraperTasks.hourly_cleanup
   end

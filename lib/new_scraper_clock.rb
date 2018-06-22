@@ -33,4 +33,7 @@ module Clockwork
     end
     `rake scraper:run_scraper`
   end
+  every(10.minutes, 'Backup Check') do
+    `rake scraper:backup_check`
+  end
 end
