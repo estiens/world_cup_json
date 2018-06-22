@@ -23,7 +23,7 @@ module Clockwork
     if Match.in_progress.count.positive?
       puts 'scraping at speed captain!'
       scale_middle
-    elsif (Time.now + 1.hour).to_i > Match.next&.datetime.to_i
+    elsif Match.next.present? && (Time.now + 1.hour) > Match.next.datetime
       puts 'sleeping for a bit'
       sleep(30)
     else
