@@ -3,14 +3,28 @@
 collection @matches, object_root: false
 cache @matches, expires_in: @cache_time
 attributes :venue, :location, :status, :time, :fifa_id
+node :home_team_country do |match|
+  match.home_team&.country
+end
+node :away_team_country do |match|
+  match.away_team&.country
+end
 node :datetime do |match|
   match.datetime&.utc&.iso8601
 end
-node :last_event_update_at do |match|
-  match.last_event_update_at&.utc&.iso8601
+node :winner do |match|
+  if match.winner
+    match.winner.country
+  elsif match.draw
+    'Draw'
+  end
 end
-node :last_score_update_at do |match|
-  match.last_score_update_at&.utc&.iso8601
+node :winner_code do |match|
+  if match.winner
+    match.winner.fifa_code
+  elsif match.draw
+    'Draw'
+  end
 end
 node :home_team do |match|
   if match.home_team
@@ -40,20 +54,6 @@ node :away_team do |match|
       code: 'TBD',
       team_tbd: match.away_team_tbd
     }
-  end
-end
-node :winner do |match|
-  if match.winner
-    match.winner.country
-  elsif match.draw
-    'Draw'
-  end
-end
-node :winner_code do |match|
-  if match.winner
-    match.winner.fifa_code
-  elsif match.draw
-    'Draw'
   end
 end
 node :home_team_events do |match|
@@ -87,4 +87,10 @@ child away_stats: :away_team_statistics do |ms|
              :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
              :passes_completed, :distance_covered, :balls_recovered, :tackles,
              :clearances, :yellow_cards, :red_cards, :fouls_committed
+end
+node :last_event_update_at do |match|
+  match.last_event_update_at&.utc&.iso8601
+end
+node :last_score_update_at do |match|
+  match.last_score_update_at&.utc&.iso8601
 end

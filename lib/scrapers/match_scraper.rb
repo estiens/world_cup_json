@@ -77,7 +77,7 @@ module Scrapers
 
     def write_time_data_for_match(match)
       fifa_id = match.first[1]
-      @fixture = Match.find_by(fifa_id: fifa_id)
+      @fixture = Match.where(fifa_id: fifa_id).first
       return unless @fixture
       scraper_match = Scrapers::ScraperMatch.new(match)
       return unless scraper_match

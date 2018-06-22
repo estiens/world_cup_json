@@ -13,8 +13,10 @@ module Scrapers
       begin
         datetime_info = @match.css('.fi-mu__info__datetime')
         return nil unless datetime_info && datetime_info.respond_to?(:attribute)
-        utc_time = datetime_info.attribute('data-utcdate')&.value&.to_time
-        @datetime = utc_time
+        utc_time = datetime_info.attribute('data-utcdate')&.value
+        time = DateTime.parse(utc_time)
+        time += 12.hours if time.hour < 12
+        @datetime = time
       rescue
         nil
       end
