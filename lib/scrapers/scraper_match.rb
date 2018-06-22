@@ -10,8 +10,14 @@ module Scrapers
 
     def datetime
       return @datetime if @datetime
-      datetime = @match.css('.fi-mu__info__datetime')&.attribute('data-utcdate')&.value
-      @datetime = datetime&.to_time
+      begin
+        datetime_info = @match.css('.fi-mu__info__datetime')
+        return nil unless datetime_info && datetime_info.respond_to?(:attribute)
+        utc_time = datetime_info.attribute('data-utcdate')&.value&.to_time
+        @datetime = utc_time
+      rescue
+        nil
+      end
     end
 
     def venue

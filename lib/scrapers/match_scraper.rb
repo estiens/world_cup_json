@@ -33,6 +33,14 @@ module Scrapers
       puts "#{@counter} matches written"
     end
 
+    def fix_times
+      @page = scrape_page_from_url(before_events: true)
+      @matches = page.search('.fixture')
+      @matches.each { |m| write_time_data_for_match(m) }
+      @matches = page.search('.result')
+      @matches.each { |m| write_time_data_for_match(m) }
+    end
+
     def check_for_live_status
       unless Match.today.future.count > 0
         puts 'no matches to check for!'
@@ -65,6 +73,25 @@ module Scrapers
       scraper_match = Scrapers::ScraperMatch.new(match)
       determine_status(scraper_match)
       save_fixture
+    end
+
+    def write_time_data_for_match(match)
+      fifa_id = match.first[1]
+      @fixture = Match.find_by(fifa_id: fifa_id)
+      return unless @fixture
+      scraper_match = Scrapers::ScraperMatch.new(match)
+      return unless scraper_match
+      unless scraper_match.datetime
+        puts 'could not parse time'
+        return
+      end
+      if @fixture.datetime != scraper_match.datetime
+        puts "Changing #{@fixture.name} -- #{@fixture.datetime} to #{scraper_match.datetime}"
+        @fixture.datetime = scraper_match.datetime
+        @fixture.save
+      else
+        puts "#{@fixture.name} is correct"
+      end
     end
 
     def write_match_data_for_match(match)

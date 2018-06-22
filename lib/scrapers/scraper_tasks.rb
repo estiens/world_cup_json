@@ -47,6 +47,10 @@ module Scrapers
       @locked = false
     end
 
+    def fix_times
+      scrape_matches(event: :fix_times)
+    end
+
     def verify_past_scores
       scrape_matches(event: :verify_past_scores)
     end
