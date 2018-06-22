@@ -10,9 +10,8 @@ module Scrapers
 
     def datetime
       return @datetime if @datetime
-      datetime = @match.css('.fi-mu__info__datetime')&.text&.strip
-      datetime = datetime&.downcase&.gsub('local time', '')&.strip&.to_time
-      @datetime = datetime
+      datetime = @match.css('.fi-mu__info__datetime')&.attribute('data-utcdate')&.value
+      @datetime = datetime&.to_time
     end
 
     def venue
