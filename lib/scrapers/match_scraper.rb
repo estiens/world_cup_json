@@ -102,7 +102,11 @@ module Scrapers
         return
       end
       scraper_match = Scrapers::ScraperMatch.new(match)
-      check_for_new_values(scraper_match)
+      # don't really need to do this unless something weird happens
+      # check_for_new_time(scraper_match)
+      # check_for_new_values(scraper_match)
+      @fixture.home_team_score ||= 0
+      @fixture.away_team_score ||= 0
       set_fixture_home_team(scraper_match)
       set_fixture_away_team(scraper_match)
       determine_status(scraper_match)
@@ -119,8 +123,6 @@ module Scrapers
       if scraper_match.location && scraper_match.location != @fixture.location
         @fixture.location = scraper_match.location
       end
-      @fixture.home_team_score ||= 0
-      @fixture.away_team_score ||= 0
     end
 
     def save_fixture
