@@ -69,6 +69,9 @@ module Scrapers
       goal_text = @page.search('.fi-s__scoreText')
       return nil unless goal_text
       goals = goal_text.children&.last&.text&.split('-')
+      if goals.nil? || goals.length != 2
+        goals = goal_text.children&.first&.text&.split('-')
+      end
       return unless goals.length == 2
       update_team_score(goals)
     end

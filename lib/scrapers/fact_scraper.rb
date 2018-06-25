@@ -89,7 +89,6 @@ module Scrapers
     end
 
     def parse_stats(tr_num, splitter)
-      binding.pry
       statistic = stats.search('tr')[tr_num]
       return nil unless statistic
       statistic&.text&.downcase&.split(splitter)
