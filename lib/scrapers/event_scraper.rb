@@ -66,7 +66,6 @@ module Scrapers
     end
 
     def check_for_goals
-      binding.pry
       goal_text = @page.search('.fi-s__scoreText')
       return nil unless goal_text
       goals = goal_text.children&.last&.text&.split('-')
