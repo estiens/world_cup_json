@@ -432,6 +432,9 @@ https://worldcup.sfg.io/teams
 * https://github.com/arghgr/golbot
 (Twitter bot that tweets the word GOL, with varying numbers of Os, whenever a goal is scored - [@worldcupgolbot](https://twitter.com/worldcupgolbot))
 
+* https://github.com/kadinho/worldcup-notifications
+(A project to fetch FIFA World Cup matches and send Slack event notifications)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
