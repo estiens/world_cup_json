@@ -11,11 +11,10 @@ module Scrapers
     # then look for goals/events/stats
     def self.scrape_your_heart_out
       me = self.new
+      me.check_for_live_game
       if Match.in_progress.count.positive?
         me.scrape_for_events
         me.scrape_for_stats
-      else
-        me.check_for_live_game
       end
     end
 
