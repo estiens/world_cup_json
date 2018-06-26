@@ -65,7 +65,13 @@
         %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
           https://worldcup.sfg.io/matches/?by=total_goals
   .row
-    .small-6.columns.text-center
+    .small-4.columns.text-center
+      %h3 YESTERDAY'S MATCHES
+      -@yesterday_matches.each do |match|
+        -cache(match) do
+          %p.match-result
+            #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
+    .small-4.columns.text-center
       %h3 TODAY'S MATCHES
       -@today_matches.each do |match|
         -cache(match) do
@@ -86,8 +92,7 @@
                 ( #{match.time} )
             -else
               #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-
-    .small-6.columns.text-center
+    .small-4.columns.text-center
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
         -cache(match) do

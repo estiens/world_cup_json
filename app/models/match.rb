@@ -36,6 +36,10 @@ class Match < ActiveRecord::Base
     today.completed.reorder(datetime: :desc).first
   end
 
+  def self.yesterday
+    for_date(Time.now - 1.day)
+  end
+
   def self.today
     for_date(Time.now)
   end
