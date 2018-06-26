@@ -1,19 +1,19 @@
 class TeamsController < BaseApiController
   def index
-    @teams = Team.all
-    render 'team_index.json.rabl'
+    @teams = Team.all.includes(:group)
+    render 'index.json.jbuilder'
   end
 
   def results
-    @teams = Team.all
+    @teams = Team.all.includes(:group)
     limit_team_if_requested
-    render 'team_results.json.rabl'
+    render 'team_results.json.jbuilder'
   end
 
   def group_results
     @groups = Group.all
     limit_group_if_requested
-    render 'group_results.json.rabl'
+    render 'group_results.json.jbuilder'
   end
 
   private

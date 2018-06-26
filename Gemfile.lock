@@ -119,6 +119,11 @@ GEM
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
+    jbuilder (2.7.0)
+      activesupport (>= 4.2.0)
+      multi_json (>= 1.2)
+    jbuilder_cache_multi (0.1.0)
+      jbuilder (>= 1.5.0, < 3)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -138,7 +143,6 @@ GEM
     multi_xml (0.6.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    oj (3.6.2)
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
@@ -156,8 +160,6 @@ GEM
     puma_worker_killer (0.1.0)
       get_process_mem (~> 0.2)
       puma (>= 2.7, < 4)
-    rabl (0.13.1)
-      activesupport (>= 2.3.14)
     rack (1.6.10)
     rack-attack (5.2.0)
       rack
@@ -282,14 +284,14 @@ DEPENDENCIES
   foundation-rails (~> 5)
   haml-rails
   httparty
+  jbuilder
+  jbuilder_cache_multi
   jquery-rails
-  oj
   pg (= 0.20)
   platform-api
   pry-rails
   puma
   puma_worker_killer
-  rabl
   rack-attack
   rack-cors
   rails (= 4.2.10)

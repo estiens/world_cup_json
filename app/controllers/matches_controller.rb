@@ -6,25 +6,25 @@ class MatchesController < BaseApiController
 
   def index
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def current
     @matches = @matches.where(status: 'in progress')
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def complete
     @matches = @matches.where(status: 'completed')
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def future
     @matches = @matches.where(status: 'future')
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def country
@@ -35,27 +35,27 @@ class MatchesController < BaseApiController
     end
     @matches = @team.matches
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def today
     @matches = Match.today.includes(:match_statistics)
                           .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def tomorrow
     @matches = Match.tomorrow.includes(:match_statistics)
                              .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
-    render_template
+    render 'index.json.jbuilder'
   end
 
   def show
     @match = Match.find_by!(fifa_id: params[:id])
     @matches = Match.where(id: @match.id)
-    render_template
+    render 'index.json.jbuilder'
   end
 
   private
@@ -64,14 +64,6 @@ class MatchesController < BaseApiController
     @matches = Match.all.includes(:match_statistics)
                         .includes(:home_team).includes(:away_team).includes(:events)
                         .order('datetime ASC')
-  end
-
-  def render_template
-    if @details
-      render 'index.json.rabl'
-    else
-      render 'summary.json.rabl'
-    end
   end
 
   def order_by_params
@@ -122,6 +114,6 @@ class MatchesController < BaseApiController
   end
 
   def detail_level
-    @details = params['details'] != 'false'
+    @summary = params['details'] == 'false'
   end
 end
