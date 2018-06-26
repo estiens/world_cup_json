@@ -1,4 +1,3 @@
-
 json.(match, :venue, :location, :status, :time, :fifa_id,
              :weather, :attendance, :officials, :stage_name)
 
@@ -39,40 +38,53 @@ json.away_team do
 end
 unless @summary
   json.home_team_events do
-    json.cache! [match.home_team, match.home_team.events], expires_in: @cache_time do
-    events = match.home_team_events.sort_by { |e| e.time.to_i }
-      json.array! events do |event|
-        json.id event.id
-        json.type_of_event event.type_of_event
-        json.player event.player
-        json.time event.time
+    if match.home_team
+      json.cache! [match.fifa_id, match.home_team, match.home_team.events], expires_in: @cache_time do
+      events = match.home_team_events.sort_by { |e| e.time.to_i }
+        json.array! events do |event|
+          json.id event.id
+          json.type_of_event event.type_of_event
+          json.player event.player
+          json.time event.time
+        end
       end
+    else
+      []
     end
   end
+
   json.away_team_events do
-    json.cache! [match.away_team, match.away_team.events], expires_in: @cache_time do
-      events = match.away_team_events.sort_by { |e| e.time.to_i }
-      json.array! events do |event|
-        json.id event.id
-        json.type_of_event event.type_of_event
-        json.player event.player
-        json.time event.time
+    if match.away_team
+      json.cache! [match.fifa_id, match.away_team, match.away_team.events], expires_in: @cache_time do
+        events = match.away_team_events.sort_by { |e| e.time.to_i }
+        json.array! events do |event|
+          json.id event.id
+          json.type_of_event event.type_of_event
+          json.player event.player
+          json.time event.time
+        end
       end
+    else
+      []
     end
   end
 
   json.home_team_statistics do
-    json.cache! match.home_stats, expires_in: @cache_time do
+    if match.home_stats
       json.partial! '/matches/stats', stats: match.home_stats
+    else
+      []
     end
   end
 
   json.away_team_statistics do
-    json.cache! match.away_stats, expires_in: @cache_time do
+    if match.away_stats
       json.partial! '/matches/stats', stats: match.away_stats
+    else
+      []
     end
   end
-
-  json.last_event_update_at match.last_event_update_at&.utc&.iso8601
-  json.last_score_update_at match.last_score_update_at&.utc&.iso8601
 end
+
+json.last_event_update_at match.last_event_update_at&.utc&.iso8601
+json.last_score_update_at match.last_score_update_at&.utc&.iso8601
