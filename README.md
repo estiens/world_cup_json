@@ -12,13 +12,11 @@ Main response endpoint:
 https://worldcup.sfg.io/matches/today
 
 
-### TODO
-
-* Figure out how to parse penalties this Cup (hard without penalties)
-
 ### Updates
 
-Updates at the end of the README
+Fixed the simultaneous match issues that cropped up. Found a FIFA JSON API and starting to parse that for some info, if reliable, I'll probably use that for everything as it's way quicker and more reliable than scraping HTML. And next time, we'll all use that one :) Added starting 11 and subs and tactics and also more match information (stage name, weather, officials). Will update the example responses tmrw, but you can check it and see!
+
+More updates at the end of the README
 
 ### Caveat Emptor
 
