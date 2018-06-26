@@ -94,6 +94,20 @@ module Scrapers
       end
     end
 
+    def write_time_date(scraper_match)
+      unless scraper_match.datetime
+        puts 'could not parse time'
+        return
+      end
+      if @fixture.datetime != scraper_match.datetime
+        puts "Changing #{@fixture.name} -- #{@fixture.datetime} to #{scraper_match.datetime}"
+        @fixture.datetime = scraper_match.datetime
+        @fixture.save
+      else
+        puts "#{@fixture.name} is correct"
+      end
+    end
+
     def write_match_data_for_match(match)
       fifa_id = match.first[1]
       @fixture = Match.find_or_create_by(fifa_id: fifa_id)
@@ -103,8 +117,8 @@ module Scrapers
       end
       scraper_match = Scrapers::ScraperMatch.new(match)
       # don't really need to do this unless something weird happens
-      # check_for_new_time(scraper_match)
-      # check_for_new_values(scraper_match)
+      write_time_date(scraper_match) if @force
+      check_for_new_values(scraper_match) if @force
       @fixture.home_team_score ||= 0
       @fixture.away_team_score ||= 0
       set_fixture_home_team(scraper_match)
