@@ -2,7 +2,6 @@
 
 module Scrapers
   class ScraperTasks
-
     # class methods to be run on schedules
     # many will return early ideally as there
     # will be nothing left to scrape
@@ -10,22 +9,23 @@ module Scrapers
     # only scrape for game status until it switches
     # then look for goals/events/stats
     def self.scrape_your_heart_out
-      me = self.new
+      me = new
       me.check_for_live_game
       if Match.in_progress.count.positive?
+        me.get_match_json
         me.scrape_for_events
         me.scrape_for_stats
       end
     end
 
     def self.check_for_live_game_occasionally
-      me = self.new
+      me = new
       me.check_for_live_game
     end
 
     # sometimes FIFA adds stats/events after the match closes
     def self.hourly_cleanup
-      me = self.new
+      me = new
       me.scrape_old_matches
       matches = Match.today.completed
       me.force_scrape_old_events(matches: matches)
@@ -36,7 +36,7 @@ module Scrapers
 
     # def want to make sure nothing got of whack
     def self.nightly_cleanup
-      me = self.new
+      me = new
       me.verify_past_scores
       me.fix_broken_scores
       me.scrape_future_matches
@@ -44,11 +44,35 @@ module Scrapers
       me.scrape_for_events
     end
 
+    def self.setup_matches_for_json
+      Scrapers::JsonScraper.write_fifa_info
+    end
+
+    def self.write_old_match_json
+      matches = Match.completed
+      matches.each do |match|
+        Scrapers::JsonScraper.write_all_info_for_match(match.fifa_id)
+        sleep(5)
+      end
+    end
+
     # instance methods - can be run as one-offs
 
     def initialize
       # lock to keep chromedriver from freezing
       @locked = false
+    end
+
+    def get_match_json
+      matches = Match.not_future.where(stats_complete: false)
+      if matches.empty?
+        puts 'No current matches for JSON'
+      else
+        matches.each do |m|
+          Scrapers::JsonScraper.write_all_info_for_match(m.fifa_id)
+          sleep(2)
+        end
+      end
     end
 
     def fix_times

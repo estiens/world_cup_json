@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620190659) do
+ActiveRecord::Schema.define(version: 20180626044822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20180620190659) do
     t.integer  "fouls_committed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.json     "starting_eleven"
+    t.json     "substitutes"
+    t.string   "tactics"
   end
 
   add_index "match_statistics", ["match_id"], name: "index_match_statistics_on_match_id", using: :btree
@@ -85,10 +88,22 @@ ActiveRecord::Schema.define(version: 20180620190659) do
     t.string   "time"
     t.datetime "last_score_update_at"
     t.datetime "last_event_update_at"
-    t.boolean  "stats_complete",       default: false, null: false
+    t.boolean  "stats_complete",           default: false, null: false
     t.integer  "winner_id"
-    t.boolean  "draw",                 default: false, null: false
-    t.boolean  "events_complete",      default: false, null: false
+    t.boolean  "draw",                     default: false, null: false
+    t.boolean  "events_complete",          default: false, null: false
+    t.string   "fifa_competition_id"
+    t.string   "fifa_season_id"
+    t.string   "fifa_group_id"
+    t.string   "fifa_stage_id"
+    t.string   "stage_name"
+    t.json     "weather"
+    t.string   "attendance"
+    t.integer  "json_home_team_score"
+    t.integer  "json_away_team_score"
+    t.integer  "json_home_team_penalties"
+    t.integer  "json_away_team_penalties"
+    t.json     "officials"
   end
 
   add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree

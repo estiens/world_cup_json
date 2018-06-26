@@ -2,27 +2,27 @@
 
 class MatchesController < BaseApiController
   before_action :detail_level
+  before_action :load_matches, except: [:show, :country, :today, :tomorrow]
 
   def index
-    @matches = Match.all.order('datetime ASC')
     order_by_params
     render_template
   end
 
   def current
-    @matches = Match.where(status: 'in progress')
+    @matches = @matches.where(status: 'in progress')
     order_by_params
     render_template
   end
 
   def complete
-    @matches = Match.where(status: 'completed')
+    @matches = @matches.where(status: 'completed')
     order_by_params
     render_template
   end
 
   def future
-    @matches = Match.where(status: 'future')
+    @matches = @matches.where(status: 'future')
     order_by_params
     render_template
   end
@@ -39,13 +39,15 @@ class MatchesController < BaseApiController
   end
 
   def today
-    @matches = Match.today
+    @matches = Match.today.includes(:match_statistics)
+                          .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
     render_template
   end
 
   def tomorrow
-    @matches = Match.tomorrow
+    @matches = Match.tomorrow.includes(:match_statistics)
+                             .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
     render_template
   end
@@ -57,6 +59,12 @@ class MatchesController < BaseApiController
   end
 
   private
+
+  def load_matches
+    @matches = Match.all.includes(:match_statistics)
+                        .includes(:home_team).includes(:away_team).includes(:events)
+                        .order('datetime ASC')
+  end
 
   def render_template
     if @details
