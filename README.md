@@ -391,6 +391,8 @@ https://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
+* https://m.me/244560172984721 (Facebook Messenger bot that shows games for today and tomorrow as well as allowing you to follow along with live matches)
+
 * https://github.com/jthomas/goalbot   
 (Twitter bot ([@WC2018_Goals](https://twitter.com/WC2018_Goals)) which tweets out every goal from the 2018 FIFA World Cup.)  
 
@@ -432,6 +434,9 @@ https://worldcup.sfg.io/teams
 
 * https://github.com/kadinho/worldcup-notifications
 (A project to fetch FIFA World Cup matches and send Slack event notifications)
+
+* https://github.com/gk4m/world-cup-scores
+(Simple vue.js based app for displaying results from World Cup 2018.)
 
 ## PROJECTS USING THIS API IN 2014
 
