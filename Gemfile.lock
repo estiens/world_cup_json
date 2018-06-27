@@ -143,6 +143,7 @@ GEM
     multi_xml (0.6.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    oj (3.6.3)
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
@@ -287,6 +288,7 @@ DEPENDENCIES
   jbuilder
   jbuilder_cache_multi
   jquery-rails
+  oj
   pg (= 0.20)
   platform-api
   pry-rails

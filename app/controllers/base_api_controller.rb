@@ -9,7 +9,7 @@ class BaseApiController < ApplicationController
 
   rescue_from StandardError do |error|
     notify_airbrake(error)
-    unprocesssable_entity(error)
+    unprocessable_entity(error)
   end
 
   rescue_from ActiveRecord::RecordNotFound do |error|

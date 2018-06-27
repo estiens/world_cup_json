@@ -39,14 +39,12 @@ end
 unless @summary
   json.home_team_events do
     if match.home_team
-      json.cache! [match.fifa_id, match.home_team, match.home_team.events], expires_in: @cache_time do
       events = match.home_team_events.sort_by { |e| e.time.to_i }
-        json.array! events do |event|
-          json.id event.id
-          json.type_of_event event.type_of_event
-          json.player event.player
-          json.time event.time
-        end
+      json.array! events do |event|
+        json.id event.id
+        json.type_of_event event.type_of_event
+        json.player event.player
+        json.time event.time
       end
     else
       []
@@ -55,14 +53,12 @@ unless @summary
 
   json.away_team_events do
     if match.away_team
-      json.cache! [match.fifa_id, match.away_team, match.away_team.events], expires_in: @cache_time do
-        events = match.away_team_events.sort_by { |e| e.time.to_i }
-        json.array! events do |event|
-          json.id event.id
-          json.type_of_event event.type_of_event
-          json.player event.player
-          json.time event.time
-        end
+      events = match.away_team_events.sort_by { |e| e.time.to_i }
+      json.array! events do |event|
+        json.id event.id
+        json.type_of_event event.type_of_event
+        json.player event.player
+        json.time event.time
       end
     else
       []
@@ -71,7 +67,12 @@ unless @summary
 
   json.home_team_statistics do
     if match.home_stats
-      json.partial! '/matches/stats', stats: match.home_stats
+      json.country match.home_team.country
+      json.(match.home_stats, :attempts_on_goal, :on_target, :off_target, :blocked, :woodwork,
+                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
+                 :passes_completed, :distance_covered, :balls_recovered, :tackles,
+                 :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
+                 :starting_eleven, :substitutes)
     else
       []
     end
@@ -79,7 +80,12 @@ unless @summary
 
   json.away_team_statistics do
     if match.away_stats
-      json.partial! '/matches/stats', stats: match.away_stats
+      json.country match.away_team.country
+      json.(match.away_stats, :attempts_on_goal, :on_target, :off_target, :blocked, :woodwork,
+                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
+                 :passes_completed, :distance_covered, :balls_recovered, :tackles,
+                 :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
+                 :starting_eleven, :substitutes)
     else
       []
     end
