@@ -1,6 +1,6 @@
 workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
-threads threads_count, threads_count
+threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 10)
+threads 1, threads_count
 
 preload_app!
 
@@ -16,5 +16,5 @@ end
 
 before_fork do
   require 'puma_worker_killer'
-  PumaWorkerKiller.enable_rolling_restart(1800)
+  PumaWorkerKiller.enable_rolling_restart(3600)
 end
