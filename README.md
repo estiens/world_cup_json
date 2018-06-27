@@ -435,6 +435,9 @@ https://worldcup.sfg.io/teams
 * https://github.com/kadinho/worldcup-notifications
 (A project to fetch FIFA World Cup matches and send Slack event notifications)
 
+* https://github.com/gk4m/world-cup-scores
+(Simple vue.js based app for displaying results from World Cup 2018.)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
