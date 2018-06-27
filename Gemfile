@@ -26,14 +26,15 @@ gem 'puma'
 gem 'puma_worker_killer'
 gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
+gem 'rack-timeout'
 gem 'rails_autoscale_agent'
 gem 'redis-rails'
-gem 'scout_apm'
 gem 'responders', '~> 2.0'
 gem 'watir'
 
 group :production do
   gem 'rails_12factor'
+  gem 'scout_apm'
 end
 
 group :development do

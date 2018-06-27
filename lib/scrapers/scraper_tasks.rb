@@ -10,11 +10,15 @@ module Scrapers
     # then look for goals/events/stats
     def self.scrape_your_heart_out
       me = new
-      me.check_for_live_game
       if Match.in_progress.count.positive?
+        puts 'Scraping live games, thats what I love!'
         me.get_match_json
         me.scrape_for_events
         me.scrape_for_stats
+      end
+      if Match.today.future.count.positive?
+        me.check_for_live_game
+        puts 'is a game on yet?'
       end
     end
 
@@ -30,8 +34,10 @@ module Scrapers
       matches = Match.today.completed
       me.force_scrape_old_events(matches: matches)
       me.force_scrape_old_stats(matches: matches)
+      me.scrape_future_matches
       me.scrape_for_stats
       me.scrape_for_events
+      me.get_match_json
     end
 
     # def want to make sure nothing got of whack

@@ -166,6 +166,7 @@ GEM
     rack-cors (1.0.2)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.5.1)
     rails (4.2.10)
       actionmailer (= 4.2.10)
       actionpack (= 4.2.10)
@@ -294,6 +295,7 @@ DEPENDENCIES
   puma_worker_killer
   rack-attack
   rack-cors
+  rack-timeout
   rails (= 4.2.10)
   rails_12factor
   rails_autoscale_agent
