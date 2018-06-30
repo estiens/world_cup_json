@@ -101,9 +101,9 @@ class Match < ActiveRecord::Base
   private
 
   def penalty_winner
-    return nil unless home_team_penalties && away_team_penalties
-    return home_team if home_team_penalties > away_team_penalties
-    return away_team if away_team_penalties > home_team_penalties
+    return nil unless json_home_team_penalties > 0 || json_away_team_penalties > 0
+    return home_team if json_home_team_penalties > json_away_team_penalties
+    return away_team if json_away_team_penalties > json_home_team_penalties
     nil
   end
 
@@ -115,6 +115,7 @@ class Match < ActiveRecord::Base
   end
 
   def draw?
+    return nil unless stage_name.downcase.include?('first stage')
     home_team_score == away_team_score
   end
 
