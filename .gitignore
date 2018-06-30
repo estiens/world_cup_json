@@ -17,3 +17,4 @@
 .ruby-version
 
 /lib/test_pages
+/config/database.yml
