@@ -664,6 +664,9 @@ https://worldcup.sfg.io/teams
 * https://github.com/gk4m/world-cup-scores
 (Simple vue.js based app for displaying results from World Cup 2018.)
 
+* https://apps.lametric.com/apps/fifa_world_cup_2018/6624
+(Display the latest score of the current match(es), or the recent and next matches on a [LaMetric Time](https://lametric.com) device)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
