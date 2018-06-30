@@ -116,7 +116,7 @@ class Match < ActiveRecord::Base
   end
 
   def draw?
-    return nil unless stage_name.downcase.include?('first stage')
+    return false unless stage_name.downcase.include?('first stage')
     home_team_score == away_team_score
   end
 
