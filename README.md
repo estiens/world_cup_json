@@ -621,6 +621,8 @@ https://worldcup.sfg.io/teams
 
 * https://github.com/jthomas/goalbot   
 (Twitter bot ([@WC2018_Goals](https://twitter.com/WC2018_Goals)) which tweets out every goal from the 2018 FIFA World Cup.)  
+* https://github.com/riceluxs1t/EloSoccerPrediction
+(React.js + Django app that shows (live) game data and match outcome predictions using an ELO based Poisson model.)
 
 * https://github.com/justcallmelarry/sportsball   
 (slack integration for updates of goals, cards and results)  
