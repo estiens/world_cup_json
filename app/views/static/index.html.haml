@@ -80,10 +80,10 @@
               #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
               - if match.json_home_team_penalties > 0 && match.json_home_team_penalties > match.json_away_team_penalties
                 %br
-                %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.home_team_penalties} to #{match.away_team_penalties}
+                %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.json_home_team_penalties} to #{match.json_away_team_penalties}
               - if match.json_home_team_penalties > 0 && match.json_home_team_penalties < match.json_away_team_penalties
                 %br
-                %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.away_team_penalties} to #{match.home_team_penalties}
+                %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.ajson_away_team_penalties} to #{match.json_home_team_penalties}
             -elsif match.status == "in progress"
               .live
                 -# = image_tag("https://www.countryflags.io/#{match.home_team.iso_code}/flat/16.png")
