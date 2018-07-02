@@ -669,6 +669,9 @@ https://worldcup.sfg.io/teams
 * https://apps.lametric.com/apps/fifa_world_cup_2018/6624
 (Display the latest score of the current match(es), or the recent and next matches on a [LaMetric Time](https://lametric.com) device)
 
+* https://spapas.github.io/wc2018/
+(A WC2018 dashboard using vue.js. Source @ https://github.com/spapas/vue-wc2018)
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
