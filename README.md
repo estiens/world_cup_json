@@ -616,6 +616,10 @@ https://worldcup.sfg.io/teams
 ## PROJECTS USING THIS API IN 2018
 
 (Feel free to submit a PR with your project!)
+
+* http://fifa-worldcup.herokuapp.com 
+(NodeJS and Express Web App to keep you updated with the FIFA World Cup 2018)
+
 * http://meisam-dodangeh.ir/worldcup (A simple web Page to show today games and games events)
 * https://m.me/244560172984721 (Facebook Messenger bot that shows games for today and tomorrow as well as allowing you to follow along with live matches)
 
@@ -671,6 +675,10 @@ https://worldcup.sfg.io/teams
 
 * https://world-cup-basecamp.herokuapp.com/ 
 [Github Link](https://github.com/dskoda1/world-cup-basecamp) - SPA using React/Redux/Material for displaying data from this API
+
+* https://spapas.github.io/wc2018/
+(A WC2018 dashboard using vue.js. Source @ https://github.com/spapas/vue-wc2018)
+
 
 ## PROJECTS USING THIS API IN 2014
 
