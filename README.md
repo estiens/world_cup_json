@@ -669,6 +669,9 @@ https://worldcup.sfg.io/teams
 * https://apps.lametric.com/apps/fifa_world_cup_2018/6624
 (Display the latest score of the current match(es), or the recent and next matches on a [LaMetric Time](https://lametric.com) device)
 
+* https://world-cup-basecamp.herokuapp.com/ 
+[Github Link](https://github.com/dskoda1/world-cup-basecamp) - SPA using React/Redux/Material for displaying data from this API
+
 ## PROJECTS USING THIS API IN 2014
 
 * http://alexb.ninja/wc
