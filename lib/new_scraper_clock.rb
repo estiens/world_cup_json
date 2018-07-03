@@ -6,10 +6,19 @@ require File.expand_path('../config/environment', __dir__)
 require 'rake'
 require 'platform-api'
 
+def scale_up
+  if ENV['PLATFORM_OAUTH_TOKEN']
+    heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
+    heroku.formation.update('world-cup-json', 'clock', size: 'standard-2x')
+    heroku.formation.update('world-cup-json', 'web', quantity: 3)
+  end
+end
+
 def scale_middle
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.formation.update('world-cup-json', 'clock', size: 'standard-2x')
+    heroku.formation.update('world-cup-json', 'web', quantity: 2)
   end
 end
 
@@ -17,6 +26,7 @@ def scale_down
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.formation.update('world-cup-json', 'clock', size: 'standard-1x')
+    heroku.formation.update('world-cup-json', 'web', quantity: 1)
   end
 end
 
@@ -26,9 +36,10 @@ module Clockwork
   every(30.seconds, 'scrapers on lock') do
     if Match.in_progress.count.positive?
       puts 'scraping at speed captain!'
-      scale_middle
+      scale_up
     elsif Match.next.present? && (Time.now + 1.hour) > Match.next.datetime
       puts 'sleeping for a bit'
+      scale_middle
       sleep(30)
     else
       puts 'not scraping so hard and fast right now'
