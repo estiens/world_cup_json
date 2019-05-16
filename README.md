@@ -681,6 +681,9 @@ https://worldcup.sfg.io/teams
 * https://spapas.github.io/wc2018/
 (A WC2018 dashboard using vue.js. Source @ https://github.com/spapas/vue-wc2018)
 
+* https://github.com/eeddaann/ElastiCup
+(Loads World Cup data into Elasticsearch) 
+
 
 ## PROJECTS USING THIS API IN 2014
 
