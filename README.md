@@ -1,4 +1,6 @@
-# FIFA WORLD CUP 2018
+# FIFA WOMENS WORLD CUP 2019
+
+*I will hopefully have this working for the WWC - though if FIFA made any significant changes to their CMS, it may take a day or so to make sure everything is working correctly. PRs always welcome!* (16 May 2019)
 
 This should now be working for the World Cup in 2018!  
 Should have all events and goals and match stats streaming live, please file an issue or hit me up on twitter @mutualarising if anything has gone awry.
