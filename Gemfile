@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.5.3'
 
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11.1'
 
 gem 'pg', '= 0.20'
 
@@ -31,6 +31,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'redis-rails'
 gem 'responders', '~> 2.0'
 gem 'watir'
+gem 'webdrivers', '~> 3.0'
 
 group :production do
   gem 'rails_12factor'
@@ -40,7 +41,6 @@ end
 group :development do
   gem 'derailed_benchmarks'
   gem 'stackprof'
-  gem 'chromedriver-helper'
 end
 
 group :development, :test do
@@ -51,6 +51,5 @@ group :development, :test do
 end
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
