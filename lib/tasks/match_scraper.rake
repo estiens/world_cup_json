@@ -18,9 +18,9 @@ end
 def init_browser
   path = ENV['GOOGLE_CHROME_SHIM'] || ENV['GOOGLE_CHROME_BIN']
   if Rails.env.development?
-    Selenium::WebDriver::Chrome.path = path || '/usr/bin/chromium-browser'
+    Selenium::WebDriver::Chrome::Service.driver_path = path || '/usr/bin/chromium-browser'
   else
-    Selenium::WebDriver::Chrome.path =  path
+    Selenium::WebDriver::Chrome::Service.driver_path =  path
   end
   options = Selenium::WebDriver::Chrome::Options.new
   chrome_dir = Rails.root.join('tmp', 'chrome')

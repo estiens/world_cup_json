@@ -8,7 +8,12 @@ module Scrapers
       @browser = init_browser
       @page = nil
 
-      path = ENV['GOOGLE_CHROME_BIN'] || ENV['GOOGLE_CHROME_SHIM']
+      path = ENV['GOOGLE_CHROME_SHIM'] || ENV['GOOGLE_CHROME_BIN']
+      if Rails.env.development?
+        Selenium::WebDriver::Chrome::Service.driver_path = path || '/usr/bin/chromium-browser'
+      else
+        Selenium::WebDriver::Chrome::Service.driver_path =  path
+      end
     end
 
     private
