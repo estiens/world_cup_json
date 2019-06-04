@@ -15,14 +15,13 @@ def timezones
   JSON.parse(timezone_file)
 end
 
+
 def init_browser
-  path = ENV['GOOGLE_CHROME_SHIM'] || ENV['GOOGLE_CHROME_BIN']
-  if Rails.env.development?
-    Selenium::WebDriver::Chrome::Service.driver_path = path || '/usr/bin/chromium-browser'
-  else
-    Selenium::WebDriver::Chrome::Service.driver_path =  path
-  end
   options = Selenium::WebDriver::Chrome::Options.new
+  chrome_bin_path = ENV.fetch('GOOGLE_CHROME_BIN', nil)
+  options.binary = chrome_bin_path if chrome_bin_path # only use custom path on heroku
+  driver = Selenium::WebDriver.for :chrome, options: options
+
   chrome_dir = Rails.root.join('tmp', 'chrome')
   FileUtils.mkdir_p(chrome_dir)
   user_data_dir = "--user-data-dir=#{chrome_dir}"
