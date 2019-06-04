@@ -1,8 +1,8 @@
 require 'open-uri'
 
-FIFA_SITE = 'https://www.fifa.com/'.freeze
-MATCH_URL = "#{FIFA_SITE}/worldcup/matches/index.html".freeze
-EVENTS_URL = "#{FIFA_SITE}/worldcup/matches/match/".freeze
+FIFA_SITE = 'https://www.fifa.com'.freeze
+MATCH_URL = "#{FIFA_SITE}/womensworldcup/matches/".freeze
+EVENTS_URL = "#{FIFA_SITE}/womensworldcup/matches/match/".freeze
 
 def get_page_from_url(url)
   browser = init_browser

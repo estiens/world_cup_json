@@ -64,7 +64,7 @@ module Scrapers
     end
 
     def scraper_url
-      'https://www.fifa.com/worldcup/matches/'
+      'https://www.fifa.com/womensworldcup/matches/'
     end
 
     def write_status_for_match(match)

@@ -1,194 +1,122 @@
 [
-    {
-        "group_id": 1,
-        "code": "RUS",
-        "name": "Russia",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 1,
-        "code": "KSA",
-        "name": "Saudi Arabia",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 1,
-        "code": "EGY",
-        "name": "Egypt",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 1,
-        "code": "URU",
-        "name": "Uruguay",
-        "sponsor": "Puma"
-    },
-    {
-        "group_id": 2,
-        "code": "POR",
-        "name": "Portugal",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 2,
-        "code": "ESP",
-        "name": "Spain",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 2,
-        "code": "MAR",
-        "name": "Morocco",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 2,
-        "code": "IRN",
-        "name": "Iran",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 3,
-        "code": "FRA",
-        "name": "France",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 3,
-        "code": "AUS",
-        "name": "Australia",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 3,
-        "code": "PER",
-        "name": "Peru",
-        "sponsor": "Umbro"
-    },
-    {
-        "group_id": 3,
-        "code": "DEN",
-        "name": "Denmark",
-        "sponsor": "Hummel"
-    },
-    {
-        "group_id": 4,
-        "code": "ARG",
-        "name": "Argentina",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 4,
-        "code": "ISL",
-        "name": "Iceland",
-        "sponsor": "Errea"
-    },
-    {
-        "group_id": 4,
-        "code": "CRO",
-        "name": "Croatia",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 4,
-        "code": "NGA",
-        "name": "Nigeria",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 5,
-        "code": "BRA",
-        "name": "Brazil",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 5,
-        "code": "SUI",
-        "name": "Switzerland",
-        "sponsor": "Puma"
-    },
-    {
-        "group_id": 5,
-        "code": "CRC",
-        "name": "Costa Rica",
-        "sponsor": "New Balance"
-    },
-    {
-        "group_id": 5,
-        "code": "SRB",
-        "name": "Serbia",
-        "sponsor": "Puma"
-    },
-    {
-        "group_id": 6,
-        "code": "GER",
-        "name": "Germany",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 6,
-        "code": "MEX",
-        "name": "Mexico",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 6,
-        "code": "SWE",
-        "name": "Sweden",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 6,
-        "code": "KOR",
-        "name": "Korea Republic",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 7,
-        "code": "BEL",
-        "name": "Belgium",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 7,
-        "code": "PAN",
-        "name": "Panama",
-        "sponsor": "New Balance"
-    },
-    {
-        "group_id": 7,
-        "code": "TUN",
-        "name": "Tunisia",
-        "sponsor": "Uhlsport"
-    },
-    {
-        "group_id": 7,
-        "code": "ENG",
-        "name": "England",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 8,
-        "code": "POL",
-        "name": "Poland",
-        "sponsor": "Nike"
-    },
-    {
-        "group_id": 8,
-        "code": "SEN",
-        "name": "Senegal",
-        "sponsor": "Puma"
-    },
-    {
-        "group_id": 8,
-        "code": "COL",
-        "name": "Colombia",
-        "sponsor": "Adidas"
-    },
-    {
-        "group_id": 8,
-        "code": "JPN",
-        "name": "Japan",
-        "sponsor": "Adidas"
-    }
+  {
+      "group_id": 1,
+      "code": "FRA",
+      "name": "France"
+  },
+  {
+      "group_id": 1,
+      "code": "KOR",
+      "name": "Korea Republic"
+  },
+  {
+      "group_id": 1,
+      "code": "NOR",
+      "name": "Norway"
+  },
+  {
+      "group_id": 1,
+      "code": "NGA",
+      "name": "Nigeria"
+  },
+  {
+      "group_id": 2,
+      "code": "GER",
+      "name": "Germany"
+  },
+  {
+      "group_id": 2,
+      "code": "CHN",
+      "name": "China PR"
+  },
+  {
+      "group_id": 2,
+      "code": "ESP",
+      "name": "Spain"
+  },
+  {
+      "group_id": 2,
+      "code": "RSA",
+      "name": "South Africa"
+  },
+  {
+      "group_id": 3,
+      "code": "AUS",
+      "name": "Australia"
+  },
+  {
+      "group_id": 3,
+      "code": "ITA",
+      "name": "Italy"
+  },
+  {
+      "group_id": 3,
+      "code": "BRA",
+      "name": "Brazil"
+  },
+  {
+      "group_id": 3,
+      "code": "JAM",
+      "name": "Jamaica"
+  },
+  {
+      "group_id": 4,
+      "code": "ENG",
+      "name": "England"
+  },
+  {
+      "group_id": 4,
+      "code": "SCO",
+      "name": "Scotland"
+  },
+  {
+      "group_id": 4,
+      "code": "ARG",
+      "name": "Argentina"
+  },
+  {
+      "group_id": 4,
+      "code": "JPN",
+      "name": "Japan"
+  },
+  {
+      "group_id": 5,
+      "code": "CAN",
+      "name": "Canada"
+  },
+  {
+      "group_id": 5,
+      "code": "CMR",
+      "name": "Cameroon"
+  },
+  {
+      "group_id": 5,
+      "code": "NZL",
+      "name": "New Zealand"
+  },
+  {
+      "group_id": 5,
+      "code": "NED",
+      "name": "Netherlands"
+  },
+  {
+      "group_id": 6,
+      "code": "USA",
+      "name": "USA"
+  },
+  {
+      "group_id": 6,
+      "code": "THA",
+      "name": "Thailand"
+  },
+  {
+      "group_id": 6,
+      "code": "CHI",
+      "name": "Chile"
+  },
+  {
+      "group_id": 6,
+      "code": "SWE",
+      "name": "Sweden"
+  }
 ]

@@ -22,7 +22,7 @@ module Scrapers
     private
 
     def scraper_url
-      base_url = 'https://www.fifa.com/worldcup/matches/match/'
+      base_url = 'https://www.fifa.com/womensworldcup/matches/match/'
       "#{base_url}#{@match.fifa_id}/#match-lineups"
     end
 

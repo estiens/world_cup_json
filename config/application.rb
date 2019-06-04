@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+Selenium::WebDriver::Chrome.path = '/usr/bin/chromium-browser'
+
 module WorldCupJson
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -16,7 +18,7 @@ module WorldCupJson
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     config.time_zone = 'Central Time (US & Canada)'
     config.autoload_paths << Rails.root.join('lib')
-    
+
     if redis_url = ENV["REDISTOGO_URL"]
       config.cache_store = :redis_store, redis_url
     end
