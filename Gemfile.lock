@@ -39,6 +39,8 @@ GEM
       airbrake-ruby (~> 4.4)
     airbrake-ruby (4.4.0)
       rbtree3 (~> 0.5)
+    archive-zip (0.12.0)
+      io-like (~> 0.3.0)
     arel (6.0.4)
     ast (2.4.0)
     autoprefixer-rails (9.6.0)
@@ -53,6 +55,9 @@ GEM
     builder (3.2.3)
     childprocess (1.0.1)
       rake (< 13.0)
+    chromedriver-helper (2.1.1)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     chronic (0.10.2)
     clockwork (2.0.3)
       tzinfo
@@ -113,6 +118,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     jaro_winkler (1.5.2)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
@@ -269,10 +275,6 @@ GEM
     watir (6.16.5)
       regexp_parser (~> 1.2)
       selenium-webdriver (~> 3.6)
-    webdrivers (3.9.4)
-      nokogiri (~> 1.6)
-      rubyzip (~> 1.0)
-      selenium-webdriver (~> 3.0)
 
 PLATFORMS
   ruby
@@ -282,6 +284,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
+  chromedriver-helper
   chronic
   clockwork
   coffee-rails (~> 4.0.0)
@@ -314,7 +317,6 @@ DEPENDENCIES
   stackprof
   uglifier (>= 1.3.0)
   watir
-  webdrivers (~> 3.0)
 
 RUBY VERSION
    ruby 2.5.3p105
