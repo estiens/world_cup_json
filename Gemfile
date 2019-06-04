@@ -31,7 +31,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'redis-rails'
 gem 'responders', '~> 2.0'
 gem 'watir'
-gem 'chromedriver-helper'
+gem 'webdrivers'
 
 group :production do
   gem 'rails_12factor'
