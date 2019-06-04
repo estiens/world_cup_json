@@ -13,10 +13,7 @@ module Scrapers
 
     def init_browser
       options = Selenium::WebDriver::Chrome::Options.new
-      chrome_bin_path = ENV.fetch('GOOGLE_CHROME_BIN', nil)
-      options.binary = chrome_bin_path if chrome_bin_path # only use custom path on heroku
       driver = Selenium::WebDriver.for :chrome, options: options
-
       chrome_dir = Rails.root.join('tmp', 'chrome')
       FileUtils.mkdir_p(chrome_dir)
       user_data_dir = "--user-data-dir=#{chrome_dir}"
@@ -27,6 +24,10 @@ module Scrapers
       options.add_argument 'disable-setuid-sandbox'
       options.add_argument 'disable-dev-shm-usage'
       options.add_argument 'single-process'
+      if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
+        options.add_argument "--no-sandbox"
+        options.binary = chrome_bin
+      end
       Watir::Browser.new :chrome, options: options
     end
 
