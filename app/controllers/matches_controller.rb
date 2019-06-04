@@ -6,6 +6,7 @@ class MatchesController < BaseApiController
 
   def index
     order_by_params
+    index_detail_level
     render 'index.json.jbuilder'
   end
 
@@ -115,5 +116,9 @@ class MatchesController < BaseApiController
 
   def detail_level
     @summary = params['details'] == 'false'
+  end
+
+  def index_detail_level
+    @summary = false unless params['details'] == 'true'
   end
 end

@@ -3,7 +3,7 @@
 #container
   .row
     .small-12.columns
-      %h1 World Cup 2018
+      %h1 Womens World Cup 2019
       %h2 ...in JSON
   .row
     .small-10.small-offset-1.columns.intro
@@ -17,7 +17,7 @@
       %h3 ENDPOINTS
     .small-6.columns
       %p
-        All match data, updated every minute
+        All match data, updated every minute(note - truncated data - pass `&details=true` to get all matches with all events)
         %br
         %a{href:"https://worldcup.sfg.io/matches"}
           https://worldcup.sfg.io/matches
@@ -65,6 +65,14 @@
         %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
           https://worldcup.sfg.io/matches/?by=total_goals
   .row
+    .large-12.column.text-center
+      %h3 NEXT MATCH
+      %h4
+        - match = Match.future.reorder(datetime: :asc).first
+        #{match.home_team.country} Vs #{match.away_team.country}
+        %br
+        #{match.datetime.utc.to_s}
+  .row
     .small-4.columns.text-center
       %h3 YESTERDAY'S MATCHES
       -@yesterday_matches.each do |match|
@@ -91,7 +99,7 @@
                 -# = image_tag("https://www.countryflags.io/#{match.away_team.iso_code}/flat/16.png")
                 ( #{match.time} )
             -else
-              #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+              #{match.home_team.country} v #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
     .small-4.columns.text-center
       %h3 TOMORROW'S MATCHES
       -@tomorrow_matches.each do |match|
@@ -103,9 +111,6 @@
     %li
       %a{href:"https://github.com/estiens/world_cup_json"}
         %i.fa.fa-github
-    %li
-      %a{href:"https://twitter.com/MutualArising"}
-        %i.fa.fa-twitter
     %li
       %a{href:"mailto:eric@softwareforgood.com"}
         %i.fa.fa-envelope
