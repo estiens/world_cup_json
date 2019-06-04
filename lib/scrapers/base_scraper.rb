@@ -7,6 +7,8 @@ module Scrapers
     def initialize
       @browser = init_browser
       @page = nil
+
+      path = ENV['GOOGLE_CHROME_BIN'] || ENV['GOOGLE_CHROME_SHIM']
     end
 
     private

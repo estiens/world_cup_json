@@ -23,6 +23,12 @@ module Scrapers
     end
 
     def self.init_browser
+      path = ENV['GOOGLE_CHROME_BIN'] || ENV['GOOGLE_CHROME_SHIM']
+      if Rails.env.development?
+        Selenium::WebDriver::Chrome.path = path || '/usr/bin/chromium-browser'
+      else
+        Selenium::WebDriver::Chrome.path =  path
+      end
       options = Selenium::WebDriver::Chrome::Options.new
       chrome_dir = Rails.root.join('tmp', 'chrome')
       FileUtils.mkdir_p(chrome_dir)
