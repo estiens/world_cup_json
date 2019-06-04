@@ -64,14 +64,15 @@
         You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
         %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
           https://worldcup.sfg.io/matches/?by=total_goals
-  .row
-    .large-12.column.text-center
-      %h3 NEXT MATCH
-      %h4
-        - match = Match.future.reorder(datetime: :asc).first
-        #{match.home_team.country} Vs #{match.away_team.country}
-        %br
-        #{match.datetime.utc.to_s}
+  - if @next_match
+    .row
+      .large-12.column.text-center
+        %h3 NEXT MATCH
+        %h4
+          - match = Match.future.reorder(datetime: :asc).first
+          #{match.home_team.country} Vs #{match.away_team.country}
+          %br
+          #{match.datetime.utc.to_s}
   .row
     .small-4.columns.text-center
       %h3 YESTERDAY'S MATCHES
