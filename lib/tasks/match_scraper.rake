@@ -16,7 +16,7 @@ def timezones
 end
 
 def init_browser
-  path = ENV['GOOGLE_CHROME_BIN'] || ENV['GOOGLE_CHROME_SHIM']
+  path = ENV['GOOGLE_CHROME_SHIM'] || ENV['GOOGLE_CHROME_BIN']
   if Rails.env.development?
     Selenium::WebDriver::Chrome.path = path || '/usr/bin/chromium-browser'
   else
