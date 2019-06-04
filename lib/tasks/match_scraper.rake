@@ -21,11 +21,6 @@ def init_browser
   FileUtils.mkdir_p(chrome_dir)
   user_data_dir = "--user-data-dir=#{chrome_dir}"
   options.add_argument user_data_dir
-  if (chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil))
-    options.add_argument "no-sandbox"
-    options.binary = chrome_bin
-    Selenium::WebDriver::Chrome.driver_path = "/app/.chromedriver/bin/chromedriver"
-  end
   options.add_argument "window-size=800x600"
   options.add_argument "headless"
   options.add_argument "disable-gpu"

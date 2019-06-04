@@ -6,7 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-Selenium::WebDriver::Chrome.path = '/usr/bin/chromium-browser'
+if Rails.env.development?
+  Selenium::WebDriver::Chrome.path = '/usr/bin/chromium-browser'
+elsif Rails.env.production?
+  Selenium::WebDriver::Chrome.path = "/app/.chromedriver/bin/chromedriver"
+end
 
 module WorldCupJson
   class Application < Rails::Application
