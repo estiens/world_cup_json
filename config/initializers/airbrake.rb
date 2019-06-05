@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Airbrake.configure do |c|
   c.host = 'http://errbit.softwareforgood.com'
   c.project_id = '5b257b662bb9e40007000003'

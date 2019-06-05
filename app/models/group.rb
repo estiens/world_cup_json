@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Group < ActiveRecord::Base
   has_many :teams
 

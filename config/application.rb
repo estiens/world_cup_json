@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 
@@ -17,7 +19,7 @@ module WorldCupJson
     config.time_zone = 'Central Time (US & Canada)'
     config.autoload_paths << Rails.root.join('lib')
 
-    if redis_url = ENV["REDISTOGO_URL"]
+    if redis_url = ENV['REDISTOGO_URL']
       config.cache_store = :redis_store, redis_url
     end
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
@@ -27,7 +29,7 @@ module WorldCupJson
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        resource '*', headers: :any, methods: %i[get post options]
       end
     end
   end

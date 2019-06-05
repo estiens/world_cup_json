@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIndexToMatches < ActiveRecord::Migration
   def change
     add_index :matches, :home_team_id

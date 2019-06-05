@@ -50,6 +50,7 @@ module Scrapers
       @matches = page.search('.live')
       @matches.each { |m| write_status_for_match(m) }
       return unless Match.in_progress.count.positive?
+
       puts "#{Match.in_progress.first.name} in progress"
     end
 
@@ -57,6 +58,7 @@ module Scrapers
 
     def before_scrape_events(execute = false)
       return unless execute
+
       @browser.link(text: 'Knockout Phase').click!
       @browser.link(text: 'List view').click!
       @browser.execute_script("$('.fi-knockout-tabs #listview').show();")
@@ -79,8 +81,10 @@ module Scrapers
       fifa_id = match.first[1]
       @fixture = Match.where(fifa_id: fifa_id).first
       return unless @fixture
+
       scraper_match = Scrapers::ScraperMatch.new(match)
       return unless scraper_match
+
       unless scraper_match.datetime
         puts 'could not parse time'
         return
@@ -169,10 +173,11 @@ module Scrapers
     def determine_status(scraper_match)
       @fixture.status = scraper_match.match_status
       return unless @fixture.status == 'undetermined'
+
       @fixture.status = if @fixture.datetime.to_i > Time.now.to_i
-                         'future'
-                       else
-                         'pending correction'
+                          'future'
+                        else
+                          'pending correction'
                        end
     end
 
@@ -222,6 +227,7 @@ module Scrapers
     def get_scores_for_match(match)
       scores = match.search('.fi-s__scoreText')
       return nil unless scores&.text&.include?('-')
+
       scores&.text&.split('-')&.map(&:to_i)
     end
   end

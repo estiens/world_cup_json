@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Scrapers
   class JsonScraper
     include HTTParty
@@ -17,9 +19,10 @@ module Scrapers
       browser = ChromeBrowserHelper.browser
       browser.goto('https://www.fifa.com/womensworldcup/')
       html = Nokogiri::HTML(browser.html)
-      url = html.search('script')&.text&.match(/matchListUpdate.url(.+)/)[0]&.match(/https:\/\/(.+);_cfg/)[1]&.to_s
+      url = html.search('script')&.text&.match(/matchListUpdate.url(.+)/)[0]&.match(%r{https://(.+);_cfg})[1]&.to_s
       return "https://#{url}&count=500" if url
-      "https://api.fifa.com/api/v1/live/football/recent/103/278513?idClient=64e9afa8-c5c0-413d-882b-bc9e6a81e264&language=en-GB&count=500"
+
+      'https://api.fifa.com/api/v1/live/football/recent/103/278513?idClient=64e9afa8-c5c0-413d-882b-bc9e6a81e264&language=en-GB&count=500'
     end
 
     def self.write_fifa_info_for_match(fixture, json_match)
@@ -54,6 +57,7 @@ module Scrapers
       if response.code == 200
         match_info = JSON.parse(response.body)
         return false if match_info.blank?
+
         json_match = Scrapers::JsonMatch.new(match_info)
         write_match_info(json_match)
         write_scores(json_match)

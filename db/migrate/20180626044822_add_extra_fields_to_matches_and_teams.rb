@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddExtraFieldsToMatchesAndTeams < ActiveRecord::Migration
   def change
     add_column :matches, :weather, :json

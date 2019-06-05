@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Match < ActiveRecord::Base
   validates_presence_of :location, :venue, :datetime, :status
   validate :has_teams
@@ -16,6 +18,7 @@ class Match < ActiveRecord::Base
   def self.for_date(start_time, end_time = nil)
     parse_times(start_time, end_time)
     return Match.none unless @start_time && @end_time
+
     where(datetime: @start_time..@end_time)
   end
 
@@ -24,6 +27,7 @@ class Match < ActiveRecord::Base
     end_time = Chronic.parse(end_time.to_s)
     end_time ||= start_time
     return unless start_time && end_time
+
     @start_time = start_time.beginning_of_day
     @end_time = end_time.end_of_day
   end
@@ -105,6 +109,7 @@ class Match < ActiveRecord::Base
     return nil unless json_home_team_penalties > 0 || json_away_team_penalties > 0
     return home_team if json_home_team_penalties > json_away_team_penalties
     return away_team if json_away_team_penalties > json_home_team_penalties
+
     nil
   end
 
@@ -112,11 +117,13 @@ class Match < ActiveRecord::Base
     return nil unless home_team_score && away_team_score
     return home_team if home_team_score > away_team_score
     return away_team if away_team_score > home_team_score
+
     nil
   end
 
   def draw?
     return false unless stage_name.downcase.include?('first stage')
+
     home_team_score == away_team_score
   end
 
@@ -130,12 +137,14 @@ class Match < ActiveRecord::Base
     home = (home_team.present? || home_team_tbd.present?)
     away = (away_team.present? || away_team_tbd.present?)
     return if home && away
+
     errors.add(:base, 'Missing home team') unless home
     errors.add(:base, 'Missing away team') unless away
   end
 
   def determine_winner
     return unless status == 'completed'
+
     self.winner = penalty_winner
     self.winner ||= regulation_winner
     self.draw = draw?

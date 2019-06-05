@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddVenueToMatches < ActiveRecord::Migration
   def change
     add_column :matches, :venue, :string

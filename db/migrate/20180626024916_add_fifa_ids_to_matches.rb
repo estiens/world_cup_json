@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFifaIdsToMatches < ActiveRecord::Migration
   def change
     add_column :matches, :fifa_competition_id, :string

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPenaltiesToMatch < ActiveRecord::Migration
   def change
     add_column :matches, :home_team_penalties, :integer

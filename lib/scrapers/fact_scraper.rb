@@ -21,9 +21,9 @@ module Scrapers
         puts "Stats saved for #{@match.name}"
       elsif @try_counter < 5
         @try_counter += 1
-        puts "Trying again in 5 seconds..."
+        puts 'Trying again in 5 seconds...'
         sleep(5)
-        self.scrape
+        scrape
       else
         puts "Skipped Match: #{@match.name}"
       end
@@ -44,9 +44,10 @@ module Scrapers
     end
 
     def write_match_stats
-      return nil if @try_counter >=5
+      return nil if @try_counter >= 5
       return nil if stats.empty?
       return nil unless write_stats
+
       @match.stats_complete = true if @match.status == 'completed'
       @match.save
     end
@@ -62,8 +63,9 @@ module Scrapers
       end
       success = home_stats.save && away_stats.save
       return true if success
-      puts "#{home_stats.errors.full_messages}"
-      puts "#{away_stats.errors.full_messages}"
+
+      puts home_stats.errors.full_messages.to_s
+      puts away_stats.errors.full_messages.to_s
       false
     end
 
@@ -85,24 +87,28 @@ module Scrapers
 
     def stats
       return @stats unless @stats.blank?
+
       @stats = @page.search('.fi-stats')
     end
 
     def parse_stats(tr_num, splitter)
       statistic = stats.search('tr')[tr_num]
       return nil unless statistic
+
       statistic&.text&.downcase&.split(splitter)
     end
 
     def home_team_stat(stat)
       stat = send(stat)
       return nil unless stat&.length == 2
+
       stat.first&.strip&.to_i
     end
 
     def away_team_stat(stat)
       stat = send(stat)
       return nil unless stat&.length == 2
+
       stat.last&.strip&.to_i
     end
 

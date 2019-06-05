@@ -1,12 +1,16 @@
+# frozen_string_literal: true
+
 require 'platform-api'
 
 def upcoming_match?
   return nil unless Match.next
+
   (Time.now + 1.hour) > Match.next.datetime
 end
 
 def recently_ended_match?
   return nil unless Match.recently_completed
+
   (Time.now - 1.hour) < Match.recently_completed.last_event_update_at
 end
 
@@ -27,8 +31,6 @@ namespace :scraper do
   task restart_scraper: :environment do
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.dyno.restart('world-cup-json', 'clock.1')
-    if ENV['SCALE_FOR_MATCHES']
-      scale_for_matches
-    end
+    scale_for_matches if ENV['SCALE_FOR_MATCHES']
   end
 end

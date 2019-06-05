@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ChromeBrowserHelper
   def self.browser
     options = Selenium::WebDriver::Chrome::Options.new

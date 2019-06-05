@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 # DEPRECATED
 # BASE_URL = "https://www.fifa.com/worldcup/groups/index.html"

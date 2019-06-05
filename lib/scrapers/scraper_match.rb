@@ -10,14 +10,16 @@ module Scrapers
 
     def datetime
       return @datetime if @datetime
+
       begin
         datetime_info = @match.css('.fi-mu__info__datetime')
-        return nil unless datetime_info && datetime_info.respond_to?(:attribute)
+        return nil unless datetime_info&.respond_to?(:attribute)
+
         utc_time = datetime_info.attribute('data-utcdate')&.value
         time = DateTime.parse(utc_time)
         time += 12.hours if time.hour < 12
         @datetime = time
-      rescue
+      rescue StandardError
         nil
       end
     end
@@ -40,6 +42,7 @@ module Scrapers
 
     def match_status
       return @match_status if @match_status
+
       status = if @match.attributes['class']&.value&.include?('live')
                  'in progress'
                elsif @match.css('.period')&.css(':not(.hidden)')

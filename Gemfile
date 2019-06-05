@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.5.3'
 
@@ -17,8 +19,8 @@ gem 'chronic'
 gem 'clockwork'
 gem 'connection_pool'
 gem 'foundation-rails', '~> 5'
-gem 'httparty'
 gem 'haml-rails'
+gem 'httparty'
 gem 'jbuilder'
 gem 'jbuilder_cache_multi'
 gem 'lograge'

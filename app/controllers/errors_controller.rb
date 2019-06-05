@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ErrorsController < BaseApiController
   def path_not_found
     @requested_path = request.path

@@ -13,6 +13,7 @@ module Scrapers
 
     def scrape_page_from_url(before_events: false)
       raise 'Must set url' unless @url
+
       @browser.goto(@url)
       before_scrape_events if before_events
       @page = Nokogiri::HTML(@browser.html)

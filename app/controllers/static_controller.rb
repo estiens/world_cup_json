@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StaticController < ApplicationController
   def index
     @yesterday_matches = Match.yesterday.order('datetime ASC')

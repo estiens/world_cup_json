@@ -21,15 +21,14 @@ class BaseApiController < ApplicationController
   def set_cache_time
     @cache_time = if Match.in_progress.count.positive?
                     30.seconds
-                  elsif Match.today.future.count.positive?
-                    1.minute
                   else
-                    10.minutes
-                  end
+                    1.minute
+    end
   end
 
   def set_jsonp_format
     return unless params[:callback] && request.get?
+
     self.response_body = "#{params[:callback]}(#{response.body})"
     headers['Content-Type'] = 'application/javascript'
   end

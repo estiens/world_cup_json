@@ -61,6 +61,7 @@ module Scrapers
       puts "Grabbing events for #{@match.name}"
       puts "Couldn't find events for #{@match.name}" && return if events.empty?
       return unless write_events
+
       @match.last_event_update_at = Time.now
       @match.events_complete = true if @match.status == 'completed'
     end
@@ -68,11 +69,13 @@ module Scrapers
     def check_for_goals
       goal_text = @page.search('.fi-s__scoreText')
       return nil unless goal_text
+
       goals = goal_text.children&.last&.text&.split('-')
       if goals.nil? || goals.length != 2
         goals = goal_text.children&.first&.text&.split('-')
       end
       return unless goals.length == 2
+
       update_team_score(goals)
     end
 
@@ -84,6 +87,7 @@ module Scrapers
         @match.home_team_score = home_team_score
       end
       return unless away_team_score > @match.away_team_score.to_i
+
       puts "GOOOOOOOOL #{@match.away_team.country}"
       @match.away_team_score = away_team_score
     end
@@ -111,6 +115,7 @@ module Scrapers
         @found += 1
       else
         return unless Event.create(attrs)
+
         puts "#{attrs} event created"
         @counter += 1
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStatsToTeamsForQuerySpeed < ActiveRecord::Migration
   def change
     remove_column :teams, :wins, :integer

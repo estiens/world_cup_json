@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :cache do
   desc 'cleans up the tardis, i mean redis'
   task clear: :environment do

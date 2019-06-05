@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id group.id
 json.letter group.letter
 json.ordered_teams do

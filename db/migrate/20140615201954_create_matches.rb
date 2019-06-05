@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|

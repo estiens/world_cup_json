@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Scrapers
   class JsonMatch
-
     attr_reader :match_info
 
     def initialize(match_info_json)
@@ -25,6 +26,7 @@ module Scrapers
 
     def weather_info
       return @weather_info if @weather_info
+
       @weather_info = { humidity: humidity, temp_celsius: temp_celsius,
                         temp_farenheit: temp_farenheit, wind_speed: wind_speed,
                         description: weather_description }
@@ -35,7 +37,7 @@ module Scrapers
     end
 
     def attendance
-      @attendance ||= @match_info.dig("Attendance")
+      @attendance ||= @match_info.dig('Attendance')
     end
 
     def humidity
@@ -49,7 +51,8 @@ module Scrapers
     def temp_farenheit
       return nil unless temp_celsius
       return @temp_farenheit if @temp_farenheit
-      faren = (temp_celsius.to_i * (9/5) + 32)
+
+      faren = (temp_celsius.to_i * (9 / 5) + 32)
       @temp_farenheit = faren.to_s
     end
 
@@ -63,27 +66,29 @@ module Scrapers
 
     def stage_name
       return @stage_name if @stage_name
+
       name = @match_info.dig('StageName')
       return unless name
+
       @stage_name = name.find { |stage| stage['Locale'] == 'en-GB' }&.dig('Description')
     end
 
     def home_team_tactics
-      @home_team_tactics ||= @match_info.dig('HomeTeam','Tactics')
+      @home_team_tactics ||= @match_info.dig('HomeTeam', 'Tactics')
     end
 
     def away_team_tactics
-      @away_team_tactics ||= @match_info.dig('AwayTeam','Tactics')
+      @away_team_tactics ||= @match_info.dig('AwayTeam', 'Tactics')
     end
 
     def home_score
       @home_team_score ||= @match_info.dig('HomeTeamScore')
-      @home_team_score ||=  @match_info.dig('HomeTeam', 'Score')
+      @home_team_score ||= @match_info.dig('HomeTeam', 'Score')
     end
 
     def away_score
       @away_team_score ||= @match_info.dig('AwayTeamScore')
-      @away_team_score ||=  @match_info.dig('AwayTeam', 'Score')
+      @away_team_score ||= @match_info.dig('AwayTeam', 'Score')
     end
 
     def home_penalties
@@ -96,32 +101,37 @@ module Scrapers
 
     def home_starting_eleven
       return @home_starting_eleven if @home_starting_eleven
+
       players = @match_info&.dig('HomeTeam')&.dig('Players')&.find_all { |player| player['Status'] == 1 }
       @home_starting_eleven = create_players_from_match_info(players)
     end
 
     def away_starting_eleven
       return @away_starting_eleven if @away_starting_eleven
+
       players = @match_info&.dig('AwayTeam')&.dig('Players')&.find_all { |player| player['Status'] == 1 }
       @away_starting_eleven = create_players_from_match_info(players)
     end
 
     def home_team_substitutes
       return @home_team_substitutes if @home_team_substitutes
+
       players = @match_info&.dig('HomeTeam')&.dig('Players')&.find_all { |player| player['Status'] == 2 }
       @home_team_substitutes = create_players_from_match_info(players)
     end
 
     def away_team_substitutes
       return @away_team_substitutes if @away_team_substitutes
+
       players = @match_info&.dig('AwayTeam')&.dig('Players')&.find_all { |player| player['Status'] == 2 }
       @away_team_substitutes = create_players_from_match_info(players)
     end
 
     def officials
       return @officials if @officials
+
       refs = @match_info['Officials']&.map { |off| off['NameShort'] }
-      names = refs&.flatten&.map { |name| name["Description"] }&.flatten
+      names = refs&.flatten&.map { |name| name['Description'] }&.flatten
       @officals = names
     end
 

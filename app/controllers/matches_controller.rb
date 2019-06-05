@@ -2,7 +2,7 @@
 
 class MatchesController < BaseApiController
   before_action :detail_level
-  before_action :load_matches, except: [:show, :country, :today, :tomorrow]
+  before_action :load_matches, except: %i[show country today tomorrow]
 
   def index
     order_by_params
@@ -41,14 +41,14 @@ class MatchesController < BaseApiController
 
   def today
     @matches = Match.today.includes(:match_statistics)
-                          .includes(:home_team).includes(:away_team).includes(:events)
+                    .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
     render 'index.json.jbuilder'
   end
 
   def tomorrow
     @matches = Match.tomorrow.includes(:match_statistics)
-                             .includes(:home_team).includes(:away_team).includes(:events)
+                    .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
     render 'index.json.jbuilder'
   end
@@ -63,8 +63,8 @@ class MatchesController < BaseApiController
 
   def load_matches
     @matches = Match.all.includes(:match_statistics)
-                        .includes(:home_team).includes(:away_team).includes(:events)
-                        .order('datetime ASC')
+                    .includes(:home_team).includes(:away_team).includes(:events)
+                    .order('datetime ASC')
   end
 
   def order_by_params
@@ -84,6 +84,7 @@ class MatchesController < BaseApiController
 
   def order_by_date
     return unless @date
+
     if @date.casecmp('DESC').zero?
       @matches = @matches.reorder(nil).order('datetime DESC')
     elsif @date.casecmp('ASC').zero?
@@ -93,6 +94,7 @@ class MatchesController < BaseApiController
 
   def limit_to_days
     return unless @start_date
+
     @matches = if @end_date
                  @matches.for_date(@start_date, @end_date)
                else
@@ -102,6 +104,7 @@ class MatchesController < BaseApiController
 
   def order_by_scores
     return unless @order_by
+
     case @order_by.downcase
     when 'total_goals'
       @matches = @matches.reorder(nil).order('home_team_score + away_team_score DESC')

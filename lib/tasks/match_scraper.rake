@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # require 'open-uri'
 # DEPRECATED
 # FIFA_SITE = 'https://www.fifa.com'.freeze
