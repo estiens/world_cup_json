@@ -77,7 +77,7 @@ module Scrapers
       if response.code == 200
         match_info = JSON.parse(response.body)
         return false if match_info.blank?
-
+        write_picture_urls(match_info)
         json_match = Scrapers::JsonMatch.new(match_info)
         write_match_info(json_match)
         write_scores(json_match)
@@ -88,6 +88,25 @@ module Scrapers
     end
 
     private
+
+    def write_picture_urls(match_info)
+      write_home_picture_url(match_info)
+      write_away_picture_url(match_info)
+    end
+
+    def write_home_picture_url(match_info)
+      return if @fixture.home_team.flag_url.present?
+      flag = match_info.dig('HomeTeam').dig('PictureUrl').gsub('{format}', 'wwc2019').gsub('{size}', '4')
+      return unless flag
+      @fixture.home_team.update_attribute(:flag_url, flag)
+    end
+
+    def write_away_picture_url(match_info)
+      return if @fixture.away_team.flag_url.present?
+      flag = match_info.dig('AwayTeam').dig('PictureUrl').gsub('{format}', 'wwc2019').gsub('{size}', '4')
+      return unless flag
+      @fixture.home_team.update_attribute(:flag_url, flag)
+    end
 
     def write_match_info(json_match)
       @fixture.attendance = json_match.attendance
