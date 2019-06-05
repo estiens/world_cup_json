@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# DEPRECATED
 require 'clockwork'
 require File.expand_path('../config/boot',        __dir__)
 require File.expand_path('../config/environment', __dir__)

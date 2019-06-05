@@ -12,8 +12,8 @@ module ChromeBrowserHelper
     options.add_argument '--disable-dev-shm-usage'
     options.add_argument '--single-process'
     options.add_argument '--remote-debugging-port=9222'
-    if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
-      options.add_argument "--no-sandbox"
+    if chrome_bin = ENV['GOOGLE_CHROME_SHIM']
+      options.add_argument '--no-sandbox'
       options.binary = chrome_bin
       Webdrivers.logger.level = :DEBUG
       Selenium::WebDriver::Chrome.path = ENV['GOOGLE_CHROME_BIN']

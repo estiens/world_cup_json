@@ -15,4 +15,12 @@ namespace :scraper do
   task nightly_cleanup: :environment do
     Scrapers::ScraperTasks.nightly_cleanup
   end
+
+  task force_all_new: :environment do
+    Scrapers::ScraperTasks.overwrite_future_matches
+  end
+
+  task force_all_old: :environment do
+    Scrapers::ScraperTasks.overwrite_old_matches
+  end
 end
