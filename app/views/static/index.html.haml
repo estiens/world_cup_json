@@ -77,11 +77,27 @@
     .row
       .large-12.column.text-center
         %h3 NEXT MATCH
-        %h4
-          - match = Match.future.reorder(datetime: :asc).first
-          #{match.home_team.country} Vs #{match.away_team.country}
-          %br
-          #{match.datetime.utc.to_s}
+        - match = Match.future.reorder(datetime: :asc).first
+        .row
+          .large-4.column
+            = image_tag(match.home_team.flag_url, size: '100')
+          .large-4.column.text-center
+            %br
+            #{match.datetime.utc.to_s}
+            %br
+            #{match.venue} (#{match.location})
+            %br
+            #{match.stage_name}
+          .large-4.column
+            = image_tag(match.away_team.flag_url, size: '100')
+        .row
+          .large-4.column
+            %h4
+              #{match.home_team.country}
+          .large-4.column.text-center
+          .large-4.column
+            %h4
+              #{match.away_team.country}
   .row
     .small-4.columns.text-center
       %h3 YESTERDAY'S MATCHES

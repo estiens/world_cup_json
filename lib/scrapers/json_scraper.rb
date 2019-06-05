@@ -105,7 +105,7 @@ module Scrapers
       return if @fixture.away_team.flag_url.present?
       flag = match_info.dig('AwayTeam').dig('PictureUrl').gsub('{format}', 'wwc2019').gsub('{size}', '4')
       return unless flag
-      @fixture.home_team.update_attribute(:flag_url, flag)
+      @fixture.away_team.update_attribute(:flag_url, flag)
     end
 
     def write_match_info(json_match)
