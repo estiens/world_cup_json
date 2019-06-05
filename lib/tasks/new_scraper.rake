@@ -3,6 +3,9 @@
 namespace :scraper do
   desc 'try running as a rake task til we have sidekiq'
   task run_scraper: :environment do
+    in_progress = Match.in_progress.count.positive?
+    coming_up = Match.next.present? && (Time.now + 1.hour) > Match.next.datetime
+    sleep(30) unless in_progress || coming_up
     Scrapers::ScraperTasks.scrape_your_heart_out
   end
 
