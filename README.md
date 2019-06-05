@@ -63,6 +63,9 @@ The current rate limit is 10 requests every 60 seconds. This is open to change a
 `[url]/matches/`
 for all matches (Example JSON object at the bottom of this README)
 
+Note - if you want all matches with all details,you must now pass `?details=true` to this endpoint.
+All details will be present by default for endpoints like `matches/today` that return less matches...
+
 `[url]/teams/results` results for each team (wins, losses, points, goals_for, goals_away, games_played)
 
 `[url]/teams/group_results` results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
@@ -74,7 +77,6 @@ for all matches (Example JSON object at the bottom of this README)
 [url]/matches/tomorrow/
 [url]/matches/current/
 ```
-
 
 You can also retrieve the matches for any team if you know their FIFA code (get fifa code from teams endpoint) by passing it in as a param.
 
