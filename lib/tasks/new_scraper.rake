@@ -17,10 +17,10 @@ namespace :scraper do
   end
 
   task force_all_new: :environment do
-    Scrapers::ScraperTasks.overwrite_future_matches
+    Scrapers::ScraperTasks.new.overwrite_future_matches
   end
 
   task force_all_old: :environment do
-    Scrapers::ScraperTasks.overwrite_old_matches
+    Scrapers::ScraperTasks.new.overwrite_old_matches
   end
 end

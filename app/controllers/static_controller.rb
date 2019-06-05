@@ -3,6 +3,6 @@ class StaticController < ApplicationController
     @yesterday_matches = Match.yesterday.order('datetime ASC')
     @today_matches = Match.today.order('datetime ASC')
     @tomorrow_matches = Match.tomorrow.order('datetime ASC')
-    @next_match = Match.next
+    @next_match = Match.future.reorder(datetime: :asc).first
   end
 end
