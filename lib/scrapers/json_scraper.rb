@@ -5,9 +5,28 @@ module Scrapers
     include HTTParty
 
     def self.write_fifa_info
-      base_url = get_base_url
+      begin
+        base_url = get_base_url
+        response = get(base_url)
+        json = JSON.parse(response.body)
+        if json['Results'].empty?
+          write_fifa_info_from_derived_url
+        end
+        write_matches_from_json(json)
+      rescue
+        write_fifa_info_from_derived_url
+      end
+    end
+
+    def self.write_fifa_info_from_derived_url
+      base_url = new_base_url
       response = get(base_url)
       json = JSON.parse(response.body)
+      return if json['Results'].empty?
+      write_matches_from_json(json)
+    end
+
+    def self.write_matches_from_json(json)
       Match.all.each do |fixture|
         match_info = json['Results'].find { |match| match['IdMatch'] == fixture.fifa_id }
         json_match = Scrapers::JsonMatch.new(match_info)
@@ -16,13 +35,14 @@ module Scrapers
     end
 
     def self.get_base_url
+      'https://api.fifa.com/api/v1/calendar/matches?idseason=278513&idcompetition=103&idClient=64e9afa8-c5c0-413d-882b-bc9e6a81e264&language=en-GB&count=500'
+    end
+
+    def self.new_base_url
       browser = ChromeBrowserHelper.browser
       browser.goto('https://www.fifa.com/womensworldcup/')
       html = Nokogiri::HTML(browser.html)
-      url = html.search('script')&.text&.match(/matchListUpdate.url(.+)/)[0]&.match(%r{https://(.+);_cfg})[1]&.to_s
-      return "https://#{url}&count=500" if url
-
-      'https://api.fifa.com/api/v1/live/football/recent/103/278513?idClient=64e9afa8-c5c0-413d-882b-bc9e6a81e264&language=en-GB&count=500'
+      html.search('script')&.text&.match(/matchList.url(.+)/)[1].strip[1..-1].strip[1..-3]
     end
 
     def self.write_fifa_info_for_match(fixture, json_match)
