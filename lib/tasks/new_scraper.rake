@@ -25,4 +25,8 @@ namespace :scraper do
   task force_all_old: :environment do
     Scrapers::ScraperTasks.new.overwrite_old_matches
   end
+
+  task setup_json: :environment do
+    Scrapers::ScraperTasks.setup_matches_for_json
+  end
 end

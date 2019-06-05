@@ -1,11 +1,9 @@
 # FIFA WOMENS WORLD CUP 2019
 
-*I will hopefully have this working for the WWC - though if FIFA made any significant changes to their CMS, it may take a day or so to make sure everything is working correctly. PRs always welcome!* (16 May 2019)
-
-This should now be working for the World Cup in 2018!  
+This should now be working for the World Cup in 2018!
 Should have all events and goals and match stats streaming live, please file an issue or hit me up on twitter @mutualarising if anything has gone awry.
 
-https://worldcup.sfg.io  
+https://worldcup.sfg.io
 (HTTPS working for default domain now :yay:)
 
 Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
@@ -22,6 +20,10 @@ More updates at the end of the README
 
 ### Caveat Emptor
 
+This is setup as much as I can for the FIFA Women's World Cup (as of 4 June 2019).
+
+However, I will be out of town and off grid until at least Monday June 10th. If something doesn't work, it will have to wait until then to be fixed. It should work, I have verified all the endpoints, and the data structure as best as I can. Please file an issue and be patient if you notice anything strange!
+
 Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
 
 ## ABOUT
@@ -33,6 +35,8 @@ This is a simple backend for a scraper that grabs current world cup results and 
 * Clone the repo
 
 * ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
+
+* initial run, run `rake scraper:force_all_new` `rake scraper:force_all_old` `rake scraper:setup_json`
 
 * Run the following three tasks as cron jobs (there are also one off scraper jobs you can hit in the `Scrapers::ScraperTasks` file at `lib/scrapers`)
 
@@ -619,48 +623,48 @@ https://worldcup.sfg.io/teams
 
 (Feel free to submit a PR with your project!)
 
-* http://fifa-worldcup.herokuapp.com 
+* http://fifa-worldcup.herokuapp.com
 (NodeJS and Express Web App to keep you updated with the FIFA World Cup 2018)
 
 * http://meisam-dodangeh.ir/worldcup (A simple web Page to show today games and games events)
 * https://m.me/244560172984721 (Facebook Messenger bot that shows games for today and tomorrow as well as allowing you to follow along with live matches)
 
-* https://github.com/jthomas/goalbot   
-(Twitter bot ([@WC2018_Goals](https://twitter.com/WC2018_Goals)) which tweets out every goal from the 2018 FIFA World Cup.)  
+* https://github.com/jthomas/goalbot
+(Twitter bot ([@WC2018_Goals](https://twitter.com/WC2018_Goals)) which tweets out every goal from the 2018 FIFA World Cup.)
 * https://github.com/riceluxs1t/EloSoccerPrediction
 (React.js + Django app that shows (live) game data and match outcome predictions using an ELO based Poisson model.)
 
-* https://github.com/justcallmelarry/sportsball   
-(slack integration for updates of goals, cards and results)  
+* https://github.com/justcallmelarry/sportsball
+(slack integration for updates of goals, cards and results)
 
-* https://github.com/selfish/worldcup-slack  
+* https://github.com/selfish/worldcup-slack
 (Node.js Slack game status announcer, updated for 2018 games)
 
-* https://github.com/dg01d/bitbar-worldcup  
+* https://github.com/dg01d/bitbar-worldcup
 (BitBar plugin to show current/daily scores and results)
 
-* https://github.com/nicolopignatelli/wc2018-slack-bot  
+* https://github.com/nicolopignatelli/wc2018-slack-bot
 (Slack bot for updates about the current match)
 
-* https://github.com/wildlifehexagon/node-world-cup  
+* https://github.com/wildlifehexagon/node-world-cup
 (Node.js command line app to display results and standings)
 
-* https://github.com/iricigor/FIFA2018  
+* https://github.com/iricigor/FIFA2018
 (PowerShell wrapper, compatible with both Linux and Windows versions)
 
-* https://github.com/pedsm/liveCup  
+* https://github.com/pedsm/liveCup
 (React.js based dashboard with live updates designed for TVs and Computers)
 
-* https://github.com/johnbfox/world-cup-scores-cli  
+* https://github.com/johnbfox/world-cup-scores-cli
 (Command line tool for getting the day's scores and goals)
 
-* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard   
+* https://github.com/cedricblondeau/world-cup-2018-cli-dashboard
 (CLI Dashboard that displays live updates of the current game, today's schedule and groups, built with react-blessed)
 
-* https://github.com/sazap10/world-cup-discord-bot  
+* https://github.com/sazap10/world-cup-discord-bot
 (Discord bot to display schedule, match information and standings)
 
-* https://github.com/luridarmawan/Carik/  
+* https://github.com/luridarmawan/Carik/
 ([Carik](https://github.com/luridarmawan/Carik/) ChatBot for Facebook Messenger, Telegram, Line, Slack. just type "info world cup".) See screenshots [1](https://cl.ly/102h2A1a3S46) [2](https://cl.ly/1p123j342A3v) [3](https://cl.ly/1T0i1E1P410B)
 
 * https://github.com/arghgr/golbot
@@ -675,14 +679,14 @@ https://worldcup.sfg.io/teams
 * https://apps.lametric.com/apps/fifa_world_cup_2018/6624
 (Display the latest score of the current match(es), or the recent and next matches on a [LaMetric Time](https://lametric.com) device)
 
-* https://world-cup-basecamp.herokuapp.com/ 
+* https://world-cup-basecamp.herokuapp.com/
 [Github Link](https://github.com/dskoda1/world-cup-basecamp) - SPA using React/Redux/Material for displaying data from this API
 
 * https://spapas.github.io/wc2018/
 (A WC2018 dashboard using vue.js. Source @ https://github.com/spapas/vue-wc2018)
 
 * https://github.com/eeddaann/ElastiCup
-(Loads World Cup data into Elasticsearch) 
+(Loads World Cup data into Elasticsearch)
 
 
 ## PROJECTS USING THIS API IN 2014
@@ -720,7 +724,7 @@ Some people have asked if they can make donations. I'd love for you to donate so
 
 * Scrapers almost finished being reworked
 
-* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`  
+* New param added to the matches endpoint. You can pass `?start_date=2018-06-21` or `?start_date=2018-06-19&end_date=2018-06-24`
 
   (If you pass one date, you'll get matches for that day, otherwise for the range of days specified. Please use YYYY-MM-DD format even though it is weird for the rest of the world not to use YYYY-DD-MM)
 
