@@ -10,14 +10,13 @@ def scale_up
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.formation.update('world-cup-json', 'clock', size: 'standard-2x')
-    heroku.formation.update('world-cup-json', 'web', quantity: 4)
+    heroku.formation.update('world-cup-json', 'web', quantity: 5)
   end
 end
 
 def scale_middle
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
-    heroku.formation.update('world-cup-json', 'clock', size: 'standard-2x')
     heroku.formation.update('world-cup-json', 'web', quantity: 3)
   end
 end
@@ -26,7 +25,7 @@ def scale_down
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.formation.update('world-cup-json', 'clock', size: 'standard-1x')
-    heroku.formation.update('world-cup-json', 'web', quantity: 2)
+    heroku.formation.update('world-cup-json', 'web', size: 'standard-2x', quantity: 1)
   end
 end
 
@@ -43,12 +42,12 @@ module Clockwork
       scale_up
     elsif Match.next.present? && (Time.now + 1.hour) > Match.next.datetime
       puts 'sleeping for a bit'
-      sleep(rand(20..35))
       scale_middle
+      sleep(rand(20..35))
     else
       puts 'not scraping so hard and fast right now'
-      sleep(rand(50..120))
       scale_down
+      sleep(rand(50..120))
     end
     puts 'okay, running my rake task!'
     `rake scraper:run_scraper`
