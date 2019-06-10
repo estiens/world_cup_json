@@ -10,14 +10,14 @@ def scale_up
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
     heroku.formation.update('world-cup-json', 'clock', size: 'standard-2x')
-    heroku.formation.update('world-cup-json', 'web', quantity: 5)
+    heroku.formation.update('world-cup-json', 'web', quantity: 3)
   end
 end
 
 def scale_middle
   if ENV['PLATFORM_OAUTH_TOKEN']
     heroku = PlatformAPI.connect_oauth(ENV['PLATFORM_OAUTH_TOKEN'])
-    heroku.formation.update('world-cup-json', 'web', quantity: 3)
+    heroku.formation.update('world-cup-json', 'web', quantity: 2)
   end
 end
 
