@@ -73,32 +73,37 @@
         You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
         %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
           https://worldcup.sfg.io/matches/?by=total_goals
-  - if @next_match
+  - if @current_matches.count > 0
     .row
       .large-12.column.text-center
-        %h3 NEXT MATCH
-        - match = Match.future.reorder(datetime: :asc).first
-        -cache(match) do
+        %h3 CURRENT MATCH
+        - @current_matches.each do |live_match|
           .row
             .large-4.column
-              = image_tag(match.home_team.flag_url, size: '100')
+              - if live_match.home_team.flag_url
+                = image_tag(live_match.home_team.flag_url, size: '100')
             .large-4.column.text-center
               %br
-              #{match.datetime.utc.to_s}
+              #{live_match.datetime.utc.to_s}
               %br
-              #{match.venue} (#{match.location})
+              #{live_match.venue} (#{live_match.location})
               %br
-              #{match.stage_name}
+              #{live_match.stage_name}
             .large-4.column
-              = image_tag(match.away_team.flag_url, size: '100')
+              - if live_match.away_team.flag_url
+                = image_tag(live_match.away_team.flag_url, size: '100')
           .row
             .large-4.column
               %h4
-                #{match.home_team.country}
+                #{live_match.home_team.country}
+                %br
+                #{live_match.home_team_score}
             .large-4.column.text-center
             .large-4.column
               %h4
-                #{match.away_team.country}
+                #{live_match.away_team.country}
+                %br
+                #{live_match.away_team_score}
   .row
     .small-4.columns.text-center
       %h3 YESTERDAY'S MATCHES
