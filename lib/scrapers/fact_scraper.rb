@@ -32,7 +32,7 @@ module Scrapers
     private
 
     def scraper_url
-      base_url = 'https://www.fifa.com/worldcup/matches/match'
+      base_url = 'https://www.fifa.com/womensworldcup/matches/match'
       "#{base_url}/#{@match.fifa_id}/#match-statistics"
     end
 
@@ -129,35 +129,36 @@ module Scrapers
     end
 
     def woodwork
+      return nil #not used in WWC stats
       @woodwork ||= parse_stats(10, 'woodwork')
     end
 
     def corners
-      @corners ||= parse_stats(12, 'corners')
+      @corners ||= parse_stats(10, 'corners')
     end
 
     def offsides
-      @offsides ||= parse_stats(14, 'offsides')
+      @offsides ||= parse_stats(12, 'offsides')
     end
 
     def ball_possession
-      @ball_possession ||= parse_stats(16, 'ball possession')
+      @ball_possession ||= parse_stats(14, 'ball possession')
     end
 
     def pass_accuracy
-      @pass_accuracy ||= parse_stats(18, 'pass accuracy')
+      @pass_accuracy ||= parse_stats(16, 'pass accuracy')
     end
 
     def num_passes
-      @num_passes ||= parse_stats(20, 'passes')
+      @num_passes ||= parse_stats(18, 'passes')
     end
 
     def passes_completed
-      @passes_completed ||= parse_stats(22, 'passes completed')
+      @passes_completed ||= parse_stats(20, 'passes completed')
     end
 
     def distance_covered
-      @distance_covered ||= parse_stats(24, 'distance covered')
+      @distance_covered ||= parse_stats(22, 'distance covered')
     end
 
     def balls_recovered
@@ -165,31 +166,31 @@ module Scrapers
     end
 
     def tackles
-      @tackles ||= parse_stats(28, 'tackles')
+      @tackles ||= parse_stats(24, 'tackles')
     end
 
     def blocks
-      @blocks ||= parse_stats(30, 'blocks')
+      @blocks ||= parse_stats(26, 'blocks')
     end
 
     def clearances
-      @clearances ||= parse_stats(32, 'clearances')
+      @clearances ||= parse_stats(28, 'clearances')
     end
 
     def yellow_cards
-      @yellow_cards ||= parse_stats(34, 'yellow cards')
+      @yellow_cards ||= parse_stats(30, 'yellow cards')
     end
 
     def red_cards
-      @red_cards ||= parse_stats(36, 'red cards')
+      @red_cards ||= parse_stats(32, 'direct red cards')
     end
 
     def second_yellow
-      @second_yellow ||= parse_stats(38, 'second yellow card and red card')
+      @second_yellow ||= parse_stats(34, 'indirect red cards')
     end
 
     def fouls_committed
-      @fouls_committed ||= parse_stats(40, 'fouls committed')
+      @fouls_committed ||= parse_stats(36, 'fouls committed')
     end
   end
 end
