@@ -70,9 +70,9 @@ unless @summary
   json.home_team_statistics do
     if match.home_stats
       json.country match.home_team.country
-      json.call(match.home_stats, :attempts_on_goal, :on_target, :off_target, :blocked, :woodwork,
+      json.call(match.home_stats, :attempts_on_goal, :on_target, :off_target, :blocked,
                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
-                :passes_completed, :distance_covered, :balls_recovered, :tackles,
+                :passes_completed, :distance_covered, :tackles,
                 :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
                 :starting_eleven, :substitutes)
     else
@@ -83,9 +83,9 @@ unless @summary
   json.away_team_statistics do
     if match.away_stats
       json.country match.away_team.country
-      json.call(match.away_stats, :attempts_on_goal, :on_target, :off_target, :blocked, :woodwork,
+      json.call(match.away_stats, :attempts_on_goal, :on_target, :off_target, :blocked,
                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
-                :passes_completed, :distance_covered, :balls_recovered, :tackles,
+                :passes_completed, :distance_covered, :tackles,
                 :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
                 :starting_eleven, :substitutes)
     else
