@@ -106,10 +106,10 @@ class Match < ActiveRecord::Base
 
   def penalty_winner
     return nil if stage_name.downcase.include?('first stage')
+    return nil unless json_away_team_penalties && json_home_team_penalties
     return nil unless json_home_team_penalties > 0 || json_away_team_penalties > 0
     return home_team if json_home_team_penalties > json_away_team_penalties
     return away_team if json_away_team_penalties > json_home_team_penalties
-
     nil
   end
 
