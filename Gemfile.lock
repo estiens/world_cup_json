@@ -78,7 +78,7 @@ GEM
       thor (~> 0.19)
     erubi (1.8.0)
     erubis (2.7.0)
-    excon (0.64.0)
+    excon (0.71.0)
     execjs (2.7.0)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
