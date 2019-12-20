@@ -162,7 +162,7 @@ GEM
     puma_worker_killer (0.1.0)
       get_process_mem (~> 0.2)
       puma (>= 2.7, < 4)
-    rack (1.6.11)
+    rack (1.6.12)
     rack-attack (6.0.0)
       rack (>= 1.0, < 3)
     rack-cors (1.0.5)
