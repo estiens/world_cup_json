@@ -143,7 +143,7 @@ GEM
     moneta (1.0.0)
     multi_json (1.13.1)
     multi_xml (0.6.0)
-    nokogiri (1.10.5)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     oj (3.7.12)
     parallel (1.17.0)
