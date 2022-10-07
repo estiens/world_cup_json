@@ -116,7 +116,7 @@ The response includes the same data output as the regular GET call without param
 
 ## EXAMPLE RESPONSES
 
-<details><summary>#### MATCH API ENDPOINT</summary>
+<details><summary>MATCH(es) API ENDPOINT</summary>
 
 ```json
 [{
@@ -525,8 +525,8 @@ The response includes the same data output as the regular GET call without param
   "last_event_update_at": "2018-06-27T15:58:47Z",
   "last_score_update_at": "2018-06-27T15:58:47Z"
 }]
-</details>
 ```
+</details>
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
