@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'platform-api'
 
 def upcoming_match?
   return nil unless Match.next

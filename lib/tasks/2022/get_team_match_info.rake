@@ -7,16 +7,18 @@ namespace :setup2022 do
     teams = JSON.parse(team_json)
     teams.each do |team|
       attrs = { fifa_code: team['fifa_code'], country: team['short_name'],
-                flag_url: team['flag_url'], alternate_name: team['full_name'] }
-      Team.find_or_create_by(attrs)
+                flag_url: team['flag_url'], alternate_name: team['full_name'],
+               group_id: Group.first.id}
+      tn = Team.new(attrs)
+      tn.save
     end
 
     group_json = File.read(Rails.root.join('lib/assets/wc2022/groups.json'))
     groups = JSON.parse(group_json)
     groups.each do |g|
       group = Group.find_or_create_by(letter: g.first[0])
-      next if group.teams.count == 4
-
+      group.teams =[]
+      group.save
       g.first[1].each do |name|
         team = Team.find_by(alternate_name: name)
         team ||= Team.find_by(country: name)

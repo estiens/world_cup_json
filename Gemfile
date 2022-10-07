@@ -9,15 +9,13 @@ gem 'pg'
 
 gem 'chronic'
 gem 'clockwork'
-gem 'foundation-rails'
 gem 'haml-rails'
 gem 'httparty'
 gem 'jbuilder'
-gem 'platform-api'
 gem 'puma'
 gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
-gem 'redis-rails'
+gem 'redis'
 
 group :production do
   gem 'scout_apm'
@@ -33,8 +31,4 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'rubocop'
-end
-
-group :doc do
-  gem 'sdoc', require: false
 end

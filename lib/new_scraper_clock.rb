@@ -4,7 +4,6 @@ require 'clockwork'
 require File.expand_path('../config/boot',        __dir__)
 require File.expand_path('../config/environment', __dir__)
 require 'rake'
-require 'platform-api'
 
 def scale_up
   if ENV['PLATFORM_OAUTH_TOKEN']

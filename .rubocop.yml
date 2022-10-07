@@ -1,0 +1,24 @@
+
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - Gemfile
+    - Guardfile
+    - script/**/*
+    - 'node_modules/*'
+    - 'vendor/**/*'
+    - lib/tasks/*
+    - spec/**/*
+    - test/**/*
+    - test/*
+    - features/**/*
+    - db/**/*
+    - bin/**/*
+    - config/**/*
+    - app/views/**/*.json.jbuilder
+    - volumes/**/*
+
+Style/FrozenStringLiteralComment:
+  Enabled: False
