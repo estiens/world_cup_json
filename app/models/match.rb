@@ -99,6 +99,10 @@ class Match < ActiveRecord::Base
     match_statistics.where(team: away_team).first
   end
 
+  def latest_data
+    Scrapers::JsonMatch.new(JSON.parse(latest_json))
+  end
+
   private
 
   def penalty_winner

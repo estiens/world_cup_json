@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class MatchesController < BaseApiController
   before_action :detail_level
   before_action :load_matches, except: %i[show country today tomorrow]
