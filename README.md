@@ -1,36 +1,27 @@
-# FIFA WOMENS WORLD CUP 2019
+# FIFA WORLD CUP 2022
 
-This should now be working for the World Cup in 2018!
+This is on its way to working for 2022. Even on rails 7 now!
 Should have all events and goals and match stats streaming live, please file an issue or hit me up on twitter @mutualarising if anything has gone awry.
 
-https://worldcup.sfg.io
+https://world-cup-json-2022.fly.dev
 (HTTPS working for default domain now :yay:)
 
-Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this as a new programmer 4 years ago and then encourage me to update it for this year (and hosting it!) Encourage your employee's side projects - they learn things!
+Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this many years ago...
 
 Main response endpoint:
-https://worldcup.sfg.io/matches/today
-
-
-### Updates
+https://world-cup-json-2022.fly.dev/matches/today
+### Archived Updates
 
 Fixed the simultaneous match issues that cropped up. Found a FIFA JSON API and starting to parse that for some info, if reliable, I'll probably use that for everything as it's way quicker and more reliable than scraping HTML. And next time, we'll all use that one :) Added starting 11 and subs and tactics and also more match information (stage name, weather, officials). Will update the example responses tmrw, but you can check it and see!
 
 More updates at the end of the README
 
-### Caveat Emptor
-
-This is setup as much as I can for the FIFA Women's World Cup (as of 4 June 2019).
-
-However, I will be out of town and off grid until at least Monday June 10th. If something doesn't work, it will have to wait until then to be fixed. It should work, I have verified all the endpoints, and the data structure as best as I can. Please file an issue and be patient if you notice anything strange!
-
-Note: FIFA is now using much more JS that they were 4 years ago to hide and show information. I'll try to make sure as the tournament goes on that things like penalties are showing up correctly. As always, this runs on a scraper. Changes to HTML structure or banning the IP address it is scraping from could break it at any time. PRs welcome.
-
 ## ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
-
 ## SETUP
+
+## TBD2022
 
 * Clone the repo
 
@@ -87,7 +78,7 @@ You can also retrieve the matches for any team if you know their FIFA code (get 
 
   * You can append `?callback=foo` to get a JSONP response
 
-    Example: `https://worldcup.sfg.io/matches/today?callback=bar`
+    Example: `https://world-cup-json-2022.fly.dev/matches/today?callback=bar`
 
   * You can append `?by_date=desc` to any query to sort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future. (ASC is default sort with no params)
 
@@ -611,15 +602,15 @@ The response includes the same data output as the regular GET call without param
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
-https://worldcup.sfg.io/matches
+https://world-cup-json-2022.fly.dev/matches
 
-https://worldcup.sfg.io/matches/today
+https://world-cup-json-2022.fly.dev/matches/today
 
-https://worldcup.sfg.io/matches/current
+https://world-cup-json-2022.fly.dev/matches/current
 
-https://worldcup.sfg.io/teams/group_results
+https://world-cup-json-2022.fly.dev/teams/group_results
 
-https://worldcup.sfg.io/teams
+https://world-cup-json-2022.fly.dev/teams
 
 ## PROJECTS USING THIS API IN 2018
 

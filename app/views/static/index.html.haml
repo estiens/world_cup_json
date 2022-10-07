@@ -3,14 +3,11 @@
     %h1.title.is-2 World Cup 2022
     %h2.subtitle.is-3 (we're still here somehow)
     %p
-      This is an API for the World Cup(2014,2018) and Women's World Cup(2015,2019) that scrapes current match results and outputs match data as JSON. No guarantees are made as to its accuracy, but we will do our best to keep it up to date. For example responses, including events such as goals, substitutions, and cards, see the GitHub page.
+      This is an API for the <strike>World Cup(2014,2018) and Women's World Cup(2015,2019)</strike>
+      <b>somehow still in 2022</b>
+      that scrapes current match results and outputs match data as JSON, including events such as goals, substitutions, and cards, see the GitHub page.
+      No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
       %br
-    %p
-      (2018 Men's World Cup data has been archived here if you are still using that data:
-      %br
-      %a{href: "https://world-cup-json-2018.herokuapp.com/matches"}
-        https://world-cup-json-2018.herokuapp.com/matches
-      )
     .mt-5
       %a.button.is-primary{href:"https://github.com/estiens/world_cup_json"}
         CODE ON GITHUB
@@ -24,47 +21,47 @@
             All match data, updated every minute
           (note - truncated data in this view of all matches, pass `?details=true` to get all matches with all events)
           %br
-          %a.has_text_link{href:"https://worldcup.sfg.io/matches"}
-            https://worldcup.sfg.io/matches
+          %a.has_text_link{href:"https://world-cup-json-2022.fly.dev/matches"}
+            https://world-cup-json-2022.fly.dev/matches
       .column.is-one-third
         %p
           Today's matches
         %br
-        %a{href:"https://worldcup.sfg.io/matches/today"}
-          https://worldcup.sfg.io/matches/today
+        %a{href:"https://world-cup-json-2022.fly.dev/matches/today"}
+          https://world-cup-json-2022.fly.dev/matches/today
     .columns
       .column.is-one-third
         %p
           Returns the current match, if a match is happening, otherwise nothing
         %br
-        %a{href:"https://worldcup.sfg.io/matches/current"}
-          https://worldcup.sfg.io/matches/current
+        %a{href:"https://world-cup-json-2022.fly.dev/matches/current"}
+          https://world-cup-json-2022.fly.dev/matches/current
       .column.is-one-third
         %h4
           Matches for any country, by entering their FIFA Code.
         %br
-        %a{href:"https://worldcup.sfg.io/matches/country?fifa_code=ARG"}
-          https://worldcup.sfg.io/matches/country?fifa_code=ARG
+        %a{href:"https://world-cup-json-2022.fly.dev/matches/country?fifa_code=ARG"}
+          https://world-cup-json-2022.fly.dev/matches/country?fifa_code=ARG
       .column.is-one-third
         %p
           Results for teams (wins, losses, draws, goals_for, goals_against)
         %br
-        %a{href:"https://worldcup.sfg.io/teams/results"}
-          https://worldcup.sfg.io/teams/results
+        %a{href:"https://world-cup-json-2022.fly.dev/teams/results"}
+          https://world-cup-json-2022.fly.dev/teams/results
     .columns
       .column.is-one-third
         %p
           Results for teams by group, ordered by current group position
         %br
-        %a{href:"https://worldcup.sfg.io/teams/group_results"}
-          https://worldcup.sfg.io/teams/group_results
+        %a{href:"https://world-cup-json-2022.fly.dev/teams/group_results"}
+          https://world-cup-json-2022.fly.dev/teams/group_results
     .columns
       .column.is-one-third
         %p
           List of all teams in world cup, along with FIFA abbreviation
         %br
-        %a{href:"https://worldcup.sfg.io/teams/"}
-          https://worldcup.sfg.io/teams/
+        %a{href:"https://world-cup-json-2022.fly.dev/teams/"}
+          https://world-cup-json-2022.fly.dev/teams/
 .section
   .container
     .columns
@@ -73,12 +70,12 @@
           OPTIONAL PARAMETERS
         %p
           You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
-          %a{href:"https://worldcup.sfg.io/matches/today/?by_date=DESC"}
-            https://worldcup.sfg.io/matches/today/?by_date=DESC
+          %a{href:"https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC"}
+            https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC
         %p
           You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
-          %a{href:"https://worldcup.sfg.io/matches/?by=total_goals"}
-            https://worldcup.sfg.io/matches/?by=total_goals
+          %a{href:"https://world-cup-json-2022.fly.dev/matches/?by=total_goals"}
+            https://world-cup-json-2022.fly.dev/matches/?by=total_goals
     - if @current_matches.count > 0
       .row
         .large-12.column.text-center
@@ -110,51 +107,46 @@
                   #{live_match.away_team.country}
                   %br
                   #{live_match.away_team_score}
-    .row
-      .small-4.columns.text-center
-        %h3 YESTERDAY'S MATCHES
-        -@yesterday_matches.each do |match|
-          -cache(match) do
-            %p.match-result
-              #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-      .small-4.columns.text-center
-        %h3 TODAY'S MATCHES
-        -@today_matches.each do |match|
-          -cache(match) do
-            %p.match-result
-              -if match.status== "completed"
-                #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-                - if match.json_home_team_penalties > 0 && match.json_home_team_penalties > match.json_away_team_penalties
-                  %br
-                  %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.json_home_team_penalties} to #{match.json_away_team_penalties}
-                - if match.json_home_team_penalties > 0 && match.json_home_team_penalties < match.json_away_team_penalties
-                  %br
-                  %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.json_away_team_penalties} to #{match.json_home_team_penalties}
-              -elsif match.status == "in progress"
-                .live
+    -# .row
+    -#   .small-4.columns.text-center
+    -#     %h3 YESTERDAY'S MATCHES
+    -#     -@yesterday_matches.each do |match|
+    -#       -cache(match) do
+    -#         %p.match-result
+    -#           #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
+      -# .small-4.columns.text-center
+      -#   %h3 TODAY'S MATCHES
+      -#   -@today_matches.each do |match|
+      -#     -cache(match) do
+      -#       %p.match-result
+      -#         -if match.status== "completed"
+      -#           #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
+      -#           - if match.json_home_team_penalties > 0 && match.json_home_team_penalties > match.json_away_team_penalties
+      -#             %br
+      -#             %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.json_home_team_penalties} to #{match.json_away_team_penalties}
+      -#           - if match.json_home_team_penalties > 0 && match.json_home_team_penalties < match.json_away_team_penalties
+      -#             %br
+      -#             %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.json_away_team_penalties} to #{match.json_home_team_penalties}
+      -#         -elsif match.status == "in progress"
+      -#           .live
                   -# = image_tag("match.home_team.flag_url", size: '100')
                   #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
                   -# = = image_tag("match.away_team.flag_url", size: '100')
                   ( #{match.time} )
               -else
                 #{match.home_team.country} v #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-      .small-4.columns.text-center
-        %h3 TOMORROW'S MATCHES
-        -@tomorrow_matches.each do |match|
-          -cache(match) do
-            %p.match-result
-            #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-  .footer
+      -# .small-4.columns.text-center
+      -#   %h3 TOMORROW'S MATCHES
+      -#   -@tomorrow_matches.each do |match|
+      -#     -cache(match) do
+      -#       %p.match-result
+      -#       #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
+.footer
+  .container
     %ul
       %li
         %a{href:"https://github.com/estiens/world_cup_json"}
           %i.fa.fa-github
       %li
-        %a{href:"mailto:eric@softwareforgood.com"}
+        %a{href:"mailto:me@ericstiens.dev"}
           %i.fa.fa-envelope
-      %li
-        %a#sfg-logo{href:"http://www.softwareforgood.com"}
-
-    %p
-      %a{href: "https://softwareforgood.com/soccer-good/"}
-        %em Background on this project

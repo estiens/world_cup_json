@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_043114) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_043114) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "fifa_id"
     t.integer "team_id"
+    t.index ["team_id"], name: "index_events_on_team_id"
   end
 
   create_table "groups", id: :serial, force: :cascade do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_043114) do
     t.json "substitutes"
     t.string "tactics"
     t.index ["match_id"], name: "index_match_statistics_on_match_id"
+    t.index ["team_id", "match_id"], name: "index_match_statistics_on_team_id_and_match_id"
     t.index ["team_id"], name: "index_match_statistics_on_team_id"
   end
 
@@ -99,6 +101,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_043114) do
     t.integer "json_away_team_penalties"
     t.json "officials"
     t.text "latest_json"
+    t.index ["away_team_id"], name: "index_matches_on_away_team_id"
+    t.index ["fifa_id"], name: "index_matches_on_fifa_id"
+    t.index ["home_team_id"], name: "index_matches_on_home_team_id"
     t.index ["winner_id"], name: "index_matches_on_winner_id"
   end
 
@@ -121,6 +126,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_043114) do
     t.integer "team_goals_against"
     t.integer "team_goal_differential"
     t.string "flag_url"
+    t.index ["fifa_code"], name: "index_teams_on_fifa_code"
+    t.index ["group_id"], name: "index_teams_on_group_id"
   end
 
 end

@@ -1,3 +1,2 @@
 web: bin/rails server -p 3000
-css: yarn build:css --watch
 clock: bundle exec clockwork lib/new_scraper_clock.rb
