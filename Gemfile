@@ -19,8 +19,6 @@ gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
 gem 'redis-rails'
 
-gem 'cssbundling-rails'
-
 group :production do
   gem 'scout_apm'
 end

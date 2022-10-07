@@ -1,5 +1,3 @@
-require 'HTTParty'
-
 BASE_URL = 'https://api.fifa.com/api/v3/calendar/matches'.freeze
 BASE_PARAMS = '?from=2022-11-19T00%3A00%3A00Z&to=2022-12-31T23%3A59%3A59Z&language=en&count=500&idCompetition=17'.freeze
 

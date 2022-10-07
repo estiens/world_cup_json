@@ -13,5 +13,10 @@ test:
   host: localhost
 
 production:
-  url:  <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['DATABASE_NAME'] %>
+  user: <%= ENV['DATABASE_USER'] || 'postgres' %>
+  host:  <%= ENV['DATABASE_HOST'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   pool: <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
