@@ -1,0 +1,194 @@
+[
+    {
+        "short_name": "QAT",
+        "full_name": "Qatar",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/QAT",
+        "fifa_code": "43834"
+    },
+    {
+        "short_name": "ENG",
+        "full_name": "England",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/ENG",
+        "fifa_code": "43942"
+    },
+    {
+        "short_name": "SEN",
+        "full_name": "Senegal",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/SEN",
+        "fifa_code": "43879"
+    },
+    {
+        "short_name": "USA",
+        "full_name": "United States",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/USA",
+        "fifa_code": "43921"
+    },
+    {
+        "short_name": "ARG",
+        "full_name": "Argentina",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/ARG",
+        "fifa_code": "43922"
+    },
+    {
+        "short_name": "DEN",
+        "full_name": "Denmark",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/DEN",
+        "fifa_code": "43941"
+    },
+    {
+        "short_name": "MEX",
+        "full_name": "Mexico",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/MEX",
+        "fifa_code": "43911"
+    },
+    {
+        "short_name": "FRA",
+        "full_name": "France",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/FRA",
+        "fifa_code": "43946"
+    },
+    {
+        "short_name": "MAR",
+        "full_name": "Morocco",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/MAR",
+        "fifa_code": "43872"
+    },
+    {
+        "short_name": "GER",
+        "full_name": "Germany",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/GER",
+        "fifa_code": "43948"
+    },
+    {
+        "short_name": "ESP",
+        "full_name": "Spain",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/ESP",
+        "fifa_code": "43969"
+    },
+    {
+        "short_name": "BEL",
+        "full_name": "Belgium",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/BEL",
+        "fifa_code": "43935"
+    },
+    {
+        "short_name": "SUI",
+        "full_name": "Switzerland",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/SUI",
+        "fifa_code": "43971"
+    },
+    {
+        "short_name": "URU",
+        "full_name": "Uruguay",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/URU",
+        "fifa_code": "43930"
+    },
+    {
+        "short_name": "POR",
+        "full_name": "Portugal",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/POR",
+        "fifa_code": "43963"
+    },
+    {
+        "short_name": "BRA",
+        "full_name": "Brazil",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/BRA",
+        "fifa_code": "43924"
+    },
+    {
+        "short_name": "WAL",
+        "full_name": "Wales",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/WAL",
+        "fifa_code": "43974"
+    },
+    {
+        "short_name": "NED",
+        "full_name": "Netherlands",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/NED",
+        "fifa_code": "43960"
+    },
+    {
+        "short_name": "TUN",
+        "full_name": "Tunisia",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/TUN",
+        "fifa_code": "43888"
+    },
+    {
+        "short_name": "POL",
+        "full_name": "Poland",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/POL",
+        "fifa_code": "43962"
+    },
+    {
+        "short_name": "JPN",
+        "full_name": "Japan",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/JPN",
+        "fifa_code": "43819"
+    },
+    {
+        "short_name": "CRO",
+        "full_name": "Croatia",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/CRO",
+        "fifa_code": "43938"
+    },
+    {
+        "short_name": "CMR",
+        "full_name": "Cameroon",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/CMR",
+        "fifa_code": "43849"
+    },
+    {
+        "short_name": "KOR",
+        "full_name": "Korea Republic",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/KOR",
+        "fifa_code": "43822"
+    },
+    {
+        "short_name": "ECU",
+        "full_name": "Ecuador",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/ECU",
+        "fifa_code": "43927"
+    },
+    {
+        "short_name": "IRN",
+        "full_name": "Iran",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/IRN",
+        "fifa_code": "43817"
+    },
+    {
+        "short_name": "AUS",
+        "full_name": "Australia",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/AUS",
+        "fifa_code": "43976"
+    },
+    {
+        "short_name": "KSA",
+        "full_name": "Saudi Arabia",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/KSA",
+        "fifa_code": "43835"
+    },
+    {
+        "short_name": "CAN",
+        "full_name": "Canada",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/CAN",
+        "fifa_code": "43899"
+    },
+    {
+        "short_name": "CRC",
+        "full_name": "Costa Rica",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/CRC",
+        "fifa_code": "43901"
+    },
+    {
+        "short_name": "GHA",
+        "full_name": "Ghana",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/GHA",
+        "fifa_code": "43860"
+    },
+    {
+        "short_name": "SRB",
+        "full_name": "Serbia",
+        "flag_url": "https://api.fifa.com/api/v3/picture/flags-sq-4/SRB",
+        "fifa_code": "1902465"
+    }
+]

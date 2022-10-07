@@ -7,25 +7,24 @@ class MatchesController < BaseApiController
   def index
     order_by_params
     index_detail_level
-    render 'index.json.jbuilder'
   end
 
   def current
     @matches = @matches.where(status: 'in progress')
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def complete
     @matches = @matches.where(status: 'completed')
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def future
     @matches = @matches.where(status: 'future')
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def country
@@ -36,27 +35,25 @@ class MatchesController < BaseApiController
     end
     @matches = @team.matches
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def today
     @matches = Match.today.includes(:match_statistics)
                     .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def tomorrow
     @matches = Match.tomorrow.includes(:match_statistics)
                     .includes(:home_team).includes(:away_team).includes(:events)
     order_by_params
-    render 'index.json.jbuilder'
+    render :index
   end
 
   def show
-    @match = Match.find_by!(fifa_id: params[:id])
-    @matches = Match.where(id: @match.id)
-    render 'index.json.jbuilder'
+    @match = Match.find_by(fifa_id: params[:id])
   end
 
   private

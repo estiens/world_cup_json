@@ -1,11 +1,98 @@
-# frozen_string_literal: true
+# # frozen_string_literal: true
 
+# %w[IdCompetition
+#    IdSeason
+#    IdStage
+#    IdGroup
+#    Weather
+#    Attendance
+#    IdMatch
+#    MatchDay
+#    StageName
+#    GroupName
+#    CompetitionName
+#    SeasonName
+#    SeasonShortName
+#    Date
+#    LocalDate
+#    Home
+#    Away
+#    HomeTeamScore
+#    AwayTeamScore
+#    AggregateHomeTeamScore
+#    AggregateAwayTeamScore
+#    HomeTeamPenaltyScore
+#    AwayTeamPenaltyScore
+#    LastPeriodUpdate
+#    Leg
+#    IsHomeMatch
+#    Stadium
+#    IsTicketSalesAllowed
+#    MatchTime
+#    SecondHalfTime
+#    FirstHalfTime
+#    FirstHalfExtraTime
+#    SecondHalfExtraTime
+#    Winner
+#    MatchReportUrl
+#    PlaceHolderA
+#    PlaceHolderB
+#    BallPossession
+#    Officials
+#    MatchStatus
+#    ResultType
+#    MatchNumber
+#    TimeDefined
+#    OfficialityStatus
+#    MatchLegInfo
+#    Properties
+#    IsUpdateable]
 module Scrapers
   class JsonMatch
     attr_reader :match_info
 
     def initialize(match_info_json)
       @match_info = match_info_json
+    end
+
+    def stadium
+      @stadium ||= @match_info['Stadium']
+    end
+
+    def location
+      return nil unless stadium
+
+      stadium["CityName"]&.find { |stage| stage['Locale'] == 'en-GB' }&.dig('Description')
+    end
+
+    def venue
+      return nil unless stadium
+
+      stadium['Name']&.find { |stage| stage['Locale'] == 'en-GB' }&.dig('Description')
+    end
+
+    def date
+      @match_info['Date']
+    end
+
+    def local_date
+      @match_info['LocalDate']
+    end
+
+    def home_team
+      @home_team ||= Team.find_by(fifa_code: home_team_code.to_i)
+    end
+
+    def away_team
+      @away_team ||= Team.find_by(fifa_code: away_team_code.to_i)
+    end
+
+    def home_team_code
+      @match_info.dig('Home', 'IdTeam')
+    end
+
+    def away_team_code
+      @match_info.dig('Away', 'IdTeam')
     end
 
     def fifa_competition_id
@@ -27,8 +114,8 @@ module Scrapers
     def weather_info
       return @weather_info if @weather_info
 
-      @weather_info = { humidity: humidity, temp_celsius: temp_celsius,
-                        temp_farenheit: temp_farenheit, wind_speed: wind_speed,
+      @weather_info = { humidity:, temp_celsius:,
+                        temp_farenheit:, wind_speed:,
                         description: weather_description }
     end
 
@@ -144,7 +231,7 @@ module Scrapers
         captain = player&.dig('Captain')
         shirt_number = player&.dig('ShirtNumber')
         position = get_position_from(player&.dig('Position'))
-        player_array << { name: name, captain: captain, shirt_number: shirt_number, position: position }
+        player_array << { name:, captain:, shirt_number:, position: }
       end
       player_array
     end

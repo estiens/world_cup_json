@@ -3,8 +3,6 @@ development:
   encoding: unicode
   database: world_cup_dev
   pool: 5
-  username: railsapp
-  password: password
   host: localhost
 
 test:
@@ -12,8 +10,6 @@ test:
   encoding: unicode
   database: world_cup_test
   pool: 5
-  username: railsapp
-  password: password
   host: localhost
 
 production:

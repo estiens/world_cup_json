@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateMatchStatistics < ActiveRecord::Migration
+class CreateMatchStatistics < ActiveRecord::Migration[5.0]
   def change
     create_table :match_statistics do |t|
       t.references :team, null: false

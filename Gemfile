@@ -1,42 +1,27 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.3'
+ruby '3.1.1'
 
-gem 'rails', '4.2.11.1'
+gem 'rails'
 
-gem 'pg', '= 0.20'
+gem 'pg'
 
-gem 'autoprefixer-rails'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'font-awesome-rails'
-gem 'jquery-rails'
-gem 'sass-rails', '~> 5.0.0'
-gem 'uglifier', '>= 1.3.0'
-
-gem 'airbrake'
 gem 'chronic'
 gem 'clockwork'
-gem 'connection_pool'
-gem 'foundation-rails', '~> 5'
+gem 'foundation-rails'
 gem 'haml-rails'
 gem 'httparty'
 gem 'jbuilder'
-gem 'jbuilder_cache_multi'
-gem 'lograge'
-gem 'oj'
 gem 'platform-api'
 gem 'puma'
-gem 'puma_worker_killer'
 gem 'rack-attack'
 gem 'rack-cors', require: 'rack/cors'
 gem 'redis-rails'
-gem 'responders', '~> 2.0'
-gem 'watir'
-gem 'webdrivers'
+
+gem 'cssbundling-rails'
 
 group :production do
-  gem 'rails_12factor'
   gem 'scout_apm'
 end
 

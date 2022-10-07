@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateMatches < ActiveRecord::Migration
+class CreateMatches < ActiveRecord::Migration[5.0]
   def change
     create_table :matches do |t|
       t.string :fifa_id
@@ -14,7 +14,6 @@ class CreateMatches < ActiveRecord::Migration
       t.boolean :teams_scheduled
       t.integer :home_team_score
       t.integer :away_team_score
-      t.string :location
       t.string :status
       t.timestamps
     end

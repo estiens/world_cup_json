@@ -3,16 +3,18 @@
 class BaseApiController < ApplicationController
   protect_from_forgery with: :null_session
   layout false
-  respond_to :json
-  before_filter :set_cache_time
-  after_filter :set_jsonp_format
+  before_action :set_cache_time
+  before_action :set_request_format
+  # after_action :set_jsonp_format
 
   rescue_from StandardError do |error|
-    notify_airbrake(error)
+    # notify_airbrake(error)
+    Rails.logger.error(error)
     unprocessable_entity(error)
   end
 
   rescue_from ActiveRecord::RecordNotFound do |error|
+    Rails.logger.error(error)
     record_not_found(error)
   end
 
@@ -25,7 +27,11 @@ class BaseApiController < ApplicationController
                     1.minute
                   else
                     5.minutes
-    end
+                  end
+  end
+
+  def set_request_format
+    request.format = :json
   end
 
   def set_jsonp_format
@@ -36,10 +42,10 @@ class BaseApiController < ApplicationController
   end
 
   def record_not_found(error = nil)
-    render json: { message: error&.message }, status: :not_found
+    render json: { message: error&.message }, status: 404
   end
 
   def unprocessable_entity(error = nil)
-    render json: { message: error&.message }, status: :unprocesssable_entity
+    render json: { message: error&.message }, status: 421
   end
 end

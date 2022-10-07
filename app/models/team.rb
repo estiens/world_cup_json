@@ -2,45 +2,42 @@
 
 class Team < ActiveRecord::Base
   has_many :events
+  has_many :home_matches, class_name: 'Match', foreign_key: 'home_team_id'
+  has_many :away_matches, class_name: 'Match', foreign_key: 'away_team_id'
   belongs_to :group
 
-  before_save :write_iso_code
-  before_save :write_stats
+  # before_save :write_stats
 
-  has_many :home_matches, class_name: Match, foreign_key: 'home_team_id' do
-    def completed
-      where('status = ?', 'completed')
-    end
-
-    def wins
-      where('status = ? AND home_team_score > away_team_score OR home_team_penalties > away_team_penalties', 'completed')
-    end
-
-    def losses
-      where('status = ? AND home_team_score < away_team_score OR home_team_penalties < away_team_penalties', 'completed')
-    end
+  def home_completed
+    home_matches.where('status = ?', 'completed')
   end
 
-  has_many :away_matches, class_name: Match, foreign_key: 'away_team_id' do
-    def completed
-      where('status = ?', 'completed')
-    end
+  def home_wins
+    home_matches_completed.where(winner: self)
+  end
 
-    def wins
-      where('status = ? AND home_team_score < away_team_score OR home_team_penalties < away_team_penalties', 'completed')
-    end
+  def home_losses
+    home_matches_completed.where(winner: away_team)
+  end
 
-    def losses
-      where('status = ? AND home_team_score > away_team_score OR home_team_penalties > away_team_penalties', 'completed')
-    end
+  def away_completed
+    away_matches.where('status = ?', 'completed')
+  end
+
+  def away_wins
+    away_matches_completed.where(winner: self)
+  end
+
+  def away_losses
+    away_matches_completed.where(winner: home_team)
   end
 
   def matches
     Match.where('home_team_id = ? OR away_team_id = ?', id, id)
   end
 
-  def home_wins
-    home_matches.wins.count
+  def home_win_count
+    home_wins.count
   end
 
   def home_goals_for
@@ -59,16 +56,16 @@ class Team < ActiveRecord::Base
     away_matches.completed.sum(:home_team_score)
   end
 
-  def away_wins
-    away_matches.wins.count
+  def away_wins_count
+    away_wins.count
   end
 
-  def home_losses
-    home_matches.losses.count
+  def home_losses_count
+    home_losses.count
   end
 
-  def away_losses
-    away_matches.losses.count
+  def away_losses_count
+    away_losses.count
   end
 
   def team_draws_count
@@ -76,11 +73,11 @@ class Team < ActiveRecord::Base
   end
 
   def team_wins_count
-    home_wins + away_wins
+    home_wins_count + away_wins_count
   end
 
   def team_losses_count
-    home_losses + away_losses
+    home_losses_count + away_losses_count
   end
 
   def team_goals_for_count
@@ -106,25 +103,11 @@ class Team < ActiveRecord::Base
   private
 
   def write_stats
-    self.team_wins = team_wins_count
-    self.team_losses = team_losses_count
-    self.team_draws = team_draws_count
-    self.games_played = games_played_count
-    self.team_points = team_points_count
-    self.team_goals_for = team_goals_for_count
-    self.team_goals_against = team_goals_against_count
-    self.team_goal_differential = goal_differential_count
-  end
-
-  def write_iso_code
-    return if iso_code
-    return unless country
-
-    json = File.read(Rails.root.join('lib', 'assets', 'country_code.json'))
-    json = JSON.parse(json)
-    code = json.map { |h| h['alpha-2'] if h['name'].casecmp(country).zero? }&.compact&.first
-    return unless code
-
-    self.iso_code = code
+    attrs = { team_wins: team_wins_count, team_losses: team_losses_count,
+              team_draws: team_draws_count, team_goals_for: team_goals_for_count,
+              games_played: games_played_count, team_points: team_points_count,
+              team_golas_for: team_goals_for_count, team_goals_against: team_goals_against_count,
+              team_goal_differential: goal_differential_count }
+    update(attrs)
   end
 end
