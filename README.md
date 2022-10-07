@@ -10,19 +10,19 @@ Special thanks to my employer [Software For Good](https://softwareforgood.com/) 
 
 Main response endpoint:
 https://world-cup-json-2022.fly.dev/matches/today
-### Archived Updates
 
-Fixed the simultaneous match issues that cropped up. Found a FIFA JSON API and starting to parse that for some info, if reliable, I'll probably use that for everything as it's way quicker and more reliable than scraping HTML. And next time, we'll all use that one :) Added starting 11 and subs and tactics and also more match information (stage name, weather, officials). Will update the example responses tmrw, but you can check it and see!
-
-More updates at the end of the README
+## WILL UPDATE HERE WHEN LIVE FOR 2022 ##
+(should have made a dif deployment branch for each WC, if I had only thought a decade in advance)
 
 ## ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
+
 ## SETUP
 
-## TBD2022
+### TBD2022
 
+<details><summary>WIP for 2022, old setup here</summary>
 * Clone the repo
 
 * ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
@@ -41,7 +41,8 @@ This is a simple backend for a scraper that grabs current world cup results and 
 
 * If you have trouble setting up feel free to file a ticket and I or someone cal help. Sorry but things moving fast and more interested in keeping this running well than making it easy to setup at the moment.
 
-NOTE: The old scrapers are still there (`lib\tasks\match_scraper.rake`) but the new code is more memory efficient, does some error checking and cleaning up, doesn't break goals and events into two separate scrapes, and is greatly preferred
+NOTE: The old scrapers are still there (`lib\tasks\match_scraper.rake`) but the new code is more memory efficient, does some error checking and cleaning up, doesn't break goals and events into two separate scrapes, and is greatly preferred~~
+</details>
 
 ## RATE LIMITING
 
@@ -115,7 +116,7 @@ The response includes the same data output as the regular GET call without param
 
 ## EXAMPLE RESPONSES
 
-#### MATCH API ENDPOINT
+<details><summary>#### MATCH API ENDPOINT</summary>
 
 ```json
 [{
@@ -524,80 +525,7 @@ The response includes the same data output as the regular GET call without param
   "last_event_update_at": "2018-06-27T15:58:47Z",
   "last_score_update_at": "2018-06-27T15:58:47Z"
 }]
-```
-#### TEAM GROUP RESULTS API ENDPOINT
-
-```json
-[
-  {
-    "group": {
-      "id": 1,
-      "letter": "A",
-      "teams": [
-        {
-          "team": {
-            "id": 1,
-            "country": "Russia",
-            "fifa_code": "RUS",
-            "points": 6,
-            "wins": 2,
-            "draws": 0,
-            "losses": 0,
-            "games_played": 2,
-            "goals_for": 8,
-            "goals_against": 1,
-            "goal_differential": 7
-          }
-        },
-        {
-          "team": {
-            "id": 4,
-            "country": "Uruguay",
-            "fifa_code": "URU",
-            "points": 3,
-            "wins": 1,
-            "draws": 0,
-            "losses": 0,
-            "games_played": 1,
-            "goals_for": 1,
-            "goals_against": 0,
-            "goal_differential": 1
-          }
-        },
-        {
-          "team": {
-            "id": 3,
-            "country": "Egypt",
-            "fifa_code": "EGY",
-            "points": 0,
-            "wins": 0,
-            "draws": 0,
-            "losses": 2,
-            "games_played": 2,
-            "goals_for": 1,
-            "goals_against": 4,
-            "goal_differential": -3
-          }
-        },
-        {
-          "team": {
-            "id": 2,
-            "country": "Saudi Arabia",
-            "fifa_code": "KSA",
-            "points": 0,
-            "wins": 0,
-            "draws": 0,
-            "losses": 1,
-            "games_played": 1,
-            "goals_for": 0,
-            "goals_against": 5,
-            "goal_differential": -5
-          }
-        }
-      ]
-    }
-  }
-]
+</summary>
 ```
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
@@ -608,13 +536,17 @@ https://world-cup-json-2022.fly.dev/matches/today
 
 https://world-cup-json-2022.fly.dev/matches/current
 
-https://world-cup-json-2022.fly.dev/teams/group_results
+~~https://world-cup-json-2022.fly.dev/teams/group_results~~
 
-https://world-cup-json-2022.fly.dev/teams
+~~https://world-cup-json-2022.fly.dev/teams~~
+
+
+## PROJECTS USING THIS API IN 2022
+(Feel free to submit a PR with your project!)
 
 ## PROJECTS USING THIS API IN 2018
 
-(Feel free to submit a PR with your project!)
+<details><summary>2018 projects submitted</summary>
 
 * http://fifa-worldcup.herokuapp.com
 (NodeJS and Express Web App to keep you updated with the FIFA World Cup 2018)
@@ -680,10 +612,10 @@ https://world-cup-json-2022.fly.dev/teams
 
 * https://github.com/eeddaann/ElastiCup
 (Loads World Cup data into Elasticsearch)
-
+</details>
 
 ## PROJECTS USING THIS API IN 2014
-
+<details><summary>Some 2014 projects submitted</summary>
 * http://alexb.ninja/wc
 * https://github.com/fatiherikli/worldcup (displays World Cup results in the terminal)
 * https://github.com/ColtCarder/XMPP-World-Cup-Bot (Ruby/Blather XMPP Bot to private message live World Cup events as well as overall results.)
@@ -693,7 +625,7 @@ https://world-cup-json-2022.fly.dev/teams
 * http://worldcup2014.meteor.com/ - betting pool app for @q42 built by @primigenus using @meteor
 * https://github.com/Friss/WorldCup - World Cup matches with the arena in the background
 * https://github.com/sestaton/WorldCupStats - World Cup stats and match information at the command line
-
+</details>
 ## BACKGROUND
 
 You can read a blog post about building the API here:
@@ -701,8 +633,9 @@ http://softwareforgood.com/soccer-good/
 
 ## DONATIONS
 
-Some people have asked if they can make donations. I'd love for you to donate some time writing code or docs or tests, but this is shared totally gratis. If you're interested in throwing some cash someone's way, why not help out organizations working with families separated at the border of the US? At this time of coming together as a human community, let's remember that arbitrary lines on a map still have the power to hurt people.
-(https://secure.actblue.com/donate/kidsattheborder)
+Some people have asked if they can make donations. I'd love for you to donate some time writing code or docs or tests, but this is shared totally gratis. If you're interested in throwing some cash someone's way, why not help out organizations working wwith refugees or across borders. At this time of coming together as a human community, let's remember that arbitrary lines on a map still have the power to hurt people.
+[Doctors Without Borders](https://donate.doctorswithoutborders.org/secure/onetime-donate)
+[Aegean Boat Report](https://aegeanboatreport.com/donate/)
 
 
 ## UPDATES
