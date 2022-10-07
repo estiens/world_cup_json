@@ -1,2 +1,1 @@
 web: bin/rails server -p 3000
-clock: bundle exec clockwork lib/new_scraper_clock.rb

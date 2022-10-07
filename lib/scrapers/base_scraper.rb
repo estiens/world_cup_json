@@ -5,7 +5,7 @@ module Scrapers
     attr_accessor :browser, :page
 
     def initialize
-      @browser = ChromeBrowserHelper.browser
+      @browser = nil
       @page = nil
     end
 
