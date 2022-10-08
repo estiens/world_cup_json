@@ -26,9 +26,9 @@ class MatchesController < BaseApiController
   end
 
   def country
-    @team = Team.where(fifa_code: params['fifa_code']&.upcase).first
+    @team = Team.where(country: params['country']&.upcase).first
     unless @team
-      respond_with "{'error': 'country code not_found'}", status: :not_found
+      render json: {'error': 'country code not_found'}
       return
     end
     @matches = @team.matches
