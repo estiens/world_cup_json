@@ -1,23 +1,29 @@
-# frozen_string_literal: true
-
 class Team < ActiveRecord::Base
   has_many :events
   has_many :home_matches, class_name: 'Match', foreign_key: 'home_team_id'
   has_many :away_matches, class_name: 'Match', foreign_key: 'away_team_id'
   belongs_to :group
 
-  # before_save :write_stats
+  before_save :write_stats
 
   def home_completed
     home_matches.where('status = ?', 'completed')
   end
 
+  def last_match
+    matches.where(status: 'completed').max_by(&:datetime)
+  end
+
+  def next_match
+    matches.where(status: 'future_scheduled').min_by(&:datetime)
+  end
+
   def home_wins
-    home_matches_completed.where(winner: self)
+    home_completed.where(winner: self)
   end
 
   def home_losses
-    home_matches_completed.where(winner: away_team)
+    home_completed.where.not(winner: self)
   end
 
   def away_completed
@@ -25,35 +31,35 @@ class Team < ActiveRecord::Base
   end
 
   def away_wins
-    away_matches_completed.where(winner: self)
+    away_completed.where(winner: self)
   end
 
   def away_losses
-    away_matches_completed.where(winner: home_team)
+    away_completed.where.not(winner: self)
   end
 
   def matches
     Match.where('home_team_id = ? OR away_team_id = ?', id, id)
   end
 
-  def home_win_count
+  def home_wins_count
     home_wins.count
   end
 
   def home_goals_for
-    home_matches.completed.sum(:home_team_score)
+    home_completed.sum(:home_team_score)
   end
 
   def away_goals_for
-    away_matches.completed.sum(:away_team_score)
+    away_completed.sum(:away_team_score)
   end
 
   def home_goals_against
-    home_matches.completed.sum(:away_team_score)
+    home_completed.sum(:away_team_score)
   end
 
   def away_goals_against
-    away_matches.completed.sum(:home_team_score)
+    away_completed.sum(:home_team_score)
   end
 
   def away_wins_count
@@ -81,15 +87,15 @@ class Team < ActiveRecord::Base
   end
 
   def team_goals_for_count
-    home_goals_for + away_goals_for
+    home_goals_for.to_i + away_goals_for.to_i
   end
 
   def team_goals_against_count
-    home_goals_against + away_goals_against
+    home_goals_against.to_i + away_goals_against.to_i
   end
 
   def goal_differential_count
-    team_goals_for - team_goals_against
+    team_goals_for.to_i - team_goals_against.to_i
   end
 
   def team_points_count
@@ -106,8 +112,7 @@ class Team < ActiveRecord::Base
     attrs = { team_wins: team_wins_count, team_losses: team_losses_count,
               team_draws: team_draws_count, team_goals_for: team_goals_for_count,
               games_played: games_played_count, team_points: team_points_count,
-              team_golas_for: team_goals_for_count, team_goals_against: team_goals_against_count,
-              team_goal_differential: goal_differential_count }
-    update(attrs)
+              team_goals_against: team_goals_against_count, team_goal_differential: goal_differential_count }
+    assign_attributes(attrs)
   end
 end

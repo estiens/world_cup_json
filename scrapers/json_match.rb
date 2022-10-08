@@ -51,12 +51,13 @@ module Scrapers
   class JsonMatch
     attr_reader :match_info
 
-    def initialize(match_info_json)
-      @match_info = match_info_json
+    def initialize(parsed_json_hash)
+      @match_info = parsed_json_hash
     end
 
+    # location info
     def stadium
-      @stadium ||= @match_info['Stadium']
+      @match_info['Stadium']
     end
 
     def location
@@ -71,6 +72,7 @@ module Scrapers
       stadium['Name']&.find { |stage| stage['Locale'] == 'en-GB' }&.dig('Description')
     end
 
+    # competition info
     def date
       @match_info['Date']
     end

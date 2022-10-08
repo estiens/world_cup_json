@@ -3,9 +3,9 @@
 class BaseApiController < ApplicationController
   protect_from_forgery with: :null_session
   layout false
-  before_action :set_cache_time
+  # before_action :set_cache_time
   before_action :set_request_format
-  # after_action :set_jsonp_format
+  after_action :set_jsonp_format
 
   rescue_from StandardError do |error|
     # notify_airbrake(error)
@@ -39,6 +39,10 @@ class BaseApiController < ApplicationController
 
     self.response_body = "#{params[:callback]}(#{response.body})"
     headers['Content-Type'] = 'application/javascript'
+  end
+
+  def set_time_zone
+    @time_zone = params[:timezone]
   end
 
   def record_not_found(error = nil)

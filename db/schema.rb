@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_051258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,8 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
     t.integer "away_team_penalties"
     t.string "venue"
     t.string "time"
-    t.datetime "last_score_update_at", precision: nil
-    t.datetime "last_event_update_at", precision: nil
     t.boolean "stats_complete", default: false, null: false
     t.integer "winner_id"
     t.boolean "draw", default: false, null: false
@@ -95,12 +93,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
     t.string "stage_name"
     t.json "weather"
     t.string "attendance"
-    t.integer "json_home_team_score"
-    t.integer "json_away_team_score"
-    t.integer "json_home_team_penalties"
-    t.integer "json_away_team_penalties"
     t.json "officials"
     t.text "latest_json"
+    t.datetime "last_changed_at"
+    t.datetime "last_checked_at"
+    t.json "detailed_time"
+    t.json "last_changed", default: []
     t.index ["away_team_id"], name: "index_matches_on_away_team_id"
     t.index ["fifa_id"], name: "index_matches_on_fifa_id"
     t.index ["home_team_id"], name: "index_matches_on_home_team_id"
