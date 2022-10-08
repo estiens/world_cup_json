@@ -97,4 +97,3 @@ end
 
 json.last_checked_at match.last_checked_at&.utc&.iso8601
 json.last_changed_at match.last_changed_at&.utc&.iso8601
-json.last_changed match.last_changed

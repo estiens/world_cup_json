@@ -1,8 +1,5 @@
 
 AllCops:
-  Include:
-    - Rakefile
-    - config.ru
   Exclude:
     - Gemfile
     - Guardfile
@@ -19,6 +16,9 @@ AllCops:
     - config/**/*
     - app/views/**/*.json.jbuilder
     - volumes/**/*
+    - old/*/
+    - old/**/*
+    - scrapers/*
 
 Style/FrozenStringLiteralComment:
   Enabled: False
