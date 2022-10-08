@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-json.call(match, :venue, :location, :status, :fifa_id, :weather, :attendance, :officials, :stage_name)
+json.call(match, :id, :venue, :location, :status, :weather, :attendance, :officials, :stage_name)
 
 json.home_team_country match.home_team&.country
 json.away_team_country match.away_team&.country
@@ -16,25 +16,23 @@ end
 json.home_team do
   if match.home_team
     json.country match.home_team.country
-    json.code match.home_team.fifa_code
+    json.name match.home_team.alternate_name
     json.goals match.home_team_score
     json.penalties match.home_team_penalties
   else
-    json.country 'To Be Determined'
-    json.code 'TBD'
-    json.team_tbd match.home_team_tbd
+    json.name 'To Be Determined'
+    json.country match.home_team_tbd
   end
 end
 json.away_team do
   if match.away_team
-    json.country match.away_team.country
-    json.code match.away_team.fifa_code
+    json.country match.home_team.country
+    json.name match.home_team.alternate_name
     json.goals match.away_team_score
     json.penalties match.away_team_penalties
   else
-    json.country 'To Be Determined'
-    json.code 'TBD'
-    json.team_tbd match.away_team_tbd
+    json.name 'To Be Determined'
+    json.country match.away_team_tbd
   end
 end
 unless @summary
@@ -94,6 +92,5 @@ unless @summary
     end
   end
 end
-
 json.last_checked_at match.last_checked_at&.utc&.iso8601
 json.last_changed_at match.last_changed_at&.utc&.iso8601
