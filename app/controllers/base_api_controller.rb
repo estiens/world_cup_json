@@ -18,6 +18,10 @@ class BaseApiController < ApplicationController
     record_not_found(error)
   end
 
+  def routing_error(**_args)
+    render json: { message: 'None Shall Pass!' }, status: 421
+  end
+
   private
 
   def set_cache_time

@@ -26,8 +26,8 @@ json.home_team do
 end
 json.away_team do
   if match.away_team
-    json.country match.home_team.country
-    json.name match.home_team.alternate_name
+    json.country match.away_team.country
+    json.name match.away_team.alternate_name
     json.goals match.away_team_score
     json.penalties match.away_team_penalties
   else
@@ -35,7 +35,7 @@ json.away_team do
     json.country match.away_team_tbd
   end
 end
-unless @summary
+if @details
   json.time match.time
   json.current_match_time match.detailed_time
   json.home_team_events do

@@ -14,7 +14,6 @@ WorldCupJson::Application.routes.draw do
   get '/matches/tomorrow', to: 'matches#tomorrow'
   get '/matches/:id', to: 'matches#show'
   get '/matches/fifa_id/:id', to: 'matches#show'
-
-  get '*path' => 'errors#path_not_found'
-  put '*path' => 'errors#unprocesssable_entity'
+  get '*path', :to => 'base_api#routing_error'
+  put '*path', :to => 'base_api#routing_error'
 end

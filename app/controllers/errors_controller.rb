@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-class ErrorsController < BaseApiController
+class ErrorsController
   def path_not_found
-    @requested_path = request.path
-    render json: { message: "Path Not Found: #{@requested_path}" },
-           status: :not_found
+    render json: { message: "Path Not Found" }, status: 404
   end
 end

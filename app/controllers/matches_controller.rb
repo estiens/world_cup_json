@@ -4,7 +4,7 @@ class MatchesController < BaseApiController
 
   def index
     order_by_params
-    index_detail_level
+    @details = false unless params[:details] == true
   end
 
   def current
@@ -112,11 +112,11 @@ class MatchesController < BaseApiController
     end
   end
 
-  def detail_level
-    @summary = params['details'] == 'false'
+  def index_detail_level
+    @details = params[:details] || 'false'
   end
 
-  def index_detail_level
-    @summary = false unless params['details'] == 'true'
+  def detail_level
+    @details = params[:details] || 'true'
   end
 end
