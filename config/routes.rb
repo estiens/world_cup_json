@@ -1,5 +1,6 @@
 WorldCupJson::Application.routes.draw do
   root 'static#index'
+  mount GoodJob::Engine => 'good_job'
 
   get '/teams', to: 'teams#index'
   get '/teams/:id', to: 'teams#show'

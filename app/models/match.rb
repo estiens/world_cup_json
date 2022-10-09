@@ -18,6 +18,10 @@ class Match < ActiveRecord::Base
 
   validate :validate_basic_info, unless: proc { |m| m.status == :incomplete }
 
+  def self.needs_updated
+    all.select { |m| (m.last_checked_at + 10.seconds) < m.updated_at }
+  end
+
   def self.for_date(start_time, end_time = nil)
     parse_times(start_time, end_time)
     return Match.none unless @start_time && @end_time

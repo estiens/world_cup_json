@@ -10,19 +10,36 @@ class MatchFetcher
     match_array.is_a?(Array) ? match_array : nil
   end
 
-  def self.json_for_match(match)
-    url = "SINGLE_MATCH_URL/#{match.stage_id}/#{match.fifa_id}?language=en"
+  def self.json_for_scheduled_match(match)
+    url = "#{SINGLE_MATCH_URL}#{match.fifa_stage_id}/#{match.fifa_id}?language=en"
     response = HTTParty.get(url)
     return {} unless response.success?
 
     json = JSON.parse(response.body)
-    json.is_a?(Hash) ? json : nil
+    json.is_a?(Hash) ? json.to_json : nil
   end
 
-  def self.scrape_for_match(match)
-    json = json_for_match(match)
-    return false unless json.present?
+  def self.scrape_for_general_info(matches)
+    match_info = all_matches
+    matches.map do |match|
+      match_specific_info = match_info.find { |m| m['IdMatch'] == match.fifa_id }
+      if match_specific_info
+        match.update(latest_json: match_specific_info.to_json)
+        match.id
+      else
+        Rails.logger.info("**SCRAPER** Match #{match.fifa_id} not found in general info")
+        match.touch
+        nil
+      end
+    end.compact
+  end
 
+  def self.scrape_for_scheduled_match(match)
+    json = json_for_scheduled_match(match)
+    unless json.present?
+      Rails.logger.info("**SCRAPER** Match #{match.fifa_id} specific info not found")
+      return false
+    end
     match.update(latest_json: json)
   end
 end

@@ -31,11 +31,11 @@ class MatchWriter
   def write_match
     return false unless @match&.persisted?
 
-    update_match_from_json
-    return false if @changed.empty?
+    @changed = update_match_from_json
 
-    match.last_changed_at = Time.now
-    match.last_changed = @changed
+    match.last_checked_at = Time.now
+    match.last_changed_at = Time.now if @changed.any?
+    match.last_changed = @changed || []
     match.save
   end
 

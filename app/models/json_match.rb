@@ -54,16 +54,26 @@ class JsonMatch
     { home_team: match_place_holder_a, away_team: match_place_holder_b }
   end
 
-  def home_team_id
-    return nil unless match_home.is_a?(Hash) && match_home['IdTeam']
+  def away_team
+    @away_team ||= begin
+      info = match_away_team.is_a?(Hash) ? match_away_team : match_away
+      info.is_a?(Hash) ? info : {}
+    end
+  end
 
-    Team.find_by(fifa_code: match_home['IdTeam'])&.id
+  def home_team
+    @home_team ||= begin
+      info = match_home_team.is_a?(Hash) ? match_home_team : match_home
+      info.is_a?(Hash) ? info : {}
+    end
+  end
+
+  def home_team_id
+    Team.find_by(fifa_code: home_team['IdTeam'])&.id
   end
 
   def away_team_id
-    return nil unless match_away.is_a?(Hash) && match_away['IdTeam']
-
-    Team.find_by(fifa_code: match_away['IdTeam'])&.id
+    Team.find_by(fifa_code: away_team['IdTeam'])&.id
   end
 
   def current_time_info
@@ -121,75 +131,85 @@ class JsonMatch
 
   def score_info
     {
-      home_score: match_home_team_score,
-      away_score: match_away_team_score,
-      home_penalties: match_home_team_penalty_score,
-      away_penalties: match_away_team_penalty_score
+      home_score: home_team_score,
+      away_score: away_team_score,
+      home_penalties: home_team_penalty_score,
+      away_penalties: away_team_penalty_score
     }
   end
 
   def home_team_info
-    { tactics: match_home['Tactics'],
-      starting_eleven: home_starting_eleven,
-      substitutes: home_team_substitutes }
+    { tactics: home_team['Tactics'],
+      starting_eleven: starters,
+      substitutes: substitutes,
+      coaches: coach_names,
+      bookings: home_team['Bookings'] }
   end
 
   def away_team_info
-    { tactics: match_away['Tactics'],
-      starting_eleven: away_starting_eleven,
-      substitutes: away_team_substitutes }
+    { tactics: away_team['Tactics'],
+      starting_eleven: starters(away: true),
+      substitutes: substitutes(away: true),
+      coaches: coach_names(away: true),
+      bookings: away_team['Bookings'] }
   end
 
-  def home_starting_eleven
-    return @home_starting_eleven if @home_starting_eleven
-
-    players = match_home&.dig('Players')&.find_all { |player| player['Status'] == 1 }
-    @home_starting_eleven = create_players_from_match_info(players)
+  def coach_names(home: true, away: false)
+    home = false if away
+    coaches = home ? home_team['Coaches'] : away_team['Coaches']
+    coaches.map { |c| c['Name'].map { |d| d['Description'] } }&.flatten
   end
 
-  def away_starting_eleven
-    return @away_starting_eleven if @away_starting_eleven
-
-    players = match_away&.dig('Players')&.find_all { |player| player['Status'] == 1 }
-    @away_starting_eleven = create_players_from_match_info(players)
+  def starters(home: true, away: false)
+    home = false if away
+    starters = home ? home_team['Players'] : away_team['Players']
+    starters = starters.select { |p| p['Status'] == 1 }
+    PlayersFormatter.players_from_array(starters)
   end
 
-  def home_team_substitutes
-    return @home_team_substitutes if @home_team_substitutes
-
-    players = match_home&.dig('Players')&.find_all { |player| player['Status'] == 2 }
-    @home_team_substitutes = create_players_from_match_info(players)
+  def substitutes(home: true, away: false)
+    home = false if away
+    subs = home ? home_team['Players'] : away_team['Players']
+    subs = subs.select { |p| p['Status'] == 2 }
+    PlayersFormatter.players_from_array(subs)
   end
+end
 
-  def away_team_substitutes
-    return @away_team_substitutes if @away_team_substitutes
+class JsonMatch
+  class PlayersFormatter
+    class << self
+      def players_from_array(players_array)
+        create_players_from_match_info(players_array)
+      end
 
-    players = match_away&.dig('Players')&.find_all { |player| player['Status'] == 2 }
-    @away_team_substitutes = create_players_from_match_info(players)
-  end
+      def player_from_hash(player_hash)
+        create_player_from_info_hash(player_hash)
+      end
 
-  private
+      def create_players_from_match_info(array)
+        return [] unless array.is_a? Array
 
-  def create_players_from_match_info(array)
-    return [] unless array.is_a? Array
+        array.map { |player| create_player_from_info_hash(player) }
+      end
 
-    array.map do |player|
-      name = player&.dig('PlayerName')&.first&.dig('Description')
-      captain = player&.dig('Captain')
-      shirt_number = player&.dig('ShirtNumber')
-      position = get_position_from(player&.dig('Position'))
-      { name:, captain:, shirt_number:, position: }
+      def create_player_from_info_hash(player)
+        name = player&.dig('PlayerName')&.first&.dig('Description')
+        captain = player&.dig('Captain')
+        shirt_number = player&.dig('ShirtNumber')
+        position = get_position_from(player&.dig('Position'))
+        { name:, captain:, shirt_number:, position: }
+      end
+
+      def get_position_from(position)
+        return nil unless position
+
+        return 'Goalkeeper' if position.to_i.zero?
+        return 'Defender' if position.to_i == 1
+        return 'Midfielder' if position.to_i == 2
+        return 'Forward' if position.to_i == 3
+
+        'Unknown'
+      end
     end
-  end
-
-  def get_position_from(position)
-    return nil unless position
-
-    return 'Goalkeeper' if position.to_i.zero?
-    return 'Defender' if position.to_i == 1
-    return 'Midfielder' if position.to_i == 2
-    return 'Forward' if position.to_i == 3
-
-    'Unknown'
   end
 end
