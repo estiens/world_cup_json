@@ -8,7 +8,7 @@ class SchedulerJob < ApplicationJob
 
   # ideally this has nothing
   def scrape_unknown_matches
-    ids = Match.all.where('updated_at < ?', SCRAPE_UNKNOWN_EVERY.ago).pluck(:id)
+    ids = Match.all.where('updated_at > ?', SCRAPE_UNKNOWN_EVERY.ago).pluck(:id)
     Rails.logger.info("**SCHEDULER** unknown scrape for #{ids.count} matches")
     return unless ids.count.positive?
 
@@ -16,7 +16,7 @@ class SchedulerJob < ApplicationJob
   end
 
   def scrape_unscheduled_matches
-    ids = Match.all.where(status: 'future_unscheduled').where('updated_at < ?', SCRAPE_GENERAL_EVERY.ago).pluck(:id)
+    ids = Match.all.where(status: 'future_unscheduled').where('updated_at > ?', SCRAPE_GENERAL_EVERY.ago).pluck(:id)
     Rails.logger.info("**SCHEDULER** unknown scrape for #{ids.count} matches")
     return unless ids.count.positive?
 
@@ -24,7 +24,7 @@ class SchedulerJob < ApplicationJob
   end
 
   def scrape_scheduled_matches
-    matches_to_scrape = Match.where('updated_at < ?', SCRAPE_SCHEDULED_EVERY.ago).where(status: 'future_scheduled')
+    matches_to_scrape = Match.where('updated_at > ?', SCRAPE_SCHEDULED_EVERY.ago).where(status: 'future_scheduled')
     Rails.logger.info("**SCHEDULER** Single Match Update for #{matches_to_scrape.count} scheduled matches")
     matches_to_scrape.each do |match|
       FetchDataForScheduledMatch.perform_later(match.id)
