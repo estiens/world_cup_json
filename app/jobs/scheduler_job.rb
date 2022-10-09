@@ -27,7 +27,7 @@ class SchedulerJob < ApplicationJob
     matches_to_scrape = Match.where('updated_at < ?', SCRAPE_SCHEDULED_EVERY.ago).where(status: 'future_scheduled')
     Rails.logger.info("**SCHEDULER** Single Match Update for #{matches_to_scrape.count} scheduled matches")
     matches_to_scrape.each do |match|
-      FetchDataForSingleMatch.perform_later(match.id)
+      FetchDataForScheduledMatch.perform_later(match.id)
     end
   end
 

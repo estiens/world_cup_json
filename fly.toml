@@ -3,20 +3,20 @@
 app = "world-cup-json-2022"
 kill_signal = "SIGINT"
 kill_timeout = 5
+
 [processes]
   web = "bin/rails fly:server"
-  worker = "ENABLE_CRON=true bundle exec good_job start"
+  worker = "bundle exec good_job start --enable-cron"
 
 [build]
   [build.args]
-    BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
 
 [deploy]
   release_command = "bin/rails fly:release"
 
 [env]
   PORT = "8080"
+  SERVER_COMMAND = "bin/rails fly:server"
 
 [experimental]
   allowed_public_ports = []

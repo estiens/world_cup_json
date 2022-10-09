@@ -22,6 +22,7 @@ class MatchFetcher
   def self.scrape_for_general_info(matches)
     match_info = all_matches
     matches.map do |match|
+      match = match.is_a?(Match) ? match : Match.find(match)
       match_specific_info = match_info.find { |m| m['IdMatch'] == match.fifa_id }
       if match_specific_info
         match.update(latest_json: match_specific_info.to_json)
