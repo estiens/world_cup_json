@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_195245) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "events", id: :serial, force: :cascade do |t|
@@ -25,6 +26,45 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
     t.string "fifa_id"
     t.integer "team_id"
     t.index ["team_id"], name: "index_events_on_team_id"
+  end
+
+  create_table "good_job_processes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "state"
+  end
+
+  create_table "good_job_settings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "key"
+    t.jsonb "value"
+    t.index ["key"], name: "index_good_job_settings_on_key", unique: true
+  end
+
+  create_table "good_jobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "queue_name"
+    t.integer "priority"
+    t.jsonb "serialized_params"
+    t.datetime "scheduled_at"
+    t.datetime "performed_at"
+    t.datetime "finished_at"
+    t.text "error"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "active_job_id"
+    t.text "concurrency_key"
+    t.text "cron_key"
+    t.uuid "retried_good_job_id"
+    t.datetime "cron_at"
+    t.index ["active_job_id", "created_at"], name: "index_good_jobs_on_active_job_id_and_created_at"
+    t.index ["active_job_id"], name: "index_good_jobs_on_active_job_id"
+    t.index ["concurrency_key"], name: "index_good_jobs_on_concurrency_key_when_unfinished", where: "(finished_at IS NULL)"
+    t.index ["cron_key", "created_at"], name: "index_good_jobs_on_cron_key_and_created_at"
+    t.index ["cron_key", "cron_at"], name: "index_good_jobs_on_cron_key_and_cron_at", unique: true
+    t.index ["finished_at"], name: "index_good_jobs_jobs_on_finished_at", where: "((retried_good_job_id IS NULL) AND (finished_at IS NOT NULL))"
+    t.index ["queue_name", "scheduled_at"], name: "index_good_jobs_on_queue_name_and_scheduled_at", where: "(finished_at IS NULL)"
+    t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
   end
 
   create_table "groups", id: :serial, force: :cascade do |t|
@@ -82,8 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
     t.integer "away_team_penalties"
     t.string "venue"
     t.string "time"
-    t.datetime "last_score_update_at", precision: nil
-    t.datetime "last_event_update_at", precision: nil
     t.boolean "stats_complete", default: false, null: false
     t.integer "winner_id"
     t.boolean "draw", default: false, null: false
@@ -95,12 +133,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065836) do
     t.string "stage_name"
     t.json "weather"
     t.string "attendance"
-    t.integer "json_home_team_score"
-    t.integer "json_away_team_score"
-    t.integer "json_home_team_penalties"
-    t.integer "json_away_team_penalties"
     t.json "officials"
     t.text "latest_json"
+    t.datetime "last_changed_at"
+    t.datetime "last_checked_at"
+    t.json "detailed_time"
+    t.json "last_changed", default: []
     t.index ["away_team_id"], name: "index_matches_on_away_team_id"
     t.index ["fifa_id"], name: "index_matches_on_fifa_id"
     t.index ["home_team_id"], name: "index_matches_on_home_team_id"

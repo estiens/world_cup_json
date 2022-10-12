@@ -1,1 +1,2 @@
-web: bin/rails server -p 3000
+web: rails server
+worker: ENABLE_CRON=true bundle exec good_job start

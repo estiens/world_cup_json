@@ -1,8 +1,5 @@
 
 AllCops:
-  Include:
-    - Rakefile
-    - config.ru
   Exclude:
     - Gemfile
     - Guardfile
@@ -19,6 +16,20 @@ AllCops:
     - config/**/*
     - app/views/**/*.json.jbuilder
     - volumes/**/*
+    - old/*/
+    - old/**/*
+    - scrapers/*
 
 Style/FrozenStringLiteralComment:
   Enabled: False
+Style/Documentation:
+  Enabled: False
+Style/HashSyntax:
+  Enabled: False
+
+Metrics/LineLength:
+  Max: 120
+Metrics/ClassLength:
+  Max: 200
+Metrics/MethodLength:
+  Max: 20

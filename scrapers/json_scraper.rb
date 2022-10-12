@@ -115,10 +115,10 @@ module Scrapers
     end
 
     def write_scores(json_match)
-      @fixture.json_home_team_score = json_match.home_score
-      @fixture.json_away_team_score = json_match.away_score
-      @fixture.json_away_team_penalties = json_match.away_penalties
-      @fixture.json_home_team_penalties = json_match.home_penalties
+      @fixture.home_team_score = json_match.home_score
+      @fixture.away_team_score = json_match.away_score
+      @fixture.away_team_penalties = json_match.away_penalties
+      @fixture.home_team_penalties = json_match.home_penalties
     end
 
     def write_match_stats(json_match)

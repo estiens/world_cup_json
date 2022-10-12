@@ -1,0 +1,1008 @@
+{
+  "IdMatch": "ehdoklsljkbftwk88wc0nlus4",
+  "IdStage": "8tug861ibh72j04p3ge06e80k",
+  "IdGroup": "8u2ui5bjwpb2ypdx41m5orvv8",
+  "IdSeason": "400243454",
+  "IdCompetition": "2000001032",
+  "CompetitionName": [
+    { "Locale": "en-gb", "Description": "UEFA Champions League" }
+  ],
+  "SeasonName": [{ "Locale": "en-GB", "Description": "2022" }],
+  "SeasonShortName": [],
+  "Stadium": {
+    "IdStadium": null,
+    "Name": [{ "Locale": "en-gb", "Description": "Allianz Arena" }],
+    "Capacity": 75000,
+    "WebAddress": null,
+    "Built": "2005-01-01T00:00:00Z",
+    "Roof": false,
+    "Turf": null,
+    "IdCity": "400237731",
+    "CityName": [{ "Locale": "en-GB", "Description": "München" }],
+    "IdCountry": "GER",
+    "PostalCode": null,
+    "Street": "Werner-Heisenberg-Allee 25",
+    "Email": null,
+    "Fax": null,
+    "Phone": null,
+    "AffiliationCountry": null,
+    "AffiliationRegion": null,
+    "Latitude": 48.218779054,
+    "Longitude": 11.624743491,
+    "Length": null,
+    "Width": null,
+    "Properties": {},
+    "IsUpdateable": null
+  },
+  "ResultType": 1,
+  "MatchDay": "3",
+  "HomeTeamPenaltyScore": null,
+  "AwayTeamPenaltyScore": null,
+  "AggregateHomeTeamScore": null,
+  "AggregateAwayTeamScore": null,
+  "Weather": null,
+  "Attendance": "75000",
+  "Date": "2022-10-04T16:45:00Z",
+  "LocalDate": "2022-10-04T18:45:00Z",
+  "MatchTime": "94:30",
+  "SecondHalfTime": null,
+  "FirstHalfTime": null,
+  "FirstHalfExtraTime": 1,
+  "SecondHalfExtraTime": 3,
+  "Winner": "1914810",
+  "Period": 10,
+  "HomeTeam": {
+    "Score": 5,
+    "Side": null,
+    "IdTeam": "1914810",
+    "PictureUrl": "https://api.fifa.com/api/v3/picture/teams-{format}-{size}/1914810",
+    "IdCountry": "GER",
+    "TeamType": 0,
+    "AgeType": 7,
+    "Tactics": "4-2-3-1",
+    "TeamName": [{ "Locale": "en-gb", "Description": "Bayern München" }],
+    "Abbreviation": "FCB",
+    "Coaches": [
+      {
+        "IdCoach": "3t8mykkgwxikqgirtboafgkwl",
+        "IdCountry": "GER",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Xaver Zembrod" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "X. Zembrod" }],
+        "Role": 1,
+        "SpecialStatus": null
+      },
+      {
+        "IdCoach": "9u6h4xcnt0j696q3bwrqp9f6c",
+        "IdCountry": "GER",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Benjamin Glück" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "B. Glück" }],
+        "Role": 1,
+        "SpecialStatus": null
+      },
+      {
+        "IdCoach": "bri6nq5jnvllcaeazx0xatsr9",
+        "IdCountry": "GER",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Dino Toppmöller" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "D. Toppmöller" }],
+        "Role": 1,
+        "SpecialStatus": null
+      },
+      {
+        "IdCoach": "f2rowpxtzxo95i30vevs5pt5h",
+        "IdCountry": "GER",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Julian Nagelsmann" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "J. Nagelsmann" }],
+        "Role": 0,
+        "SpecialStatus": null
+      }
+    ],
+    "Players": [
+      {
+        "IdPlayer": "228912",
+        "IdTeam": "1914810",
+        "ShirtNumber": 1,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": true,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Manuel Peter Neuer" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Neuer" }],
+        "Position": 0,
+        "PlayerPicture": {
+          "Id": "51A3DB71-0820-4000-94234EB93054C73D",
+          "PictureUrl": "https://digitalhub.fifa.com/transform/51a3db71-0820-4000-9423-4eb93054c73d/FIFAPLS_Headshots_228912"
+        },
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "389876",
+        "IdTeam": "1914810",
+        "ShirtNumber": 2,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          {
+            "Locale": "en-gb",
+            "Description": "Dayotchanculle Oswald Upamecano"
+          }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "D. Upamecano" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "404560",
+        "IdTeam": "1914810",
+        "ShirtNumber": 4,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Matthijs de Ligt" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. de Ligt" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "412144",
+        "IdTeam": "1914810",
+        "ShirtNumber": 19,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Alphonso Boyle Davies" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "A. Davies" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "411680",
+        "IdTeam": "1914810",
+        "ShirtNumber": 40,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Noussair Mazraoui" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "N. Mazraoui" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "404353",
+        "IdTeam": "1914810",
+        "ShirtNumber": 10,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Leroy Aziz Sané" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Sané" }],
+        "Position": 2,
+        "PlayerPicture": {
+          "Id": "42298A00-F193-4B3A-BB8CD3086B438FAB",
+          "PictureUrl": "https://digitalhub.fifa.com/transform/42298a00-f193-4b3a-bb8c-d3086b438fab/FIFAPLS_Headshots_404353"
+        },
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "353790",
+        "IdTeam": "1914810",
+        "ShirtNumber": 17,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Sadio Mané" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "S. Mané" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "429642",
+        "IdTeam": "1914810",
+        "ShirtNumber": 42,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Jamal Musiala" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Musiala" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "395475",
+        "IdTeam": "1914810",
+        "ShirtNumber": 7,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Serge David Gnabry" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "S. Gnabry" }],
+        "Position": 3,
+        "PlayerPicture": {
+          "Id": "927D5A23-C78F-4F6D-96197A35FD78C276",
+          "PictureUrl": "https://digitalhub.fifa.com/transform/927d5a23-c78f-4f6d-9619-7a35fd78c276/FIFAPLS_Headshots_395475"
+        },
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "379953",
+        "IdTeam": "1914810",
+        "ShirtNumber": 8,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Leon Christoph Goretzka" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Goretzka" }],
+        "Position": 6,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "430176",
+        "IdTeam": "1914810",
+        "ShirtNumber": 38,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Ryan Jiro Gravenberch" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "R. Gravenberch" }],
+        "Position": 6,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "411369",
+        "IdTeam": "1914810",
+        "ShirtNumber": 26,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Sven Ulreich" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "S. Ulreich" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "411471",
+        "IdTeam": "1914810",
+        "ShirtNumber": 5,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Benjamin Jacques Marcel Pavard" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "B. Pavard" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "433667",
+        "IdTeam": "1914810",
+        "ShirtNumber": 44,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Josip Stanišić" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Stanišić" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "358241",
+        "IdTeam": "1914810",
+        "ShirtNumber": 18,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Marcel Sabitzer" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Sabitzer" }],
+        "Position": 2,
+        "PlayerPicture": {
+          "Id": "4F57CB2C-26F4-4ACA-9A3D22BE55200E92",
+          "PictureUrl": "https://digitalhub.fifa.com/transform/4f57cb2c-26f4-4aca-9a3d-22be55200e92/FIFAPLS_Headshots_358241"
+        },
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "312316",
+        "IdTeam": "1914810",
+        "ShirtNumber": 13,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Jean-Eric Maxim Choupo-Moting" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "E. Choupo-Moting" }],
+        "Position": 3,
+        "PlayerPicture": {
+          "Id": "75949F50-81B1-4C0B-B79FF4BB49E3B4B8",
+          "PictureUrl": "https://digitalhub.fifa.com/transform/75949f50-81b1-4c0b-b79f-f4bb49e3b4b8/FIFAPLS_Headshots_312316"
+        },
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "cv1d56d42wujfuc4kt6bn53x0",
+        "IdTeam": "1914810",
+        "ShirtNumber": 39,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Mathys Tel" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Tel" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      }
+    ],
+    "Bookings": [],
+    "Goals": [
+      {
+        "Type": 2,
+        "IdPlayer": "404353",
+        "Minute": "6:15",
+        "IdAssistPlayer": "429642",
+        "Period": 3,
+        "IdGoal": null,
+        "IdTeam": "1914810"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "395475",
+        "Minute": "12:26",
+        "IdAssistPlayer": "379953",
+        "Period": 3,
+        "IdGoal": null,
+        "IdTeam": "1914810"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "353790",
+        "Minute": "20:07",
+        "IdAssistPlayer": null,
+        "Period": 3,
+        "IdGoal": null,
+        "IdTeam": "1914810"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "404353",
+        "Minute": "49:55",
+        "IdAssistPlayer": "353790",
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "1914810"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "312316",
+        "Minute": "58:43",
+        "IdAssistPlayer": "379953",
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "1914810"
+      }
+    ],
+    "Substitutions": [
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "412144",
+        "IdPlayerOn": "433667",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Alphonso Boyle Davies" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Josip Stanišić" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "1914810"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "429642",
+        "IdPlayerOn": "312316",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Jamal Musiala" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Jean-Eric Maxim Choupo-Moting" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "1914810"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "404353",
+        "IdPlayerOn": "cv1d56d42wujfuc4kt6bn53x0",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Leroy Aziz Sané" }
+        ],
+        "PlayerOnName": [{ "Locale": "en-gb", "Description": "Mathys Tel" }],
+        "Minute": "57:45",
+        "IdTeam": "1914810"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "389876",
+        "IdPlayerOn": "411471",
+        "PlayerOffName": [
+          {
+            "Locale": "en-gb",
+            "Description": "Dayotchanculle Oswald Upamecano"
+          }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Benjamin Jacques Marcel Pavard" }
+        ],
+        "Minute": "71:48",
+        "IdTeam": "1914810"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "379953",
+        "IdPlayerOn": "358241",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Leon Christoph Goretzka" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Marcel Sabitzer" }
+        ],
+        "Minute": "72:02",
+        "IdTeam": "1914810"
+      }
+    ],
+    "FootballType": 0,
+    "Gender": 1,
+    "IdAssociation": "GER",
+    "ShortClubName": "Bayern München"
+  },
+  "AwayTeam": {
+    "Score": 0,
+    "Side": null,
+    "IdTeam": "2147483300",
+    "PictureUrl": "https://api.fifa.com/api/v3/picture/teams-{format}-{size}/2147483300",
+    "IdCountry": "CZE",
+    "TeamType": 0,
+    "AgeType": 7,
+    "Tactics": "4-2-3-1",
+    "TeamName": [{ "Locale": "en-gb", "Description": "Viktoria Plzeň" }],
+    "Abbreviation": "PLZ",
+    "Coaches": [
+      {
+        "IdCoach": "174403",
+        "IdCountry": "CZE",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Michal Bílek" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "M. Bílek" }],
+        "Role": 0,
+        "SpecialStatus": null
+      }
+    ],
+    "Players": [
+      {
+        "IdPlayer": "aqa3peejinzqik8uh11l006hh",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 13,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Marián Tvrdoň" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Tvrdoň" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "312791",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 2,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": true,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Lukáš Hejda" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Hejda" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "2lprk6lif9w54osr8ptxyppsl",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 4,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Luděk Pernica" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Pernica" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "6za3yitvynb3riv1l8y4qup5h",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 24,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Milan Havel" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Havel" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "cm7ceie86tfwjhbqk76pvic4p",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 44,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Libor Holík" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Holík" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "401315",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 10,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Jan Kopic" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Kopic" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "398414",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 18,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Jhon Édison Mosquera Rebolledo" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Mosquera" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "67sn4t5twr0ludex2p8nowr11",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 88,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Adam Vlkanova" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "A. Vlkanova" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "9vdhoij110u7e94lh8uflo5w5",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 15,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Tomáš Chorý" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "T. Chorý" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "6xnat41ep14zu3qz6utt32z11",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 23,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Lukáš Kalvach" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "L. Kalvach" }],
+        "Position": 6,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "ea8tmddhk10attcb0axhos4mi",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 99,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Modou Birame N'Diaye" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. N'Diaye" }],
+        "Position": 6,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "8972qh4ybyfiq7n5dwy9zgudx",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 16,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Martin Jedlička" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Jedlička" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "4l09nrr75hpk80bq7himhav2t",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 36,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Jindřich Staněk" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Staněk" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "1uwgasu47zfw1x68qgj9rgciy",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 3,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Mohamed Tijani" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "M. Tijani" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "cv0lj7jfh4jslcj7az4d5h5ux",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 21,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Václav Jemelka" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "V. Jemelka" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "358000",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 6,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Václav Pilař" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "V. Pilař" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "336277",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 25,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Aleš Čermák" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "A. Čermák" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "8fgscsdgytvhw5y6mlthxtrdh",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 77,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Erik Jirka" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "E. Jirka" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "406676",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 9,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Jan Kliment" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. Kliment" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "6ynddvrfay02kkirltpn68s4q",
+        "IdTeam": "2147483300",
+        "ShirtNumber": 90,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-gb", "Description": "Fortune Akpan Bassey" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "F. Bassey" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      }
+    ],
+    "Bookings": [
+      {
+        "Card": 1,
+        "Period": 3,
+        "IdEvent": null,
+        "EventNumber": null,
+        "IdPlayer": "9vdhoij110u7e94lh8uflo5w5",
+        "IdCoach": null,
+        "IdTeam": "2147483300",
+        "Minute": "28:03",
+        "Reason": "Foul"
+      }
+    ],
+    "Goals": [],
+    "Substitutions": [
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "67sn4t5twr0ludex2p8nowr11",
+        "IdPlayerOn": "cv0lj7jfh4jslcj7az4d5h5ux",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Adam Vlkanova" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Václav Jemelka" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "2147483300"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "401315",
+        "IdPlayerOn": "8fgscsdgytvhw5y6mlthxtrdh",
+        "PlayerOffName": [{ "Locale": "en-gb", "Description": "Jan Kopic" }],
+        "PlayerOnName": [{ "Locale": "en-gb", "Description": "Erik Jirka" }],
+        "Minute": "57:05",
+        "IdTeam": "2147483300"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "9vdhoij110u7e94lh8uflo5w5",
+        "IdPlayerOn": "6ynddvrfay02kkirltpn68s4q",
+        "PlayerOffName": [{ "Locale": "en-gb", "Description": "Tomáš Chorý" }],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Fortune Akpan Bassey" }
+        ],
+        "Minute": "57:17",
+        "IdTeam": "2147483300"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 1,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "312791",
+        "IdPlayerOn": "1uwgasu47zfw1x68qgj9rgciy",
+        "PlayerOffName": [{ "Locale": "en-gb", "Description": "Lukáš Hejda" }],
+        "PlayerOnName": [
+          { "Locale": "en-gb", "Description": "Mohamed Tijani" }
+        ],
+        "Minute": "62:36",
+        "IdTeam": "2147483300"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "398414",
+        "IdPlayerOn": "358000",
+        "PlayerOffName": [
+          { "Locale": "en-gb", "Description": "Jhon Édison Mosquera Rebolledo" }
+        ],
+        "PlayerOnName": [{ "Locale": "en-gb", "Description": "Václav Pilař" }],
+        "Minute": "84:53",
+        "IdTeam": "2147483300"
+      }
+    ],
+    "FootballType": 0,
+    "Gender": 1,
+    "IdAssociation": "CZE",
+    "ShortClubName": "Viktoria Plzeň"
+  },
+  "BallPossession": {
+    "Intervals": [],
+    "LastX": [],
+    "OverallHome": 70.1,
+    "OverallAway": 29.9
+  },
+  "TerritorialPossesion": null,
+  "TerritorialThirdPossesion": null,
+  "Officials": [
+    {
+      "IdCountry": "MNE",
+      "OfficialId": "301657",
+      "NameShort": [{ "Locale": "en-gb", "Description": "N. Dabanović" }],
+      "Name": [{ "Locale": "en-gb", "Description": "Nikola Dabanović" }],
+      "OfficialType": 1,
+      "TypeLocalized": [{ "Locale": "en-GB", "Description": "Referee" }]
+    },
+    {
+      "IdCountry": "MNE",
+      "OfficialId": "4yhzzkids283a6pojjrrv5591",
+      "NameShort": [{ "Locale": "en-gb", "Description": "M. Đukić" }],
+      "Name": [{ "Locale": "en-gb", "Description": "Milovan Đukić" }],
+      "OfficialType": 2,
+      "TypeLocalized": [
+        { "Locale": "en-GB", "Description": "Assistant Referee 1" }
+      ]
+    },
+    {
+      "IdCountry": "MNE",
+      "OfficialId": "328059",
+      "NameShort": [{ "Locale": "en-gb", "Description": "V. Todorović" }],
+      "Name": [{ "Locale": "en-gb", "Description": "Vladan Todorović" }],
+      "OfficialType": 3,
+      "TypeLocalized": [
+        { "Locale": "en-GB", "Description": "Assistant Referee 2" }
+      ]
+    },
+    {
+      "IdCountry": "SRB",
+      "OfficialId": "425326",
+      "NameShort": [{ "Locale": "en-gb", "Description": "L. Lukić" }],
+      "Name": [{ "Locale": "en-gb", "Description": "Lazar Lukić" }],
+      "OfficialType": 4,
+      "TypeLocalized": [{ "Locale": "en-GB", "Description": "Fourth official" }]
+    }
+  ],
+  "MatchStatus": 0,
+  "GroupName": [{ "Locale": "en-gb", "Description": "Group C" }],
+  "StageName": [{ "Locale": "en-gb", "Description": "Group Stage" }],
+  "OfficialityStatus": 2,
+  "TimeDefined": true,
+  "Properties": { "IdStatsPerform": "ehdoklsljkbftwk88wc0nlus4" },
+  "IsUpdateable": null
+}

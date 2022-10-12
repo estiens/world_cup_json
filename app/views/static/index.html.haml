@@ -1,147 +1,110 @@
 .section
   .container.mt-5
-    %h1.title.is-2 World Cup 2022
-    %h2.subtitle.is-3 (we're still here somehow)
-    %p
-      This is an API for the <strike>World Cup(2014,2018) and Women's World Cup(2015,2019)</strike>
-      <b>somehow still in 2022</b>
-      that scrapes current match results and outputs match data as JSON, including events such as goals, substitutions, and cards, see the GitHub page.
-      No guarantees are made as to its accuracy, but we will do our best to keep it up to date.
-      %br
-    .mt-5
-      %a.button.is-primary{href:"https://github.com/estiens/world_cup_json"}
-        CODE ON GITHUB
-.section
-  .container.mt-5
-    %h3.title ENDPOINTS
     .columns
       .column.is-two-thirds
-        .box
-          %p.has-text-weight-bold
-            All match data, updated every minute
-          (note - truncated data in this view of all matches, pass `?details=true` to get all matches with all events)
-          %br
-          %a.has_text_link{href:"https://world-cup-json-2022.fly.dev/matches"}
-            https://world-cup-json-2022.fly.dev/matches
-      .column.is-one-third
-        %p
-          Today's matches
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/matches/today"}
-          https://world-cup-json-2022.fly.dev/matches/today
-    .columns
-      .column.is-one-third
-        %p
-          Returns the current match, if a match is happening, otherwise nothing
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/matches/current"}
-          https://world-cup-json-2022.fly.dev/matches/current
-      .column.is-one-third
-        %h4
-          Matches for any country, by entering their FIFA Code.
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/matches/country?fifa_code=ARG"}
-          https://world-cup-json-2022.fly.dev/matches/country?fifa_code=ARG
-      .column.is-one-third
-        %p
-          Results for teams (wins, losses, draws, goals_for, goals_against)
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/teams/results"}
-          https://world-cup-json-2022.fly.dev/teams/results
-    .columns
-      .column.is-one-third
-        %p
-          Results for teams by group, ordered by current group position
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/teams/group_results"}
-          https://world-cup-json-2022.fly.dev/teams/group_results
-    .columns
-      .column.is-one-third
-        %p
-          List of all teams in world cup, along with FIFA abbreviation
-        %br
-        %a{href:"https://world-cup-json-2022.fly.dev/teams/"}
-          https://world-cup-json-2022.fly.dev/teams/
+        %h1.title.is-1 World Cup 2022
+        %h2.subtitle.is-2 (we're still here somehow)
+      .column.mt-5
+        %a{href:"https://github.com/estiens/world_cup_json"}
+          .button.is-large.is-info
+            CODE ON GITHUB
+  %p.mx-5.mt-5.is-size-4
+    This is an API for the <strike>World Cup(2014,2018) and Women's World Cup(2015,2019)</strike>
+    <b>2022!</b>
+    that scrapes current match results and outputs match data as JSON, including events such as goals, substitutions,
+    and cards, see the GitHub page for full details, or just play with it.
+    No guarantees are made as to its accuracy, or that it will stay up. But hey, it's made it through four world cups!
 .section
   .container
     .columns
-      .column
-        %h3
-          OPTIONAL PARAMETERS
-        %p
-          You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
-          %a{href:"https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC"}
-            https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC
-        %p
-          You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
-          %a{href:"https://world-cup-json-2022.fly.dev/matches/?by=total_goals"}
-            https://world-cup-json-2022.fly.dev/matches/?by=total_goals
-    - if @current_matches.count > 0
-      .row
-        .large-12.column.text-center
-          %h3 CURRENT MATCH
-          - @current_matches.each do |live_match|
-            .row
-              .large-4.column
-                - if live_match.home_team.flag_url
-                  = image_tag(live_match.home_team.flag_url, size: '100')
-              .large-4.column.text-center
+      .column.is-four-fifths.mx-auto.is-size-4
+        .box.has-background-primary-light
+          .columns
+            .column
+              %p.has-text-weight-bold
+                All match data, updated in real time
+              %a{href:"https://world-cup-json-2022.fly.dev/matches"}
+                %code GET /matches
+              .is-size-5.mt-2
+                %p
+                  by default, this only returns a match summary and the smaller views show details
+                  but you can change that.
+                %p.mt-2
+                  Full list of params below!
+            .column.is-size-5
+              %p.mt-3
+                sorting!
                 %br
-                #{live_match.datetime.utc.to_s}
+                %a.mt-1{href:"https://world-cup-json-2022.fly.dev/matches?by=closest_score"}
+                  %code ?by=closest_score
+              %p.mt-5
+                filtering! extended match details!
                 %br
-                #{live_match.venue} (#{live_match.location})
+                %a.mt-1{href:"https://world-cup-json-2022.fly.dev/matches/country/USA?details=true"}
+                  %code /country/USA?details=true
+    .columns
+      .column.is-four-fifths.mx-auto.is-size-4
+        .columns
+          .column.is-one-half
+            .box.has-background-info-light
+              %a.api-link{href:"https://world-cup-json-2022.fly.dev/matches/today"}
+                %code GET /matches/today
+              .is-size-5.mt-2
+                %p
+                  Returns all of today's matches
+                %p
+                  (yes, there's also a /tomorrow endpoint)
+          .column.is-one-half
+            .box.has-background-warning-light
+              %a.api-link{href:"https://world-cup-json-2022.fly.dev/matches/current"}
+                %code GET /matches/current
+              %p.is-size-5.mt-2
+                Returns the current match, if a match is happening, otherwise nothing.
+                Maybe you can use it to turn on your TV?
+    .columns
+      .column.is-four-fifths.mx-auto.is-size-4
+        .columns
+          .column.is-one-third
+            .box.has-background-success-light
+              %a{href:"https://world-cup-json-2022.fly.dev/teams/URU"}
+                %code GET /teams/:country
+              %p.is-size-5.mt-2
+                What's a Rails API without another show endpoint?
+          .column.is-two-thirds
+            .box.has-background-danger-light
+              %a{href:"https://world-cup-json-2022.fly.dev/teams"}
+                %code GET /teams
+              .is-size-5.mt-2
+                %p
+                  Results for teams (wins, losses, draws, goals_for, goals_against)
                 %br
-                #{live_match.stage_name}
-              .large-4.column
-                - if live_match.away_team.flag_url
-                  = image_tag(live_match.away_team.flag_url, size: '100')
-            .row
-              .large-4.column
-                %h4
-                  #{live_match.home_team.country}
-                  %br
-                  #{live_match.home_team_score}
-              .large-4.column.text-center
-              .large-4.column
-                %h4
-                  #{live_match.away_team.country}
-                  %br
-                  #{live_match.away_team_score}
-    -# .row
-    -#   .small-4.columns.text-center
-    -#     %h3 YESTERDAY'S MATCHES
-    -#     -@yesterday_matches.each do |match|
-    -#       -cache(match) do
-    -#         %p.match-result
-    -#           #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-      -# .small-4.columns.text-center
-      -#   %h3 TODAY'S MATCHES
-      -#   -@today_matches.each do |match|
-      -#     -cache(match) do
-      -#       %p.match-result
-      -#         -if match.status== "completed"
-      -#           #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score}) -- FINAL
-      -#           - if match.json_home_team_penalties > 0 && match.json_home_team_penalties > match.json_away_team_penalties
-      -#             %br
-      -#             %span{style: "font-size: .7em"}#{match.home_team.country} wins on penalties #{match.json_home_team_penalties} to #{match.json_away_team_penalties}
-      -#           - if match.json_home_team_penalties > 0 && match.json_home_team_penalties < match.json_away_team_penalties
-      -#             %br
-      -#             %span{style: "font-size: .7em"}#{match.away_team.country} wins on penalties #{match.json_away_team_penalties} to #{match.json_home_team_penalties}
-      -#         -elsif match.status == "in progress"
-      -#           .live
-                  -# = image_tag("match.home_team.flag_url", size: '100')
-                  #{match.home_team.country} (#{match.home_team_score}) Vs #{match.away_team.country} (#{match.away_team_score})
-                  -# = = image_tag("match.away_team.flag_url", size: '100')
-                  ( #{match.time} )
-              -else
-                #{match.home_team.country} v #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-      -# .small-4.columns.text-center
-      -#   %h3 TOMORROW'S MATCHES
-      -#   -@tomorrow_matches.each do |match|
-      -#     -cache(match) do
-      -#       %p.match-result
-      -#       #{match.home_team.country} Vs #{match.away_team.country} -- #{(match.datetime).strftime("%H:%M")}
-.footer
+                  Handy for those group stage arguments!
+    .columns
+      .column.is-four-fifths.mx-auto.is-size-6
+        .box.has-background-primary-light.mx-auto
+          %h3.is-title
+            OPTIONAL PARAMETERS
+          %p
+            You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
+            %br
+              %a{href:"https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC"}
+                https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC
+          %p
+            You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
+            %br
+              %a{href:"https://world-cup-json-2022.fly.dev/matches/?by=total_goals"}
+                https://world-cup-json-2022.fly.dev/matches/?by=total_goals
+-if @current_matches.count.positive?
+  .section
+    .container
+      .columns
+        .column.is-four-fifths.mx-auto
+          .box.has-background-link-light
+            %h3
+              CURRENT MATCH
+            %p
+              live match stuff
+.section
   .container
     %ul
       %li
