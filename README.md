@@ -1,12 +1,25 @@
 # FIFA WORLD CUP 2022
 
-This is on its way to working for 2022. Even on rails 7 now!
-Should have all events and goals and match stats streaming live, please file an issue or hit me up on twitter @mutualarising if anything has gone awry.
+We are mostly up and running for 2022.
+
+Todo:
+
+- figure out spinning up scraper VMs based on whether a match is in progress or not
+
+- tests around parsing events
+
+- make sure nothing changes in what we parse
+
+Setup: usual rails setup then
+`Setup2022.setup_teams`
+`Setup2022.setup_groups`
+`AllMatchesService.setup`
+
+And if you have 64 matches you are good to go! From there on out you can call jobs directly or use the
+`app/jobs/scheduler.rb` to update them
 
 https://world-cup-json-2022.fly.dev
-(HTTPS working for default domain now :yay:)
 
-Special thanks to my employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this many years ago...
 
 Main response endpoint:
 https://world-cup-json-2022.fly.dev/matches/today
@@ -16,39 +29,15 @@ https://world-cup-json-2022.fly.dev/matches/today
 
 ## ABOUT
 
-This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare!
+This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare! Update 13 Oct 2022- Guess we'll do this again!
 
-## SETUP
-
-### TBD2022
-
-<details><summary>WIP for 2022, old setup here</summary>
-* Clone the repo
-
-* ```rake db:setup setup:generate_teams``` to initialize the database and generate the teams
-
-* initial run, run `rake scraper:force_all_new` `rake scraper:force_all_old` `rake scraper:setup_json`
-
-* Run the following three tasks as cron jobs (there are also one off scraper jobs you can hit in the `Scrapers::ScraperTasks` file at `lib/scrapers`)
-
-  every short_time, `rake scraper:run_scraper`
-
-  every hour_or_two, `rake scraper:hourly_cleanup`
-
-  every day, `rake scraper:nightly_cleanup`
-
-* If you are setting up mid-tournament you'll need to run the following ScraperTasks: `scrape_old_matches`, `scrape_future_matches`, `scrape_for_stats`, `scrape_for_events`
-
-* If you have trouble setting up feel free to file a ticket and I or someone cal help. Sorry but things moving fast and more interested in keeping this running well than making it easy to setup at the moment.
-
-NOTE: The old scrapers are still there (`lib\tasks\match_scraper.rake`) but the new code is more memory efficient, does some error checking and cleaning up, doesn't break goals and events into two separate scrapes, and is greatly preferred~~
-</details>
-
+Special thanks to my former employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this many years ago...
 ## RATE LIMITING
 
 The current rate limit is 10 requests every 60 seconds. This is open to change at anytime depending on load, but I'll always keep it so a few requests can fire off in parallel. Please keep your polling down to once a minute or so, 30 seconds if you are feeling greedy, you're not going to get updated information any quicker than that.
 
 ## ENDPOINTS
+(some of the teams endpoints were never used may be deprecated for 2022)
 
 `[url]/teams/` for a list of teams with group ID and FIFA code
 
