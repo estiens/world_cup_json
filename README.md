@@ -533,6 +533,12 @@ https://world-cup-json-2022.fly.dev/matches/current
 ## PROJECTS USING THIS API IN 2022
 (Feel free to submit a PR with your project!)
 
+
+<details><summary>2022 projects submitted</summary>
+
+* https://github.com/cyrusDev1/qatar-worldcup
+(Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
+
 ## PROJECTS USING THIS API IN 2018
 
 <details><summary>2018 projects submitted</summary>
