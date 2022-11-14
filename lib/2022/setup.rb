@@ -13,22 +13,29 @@ class Setup2022
     end
   end
 
+  def self.create_groups
+    %w[A B C D E F G H].each do |letter|
+      Group.find_or_create_by(letter: letter)
+    end
+  end
+
   def self.parse_groups
+    create_groups unless Group.count == 8
     group_json = File.read(Rails.root.join('lib/assets/wc2022/groups.json'))
     JSON.parse(group_json)
   end
 
   def self.setup_groups
-    parse_groups.each do |g|
-      group = Group.find_or_create_by(letter: g.first[0])
-      group.teams = []
-      g.first[1].each do |name|
+    parse_groups.each do |data|
+      teams = data.first.last
+      group = Group.find_by(letter: data.first[0])
+      teams.each do |name|
         team = Team.find_by(alternate_name: name) || Team.find_by(country: name)
         raise "Could not find team for #{name}" unless team
+        next if group.teams.include? team
 
-        group.teams << team
+        team.update!(group: group)
       end
-      group.save
     end
   end
 end
