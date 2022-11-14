@@ -23,7 +23,7 @@
             .column
               %p.has-text-weight-bold
                 All match data, updated in real time
-              %a{href:"https://world-cup-json-2022.fly.dev/matches"}
+              %a{href:"https://worldcupjson.net/matches"}
                 %code GET /matches
               .is-size-5.mt-2
                 %p
@@ -35,19 +35,19 @@
               %p.mt-3
                 sorting!
                 %br
-                %a.mt-1{href:"https://world-cup-json-2022.fly.dev/matches?by=closest_score"}
+                %a.mt-1{href:"https://worldcupjson.net/matches?by=closest_score"}
                   %code ?by=closest_score
               %p.mt-5
                 filtering! extended match details!
                 %br
-                %a.mt-1{href:"https://world-cup-json-2022.fly.dev/matches/country/USA?details=true"}
+                %a.mt-1{href:"https://worldcupjson.net/matches/country/USA?details=true"}
                   %code /country/USA?details=true
     .columns
       .column.is-four-fifths.mx-auto.is-size-4
         .columns
           .column.is-one-half
             .box.has-background-info-light
-              %a.api-link{href:"https://world-cup-json-2022.fly.dev/matches/today"}
+              %a.api-link{href:"https://worldcupjson.net/matches/today"}
                 %code GET /matches/today
               .is-size-5.mt-2
                 %p
@@ -56,7 +56,7 @@
                   (yes, there's also a /tomorrow endpoint)
           .column.is-one-half
             .box.has-background-warning-light
-              %a.api-link{href:"https://world-cup-json-2022.fly.dev/matches/current"}
+              %a.api-link{href:"https://worldcupjson.net/matches/current"}
                 %code GET /matches/current
               %p.is-size-5.mt-2
                 Returns the current match, if a match is happening, otherwise nothing.
@@ -66,13 +66,13 @@
         .columns
           .column.is-one-third
             .box.has-background-success-light
-              %a{href:"https://world-cup-json-2022.fly.dev/teams/URU"}
+              %a{href:"https://worldcupjson.net/teams/URU"}
                 %code GET /teams/:country
               %p.is-size-5.mt-2
                 What's a Rails API without another show endpoint?
           .column.is-two-thirds
             .box.has-background-danger-light
-              %a{href:"https://world-cup-json-2022.fly.dev/teams"}
+              %a{href:"https://worldcupjson.net/teams"}
                 %code GET /teams
               .is-size-5.mt-2
                 %p
@@ -87,13 +87,13 @@
           %p
             You can append <code>?by_date=desc</code> to any query to sort the matches by future to past. <code>?by_date=asc</code> does past to future.
             %br
-              %a{href:"https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC"}
-                https://world-cup-json-2022.fly.dev/matches/today/?by_date=DESC
+              %a{href:"https://worldcupjson.net/matches/today/?by_date=DESC"}
+                https://worldcupjson.net/matches/today/?by_date=DESC
           %p
             You can append <code>?by=</code> with optional params <code>total_goals</code>, <code>closest_score</code>, <code>away_team_goals</code>, <code>home_team_goals</code>
             %br
-              %a{href:"https://world-cup-json-2022.fly.dev/matches/?by=total_goals"}
-                https://world-cup-json-2022.fly.dev/matches/?by=total_goals
+              %a{href:"https://worldcupjson.net/matches/?by=total_goals"}
+                https://worldcupjson.net/matches/?by=total_goals
 -if @current_matches.count.positive?
   .section
     .container

@@ -1,4 +1,4 @@
-class MatchInProgress < ApplicationJob
+class InProgressJob < ApplicationJob
   queue_as :scheduler
 
   def perform

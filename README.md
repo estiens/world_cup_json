@@ -18,11 +18,11 @@ Setup: usual rails setup then
 And if you have 64 matches you are good to go! From there on out you can call jobs directly or use the
 `app/jobs/scheduler.rb` to update them
 
-https://world-cup-json-2022.fly.dev
+https://worldcupjson.net
 
 
 Main response endpoint:
-https://world-cup-json-2022.fly.dev/matches/today
+https://worldcupjson.net/matches/today
 
 ## WILL UPDATE HERE WHEN LIVE FOR 2022 ##
 (should have made a dif deployment branch for each WC, if I had only thought a decade in advance)
@@ -68,7 +68,7 @@ You can also retrieve the matches for any team if you know their FIFA code (get 
 
   * You can append `?callback=foo` to get a JSONP response
 
-    Example: `https://world-cup-json-2022.fly.dev/matches/today?callback=bar`
+    Example: `https://worldcupjson.net/matches/today?callback=bar`
 
   * You can append `?by_date=desc` to any query to sort the matches by furthest in the future to furthest in the past. `?by_date=asc` does past to future. (ASC is default sort with no params)
 
@@ -519,15 +519,15 @@ The response includes the same data output as the regular GET call without param
 
 ## TRY IT OUT (We'll keep this up through the duration of the World Cup)
 
-https://world-cup-json-2022.fly.dev/matches
+https://worldcupjson.net/matches
 
-https://world-cup-json-2022.fly.dev/matches/today
+https://worldcupjson.net/matches/today
 
-https://world-cup-json-2022.fly.dev/matches/current
+https://worldcupjson.net/matches/current
 
-~~https://world-cup-json-2022.fly.dev/teams/group_results~~
+~~https://worldcupjson.net/teams/group_results~~
 
-~~https://world-cup-json-2022.fly.dev/teams~~
+~~https://worldcupjson.net/teams~~
 
 
 ## PROJECTS USING THIS API IN 2022

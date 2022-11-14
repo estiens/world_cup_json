@@ -1,6 +1,9 @@
 if Rails.env.production?
   workers Integer(ENV['WEB_CONCURRENCY'] || 3)
-  threads Integer(ENV['RAILS_MIN_THREADS'] || 8), Integer(ENV['RAILS_MAX_THREADS'] || 32)
+  min_threads = Integer(ENV['MIN_THREADS'] || ENV['RAILS_MAX_THREADS'] || 8)
+  max_threads = Integer(ENV['RAILS_MAX_THREADS'] || 32)
+
+  threads min_threads, max_threads
 else
   workers Integer(ENV['WEB_CONCURRENCY'] || 0)
   threads (ENV['RAILS_MIN_THREADS'] || 1), (ENV['RAILS_MAX_THREADS'] || 1)

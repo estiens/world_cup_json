@@ -11,8 +11,6 @@ kill_timeout = 60
   PORT = "8080"
   RAILS_ENV = "production"
   SERVER_COMMAND = "bin/rails server"
-  WEB_CONCURRENCY = "4"
-  RAILS_MAX_THREADS = "5"
 
 [experimental]
   allowed_public_ports = []
