@@ -30,14 +30,11 @@ class MatchWriter
   # or if in progress
   def write_match
     return false unless @match&.persisted?
+    return false unless update_match_from_json
 
-    @changed = update_match_from_json
-    Rails.logger.info("MatchWriter: #{match.fifa_id} updated") if @changed.any?
-    Rails.logger.info("MatchWriter: #{match.fifa_id} in progress") if match.status == :in_progress
-    Rails.logger.info("Changed: #{@changed.inspect}")
-    match.last_checked_at = Time.now
-    match.last_changed_at = Time.now if @changed.any?
-    match.last_changed = @changed if @changed.any?
+    Rails.logger.info("MatchWriter: #{match.fifa_id} updated - Changed: #{@changed.inspect}")
+    match.last_changed_at = Time.now
+    match.last_changed = @changed
     match.save
   end
 
@@ -54,12 +51,15 @@ class MatchWriter
   end
 
   def try_update_anything?(attrs)
+    updated = false
     attrs.each do |match_stat|
       next if match.public_send(match_stat.first) == match_stat.last
 
+      updated = true
       @changed << match_stat.first
       match.public_send("#{match_stat.first}=", match_stat.last)
     end
+    updated
   end
 
   def match_identifiers

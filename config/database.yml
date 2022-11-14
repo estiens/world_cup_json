@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: world_cup_dev
+  database: world_cup_json_dev
   pool: 5
   host: localhost
 
