@@ -98,6 +98,8 @@ GEM
     et-orbi (1.2.7)
       tzinfo
     ffi (1.15.5)
+    fly-ruby (0.5.1)
+      rack (~> 2.0)
     fugit (1.7.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -252,6 +254,7 @@ DEPENDENCIES
   binding_of_caller (~> 1.0)
   chronic (~> 0.10)
   derailed_benchmarks (~> 2.1)
+  fly-ruby
   good_job (~> 3.4)
   haml-rails (~> 2.1)
   httparty (~> 0.20)

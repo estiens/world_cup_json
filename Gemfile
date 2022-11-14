@@ -15,6 +15,10 @@ gem 'rack-attack', '~> 6.6'
 gem 'rack-cors', '~> 1.1', require: 'rack/cors'
 gem 'redis', '~> 5.0'
 
+group :production do
+  gem 'fly-ruby'
+end
+
 group :development do
   gem 'derailed_benchmarks', '~> 2.1'
   gem 'stackprof', '~> 0.2'
