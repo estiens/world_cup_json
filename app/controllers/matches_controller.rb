@@ -28,7 +28,7 @@ class MatchesController < BaseApiController
   def country
     @team = Team.where(country: params['country']&.upcase).first
     unless @team
-      render json: {'error': 'country code not_found'}
+      render json: { 'error': 'country code not_found' }
       return
     end
     @matches = @team.matches
@@ -51,19 +51,16 @@ class MatchesController < BaseApiController
   end
 
   def show
-    @match = Match.find_by(fifa_id: params[:id])
+    @match = Match.find_by(fifa_id: params[:id]) || Match.find_by(id: params[:id])
   end
 
   private
 
   def load_matches
-    @matches = Match.all.includes(:match_statistics)
-                    .includes(:home_team).includes(:away_team).includes(:events)
-                    .order('datetime ASC')
+    @matches = Match.all.includes(:match_statistics, :events).order('datetime ASC')
   end
 
   def order_by_params
-    @matches = @matches.order('datetime ASC')
     @date = params[:by_date]
     @order_by = params[:by] || params[:order_by]
     @start_date = params[:start_date]

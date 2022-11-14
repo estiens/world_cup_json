@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-json.call(match, :id, :venue, :location, :status, :weather, :attendance, :officials, :stage_name)
+json.call(match, :id, :venue, :location, :status, :attendance, :officials, :stage_name)
 
 json.home_team_country match.home_team&.country
 json.away_team_country match.away_team&.country
@@ -36,6 +36,7 @@ json.away_team do
   end
 end
 if @details
+  json.weather match.weather
   json.time match.time
   json.current_match_time match.detailed_time
   json.home_team_events do

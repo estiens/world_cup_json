@@ -32,10 +32,12 @@ class MatchWriter
     return false unless @match&.persisted?
 
     @changed = update_match_from_json
-
+    Rails.logger.info("MatchWriter: #{match.fifa_id} updated") if @changed.any?
+    Rails.logger.info("MatchWriter: #{match.fifa_id} in progress") if match.status == :in_progress
+    Rails.logger.info("Changed: #{@changed.inspect}")
     match.last_checked_at = Time.now
     match.last_changed_at = Time.now if @changed.any?
-    match.last_changed = @changed || []
+    match.last_changed = @changed if @changed.any?
     match.save
   end
 
