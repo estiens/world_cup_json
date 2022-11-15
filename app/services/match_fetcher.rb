@@ -25,11 +25,10 @@ class MatchFetcher
       match = match.is_a?(Match) ? match : Match.find(match)
       match_specific_info = match_info.find { |m| m['IdMatch'] == match.fifa_id }
       if match_specific_info
-        match.update(latest_json: match_specific_info.to_json)
+        match.update_column(:latest_json, match_specific_info.to_json)
         match.id
       else
         Rails.logger.info("**SCRAPER** Match #{match.fifa_id} not found in general info")
-        match.touch
         nil
       end
     end.compact

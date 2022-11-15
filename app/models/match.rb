@@ -137,7 +137,7 @@ class Match < ActiveRecord::Base
   private
 
   def validate_basic_info
-    return if fifa_competition_id && fifa_season_id && fifa_stage_id && fifa_group_id
+    return if fifa_competition_id && fifa_season_id && fifa_stage_id
 
     errors.add(:base, 'Match is missing basic information')
   end

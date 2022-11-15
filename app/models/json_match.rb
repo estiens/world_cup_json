@@ -130,6 +130,13 @@ class JsonMatch
     @officials ||= info['Officials']&.map { |official| map_official(official) }
   end
 
+  # double check logic on these
+  def in_progress?
+    return true if current_time_info[:current_time].to_i.positive?
+
+    false
+  end
+
   def completed?
     return true if match_winner&.to_i&.positive?
     return false unless match_status.zero?
