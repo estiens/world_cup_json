@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 json.call(match, :id, :venue, :location, :status, :attendance, :officials, :stage_name)
 
 json.home_team_country match.home_team&.country

@@ -1,11 +1,12 @@
 # FIFA WORLD CUP 2022
 
-We are mostly up and running for 2022.
+We are super up and running for 2022. Note URL change! Please remember to make a PR with your nice apps, raspberry pi projects, etc. And my favorite part of this whole thing, the students who get super excited about coding something.
 
-Todo:
+
+todo:
 
 - make sure nothing changes in what we parse
-- maybe find match status
+- maybe find match stats
 - make sure we detect when match starts/stops
 
 Setup: usual rails setup then
@@ -25,7 +26,9 @@ https://worldcupjson.net/matches/today
 
 [detailed_response](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
 
-\*\* note if match statistics make it in, they are all ints - but I have to find them!
+** note if match statistics make it in, they are all ints - but I have to find them!
+
+(note, the full matches endpoint has up to a 5 minutes cache on it and does not return all events - if you want real time updates please use `/matches/today`, `/matches/id`, or `/matches/current`)
 
 ## ABOUT
 
@@ -49,9 +52,9 @@ for all matches (Example JSON object at the bottom of this README)
 Note - if you want all matches with all details,you must now pass `?details=true` to this endpoint.
 All details will be present by default for endpoints like `matches/today` that return less matches...
 
-`[url]/teams/results` results for each team (wins, losses, points, goals_for, goals_away, games_played)
+`[url]/teams/` results for each team (wins, losses, points, goals_for, goals_away, games_played)
 
-`[url]/teams/group_results` results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
+`[url]/teams/USA` see next match info, last match info, current standings, etc
 
 ## OTHER ENDPOINTS
 
@@ -88,12 +91,10 @@ You can also use the by param to get some other sortings of the match list.
 
 #### JSONP
 
-<details><summary>JSONP old school</summary>
+JSONP old school
 The API also supports [JSONP](http://en.wikipedia.org/wiki/JSONP) style output via the `callback` parameter, e.g. `[url]/teams/results?callback=processData`
 
 The response includes the same data output as the regular GET call without parameters, but wrapped inside a function. This can be used to get around cross origin issues.
-
-</details>
 
 ## EXAMPLE RESPONSES
 
@@ -102,8 +103,6 @@ The response includes the same data output as the regular GET call without param
 ## PROJECTS USING THIS API IN 2022
 
 (Feel free to submit a PR with your project!)
-
-### 2022 projects
 
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
