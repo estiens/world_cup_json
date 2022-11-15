@@ -15,7 +15,12 @@ if @last_match
 end
 if @next_match
   json.next_match do
+    json.id @next_match.id
     json.home_team @next_match.home_team&.country || @next_match.home_team_tbd
     json.away_team @next_match.away_team&.country || @next_match.away_team_tbd
+    json.datetime @next_match.datetime&.utc&.iso8601
+    json.venue @next_match.venue
+    json.location @next_match.location
+    json.stage_name @next_match.stage_name
   end
 end

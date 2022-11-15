@@ -1,3 +1,1 @@
-json.array! @matches do |match|
-  json.partial! 'matches/match', match: match
-end
+json.array! @matches, partial: 'matches/match', as: :match, cached: true
