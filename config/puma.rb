@@ -1,7 +1,7 @@
 if Rails.env.production?
   workers Integer(ENV['WEB_CONCURRENCY'] || 3)
-  min_threads = Integer(ENV['MIN_THREADS'] || ENV['RAILS_MAX_THREADS'] || 4)
-  max_threads = Integer(ENV['RAILS_MAX_THREADS'] || 8)
+  min_threads = Integer(ENV['RAILS_MIN_THREADS'] || ENV['RAILS_MAX_THREADS'] || 5)
+  max_threads = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 
   threads min_threads, max_threads
 else
@@ -10,6 +10,7 @@ else
   threads (ENV['RAILS_MIN_THREADS'] || 1), (ENV['RAILS_MAX_THREADS'] || 1)
 end
 
+wait_for_less_busy_worker
 preload_app!
 
 rackup      DefaultRackup
