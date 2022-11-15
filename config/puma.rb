@@ -5,6 +5,7 @@ if Rails.env.production?
 
   threads min_threads, max_threads
 else
+  # much easier debugging in develop with just one thread
   workers Integer(ENV['WEB_CONCURRENCY'] || 0)
   threads (ENV['RAILS_MIN_THREADS'] || 1), (ENV['RAILS_MAX_THREADS'] || 1)
 end

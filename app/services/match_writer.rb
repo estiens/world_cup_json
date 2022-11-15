@@ -49,6 +49,7 @@ class MatchWriter
 
   def write_current_match
     write_score_info
+    write_time_info
     write_home_stats
     write_away_stats
     write_events
@@ -150,6 +151,11 @@ class MatchWriter
     return unless stats.changed?
 
     stats.save
+  end
+
+  def write_time_info
+    match.time = @json_match.current_time_info[:current_time]
+    match.detailed_time = @json_match.current_time_info
   end
 
   def write_score_info

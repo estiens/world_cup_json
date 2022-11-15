@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 json.call(match, :id, :venue, :location, :status, :attendance, :officials, :stage_name)
 
 json.home_team_country match.home_team&.country
@@ -38,33 +36,25 @@ end
 if @details
   json.weather match.weather
   json.time match.completed? ? 'full-time' : match.time
+  json.detailed_time match.detailed_time
+
   json.home_team_events do
-    if match.home_team
-      events = match.home_team_events.sort_by { |e| e.time.to_i }
-      json.array! events do |event|
-        json.id event.id
-        json.type_of_event event.type_of_event
-        json.player event.player
-        json.time event.time
-        json.extra_info event.extra_info
-      end
-    else
-      []
+    json.array! match.home_team_events do |event|
+      json.id event.id
+      json.type_of_event event.type_of_event
+      json.player event.player
+      json.time event.time
+      json.extra_info event.extra_info
     end
   end
 
   json.away_team_events do
-    if match.away_team
-      events = match.away_team_events.sort_by { |e| e.time.to_i }
-      json.array! events do |event|
-        json.id event.id
-        json.type_of_event event.type_of_event
-        json.player event.player
-        json.time event.time
-        json.extra_info event.extra_info
-      end
-    else
-      []
+    json.array! match.away_team_events do |event|
+      json.id event.id
+      json.type_of_event event.type_of_event
+      json.player event.player
+      json.time event.time
+      json.extra_info event.extra_info
     end
   end
 

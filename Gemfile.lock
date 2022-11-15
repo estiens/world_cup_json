@@ -159,6 +159,7 @@ GEM
       timeout
     net-smtp (0.3.2)
       net-protocol
+    newrelic_rpm (8.12.0)
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
@@ -277,6 +278,7 @@ DEPENDENCIES
   haml-rails (~> 2.1)
   httparty (~> 0.20)
   jbuilder (~> 2.11)
+  newrelic_rpm
   pg (~> 1.4)
   pry-rails (~> 0.3)
   puma (~> 5.6)

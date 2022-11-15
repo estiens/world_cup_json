@@ -111,11 +111,15 @@ class Match < ActiveRecord::Base
   end
 
   def home_team_events
-    events.where(team: home_team)
+    return [] unless home_team
+
+    events.where(team: home_team).sort_by { |e| e.time.to_i }
   end
 
   def away_team_events
-    events.where(team: away_team)
+    return [] unless away_team
+
+    events.where(team: away_team).sort_by { |e| e.time.to_i }
   end
 
   def home_stats
