@@ -120,19 +120,31 @@ class JsonMatch
     (degrees_c.to_i * (9 / 5) + 32).to_s
   end
 
-  def officials
-    refs = match_info_officials&.map { |official| official['NameShort'] }&.flatten
-    return [] unless refs.is_a? Array
+  def map_official(official)
+    { name: official['NameShort']&.first&.fetch('Description'),
+      role: official['TypeLocalized']&.first&.fetch('Description'),
+      country: official['IdCountry'] }
+  end
 
-    refs.map { |name| name['Description'] }&.flatten
+  def officials
+    @officials ||= info['Officials']&.map { |official| map_official(official) }
+  end
+
+  def completed?
+    return true if match_winner&.to_i&.positive?
+    return false unless match_status.zero?
+    return false if match_is_updateable
+    return true if match_time_defined
+
+    false
   end
 
   def score_info
     {
-      home_score: home_team_score,
-      away_score: away_team_score,
-      home_penalties: home_team_penalty_score,
-      away_penalties: away_team_penalty_score
+      home_score: home_team['Score'],
+      away_score: away_team['Score'],
+      home_penalties: match_home_team_penalty_score,
+      away_penalties: match_away_team_penalty_score
     }
   end
 
@@ -141,6 +153,14 @@ class JsonMatch
       starting_eleven: starters,
       substitutes: substitutes,
       coaches: coach_names }
+  end
+
+  def home_team_events
+    { goals: home_team['Goals'], bookings: home_team['Bookings'], substitutions: home_team['Substitutions'] }
+  end
+
+  def away_team_events
+    { goals: away_team['Goals'], bookings: away_team['Bookings'], substitutions: away_team['Substitutions'] }
   end
 
   def away_team_info
@@ -156,6 +176,20 @@ class JsonMatch
     coaches.map { |c| c['Name'].map { |d| d['Description'] } }&.flatten
   end
 
+  def find_player_by_id(id)
+    find_home_team_player(id).presence || find_away_team_player(id)
+  end
+
+  def find_home_team_player(player_id)
+    @home_players ||= home_team_info[:starting_eleven] + home_team_info[:substitutes]
+    @home_players&.find { |p| p[:fifa_id] == player_id }&.fetch(:name)&.titlecase
+  end
+
+  def find_away_team_player(player_id)
+    @away_players ||= away_team_info[:starting_eleven] + away_team_info[:substitutes]
+    @away_players&.find { |p| p[:fifa_id] == player_id }&.fetch(:name)&.titlecase
+  end
+
   def starters(home: true, away: false)
     home = false if away
     starters = home ? home_team['Players'] : away_team['Players']
@@ -168,42 +202,5 @@ class JsonMatch
     subs = home ? home_team['Players'] : away_team['Players']
     subs = subs.select { |p| p['Status'] == 2 }
     PlayersFormatter.players_from_array(subs)
-  end
-
-  class PlayersFormatter
-    class << self
-      def players_from_array(players_array)
-        create_players_from_match_info(players_array)
-      end
-
-      def player_from_hash(player_hash)
-        create_player_from_info_hash(player_hash)
-      end
-
-      def create_players_from_match_info(array)
-        return [] unless array.is_a? Array
-
-        array.map { |player| create_player_from_info_hash(player) }
-      end
-
-      def create_player_from_info_hash(player)
-        name = player&.dig('PlayerName')&.first&.dig('Description')
-        captain = player&.dig('Captain')
-        shirt_number = player&.dig('ShirtNumber')
-        position = get_position_from(player&.dig('Position'))
-        { name:, captain:, shirt_number:, position: }
-      end
-
-      def get_position_from(position)
-        return nil unless position
-
-        return 'Goalkeeper' if position.to_i.zero?
-        return 'Defender' if position.to_i == 1
-        return 'Midfielder' if position.to_i == 2
-        return 'Forward' if position.to_i == 3
-
-        'Unknown'
-      end
-    end
   end
 end

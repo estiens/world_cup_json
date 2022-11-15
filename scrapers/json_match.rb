@@ -90,11 +90,11 @@ module Scrapers
     end
 
     def home_team_code
-      @match_info.dig('Home', 'IdTeam')
+      @match_info&.dig('Home', 'IdTeam')
     end
 
     def away_team_code
-      @match_info.dig('Away', 'IdTeam')
+      @match_info&.dig('Away', 'IdTeam')
     end
 
     def fifa_competition_id
@@ -122,19 +122,19 @@ module Scrapers
     end
 
     def weather
-      @weather ||= @match_info.dig('Weather')
+      @weather ||= @match_info&.dig('Weather')
     end
 
     def attendance
-      @attendance ||= @match_info.dig('Attendance')
+      @attendance ||= @match_info&.dig('Attendance')
     end
 
     def humidity
-      @humidity ||= weather.dig('Humidity')
+      @humidity ||= weather&.dig('Humidity')
     end
 
     def temp_celsius
-      @temp_celsius ||= weather.dig('Temperature')
+      @temp_celsius ||= weather&.dig('Temperature')
     end
 
     def temp_farenheit
@@ -146,46 +146,46 @@ module Scrapers
     end
 
     def wind_speed
-      @wind_speed ||= weather.dig('WindSpeed')
+      @wind_speed ||= weather&.dig('WindSpeed')
     end
 
     def weather_description
-      @weather_description ||= weather.dig('TypeLocalized')&.first&.dig('Description')
+      @weather_description ||= weather&.dig('TypeLocalized')&.first&.dig('Description')
     end
 
     def stage_name
       return @stage_name if @stage_name
 
-      name = @match_info.dig('StageName')
+      name = @match_info&.dig('StageName')
       return unless name
 
       @stage_name = name.find { |stage| stage['Locale'] == 'en-GB' }&.dig('Description')
     end
 
     def home_team_tactics
-      @home_team_tactics ||= @match_info.dig('HomeTeam', 'Tactics')
+      @home_team_tactics ||= @match_info&.dig('HomeTeam', 'Tactics')
     end
 
     def away_team_tactics
-      @away_team_tactics ||= @match_info.dig('AwayTeam', 'Tactics')
+      @away_team_tactics ||= @match_info&.dig('AwayTeam', 'Tactics')
     end
 
     def home_score
-      @home_team_score ||= @match_info.dig('HomeTeamScore')
-      @home_team_score ||= @match_info.dig('HomeTeam', 'Score')
+      @home_score ||= @match_info&.dig('HomeTeamScore')
+      @home_score ||= @match_info&.dig('HomeTeam', 'Score')
     end
 
     def away_score
-      @away_team_score ||= @match_info.dig('AwayTeamScore')
-      @away_team_score ||= @match_info.dig('AwayTeam', 'Score')
+      @away_score ||= @match_info&.dig('AwayTeamScore')
+      @away_score ||= @match_info&.dig('AwayTeam', 'Score')
     end
 
     def home_penalties
-      @home_penalties = @match_info.dig('HomeTeamPenaltyScore')
+      @home_penalties ||= @match_info&.dig('HomeTeamPenaltyScore')
     end
 
     def away_penalties
-      @away_penalties = @match_info.dig('AwayTeamPenaltyScore')
+      @away_penalties ||= @match_info&.dig('AwayTeamPenaltyScore')
     end
 
     def home_starting_eleven
@@ -216,12 +216,14 @@ module Scrapers
       @away_team_substitutes = create_players_from_match_info(players)
     end
 
-    def officials
-      return @officials if @officials
+    def format_officials(officials: [])
+      officials&.flatten&.map { |name| name['Description'] }&.flatten
+    end
 
-      refs = @match_info['Officials']&.map { |off| off['NameShort'] }
-      names = refs&.flatten&.map { |name| name['Description'] }&.flatten
-      @officals = names
+    def officials
+      return @officials if defined? @officials
+
+      @officials = format_officials(@match_info['Officials']&.map { |off| off['NameShort'] })
     end
 
     private

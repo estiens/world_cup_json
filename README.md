@@ -2,9 +2,11 @@
 
 We are super up and running for 2022. Note URL change! Please remember to make a PR with your nice apps, raspberry pi projects, etc. And my favorite part of this whole thing, the students who get super excited about coding something.
 
-Todo:
+todo:
 
-- tests around parsing events
+- make sure nothing changes in what we parse
+- maybe find match stats
+- make sure we detect when match starts/stops
 
 
 Setup: usual rails setup then
@@ -19,6 +21,11 @@ https://worldcupjson.net
 
 Main response endpoint:
 https://worldcupjson.net/matches/today
+
+## DETAILED EXAMPLE RESPONSE
+[detailed_response](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
+
+** note if match statistics make it in, they are all ints - but I have to find them!
 
 (note, the full matches endpoint has up to a 5 minutes cache on it and does not return all events - if you want real time updates please use `/matches/today`, `/matches/id`, or `/matches/current`)
 
@@ -80,456 +87,20 @@ You can also use the by param to get some other sortings of the match list.
     Example:`[url]/matches/current/?by=closest_scores`
 
 #### JSONP
-
-The API also supports [JSONP](http://en.wikipedia.org/wiki/JSONP) style output via the `callback` parameter, e.g. `[url]/teams/results?callback=processData` responds with
-
-```json
-processData(
-	[
-		{
-				"id": 1,
-				"country": "Brazil",
-				"alternate_name": null,
-				"fifa_code": "BRA",
-				...
-		}
-	]
-)
-```
+<details><summary>JSONP old school</summary>
+The API also supports [JSONP](http://en.wikipedia.org/wiki/JSONP) style output via the `callback` parameter, e.g. `[url]/teams/results?callback=processData`
 
 The response includes the same data output as the regular GET call without parameters, but wrapped inside a function. This can be used to get around cross origin issues.
+</details>
 
 ## EXAMPLE RESPONSES
 
-<details><summary>MATCH(es) API ENDPOINT</summary>
+[Detailed Match View](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
 
-```json
-[{
-  "venue": "Kazan",
-  "location": "Kazan Arena",
-  "status": "completed",
-  "time": "full-time",
-  "fifa_id": "300331532",
-  "weather": {
-    "humidity": "40",
-    "temp_celsius": "28",
-    "temp_farenheit": "60",
-    "wind_speed": "18",
-    "description": "Sunny"
-  },
-  "attendance": "41835",
-  "officials": ["Mark GEIGER", "Joe FLETCHER", "Frank ANDERSON", "Julio BASCUNAN", "Danny MAKKELIE", "Corey ROCKWELL", "Tiago MARTINS", "Artur DIAS", "Christian SCHIEMANN"],
-  "stage_name": "First stage",
-  "home_team_country": "Korea Republic",
-  "away_team_country": "Germany",
-  "datetime": "2018-06-27T14:00:00Z",
-  "winner": "Korea Republic",
-  "winner_code": "KOR",
-  "home_team": {
-    "country": "Korea Republic",
-    "code": "KOR",
-    "goals": 2,
-    "penalties": 0
-  },
-  "away_team": {
-    "country": "Germany",
-    "code": "GER",
-    "goals": 0,
-    "penalties": 0
-  },
-  "home_team_events": [{
-    "id": 739,
-    "type_of_event": "yellow-card",
-    "player": "JUNG Wooyoung",
-    "time": "9'"
-  }, {
-    "id": 740,
-    "type_of_event": "yellow-card",
-    "player": "LEE Jaesung",
-    "time": "23'"
-  }, {
-    "id": 742,
-    "type_of_event": "yellow-card",
-    "player": "MOON Seonmin",
-    "time": "48'"
-  }, {
-    "id": 744,
-    "type_of_event": "substitution-out",
-    "player": "KOO Jacheol",
-    "time": "56'"
-  }, {
-    "id": 745,
-    "type_of_event": "substitution-in",
-    "player": "HWANG Heechan",
-    "time": "56'"
-  }, {
-    "id": 756,
-    "type_of_event": "yellow-card",
-    "player": "SON Heungmin",
-    "time": "65'"
-  }, {
-    "id": 759,
-    "type_of_event": "substitution-out",
-    "player": "MOON Seonmin",
-    "time": "69'"
-  }, {
-    "id": 760,
-    "type_of_event": "substitution-in",
-    "player": "JU Sejong",
-    "time": "69'"
-  }, {
-    "id": 766,
-    "type_of_event": "substitution-out",
-    "player": "HWANG Heechan",
-    "time": "79'"
-  }, {
-    "id": 767,
-    "type_of_event": "substitution-in",
-    "player": "GO Yohan",
-    "time": "79'"
-  }, {
-    "id": 774,
-    "type_of_event": "goal",
-    "player": "KIM Younggwon",
-    "time": "90'+3'"
-  }, {
-    "id": 775,
-    "type_of_event": "goal",
-    "player": "SON Heungmin",
-    "time": "90'+6'"
-  }],
-  "away_team_events": [{
-    "id": 748,
-    "type_of_event": "substitution-out",
-    "player": "Sami KHEDIRA",
-    "time": "58'"
-  }, {
-    "id": 749,
-    "type_of_event": "substitution-in",
-    "player": "Mario GOMEZ",
-    "time": "58'"
-  }, {
-    "id": 752,
-    "type_of_event": "substitution-out",
-    "player": "Leon GORETZKA",
-    "time": "63'"
-  }, {
-    "id": 753,
-    "type_of_event": "substitution-in",
-    "player": "Thomas MUELLER",
-    "time": "63'"
-  }, {
-    "id": 764,
-    "type_of_event": "substitution-out",
-    "player": "Jonas HECTOR",
-    "time": "78'"
-  }, {
-    "id": 765,
-    "type_of_event": "substitution-in",
-    "player": "Julian BRANDT",
-    "time": "78'"
-  }],
-  "home_team_statistics": {
-    "country": "Korea Republic",
-    "attempts_on_goal": 11,
-    "on_target": 5,
-    "off_target": 5,
-    "blocked": 1,
-    "woodwork": 0,
-    "corners": 3,
-    "offsides": 0,
-    "ball_possession": 32,
-    "pass_accuracy": 71,
-    "num_passes": 252,
-    "passes_completed": 180,
-    "distance_covered": 117,
-    "balls_recovered": 40,
-    "tackles": 10,
-    "clearances": 39,
-    "yellow_cards": 4,
-    "red_cards": 0,
-    "fouls_committed": 16,
-    "tactics": "4-4-2",
-    "starting_eleven": [{
-      "name": "JO Hyeonwoo",
-      "captain": false,
-      "shirt_number": 23,
-      "position": "Goalie"
-    }, {
-      "name": "LEE Yong",
-      "captain": false,
-      "shirt_number": 2,
-      "position": "Defender"
-    }, {
-      "name": "YUN Youngsun",
-      "captain": false,
-      "shirt_number": 5,
-      "position": "Defender"
-    }, {
-      "name": "SON Heungmin",
-      "captain": true,
-      "shirt_number": 7,
-      "position": "Forward"
-    }, {
-      "name": "KOO Jacheol",
-      "captain": false,
-      "shirt_number": 13,
-      "position": "Midfield"
-    }, {
-      "name": "HONG Chul",
-      "captain": false,
-      "shirt_number": 14,
-      "position": "Defender"
-    }, {
-      "name": "JUNG Wooyoung",
-      "captain": false,
-      "shirt_number": 15,
-      "position": "Midfield"
-    }, {
-      "name": "LEE Jaesung",
-      "captain": false,
-      "shirt_number": 17,
-      "position": "Midfield"
-    }, {
-      "name": "MOON Seonmin",
-      "captain": false,
-      "shirt_number": 18,
-      "position": "Midfield"
-    }, {
-      "name": "KIM Younggwon",
-      "captain": false,
-      "shirt_number": 19,
-      "position": "Defender"
-    }, {
-      "name": "JANG Hyunsoo",
-      "captain": false,
-      "shirt_number": 20,
-      "position": "Defender"
-    }],
-    "substitutes": [{
-      "name": "KIM Seunggyu",
-      "captain": false,
-      "shirt_number": 1,
-      "position": "Goalie"
-    }, {
-      "name": "JUNG Seunghyun",
-      "captain": false,
-      "shirt_number": 3,
-      "position": "Defender"
-    }, {
-      "name": "OH Bansuk",
-      "captain": false,
-      "shirt_number": 4,
-      "position": "Defender"
-    }, {
-      "name": "PARK Jooho",
-      "captain": false,
-      "shirt_number": 6,
-      "position": "Defender"
-    }, {
-      "name": "JU Sejong",
-      "captain": false,
-      "shirt_number": 8,
-      "position": "Midfield"
-    }, {
-      "name": "KIM Shinwook",
-      "captain": false,
-      "shirt_number": 9,
-      "position": "Forward"
-    }, {
-      "name": "LEE Seungwoo",
-      "captain": false,
-      "shirt_number": 10,
-      "position": "Midfield"
-    }, {
-      "name": "HWANG Heechan",
-      "captain": false,
-      "shirt_number": 11,
-      "position": "Forward"
-    }, {
-      "name": "KIM Minwoo",
-      "captain": false,
-      "shirt_number": 12,
-      "position": "Defender"
-    }, {
-      "name": "KI Sungyueng",
-      "captain": false,
-      "shirt_number": 16,
-      "position": "Midfield"
-    }, {
-      "name": "KIM Jinhyeon",
-      "captain": false,
-      "shirt_number": 21,
-      "position": "Goalie"
-    }, {
-      "name": "GO Yohan",
-      "captain": false,
-      "shirt_number": 22,
-      "position": "Defender"
-    }]
-  },
-  "away_team_statistics": {
-    "country": "Germany",
-    "attempts_on_goal": 26,
-    "on_target": 6,
-    "off_target": 11,
-    "blocked": 9,
-    "woodwork": 0,
-    "corners": 8,
-    "offsides": 1,
-    "ball_possession": 68,
-    "pass_accuracy": 87,
-    "num_passes": 715,
-    "passes_completed": 622,
-    "distance_covered": 114,
-    "balls_recovered": 38,
-    "tackles": 9,
-    "clearances": 10,
-    "yellow_cards": 0,
-    "red_cards": 0,
-    "fouls_committed": 7,
-    "tactics": "4-2-3-1",
-    "starting_eleven": [{
-      "name": "Manuel NEUER",
-      "captain": true,
-      "shirt_number": 1,
-      "position": "Goalie"
-    }, {
-      "name": "Jonas HECTOR",
-      "captain": false,
-      "shirt_number": 3,
-      "position": "Defender"
-    }, {
-      "name": "Mats HUMMELS",
-      "captain": false,
-      "shirt_number": 5,
-      "position": "Defender"
-    }, {
-      "name": "Sami KHEDIRA",
-      "captain": false,
-      "shirt_number": 6,
-      "position": "Midfield"
-    }, {
-      "name": "Toni KROOS",
-      "captain": false,
-      "shirt_number": 8,
-      "position": "Midfield"
-    }, {
-      "name": "Timo WERNER",
-      "captain": false,
-      "shirt_number": 9,
-      "position": "Forward"
-    }, {
-      "name": "Mesut OEZIL",
-      "captain": false,
-      "shirt_number": 10,
-      "position": "Midfield"
-    }, {
-      "name": "Marco REUS",
-      "captain": false,
-      "shirt_number": 11,
-      "position": "Forward"
-    }, {
-      "name": "Leon GORETZKA",
-      "captain": false,
-      "shirt_number": 14,
-      "position": "Midfield"
-    }, {
-      "name": "Niklas SUELE",
-      "captain": false,
-      "shirt_number": 15,
-      "position": "Defender"
-    }, {
-      "name": "Joshua KIMMICH",
-      "captain": false,
-      "shirt_number": 18,
-      "position": "Defender"
-    }],
-    "substitutes": [{
-      "name": "Marvin PLATTENHARDT",
-      "captain": false,
-      "shirt_number": 2,
-      "position": "Defender"
-    }, {
-      "name": "Matthias GINTER",
-      "captain": false,
-      "shirt_number": 4,
-      "position": "Defender"
-    }, {
-      "name": "Julian DRAXLER",
-      "captain": false,
-      "shirt_number": 7,
-      "position": "Midfield"
-    }, {
-      "name": "Kevin TRAPP",
-      "captain": false,
-      "shirt_number": 12,
-      "position": "Goalie"
-    }, {
-      "name": "Thomas MUELLER",
-      "captain": false,
-      "shirt_number": 13,
-      "position": "Midfield"
-    }, {
-      "name": "Antonio RUEDIGER",
-      "captain": false,
-      "shirt_number": 16,
-      "position": "Defender"
-    }, {
-      "name": "Sebastian RUDY",
-      "captain": false,
-      "shirt_number": 19,
-      "position": "Midfield"
-    }, {
-      "name": "Julian BRANDT",
-      "captain": false,
-      "shirt_number": 20,
-      "position": "Midfield"
-    }, {
-      "name": "Ilkay GUENDOGAN",
-      "captain": false,
-      "shirt_number": 21,
-      "position": "Midfield"
-    }, {
-      "name": "Marc-Andre TER STEGEN",
-      "captain": false,
-      "shirt_number": 22,
-      "position": "Goalie"
-    }, {
-      "name": "Mario GOMEZ",
-      "captain": false,
-      "shirt_number": 23,
-      "position": "Forward"
-    }, {
-      "name": "Jerome BOATENG",
-      "captain": false,
-      "shirt_number": 17,
-      "position": "Defender"
-    }]
-  },
-  "last_event_update_at": "2018-06-27T15:58:47Z",
-  "last_score_update_at": "2018-06-27T15:58:47Z"
-}]
-```
-</details>
-
-## TRY IT OUT (We'll keep this up through the duration of the World Cup)
-
-https://worldcupjson.net/matches
-
-https://worldcupjson.net/matches/today
-
-https://worldcupjson.net/matches/current
-
-~~https://worldcupjson.net/teams/group_results~~
-
-~~https://worldcupjson.net/teams~~
 
 
 ## PROJECTS USING THIS API IN 2022
 (Feel free to submit a PR with your project!)
-
-
 ### 2022 projects
 
 * https://github.com/cyrusDev1/qatar-worldcup
@@ -628,7 +199,17 @@ Some people have asked if they can make donations. I'd love for you to donate so
 [Doctors Without Borders](https://donate.doctorswithoutborders.org/secure/onetime-donate)
 [Aegean Boat Report](https://aegeanboatreport.com/donate/)
 
+## TRY IT OUT
 
+[https://worldcupjson.net/matches](https://worldcupjson.net/matches)
+
+[https://worldcupjson.net/matches/today](https://worldcupjson.net/matches/today)
+
+[https://worldcupjson.net/matches/current](https://worldcupjson.net/matches/current)
+
+[https://worldcupjson.net/teams](https://worldcupjson.net/teams)
+
+[https://worldcupjson.net/teams/USA](https://worldcupjson.net/teams/USA)
 ## UPDATES
 
 ### Updates June 19, 2018

@@ -22,7 +22,15 @@ RSpec.describe JsonMatch, :type => :model do
   end
 
   it 'should return info about the location of the match' do
-    expected_gen_info = { :attendance => '31000', :weather => {}, :officials => [] }
+    officials_array = [{ :name => 'F. Hernández', :role => 'Referee', :country => 'MEX' },
+                       { :name => 'Alberto MORIN',
+                         :role => 'Assistant Referee 1',
+                         :country => 'MEX' },
+                       { :name => 'Miguel HERNANDEZ',
+                         :role => 'Assistant Referee 2',
+                         :country => 'MEX' },
+                       { :name => 'D. Montaño', :role => 'Fourth official', :country => 'MEX' }]
+    expected_gen_info = { :attendance => '31000', :weather => {}, :officials => officials_array }
     expected_loc_info = { :venue => 'Estadio Olimpico Metropolitano', :location => 'San Pedro Sula' }
 
     expect(json_match.general_info.sort).to match_array(expected_gen_info.sort)
