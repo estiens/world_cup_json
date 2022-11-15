@@ -28,5 +28,6 @@ group :development, :test do
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
   gem 'pry-rails', '~> 0.3'
+  gem 'rspec-rails'
   gem 'rubocop', '~> 1.36'
 end

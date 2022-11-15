@@ -7,9 +7,6 @@ AllCops:
     - 'node_modules/*'
     - 'vendor/**/*'
     - lib/tasks/*
-    - spec/**/*
-    - test/**/*
-    - test/*
     - features/**/*
     - db/**/*
     - bin/**/*
@@ -19,6 +16,10 @@ AllCops:
     - old/*/
     - old/**/*
     - scrapers/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
 
 Style/FrozenStringLiteralComment:
   Enabled: False

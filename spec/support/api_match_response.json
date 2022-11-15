@@ -1,0 +1,1105 @@
+{
+  "IdMatch": "400180541",
+  "IdStage": "282667",
+  "IdGroup": "284947",
+  "IdSeason": "282653",
+  "IdCompetition": "520",
+  "CompetitionName": [
+    { "Locale": "en-GB", "Description": "FIFA World Cup Qualifier" }
+  ],
+  "SeasonName": [
+    {
+      "Locale": "en-GB",
+      "Description": "Preliminary Competition for the 2022 FWC Concacaf Zone"
+    }
+  ],
+  "SeasonShortName": [],
+  "Stadium": {
+    "IdStadium": "400242034",
+    "Name": [
+      { "Locale": "en-GB", "Description": "Estadio Olimpico Metropolitano" }
+    ],
+    "Capacity": null,
+    "WebAddress": null,
+    "Built": null,
+    "Roof": false,
+    "Turf": null,
+    "IdCity": "400241032",
+    "CityName": [{ "Locale": "en-GB", "Description": "San Pedro Sula" }],
+    "IdCountry": "HON",
+    "PostalCode": null,
+    "Street": null,
+    "Email": null,
+    "Fax": null,
+    "Phone": null,
+    "AffiliationCountry": null,
+    "AffiliationRegion": null,
+    "Latitude": null,
+    "Longitude": null,
+    "Length": null,
+    "Width": null,
+    "Properties": { "IdIFES": "5003146" },
+    "IsUpdateable": null
+  },
+  "ResultType": 1,
+  "MatchDay": "3",
+  "HomeTeamPenaltyScore": null,
+  "AwayTeamPenaltyScore": null,
+  "AggregateHomeTeamScore": null,
+  "AggregateAwayTeamScore": null,
+  "Weather": null,
+  "Attendance": "31000",
+  "Date": "2021-09-09T02:30:00Z",
+  "LocalDate": "2021-09-08T20:30:00Z",
+  "MatchTime": "0'",
+  "SecondHalfTime": null,
+  "FirstHalfTime": null,
+  "FirstHalfExtraTime": 3,
+  "SecondHalfExtraTime": 4,
+  "Winner": "43921",
+  "Period": 10,
+  "HomeTeam": {
+    "Score": 1,
+    "Side": null,
+    "IdTeam": "43909",
+    "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/HON",
+    "IdCountry": "HON",
+    "TeamType": 1,
+    "AgeType": 7,
+    "Tactics": "4-4-2",
+    "TeamName": [{ "Locale": "en-gb", "Description": "Honduras" }],
+    "Abbreviation": "HON",
+    "Coaches": [
+      {
+        "IdCoach": "170782",
+        "IdCountry": "COL",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-GB", "Description": "Hernan GOMEZ" }],
+        "Alias": [{ "Locale": "en-GB", "Description": "Hernan GOMEZ" }],
+        "Role": 0,
+        "SpecialStatus": null
+      },
+      {
+        "IdCoach": "332910",
+        "IdCountry": "URU",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-GB", "Description": "Fabián Coito Machado" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "F. Coito" }],
+        "Role": 0,
+        "SpecialStatus": null
+      },
+      {
+        "IdCoach": "161774",
+        "IdCountry": "HON",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-gb", "Description": "Arnold Cruz" }],
+        "Alias": [{ "Locale": "en-gb", "Description": "A. Cruz" }],
+        "Role": 1,
+        "SpecialStatus": null
+      }
+    ],
+    "Players": [
+      {
+        "IdPlayer": "380009",
+        "IdTeam": "43909",
+        "ShirtNumber": 22,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Luis LOPEZ" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "L. López" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "213879",
+        "IdTeam": "43909",
+        "ShirtNumber": 3,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": true,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Maynor FIGUEROA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Maynor FIGUEROA" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "385808",
+        "IdTeam": "43909",
+        "ShirtNumber": 4,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Marcelo PEREIRA" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "M. Pereira" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "330693",
+        "IdTeam": "43909",
+        "ShirtNumber": 17,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Andy NAJAR" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Najar" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "439955",
+        "IdTeam": "43909",
+        "ShirtNumber": 23,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Diego RODRIGUEZ" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "D. Rodríguez" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "403538",
+        "IdTeam": "43909",
+        "ShirtNumber": 7,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Carlos PINEDA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "C. PINEDA" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "430047",
+        "IdTeam": "43909",
+        "ShirtNumber": 15,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Kervin ARRIAGA" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "K. Arriaga" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "372165",
+        "IdTeam": "43909",
+        "ShirtNumber": 20,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Deybi FLORES" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "FLORES" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "430541",
+        "IdTeam": "43909",
+        "ShirtNumber": 21,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Jonathan RUBIO" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "J. Toro" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "306658",
+        "IdTeam": "43909",
+        "ShirtNumber": 9,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Antony LOZANO" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Lozano" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "430558",
+        "IdTeam": "43909",
+        "ShirtNumber": 13,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Brayan MOYA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Brayan Moya" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "395590",
+        "IdTeam": "43909",
+        "ShirtNumber": 1,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Edrick MENJIVAR" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "MENJIVAR" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "270412",
+        "IdTeam": "43909",
+        "ShirtNumber": 18,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Marlon LICONA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "LICONA" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "395493",
+        "IdTeam": "43909",
+        "ShirtNumber": 2,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Allans VARGAS" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "A. Vargas" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "403549",
+        "IdTeam": "43909",
+        "ShirtNumber": 5,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Danny ACOSTA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "ACOSTA" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "270391",
+        "IdTeam": "43909",
+        "ShirtNumber": 16,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Johnny LEVERON" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "J. Leverón" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "403534",
+        "IdTeam": "43909",
+        "ShirtNumber": 19,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Jose GARCIA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "J. GARCÍA" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "395496",
+        "IdTeam": "43909",
+        "ShirtNumber": 6,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Bryan ACOSTA" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "B. Acosta" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "441404",
+        "IdTeam": "43909",
+        "ShirtNumber": 8,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Edwin SOLANO" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "E. Solano" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "237071",
+        "IdTeam": "43909",
+        "ShirtNumber": 14,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Boniek GARCIA" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "B. García" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "403541",
+        "IdTeam": "43909",
+        "ShirtNumber": 10,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Rigoberto RIVAS" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "R. Rivas" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "344401",
+        "IdTeam": "43909",
+        "ShirtNumber": 11,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Eddie HERNANDEZ" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Hernandez" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "355041",
+        "IdTeam": "43909",
+        "ShirtNumber": 12,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Romell QUIOTO" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "R. Quioto" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      }
+    ],
+    "Bookings": [],
+    "Goals": [
+      {
+        "Type": 2,
+        "IdPlayer": "430558",
+        "Minute": "26:49",
+        "IdAssistPlayer": "439955",
+        "Period": 3,
+        "IdGoal": null,
+        "IdTeam": "43909"
+      }
+    ],
+    "Substitutions": [
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "403538",
+        "IdPlayerOn": "403534",
+        "PlayerOffName": [
+          { "Locale": "en-GB", "Description": "Carlos PINEDA" }
+        ],
+        "PlayerOnName": [{ "Locale": "en-GB", "Description": "Jose GARCIA" }],
+        "Minute": "45:00",
+        "IdTeam": "43909"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "306658",
+        "IdPlayerOn": "355041",
+        "PlayerOffName": [
+          { "Locale": "en-GB", "Description": "Antony LOZANO" }
+        ],
+        "PlayerOnName": [{ "Locale": "en-GB", "Description": "Romell QUIOTO" }],
+        "Minute": "45:00",
+        "IdTeam": "43909"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "430541",
+        "IdPlayerOn": "403541",
+        "PlayerOffName": [
+          { "Locale": "en-GB", "Description": "Jonathan RUBIO" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Rigoberto RIVAS" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "43909"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "372165",
+        "IdPlayerOn": "395496",
+        "PlayerOffName": [{ "Locale": "en-GB", "Description": "Deybi FLORES" }],
+        "PlayerOnName": [{ "Locale": "en-GB", "Description": "Bryan ACOSTA" }],
+        "Minute": "72:27",
+        "IdTeam": "43909"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 3,
+        "IdPlayerOff": "385808",
+        "IdPlayerOn": "344401",
+        "PlayerOffName": [
+          { "Locale": "en-GB", "Description": "Marcelo PEREIRA" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Eddie HERNANDEZ" }
+        ],
+        "Minute": "80:47",
+        "IdTeam": "43909"
+      }
+    ],
+    "FootballType": 0,
+    "Gender": 1,
+    "IdAssociation": "HON",
+    "ShortClubName": "Honduras"
+  },
+  "AwayTeam": {
+    "Score": 4,
+    "Side": null,
+    "IdTeam": "43921",
+    "PictureUrl": "https://api.fifa.com/api/v3/picture/flags-{format}-{size}/USA",
+    "IdCountry": "USA",
+    "TeamType": 1,
+    "AgeType": 7,
+    "Tactics": "4-3-3",
+    "TeamName": [{ "Locale": "en-GB", "Description": "United States" }],
+    "Abbreviation": "USA",
+    "Coaches": [
+      {
+        "IdCoach": "178167",
+        "IdCountry": "USA",
+        "PictureUrl": null,
+        "Name": [{ "Locale": "en-GB", "Description": "Gregg Berhalter" }],
+        "Alias": [{ "Locale": "en-GB", "Description": "Gregg BERHALTER" }],
+        "Role": 0,
+        "SpecialStatus": null
+      }
+    ],
+    "Players": [
+      {
+        "IdPlayer": "hwcrfg4h2ystqbd11qlmj015",
+        "IdTeam": "43921",
+        "ShirtNumber": 1,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Matt Turner" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "M. Turner" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "390238",
+        "IdTeam": "43921",
+        "ShirtNumber": 4,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Tyler  ADAMS" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "ADAMS" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "373555",
+        "IdTeam": "43921",
+        "ShirtNumber": 6,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "John BROOKS" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Brooks" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "436599",
+        "IdTeam": "43921",
+        "ShirtNumber": 12,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Miles ROBINSON" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "M. Robinson" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "419077",
+        "IdTeam": "43921",
+        "ShirtNumber": 15,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Mark McKENZIE" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "M. McKenzie" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "406297",
+        "IdTeam": "43921",
+        "ShirtNumber": 16,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "James SANDS" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "SANDS" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "406276",
+        "IdTeam": "43921",
+        "ShirtNumber": 21,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "George BELLO" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "G. Bello" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "331871",
+        "IdTeam": "43921",
+        "ShirtNumber": 23,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Kellyn PERRY-ACOSTA" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Kellyn Acosta" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "403565",
+        "IdTeam": "43921",
+        "ShirtNumber": 9,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Josh SARGENT" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "SARGENT" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "390267",
+        "IdTeam": "43921",
+        "ShirtNumber": 10,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": true,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Christian  PULISIC" }
+        ],
+        "ShortName": [{ "Locale": "en-gb", "Description": "C. Pulišić" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "419082",
+        "IdTeam": "43921",
+        "ShirtNumber": 14,
+        "Status": 1,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Ricardo PEPI" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Ricardo PEPI" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "385917",
+        "IdTeam": "43921",
+        "ShirtNumber": 18,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Ethan HORVATH" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "E. Horvath" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "305832",
+        "IdTeam": "43921",
+        "ShirtNumber": 22,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Sean JOHNSON" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Sean JOHNSON" }],
+        "Position": 0,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "368973",
+        "IdTeam": "43921",
+        "ShirtNumber": 2,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "DeAndre YEDLIN" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Yedlin" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "369097",
+        "IdTeam": "43921",
+        "ShirtNumber": 3,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Walker ZIMMERMAN" }
+        ],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Walker ZIMMERMAN" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "441251",
+        "IdTeam": "43921",
+        "ShirtNumber": 5,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Antonee ROBINSON" }
+        ],
+        "ShortName": [{ "Locale": "en-gb", "Description": "A. Robinson" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "339510",
+        "IdTeam": "43921",
+        "ShirtNumber": 13,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Tim REAM" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Ream" }],
+        "Position": 1,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "385994",
+        "IdTeam": "43921",
+        "ShirtNumber": 7,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-GB", "Description": "Cristian ROLDAN" }],
+        "ShortName": [{ "Locale": "en-GB", "Description": "Cristian ROLDAN" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "30wgzae40crezwtuqf1sbnwtl",
+        "IdTeam": "43921",
+        "ShirtNumber": 8,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [{ "Locale": "en-gb", "Description": "Jackson Yueill" }],
+        "ShortName": [{ "Locale": "en-gb", "Description": "J. Yueill" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "419055",
+        "IdTeam": "43921",
+        "ShirtNumber": 11,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Brenden AARONSON" }
+        ],
+        "ShortName": [{ "Locale": "en-gb", "Description": "B. Aaronson" }],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "313279",
+        "IdTeam": "43921",
+        "ShirtNumber": 17,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Sebastian LLETGET" }
+        ],
+        "ShortName": [
+          { "Locale": "en-GB", "Description": "Sebastian LLETGET" }
+        ],
+        "Position": 2,
+        "PlayerPicture": null,
+        "FieldStatus": 1,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "433149",
+        "IdTeam": "43921",
+        "ShirtNumber": 19,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Jordan SIEBATCHEU" }
+        ],
+        "ShortName": [{ "Locale": "en-gb", "Description": "J. Siebatcheu" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      },
+      {
+        "IdPlayer": "419075",
+        "IdTeam": "43921",
+        "ShirtNumber": 20,
+        "Status": 2,
+        "SpecialStatus": null,
+        "Captain": false,
+        "PlayerName": [
+          { "Locale": "en-GB", "Description": "Konrad De La Fuente" }
+        ],
+        "ShortName": [{ "Locale": "en-gb", "Description": "K. De La Fuente" }],
+        "Position": 3,
+        "PlayerPicture": null,
+        "FieldStatus": 2,
+        "LineupX": null,
+        "LineupY": null
+      }
+    ],
+    "Bookings": [],
+    "Goals": [
+      {
+        "Type": 2,
+        "IdPlayer": "441251",
+        "Minute": "47:40",
+        "IdAssistPlayer": "419082",
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "43921"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "419082",
+        "Minute": "74:25",
+        "IdAssistPlayer": "368973",
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "43921"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "419055",
+        "Minute": "85:56",
+        "IdAssistPlayer": "419082",
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "43921"
+      },
+      {
+        "Type": 2,
+        "IdPlayer": "313279",
+        "Minute": "92:05",
+        "IdAssistPlayer": null,
+        "Period": 5,
+        "IdGoal": null,
+        "IdTeam": "43921"
+      }
+    ],
+    "Substitutions": [
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "373555",
+        "IdPlayerOn": "313279",
+        "PlayerOffName": [{ "Locale": "en-GB", "Description": "John BROOKS" }],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Sebastian LLETGET" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "43921"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "406276",
+        "IdPlayerOn": "441251",
+        "PlayerOffName": [{ "Locale": "en-GB", "Description": "George BELLO" }],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Antonee ROBINSON" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "43921"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "403565",
+        "IdPlayerOn": "419055",
+        "PlayerOffName": [{ "Locale": "en-GB", "Description": "Josh SARGENT" }],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Brenden AARONSON" }
+        ],
+        "Minute": "45:00",
+        "IdTeam": "43921"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 1,
+        "SubstitutePosition": 2,
+        "IdPlayerOff": "390267",
+        "IdPlayerOn": "385994",
+        "PlayerOffName": [
+          { "Locale": "en-GB", "Description": "Christian  PULISIC" }
+        ],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "Cristian ROLDAN" }
+        ],
+        "Minute": "61:04",
+        "IdTeam": "43921"
+      },
+      {
+        "IdEvent": null,
+        "Period": 5,
+        "Reason": 2,
+        "SubstitutePosition": 1,
+        "IdPlayerOff": "406297",
+        "IdPlayerOn": "368973",
+        "PlayerOffName": [{ "Locale": "en-GB", "Description": "James SANDS" }],
+        "PlayerOnName": [
+          { "Locale": "en-GB", "Description": "DeAndre YEDLIN" }
+        ],
+        "Minute": "72:57",
+        "IdTeam": "43921"
+      }
+    ],
+    "FootballType": 0,
+    "Gender": 1,
+    "IdAssociation": "USA",
+    "ShortClubName": "USA"
+  },
+  "BallPossession": {
+    "Intervals": [],
+    "LastX": [],
+    "OverallHome": 52.9,
+    "OverallAway": 47.1
+  },
+  "TerritorialPossesion": null,
+  "TerritorialThirdPossesion": null,
+  "Officials": [
+    {
+      "IdCountry": "MEX",
+      "OfficialId": "408521",
+      "NameShort": [{ "Locale": "en-gb", "Description": "F. Hernández" }],
+      "Name": [
+        { "Locale": "en-GB", "Description": "Fernando HERNANDEZ GOMEZ" }
+      ],
+      "OfficialType": 1,
+      "TypeLocalized": [{ "Locale": "en-GB", "Description": "Referee" }]
+    },
+    {
+      "IdCountry": "MEX",
+      "OfficialId": "280936",
+      "NameShort": [{ "Locale": "en-GB", "Description": "Alberto MORIN" }],
+      "Name": [{ "Locale": "en-GB", "Description": "Alberto Morín Méndez" }],
+      "OfficialType": 2,
+      "TypeLocalized": [
+        { "Locale": "en-GB", "Description": "Assistant Referee 1" }
+      ]
+    },
+    {
+      "IdCountry": "MEX",
+      "OfficialId": "374814",
+      "NameShort": [{ "Locale": "en-GB", "Description": "Miguel HERNANDEZ" }],
+      "Name": [
+        { "Locale": "en-GB", "Description": "Miguel Ángel Hernández Paredes" }
+      ],
+      "OfficialType": 3,
+      "TypeLocalized": [
+        { "Locale": "en-GB", "Description": "Assistant Referee 2" }
+      ]
+    },
+    {
+      "IdCountry": "MEX",
+      "OfficialId": "416308",
+      "NameShort": [{ "Locale": "en-gb", "Description": "D. Montaño" }],
+      "Name": [{ "Locale": "en-GB", "Description": "Diego Montaño Robles" }],
+      "OfficialType": 4,
+      "TypeLocalized": [{ "Locale": "en-GB", "Description": "Fourth official" }]
+    }
+  ],
+  "MatchStatus": 0,
+  "GroupName": [{ "Locale": "en-GB", "Description": "Round Robin" }],
+  "StageName": [{ "Locale": "en-GB", "Description": "Final Round" }],
+  "OfficialityStatus": 2,
+  "TimeDefined": true,
+  "Properties": {
+    "IdIFES": "130197",
+    "StatsPerformIfesId": "130197",
+    "IdStatsPerform": "7e95bj124bfcemcj8pbs794ic"
+  },
+  "IsUpdateable": null
+}

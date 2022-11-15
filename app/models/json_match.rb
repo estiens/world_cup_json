@@ -4,6 +4,8 @@
 #    IsUpdateable -- can determine if currently live?
 
 class JsonMatch
+  attr_reader :info
+
   # identifiers, date_info, location_info, general_info
   # home_team_info, away_team_info, score_info, current_time_info
   # home_team, away_team
@@ -26,10 +28,6 @@ class JsonMatch
     else
       super
     end
-  end
-
-  def respond_to_missing?(method, include_private)
-    method.to_s.start_with?(:match) || super
   end
 
   def identifiers
@@ -142,16 +140,14 @@ class JsonMatch
     { tactics: home_team['Tactics'],
       starting_eleven: starters,
       substitutes: substitutes,
-      coaches: coach_names,
-      bookings: home_team['Bookings'] }
+      coaches: coach_names }
   end
 
   def away_team_info
     { tactics: away_team['Tactics'],
       starting_eleven: starters(away: true),
       substitutes: substitutes(away: true),
-      coaches: coach_names(away: true),
-      bookings: away_team['Bookings'] }
+      coaches: coach_names(away: true) }
   end
 
   def coach_names(home: true, away: false)
@@ -173,9 +169,7 @@ class JsonMatch
     subs = subs.select { |p| p['Status'] == 2 }
     PlayersFormatter.players_from_array(subs)
   end
-end
 
-class JsonMatch
   class PlayersFormatter
     class << self
       def players_from_array(players_array)
