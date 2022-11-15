@@ -1,0 +1,43 @@
+#
+# This file configures the New Relic Agent.  New Relic monitors Ruby, Java,
+# .NET, PHP, Python, Node, and Go applications with deep visibility and low
+# overhead.  For more information, visit www.newrelic.com.
+#
+# Generated November 15, 2022
+#
+# This configuration file is custom generated for NewRelic Administration
+#
+# For full documentation of agent configuration options, please refer to
+# https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
+
+common: &default_settings
+  license_key: ENV.fetch('NEW_RELIC_LICENSE_KEY', '111')
+  app_name: World Cup Json
+
+  distributed_tracing:
+    enabled: true
+
+  log_level: info
+
+  application_logging:
+    enabled: true
+    forwarding:
+      enabled: true
+      max_samples_stored: 10000
+    metrics:
+      enabled: true
+    local_decorating:
+      enabled: false
+
+development:
+  <<: *default_settings
+  app_name: World Cup Json (Development)
+  monitor_mode: false
+
+test:
+  <<: *default_settings
+  # It doesn't make sense to report to New Relic from automated test runs.
+  monitor_mode: false
+
+production:
+  <<: *default_settings
