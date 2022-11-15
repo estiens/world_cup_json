@@ -86,6 +86,13 @@ class Match < ActiveRecord::Base
     read_attribute(:status)&.to_sym || :incomplete
   end
 
+  def complete?
+    return true if status == :completed
+
+    false
+  end
+  alias completed? complete?
+
   def incomplete?
     return true if status.nil?
     return true if status == :incomplete
@@ -119,9 +126,9 @@ class Match < ActiveRecord::Base
     match_statistics.where(team: away_team).first
   end
 
-  # def update_self_from_latest_data
-  #   Services::MatchUpdater.new(self).update
-  # end
+  def update_self_from_latest_data
+    Services::MatchUpdater.new(self).update
+  end
 
   private
 
@@ -149,15 +156,16 @@ class Match < ActiveRecord::Base
 
   def regulation_winner
     return nil unless status == :completed
-    return home_team if home_team_score > away_team_score
-    return away_team if away_team_score > home_team_score
+    return nil unless home_team_score && away_team_score
+    return home_team if home_team_score.to_i > away_team_score.to_i
+    return away_team if away_team_score.to_i > home_team_score.to_i
 
     nil
   end
 
   def draw?
     return nil unless status == :completed
-    return false unless stage_name.downcase.include?('first stage')
+    return false unless stage_name&.downcase&.include?('first stage')
 
     home_team_score == away_team_score
   end

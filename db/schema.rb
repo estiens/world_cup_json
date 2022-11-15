@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_232107) do
     t.string "fifa_id"
     t.integer "team_id"
     t.text "event_json"
+    t.text "extra_info"
     t.index ["team_id"], name: "index_events_on_team_id"
   end
 

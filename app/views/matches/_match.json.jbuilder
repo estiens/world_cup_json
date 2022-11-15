@@ -10,8 +10,8 @@ if match.draw
   json.winner 'Draw'
   json.winner_code 'Draw'
 else
-  json.winner match.winner&.country
-  json.winner_code match.winner&.fifa_code
+  json.winner match.winner&.alternate_name
+  json.winner_code match.winner&.country
 end
 json.home_team do
   if match.home_team
@@ -37,8 +37,7 @@ json.away_team do
 end
 if @details
   json.weather match.weather
-  json.time match.time
-  json.current_match_time match.detailed_time
+  json.time match.completed? ? 'full-time' : match.time
   json.home_team_events do
     if match.home_team
       events = match.home_team_events.sort_by { |e| e.time.to_i }
@@ -47,6 +46,7 @@ if @details
         json.type_of_event event.type_of_event
         json.player event.player
         json.time event.time
+        json.extra_info event.extra_info
       end
     else
       []
@@ -61,7 +61,30 @@ if @details
         json.type_of_event event.type_of_event
         json.player event.player
         json.time event.time
+        json.extra_info event.extra_info
       end
+    else
+      []
+    end
+  end
+
+  json.home_team_lineup do
+    if match.home_stats
+      json.country match.home_team.country
+      json.tactics match.home_stats.tactics
+      json.starting_eleven(match.home_stats.starting_eleven&.map { |h| h.slice('name', 'shirt_number', 'position') })
+      json.substitutes(match.home_stats.substitutes&.map { |h| h.slice('name', 'shirt_number', 'position') })
+    else
+      []
+    end
+  end
+
+  json.away_team_lineup do
+    if match.away_stats
+      json.country match.away_team.country
+      json.tactics match.away_stats.tactics
+      json.starting_eleven(match.away_stats.starting_eleven&.map { |h| h.slice('name', 'shirt_number', 'position') })
+      json.substitutes(match.away_stats.substitutes&.map { |h| h.slice('name', 'shirt_number', 'position') })
     else
       []
     end
@@ -70,11 +93,11 @@ if @details
   json.home_team_statistics do
     if match.home_stats
       json.country match.home_team.country
-      json.call(match.home_stats, :attempts_on_goal, :on_target, :off_target, :blocked,
+      json.call(match.home_stats,
+                :attempts_on_goal, :on_target, :off_target, :blocked,
                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
                 :passes_completed, :distance_covered, :tackles,
-                :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
-                :starting_eleven, :substitutes)
+                :clearances, :yellow_cards, :red_cards, :fouls_committed)
     else
       []
     end
@@ -83,11 +106,11 @@ if @details
   json.away_team_statistics do
     if match.away_stats
       json.country match.away_team.country
-      json.call(match.away_stats, :attempts_on_goal, :on_target, :off_target, :blocked,
+      json.call(match.away_stats,
+                :attempts_on_goal, :on_target, :off_target, :blocked,
                 :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
                 :passes_completed, :distance_covered, :tackles,
-                :clearances, :yellow_cards, :red_cards, :fouls_committed, :tactics,
-                :starting_eleven, :substitutes)
+                :clearances, :yellow_cards, :red_cards, :fouls_committed)
     else
       []
     end
