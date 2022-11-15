@@ -1,12 +1,13 @@
 # FIFA WORLD CUP 2022
 
-We are mostly up and running for 2022.
+We are super up and running for 2022. Note URL change! Please remember to make a PR with your nice apps, raspberry pi projects, etc. And my favorite part of this whole thing, the students who get super excited about coding something.
 
-Todo:
+todo:
 
 - make sure nothing changes in what we parse
-- maybe find match status
+- maybe find match stats
 - make sure we detect when match starts/stops
+
 
 Setup: usual rails setup then
 `Setup2022.setup_teams`
@@ -26,11 +27,14 @@ https://worldcupjson.net/matches/today
 
 ** note if match statistics make it in, they are all ints - but I have to find them!
 
+(note, the full matches endpoint has up to a 5 minutes cache on it and does not return all events - if you want real time updates please use `/matches/today`, `/matches/id`, or `/matches/current`)
+
 ## ABOUT
 
 This is a simple backend for a scraper that grabs current world cup results and outputs them as JSON. UPDATE 8 Jun 2015 - This is now working for the Women's World Cup. UPDATE 14 June 2018 - Updated for the World Cup in 2018 with 7 hours to spare! Update 13 Oct 2022- Guess we'll do this again!
 
 Special thanks to my former employer [Software For Good](https://softwareforgood.com/) for encouraging me to make this many years ago...
+
 ## RATE LIMITING
 
 The current rate limit is 10 requests every 60 seconds. This is open to change at anytime depending on load, but I'll always keep it so a few requests can fire off in parallel. Please keep your polling down to once a minute or so, 30 seconds if you are feeling greedy, you're not going to get updated information any quicker than that.
@@ -46,9 +50,9 @@ for all matches (Example JSON object at the bottom of this README)
 Note - if you want all matches with all details,you must now pass `?details=true` to this endpoint.
 All details will be present by default for endpoints like `matches/today` that return less matches...
 
-`[url]/teams/results` results for each team (wins, losses, points, goals_for, goals_away, games_played)
+`[url]/teams/` results for each team (wins, losses, points, goals_for, goals_away, games_played)
 
-`[url]/teams/group_results` results for each group, teams ordered by current groups standings (more or less, not all head to head logic is programmed in as tiebreakers) - can also pass in `?group_id=B` to limit to a specific group.
+`[url]/teams/USA` see next match info, last match info, current standings, etc
 
 ## OTHER ENDPOINTS
 
