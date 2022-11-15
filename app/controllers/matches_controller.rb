@@ -1,10 +1,10 @@
 class MatchesController < BaseApiController
   before_action :detail_level
-  before_action :load_matches, except: %i[show country today tomorrow]
+  before_action :load_matches, except: %i[show]
 
   def index
+    @details = false unless params[:details]&.downcase == 'true'
     order_by_params
-    @details = false unless params[:details] == true
   end
 
   def current
@@ -31,21 +31,19 @@ class MatchesController < BaseApiController
       render json: { 'error': 'country code not_found' }
       return
     end
-    @matches = @team.matches
+    @matches = @matches.where('home_team_id = ? OR away_team_id = ?', @team.id, @team.id)
     order_by_params
     render :index
   end
 
   def today
-    @matches = Match.today.includes(:match_statistics)
-                    .includes(:home_team).includes(:away_team).includes(:events)
+    @matches = @matches.today
     order_by_params
     render :index
   end
 
   def tomorrow
-    @matches = Match.tomorrow.includes(:match_statistics)
-                    .includes(:home_team).includes(:away_team).includes(:events)
+    @matches = @matches.tomorrow
     order_by_params
     render :index
   end
@@ -57,7 +55,8 @@ class MatchesController < BaseApiController
   private
 
   def load_matches
-    @matches = Match.all.includes(:match_statistics, :events).order('datetime ASC')
+    @matches = Match.all
+    @matches = @matches.includes(:match_statistics, :events) if @details
   end
 
   def order_by_params
@@ -99,18 +98,14 @@ class MatchesController < BaseApiController
 
     case @order_by.downcase
     when 'total_goals'
-      @matches = @matches.reorder(nil).order('home_team_score + away_team_score DESC')
+      @matches = @matches.reorder(nil).order(Arel.sql('home_team_score + away_team_score DESC'))
     when 'home_team_goals'
-      @matches = @matches.reorder(nil).order('home_team_score DESC')
+      @matches = @matches.reorder(nil).order(Arel.sql('home_team_score DESC'))
     when 'away_team_goals'
-      @matches = @matches.reorder(nil).order('away_team_score DESC')
+      @matches = @matches.reorder(nil).order(Arel.sql('away_team_score DESC'))
     when 'closest_scores'
-      @matches = @matches.reorder(nil).order('abs(home_team_score - away_team_score) ASC')
+      @matches = @matches.reorder(nil).order(Arel.sql('abs(home_team_score - away_team_score) ASC'))
     end
-  end
-
-  def index_detail_level
-    @details = params[:details] || 'false'
   end
 
   def detail_level

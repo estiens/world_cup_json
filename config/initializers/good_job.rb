@@ -7,7 +7,7 @@ Rails.application.config.good_job = {
   preserve_job_records: true,
   retry_on_unhandled_error: false,
   queues: 'scraping,noscrape,scheduler,default',
-  enable_cron: ENV.fetch('ENABLE_CRON', false),
+  enable_cron: ENV.fetch('ENABLE_CRON', false) || ENV.fetch('SCRAPING_ENABLED', false),
   cron: {
     scheduler_job: {
       cron: '*/5 * * * *',

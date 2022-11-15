@@ -31,11 +31,11 @@ RSpec.describe JsonMatch, :type => :model do
       expect(match.home_team_events.count).to eq(4)
       expect(match.away_team_events.count).to eq(7)
 
-      home_goal = match.home_team_events.find_by(type_of_event: 'goal')
+      home_goal = match.home_team_events.select { |ev| ev.type_of_event == :goal }.first
       expect(home_goal.player).to be_present
       expect(home_goal.time).to eq '26:49'
 
-      away_sub = match.away_team_events.find_by(type_of_event: 'substitution')
+      away_sub = match.away_team_events.select { |ev| ev.type_of_event == :substitution }.first
       expect(away_sub.to_s.strip).to be_present
       expect(away_sub.time).to eq '45:00'
     end
