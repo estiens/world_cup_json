@@ -7,6 +7,9 @@ kill_timeout = 60
     SERVER_COMMAND = "bin/rails server"
     PORT = "8080"
 
+[deploy]
+  release_command = "bin/rails db:migrate"
+
 [env]
   PORT = "8080"
   RAILS_ENV = "production"

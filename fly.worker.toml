@@ -10,7 +10,7 @@ kill_timeout = 5
   [build.args]
 
 [deploy]
-  release_command = "bin/rails fly:release"
+  release_command = "bin/rails db:migrate"
 
 [env]
   PORT = "8080"
