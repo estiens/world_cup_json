@@ -130,6 +130,13 @@ class JsonMatch
     @officials ||= info['Officials']&.map { |official| map_official(official) }
   end
 
+  # double check logic on these
+  def in_progress?
+    return true if current_time_info[:current_time].to_i.positive?
+
+    false
+  end
+
   def completed?
     return true if match_winner&.to_i&.positive?
     return false unless match_status.zero?
@@ -193,6 +200,8 @@ class JsonMatch
   def starters(home: true, away: false)
     home = false if away
     starters = home ? home_team['Players'] : away_team['Players']
+    return nil if starters.blank?
+
     starters = starters.select { |p| p['Status'] == 1 }
     PlayersFormatter.players_from_array(starters)
   end
@@ -200,6 +209,8 @@ class JsonMatch
   def substitutes(home: true, away: false)
     home = false if away
     subs = home ? home_team['Players'] : away_team['Players']
+    return nil if subs.blank?
+
     subs = subs.select { |p| p['Status'] == 2 }
     PlayersFormatter.players_from_array(subs)
   end

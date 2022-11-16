@@ -9,6 +9,7 @@ kill_timeout = 60
 
 [deploy]
   release_command = "bin/rails db:migrate"
+  strategy = "bluegreen"
 
 [env]
   PORT = "8080"

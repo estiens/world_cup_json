@@ -14,6 +14,7 @@ class MatchWriter
     @match = match
     json_string ||= match.latest_json
     @json_match = JsonMatch.new(json_string)
+    @updated = nil
     @changed = []
   end
 
@@ -32,13 +33,20 @@ class MatchWriter
     return false unless @match&.persisted?
     return false unless update_match_from_json
 
-    Rails.logger.info("MatchWriter: #{match.fifa_id} updated - Changed: #{@changed.inspect}")
+    Rails.logger.debug { "MatchWriter: #{match.fifa_id} updated - Changed: #{@changed.inspect}" }
     match.last_changed_at = Time.zone.now
     match.last_changed = @changed
     match.save
   end
 
   private
+
+  def start_match!
+    return unless match.status == :future_scheduled
+    return unless @json_match.in_progress?
+
+    match.update_column(:status, :in_progress)
+  end
 
   def complete_match!
     return unless match.status == :in_progress
@@ -70,12 +78,14 @@ class MatchWriter
   end
 
   def update_match_from_json
-    changed = false
+    updated = nil
     match.update_column(:last_checked_at, Time.now)
-    changed = true if update_match_in_progress
-    changed = true if try_update_if_blank?(match_identifiers.merge(team_ids))
-    changed = true if try_update_anything?(general_info_attributes)
-    changed
+    updated = true if update_match_in_progress
+
+    updated = true if check_for_upcoming_changes
+    updated = true if try_update_if_blank?(match_identifiers.merge(team_ids).merge(general_info_attributes))
+    updated = true if try_update_anything?(general_info_attributes)
+    updated
   end
 
   def try_update_if_blank?(attrs)
@@ -100,6 +110,16 @@ class MatchWriter
       match.public_send("#{match_stat.first}=", match_stat.last)
     end
     updated
+  end
+
+  def check_for_upcoming_changes
+    return false unless match.datetime
+    return false unless match.datetime > Time.zone.now - 24.hours
+
+    start_match!
+    write_home_stats
+    write_away_stats
+    true
   end
 
   def match_identifiers
