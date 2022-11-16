@@ -52,7 +52,7 @@ class MatchWriter
     return unless match.status == :in_progress
     return unless @json_match.completed?
 
-    match.update!(status: :completed)
+    match.update_column(status: :completed)
   end
 
   def write_current_match
@@ -80,18 +80,19 @@ class MatchWriter
   def update_match_from_json
     updated = nil
     match.update_column(:last_checked_at, Time.now)
-    updated = true if update_match_in_progress
 
+    updated = true if update_match_in_progress
     updated = true if check_for_upcoming_changes
-    updated = true if try_update_if_blank?(match_identifiers.merge(team_ids).merge(general_info_attributes))
     updated = true if try_update_anything?(general_info_attributes)
+    updated = true if try_update_if_blank?(match_identifiers.merge(team_ids).merge(general_info_attributes))
+
     updated
   end
 
   def try_update_if_blank?(attrs)
     updated = false
     attrs.each do |match_stat|
-      next if match.public_send(match_stat.first).present?
+      next if match.public_send(match_stat.first).present? || match_stat.last.blank?
 
       updated = true
       @changed << match_stat.first
@@ -100,10 +101,18 @@ class MatchWriter
     updated
   end
 
+  def hash_matches?(hash1, hash2)
+    return false unless hash1.is_a?(Hash) && hash2.is_a?(Hash)
+    return true if hash1.values.compact == hash2.values.compact
+
+    false
+  end
+
   def try_update_anything?(attrs)
     updated = false
     attrs.each do |match_stat|
       next if match.public_send(match_stat.first) == match_stat.last
+      next if hash_matches?(match.public_send(match_stat.first), match_stat.last)
 
       updated = true
       @changed << match_stat.first
@@ -113,13 +122,13 @@ class MatchWriter
   end
 
   def check_for_upcoming_changes
-    return false unless match.datetime
-    return false unless match.datetime > Time.zone.now - 24.hours
+    return false if match.datetime.to_i > 2.days.ago.to_i
+    return false if match.status == :completed
 
     start_match!
     write_home_stats
     write_away_stats
-    true
+    match.changed?
   end
 
   def match_identifiers

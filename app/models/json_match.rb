@@ -12,7 +12,7 @@ class JsonMatch
 
   def initialize(json)
     @info = json if json.is_a? Hash
-    @info = JSON.parse(json)
+    @info ||= JSON.parse(json)
   end
 
   def to_s
@@ -75,11 +75,12 @@ class JsonMatch
   end
 
   def current_time_info
-    {
-      current_time: match_match_time,
-      first_half_time: match_first_half_time, first_half_extra_time: match_first_half_extra_time,
-      second_half_time: match_second_half_time, second_half_extra_time: match_second_half_extra_time
-    }
+    @current_time_info ||=
+      {
+        current_time: match_match_time,
+        first_half_time: match_first_half_time, first_half_extra_time: match_first_half_extra_time,
+        second_half_time: match_second_half_time, second_half_extra_time: match_second_half_extra_time
+      }
   end
 
   def location_info
@@ -133,15 +134,13 @@ class JsonMatch
   # double check logic on these
   def in_progress?
     return true if current_time_info[:current_time].to_i.positive?
+    return true if match_officiality_status.positive?
 
     false
   end
 
   def completed?
-    return true if match_winner&.to_i&.positive?
-    return false unless match_status.zero?
-    return false if match_is_updateable
-    return true if match_time_defined
+    return true if match_property_period.to_i == 10 && match_officiality_status.to_i == 2
 
     false
   end
