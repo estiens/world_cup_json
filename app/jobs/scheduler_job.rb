@@ -18,8 +18,10 @@ class SchedulerJob < ApplicationJob
   # ideally this has nothing
   def scrape_unknown_matches
     ids = Match.all.where('last_checked_at < ?', SCRAPE_UNKNOWN_EVERY.ago).pluck(:id)
+    return unless ids.count.positive?
+
     Rails.logger.info("**SCHEDULER** unknown scrape for #{ids.count} matches")
-    fetch_general_data_for_matches(match_ids)
+    fetch_general_data_for_matches(ids)
   end
 
   def scrape_completed?
