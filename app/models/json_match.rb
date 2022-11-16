@@ -180,6 +180,8 @@ class JsonMatch
   def coach_names(home: true, away: false)
     home = false if away
     coaches = home ? home_team['Coaches'] : away_team['Coaches']
+    return nil if coaches.blank?
+
     coaches.map { |c| c['Name'].map { |d| d['Description'] } }&.flatten
   end
 
