@@ -80,7 +80,7 @@ class MatchWriter
   def update_match_from_json
     updated = nil
     match.update_column(:last_checked_at, Time.now)
-    return true if update_match_in_progress
+    updated = true if update_match_in_progress
 
     updated = true if check_for_upcoming_changes
     updated = true if try_update_if_blank?(match_identifiers.merge(team_ids).merge(general_info_attributes))

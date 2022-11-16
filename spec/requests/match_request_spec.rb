@@ -17,7 +17,7 @@ RSpec.describe 'MatchRequest', type: :request do
     match.save
   end
 
-  it 'should return a full payload for index endpoint' do
+  it 'should return a full payload for index endpoint (no details)' do
     res = get matches_path
     expect(res).to eq 200
 
