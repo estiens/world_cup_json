@@ -57,6 +57,7 @@ class MatchesController < BaseApiController
   def load_matches
     @matches = Match.all
     @matches = @matches.includes(:match_statistics, :events) if @details
+    @matches = @matches.order(datetime: :asc)
   end
 
   def order_by_params
