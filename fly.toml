@@ -9,9 +9,9 @@ kill_timeout = 60
 
 [deploy]
   release_command = "bin/rails db:migrate"
-  strategy = "bluegreen"
 
 [env]
+  PRIMARY_REGION = "den"
   PORT = "8080"
   RAILS_ENV = "production"
   SERVER_COMMAND = "bin/rails server"
