@@ -200,6 +200,8 @@ class JsonMatch
   def starters(home: true, away: false)
     home = false if away
     starters = home ? home_team['Players'] : away_team['Players']
+    return nil if starters.blank?
+
     starters = starters.select { |p| p['Status'] == 1 }
     PlayersFormatter.players_from_array(starters)
   end
@@ -207,6 +209,8 @@ class JsonMatch
   def substitutes(home: true, away: false)
     home = false if away
     subs = home ? home_team['Players'] : away_team['Players']
+    return nil if subs.blank?
+
     subs = subs.select { |p| p['Status'] == 2 }
     PlayersFormatter.players_from_array(subs)
   end
