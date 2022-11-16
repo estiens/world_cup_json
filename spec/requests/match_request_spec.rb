@@ -14,7 +14,7 @@ RSpec.describe 'MatchRequest', type: :request do
   before(:each) do
     match.update!(status: :in_progress)
     MatchWriter.new(match: match).write_match
-    match.save
+    MatchWriter.new(match: match).write_match
   end
 
   it 'should return a full payload for index endpoint (no details)' do

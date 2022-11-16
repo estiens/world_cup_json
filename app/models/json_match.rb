@@ -140,7 +140,7 @@ class JsonMatch
   end
 
   def completed?
-    return true if match_property_period.to_i == 10 && match_officiality_status.to_i == 2
+    return true if match_property_period.to_i == 10 || match_period.to_i == 10
 
     false
   end

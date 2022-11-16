@@ -52,7 +52,7 @@ class MatchWriter
     return unless match.status == :in_progress
     return unless @json_match.completed?
 
-    match.update_column(status: :completed)
+    match.update_column(:status, :completed)
   end
 
   def write_current_match

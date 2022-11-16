@@ -9,6 +9,10 @@ Rails.application.config.good_job = {
   queues: 'scraping,noscrape,scheduler,default',
   enable_cron: ENV.fetch('ENABLE_CRON', false) || ENV.fetch('SCRAPING_ENABLED', false),
   cron: {
+    clear_cache: {
+      cron: '*/10 * * * *',
+      class: 'ClearCacheJob'
+    },
     scheduler_job: {
       cron: '*/5 * * * *',
       class: 'SchedulerJob'
