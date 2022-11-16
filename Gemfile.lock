@@ -165,6 +165,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
+    oj (3.13.23)
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
@@ -273,12 +274,13 @@ DEPENDENCIES
   binding_of_caller (~> 1.0)
   chronic (~> 0.10)
   derailed_benchmarks (~> 2.1)
-  fly-ruby
+  fly-ruby (~> 0.5)
   good_job (~> 3.4)
   haml-rails (~> 2.1)
   httparty (~> 0.20)
   jbuilder (~> 2.11)
-  newrelic_rpm
+  newrelic_rpm (~> 8.12)
+  oj (~> 3.1)
   pg (~> 1.4)
   pry-rails (~> 0.3)
   puma (~> 5.6)
@@ -286,7 +288,7 @@ DEPENDENCIES
   rack-cors (~> 1.1)
   rails (~> 7.0)
   redis (~> 5.0)
-  rspec-rails
+  rspec-rails (~> 6.0)
   rubocop (~> 1.36)
   stackprof (~> 0.2)
 

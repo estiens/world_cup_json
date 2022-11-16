@@ -10,14 +10,15 @@ gem 'good_job', '~> 3.4'
 gem 'haml-rails', '~> 2.1'
 gem 'httparty', '~> 0.20'
 gem 'jbuilder', '~> 2.11'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', "~> 8.12"
+gem 'oj', '~> 3.1'
 gem 'puma', '~> 5.6'
 gem 'rack-attack', '~> 6.6'
 gem 'rack-cors', '~> 1.1', require: 'rack/cors'
 gem 'redis', '~> 5.0'
 
 group :production do
-  gem 'fly-ruby'
+  gem 'fly-ruby', "~> 0.5"
 end
 
 group :development do
@@ -29,6 +30,6 @@ group :development, :test do
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
   gem 'pry-rails', '~> 0.3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', "~> 6.0"
   gem 'rubocop', '~> 1.36'
 end
