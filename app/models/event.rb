@@ -60,6 +60,7 @@ class Event < ActiveRecord::Base
     self.time ||= event_time
     self.home_team = home_team_event
     return unless type_of_event == :substitution
+    return unless respond_to?(:extra_info)
 
     self.extra_info = { player_off: data_hash[:player_off], player_on: data_hash[:player_on] }.to_json
   end
@@ -69,7 +70,9 @@ class Event < ActiveRecord::Base
 
     write_identifiers
     write_details
+    true
   rescue StandardError => e
     Rails.logger.warn e.backtrace
+    false
   end
 end

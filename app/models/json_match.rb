@@ -2,7 +2,6 @@
 #    ResultType -- check mapping
 #    OfficialityStatus -- check mapping
 #    IsUpdateable -- can determine if currently live?
-
 class JsonMatch
   attr_reader :info
 
@@ -140,6 +139,10 @@ class JsonMatch
   end
 
   def completed?
+    time = current_time_info[:current_time]
+    return false unless time.present? && time.to_i.zero?
+
+    return true if match_match_status.zero?
     return true if match_property_period.to_i == 10 || match_period.to_i == 10
 
     false
@@ -179,7 +182,9 @@ class JsonMatch
   def coach_names(home: true, away: false)
     home = false if away
     coaches = home ? home_team['Coaches'] : away_team['Coaches']
-    coaches.map { |c| c['Name'].map { |d| d['Description'] } }&.flatten
+    return [] unless coaches.is_a? Array
+
+    coaches.map { |c| c['Name']&.map { |d| d['Description'] } }&.flatten
   end
 
   def find_player_by_id(id)

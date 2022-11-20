@@ -12,7 +12,15 @@ class SchedulerJob < ApplicationJob
     scrape_unscheduled_matches
     scrape_unknown_matches
     update_anything_not_synced
-    scrape_completed?
+    write_in_progress_matches
+    scrape_completed
+  end
+
+  def write_in_progress_matches
+    ids = Match.in_progress.where('last_changed_at < ?', Time.now - 1.minute).pluck(:id)
+    return unless ids.count.positive?
+
+    ids.each { |id| MatchUpdateSelfJob.perform_later(id) }
   end
 
   # ideally this has nothing
@@ -24,12 +32,15 @@ class SchedulerJob < ApplicationJob
     fetch_general_data_for_matches(ids)
   end
 
-  def scrape_completed?
+  def scrape_completed
     # may have events that come in after full-time will have to see
+    Match.where(status: 'completed').where('last_checked_at < ?', SCRAPE_GENERAL_EVERY.ago).each do |match|
+      MatchUpdateSelfJob.perform_later(match.id)
+    end
   end
 
   def update_anything_not_synced
-    Match.where('updated_at > ?', 2.hours.ago).each do |match|
+    Match.where('last_changed_at < last_checked_at').where('updated_at < ?', SCRAPE_TODAY_EVERY.ago).each do |match|
       if match.latest_json.present?
         MatchUpdateSelfJob.perform_later(match.id)
       else
@@ -57,7 +68,7 @@ class SchedulerJob < ApplicationJob
   def scrape_match_details(matches)
     return unless matches.count.positive?
 
-    Rails.logger.debug { "**SCHEDULER** Single Match Update for #{matches_to_scrape.count} scheduled matches" }
+    Rails.logger.debug { "**SCHEDULER** Single Match Update for #{matches.count} scheduled matches" }
     matches.each { |match| FetchDataForScheduledMatch.perform_later(match.id) }
   end
 

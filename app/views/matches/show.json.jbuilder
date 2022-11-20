@@ -1,1 +1,1 @@
-json.partial! 'matches/match', match: @match
+json.partial! 'matches/match', match: @match, cached: true

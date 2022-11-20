@@ -66,7 +66,7 @@ class Match < ActiveRecord::Base
   end
 
   def self.in_progress
-    where(status: :in_progress)
+    scheduled_now
   end
 
   def self.scheduled_now
@@ -113,25 +113,27 @@ class Match < ActiveRecord::Base
   def home_team_events
     return [] unless home_team
 
-    events.where(team: home_team).sort_by { |e| e.time.to_i }
+    @home_team_events ||= events.where(team: home_team).sort_by { |e| e.time.to_i }
   end
 
   def away_team_events
     return [] unless away_team
 
-    events.where(team: away_team).sort_by { |e| e.time.to_i }
+    @away_team_events ||= events.where(team: away_team).sort_by { |e| e.time.to_i }
   end
 
   def home_stats
-    match_statistics.where(team: home_team).first
+    @home_stats ||= match_statistics.where(team: home_team).first
   end
 
   def away_stats
-    match_statistics.where(team: away_team).first
+    @away_stats ||= match_statistics.where(team: away_team).first
   end
 
   def update_self_from_latest_data
-    Services::MatchUpdater.new(self).update
+    return unless Match.today.include?(self)
+
+    FetchDataForScheduledMatch.perform_later(id)
   end
 
   private
@@ -181,6 +183,7 @@ class Match < ActiveRecord::Base
   def update_status
     identify! if status == :incomplete
     schedule! if status == :future_unscheduled
+    update_self_from_latest_data if status == :future_scheduled
     # determine match is live! if future_scheduled
     # determine completed if in_progress
     determine_winner! if status == :completed
@@ -219,6 +222,7 @@ class Match < ActiveRecord::Base
     return if winner_id.present? || draw
 
     determine_winner!
-    save && home_team.save && away_team.save
+    save
+    home_team.reload.save && away_team.reload.save
   end
 end

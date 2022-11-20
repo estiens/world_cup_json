@@ -40,27 +40,27 @@ class JsonMatch
     end
 
     def home_bookings
-      home_events[:bookings]
+      home_events[:bookings] || []
     end
 
     def home_goals
-      home_events[:goals]
+      home_events[:goals] || []
     end
 
     def home_substitutions
-      home_events[:substitutions]
+      home_events[:substitutions] || []
     end
 
     def away_bookings
-      away_events[:bookings]
+      away_events[:bookings] || []
     end
 
     def away_goals
-      away_events[:goals]
+      away_events[:goals] || []
     end
 
     def away_substitutions
-      away_events[:substitutions]
+      away_events[:substitutions] || []
     end
 
     def write_event_json(json:, team_id:, type:)

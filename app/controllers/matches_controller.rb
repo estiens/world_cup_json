@@ -1,14 +1,20 @@
 class MatchesController < BaseApiController
   before_action :detail_level, except: %i[index future]
-  before_action :load_matches, except: %i[show]
+  before_action :load_matches, except: %i[index show]
 
   def index
     @details = true if params[:details]&.downcase == 'true'
+    load_matches
     order_by_params
+    if @details
+      render :detailed_index
+    else
+      render :index
+    end
   end
 
   def current
-    @matches = @matches.in_progress
+    @matches = @matches.today.where(status: :in_progress)
     order_by_params
     render :index
   end
@@ -110,6 +116,8 @@ class MatchesController < BaseApiController
   end
 
   def detail_level
-    @details = params[:details] || 'true'
+    level = params[:details] || 'true'
+    @details = level.casecmp('true').zero?
+    @details = false if level.casecmp('false').zero?
   end
 end

@@ -1,10 +1,10 @@
-class InProgressJob < ApplicationJob
+class InProgressJobTwo < ApplicationJob
   queue_as :current
 
   def perform
+    sleep(rand(20..40))
     scrape_in_progress
     scrape_soon_upcoming
-    scrape_later_today
   end
 
   private
@@ -26,12 +26,6 @@ class InProgressJob < ApplicationJob
   def scrape_soon_upcoming
     matches = Match.where('datetime < ?', 20.minutes.from_now).where(status: 'future_scheduled')
 
-    scrape_match_details(matches)
-  end
-
-  def scrape_later_today
-    matches = Match.where('datetime < ?', 1.day.from_now).where(status: 'future_scheduled')
-                   .where('last_checked_at < ?', 5.minutes.ago)
     scrape_match_details(matches)
   end
 end

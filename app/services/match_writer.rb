@@ -56,13 +56,19 @@ class MatchWriter
   end
 
   def write_current_match
+    write_weather
     write_score_info
     write_time_info
     write_home_stats
     write_away_stats
     write_events
-    match.save
     complete_match!
+  end
+
+  def write_weather
+    return if match.weather == @json_match.weather_info
+
+    match.weather = @json_match.weather_info
   end
 
   def write_events
@@ -103,7 +109,7 @@ class MatchWriter
 
   def hash_matches?(hash1, hash2)
     return false unless hash1.is_a?(Hash) && hash2.is_a?(Hash)
-    return true if hash1.values.compact == hash2.values.compact
+    return true if hash1.values.compact&.sort == hash2.values.compact&.sort
 
     false
   end
@@ -122,13 +128,12 @@ class MatchWriter
   end
 
   def check_for_upcoming_changes
-    return false if match.datetime.to_i > 2.days.ago.to_i
-    return false if match.status == :completed
+    return false unless match.status == :future_scheduled
 
     start_match!
     write_home_stats
     write_away_stats
-    match.changed?
+    true
   end
 
   def match_identifiers
@@ -164,9 +169,9 @@ class MatchWriter
 
   def write_home_stats
     stats = find_or_create_stats(match.home_team)
-    stats.starting_eleven ||= @json_match.home_team_info[:starting_eleven]
-    stats.substitutes ||= @json_match.home_team_info[:substitutes]
-    stats.tactics ||= @json_match.home_team_info[:tactics]
+    stats.starting_eleven = @json_match.home_team_info[:starting_eleven] if stats.starting_eleven.blank?
+    stats.substitutes = @json_match.home_team_info[:substitutes] if stats.substitutes.blank?
+    stats.tactics = @json_match.home_team_info[:tactics] if stats.tactics.blank?
     return unless stats.changed?
 
     stats.save
@@ -174,9 +179,9 @@ class MatchWriter
 
   def write_away_stats
     stats = find_or_create_stats(match.away_team)
-    stats.starting_eleven ||= @json_match.away_team_info[:starting_eleven]
-    stats.substitutes ||= @json_match.away_team_info[:substitutes]
-    stats.tactics ||= @json_match.away_team_info[:tactics]
+    stats.starting_eleven = @json_match.away_team_info[:starting_eleven] if stats.starting_eleven.blank?
+    stats.substitutes = @json_match.away_team_info[:substitutes] if stats.substitutes.blank?
+    stats.tactics = @json_match.away_team_info[:tactics] if stats.tactics.blank?
     return unless stats.changed?
 
     stats.save

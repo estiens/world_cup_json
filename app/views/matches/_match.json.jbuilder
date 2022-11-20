@@ -1,4 +1,4 @@
-json.call(match, :id, :venue, :location, :status, :attendance, :officials, :stage_name)
+json.call(match, :id, :venue, :location, :status, :attendance, :stage_name)
 
 json.home_team_country match.home_team&.country
 json.away_team_country match.away_team&.country
@@ -37,14 +37,14 @@ if @details
   json.weather match.weather
   json.time match.completed? ? 'full-time' : match.time
   json.detailed_time match.detailed_time
-
+  json.officials match.officials
   json.home_team_events do
     json.array! match.home_team_events do |event|
       json.id event.id
       json.type_of_event event.type_of_event
       json.player event.player
       json.time event.time
-      json.extra_info event.extra_info
+      json.extra_info event.respond_to?(:extra_info) ? event.extra_info : {}
     end
   end
 
@@ -54,7 +54,7 @@ if @details
       json.type_of_event event.type_of_event
       json.player event.player
       json.time event.time
-      json.extra_info event.extra_info
+      json.extra_info event.respond_to?(:extra_info) ? event.extra_info : {}
     end
   end
 

@@ -1,4 +1,4 @@
-json.call(team, :country)
+json.country team.country
 json.name team.alternate_name
 json.group_letter team.group.letter
 json.group_points team.team_points
