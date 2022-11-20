@@ -133,7 +133,7 @@ class JsonMatch
   # double check logic on these
   def in_progress?
     return true if current_time_info[:current_time].to_i.positive?
-    return true if match_officiality_status.positive?
+    return true if match_match_status == 3
 
     false
   end
