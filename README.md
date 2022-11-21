@@ -107,6 +107,9 @@ The response includes the same data output as the regular GET call without param
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
 
+- https://github.com/cedricblondeau/world-cup-2022-cli-dashboard
+  (Watch live matches in your terminal)
+
 ## PROJECTS USING THIS API IN 2018
 
 <details><summary>2018 projects submitted</summary>
