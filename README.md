@@ -2,12 +2,32 @@
 
 We are super up and running for 2022. Note URL change! Please remember to make a PR with your nice apps, raspberry pi projects, etc. And my favorite part of this whole thing, the students who get super excited about coding something.
 
+## PROJECTS USING THIS API IN 2022
 
+(Feel free to submit a PR with your project!)
+
+- https://github.com/cyrusDev1/qatar-worldcup
+  (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
+
+- https://github.com/charles-wangkai/betbot_worldcup (Slack App for FIFA World Cup Bets)
+
+- https://github.com/cedricblondeau/world-cup-2022-cli-dashboard
+  (Watch live matches in your terminal)
+
+- [Live-Cup](https://live-cup.pedsm.dev) [repo](https://github.com/pedsm/liveCup)
+  (React.js based dashboard with live updates designed for TVs and Computers)
+
+- https://github.com/dg01d/bitbar-worldcup
+  (Plugin for xbarapp, displays scores in macos menubar.)
+  
 todo:
 
-- make sure nothing changes in what we parse
-- maybe find match stats
-- make sure we detect when match starts/stops
+- scrape match statistics
+
+fixed:
+
+- issue with hanging/overloaded workers for scraping
+- match start detection
 
 Setup: usual rails setup then
 `Setup2022.setup_teams`
@@ -99,24 +119,6 @@ The response includes the same data output as the regular GET call without param
 ## EXAMPLE RESPONSES
 
 [Detailed Match View](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
-
-## PROJECTS USING THIS API IN 2022
-
-(Feel free to submit a PR with your project!)
-
-- https://github.com/cyrusDev1/qatar-worldcup
-  (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
-
-- https://github.com/charles-wangkai/betbot_worldcup (Slack App for FIFA World Cup Bets)
-
-- https://github.com/cedricblondeau/world-cup-2022-cli-dashboard
-  (Watch live matches in your terminal)
-
-- [Live-Cup](https://live-cup.pedsm.dev) [repo](https://github.com/pedsm/liveCup)
-  (React.js based dashboard with live updates designed for TVs and Computers)
-
-- https://github.com/dg01d/bitbar-worldcup
-  (Plugin for xbarapp, displays scores in macos menubar.)
 
 
 ## PROJECTS USING THIS API IN 2018
