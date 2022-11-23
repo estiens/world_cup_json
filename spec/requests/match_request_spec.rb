@@ -27,7 +27,6 @@ RSpec.describe 'MatchRequest', type: :request do
                       location
                       status
                       attendance
-                      officials
                       stage_name
                       home_team_country
                       away_team_country

@@ -218,12 +218,18 @@ class Match < ActiveRecord::Base
     self.draw = draw?
   end
 
+  def completed_message
+    message = "Game complete: Final Score: #{home_team.alternate_name} #{home_team_score}"
+    message += " - #{away_team_score} #{away_team.alternate_name}"
+    message
+  end
+
   def slack_status_message
     return unless saved_change_to_status.is_a? Array
 
     case saved_change_to_status.last&.to_sym
     when :completed
-      "Game complete: Final Score: #{home_team.alternate_name} #{home_team_score} - #{away_team_score} #{away_team.alternate_name}"
+      completed_message
     when :in_progress
       game_start_message + home_starters_message + away_starters_message
     end

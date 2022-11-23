@@ -116,6 +116,7 @@ class Team < ActiveRecord::Base
   def write_stats
     assign_attributes(team_wins: team_wins_count, team_losses: team_losses_count, team_draws: team_draws_count)
     assign_attributes(team_goals_for: team_goals_for_count, team_goals_against: team_goals_against_count)
-    assign_attributes(team_goal_differential: goal_differential_count, games_played: games_played_count, team_points: team_points_count)
+    assign_attributes(team_goal_differential: goal_differential_count, games_played: games_played_count,
+                      team_points: team_points_count)
   end
 end
