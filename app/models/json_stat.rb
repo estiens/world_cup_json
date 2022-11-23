@@ -63,7 +63,6 @@ class JsonStat
     match_stat = MatchStatistic.find_by(match: @match, team: team)
     return unless stats && match_stat
 
-    puts stats.map { |s| s.first }.sort
     stats_keys.each do |hash|
       value_array = stats.find { |a| a.first == hash[:key] }
       value = value_array.is_a?(Array) ? value_array[1].to_i : nil
