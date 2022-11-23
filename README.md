@@ -109,6 +109,16 @@ The response includes the same data output as the regular GET call without param
 
 - https://github.com/charles-wangkai/betbot_worldcup (Slack App for FIFA World Cup Bets)
 
+- https://github.com/cedricblondeau/world-cup-2022-cli-dashboard
+  (Watch live matches in your terminal)
+
+- [Live-Cup](https://live-cup.pedsm.dev) [repo](https://github.com/pedsm/liveCup)
+  (React.js based dashboard with live updates designed for TVs and Computers)
+
+- https://github.com/dg01d/bitbar-worldcup
+  (Plugin for xbarapp, displays scores in macos menubar.)
+
+
 ## PROJECTS USING THIS API IN 2018
 
 <details><summary>2018 projects submitted</summary>
