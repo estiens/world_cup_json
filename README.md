@@ -107,6 +107,8 @@ The response includes the same data output as the regular GET call without param
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
 
+- https://github.com/charles-wangkai/betbot_worldcup (Slack App for FIFA World Cup Bets)
+
 - https://github.com/cedricblondeau/world-cup-2022-cli-dashboard
   (Watch live matches in your terminal)
 
@@ -115,6 +117,7 @@ The response includes the same data output as the regular GET call without param
 
 - https://github.com/dg01d/bitbar-worldcup
   (Plugin for xbarapp, displays scores in macos menubar.)
+
 
 ## PROJECTS USING THIS API IN 2018
 
