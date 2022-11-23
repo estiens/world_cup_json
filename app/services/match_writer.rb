@@ -43,7 +43,7 @@ class MatchWriter
 
   def start_match!
     return unless match.status == :future_scheduled
-    return unless @json_match.in_progress?
+    return unless @json_match.in_progress? || match.datetime < Time.zone.now - 2.minutes
 
     match.update_column(:status, :in_progress)
   end
@@ -56,12 +56,12 @@ class MatchWriter
   end
 
   def write_current_match
-    write_weather
     write_score_info
+    write_events
+    write_weather
     write_time_info
     write_home_stats
     write_away_stats
-    write_events
     complete_match!
   end
 

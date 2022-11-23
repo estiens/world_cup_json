@@ -9,6 +9,7 @@ class Match < ActiveRecord::Base
   before_validation :set_default_status
   before_save :update_status
 
+  after_save :notify_slack
   after_save :update_teams
 
   STATUSES = %i[incomplete future_unscheduled future_scheduled in_progress completed].freeze
@@ -66,7 +67,7 @@ class Match < ActiveRecord::Base
   end
 
   def self.in_progress
-    scheduled_now
+    where(status: :in_progress)
   end
 
   def self.scheduled_now
@@ -215,6 +216,75 @@ class Match < ActiveRecord::Base
     self.winner = penalty_winner
     self.winner ||= regulation_winner
     self.draw = draw?
+  end
+
+  def completed_message
+    message = "Game complete: Final Score: #{home_team.alternate_name} #{home_team_score}"
+    message += " - #{away_team_score} #{away_team.alternate_name}"
+    message
+  end
+
+  def slack_status_message
+    return unless saved_change_to_status.is_a? Array
+
+    case saved_change_to_status.last&.to_sym
+    when :completed
+      completed_message
+    when :in_progress
+      game_start_message + home_starters_message + away_starters_message
+    end
+  end
+
+  def game_start_message
+    message = "Kickoff in #{location} #{home_team.alternate_name} vs #{away_team.alternate_name}"
+    message += "\n#{weather.inspect}\nAttendance: #{attendance}\n"
+    message
+  end
+
+  def away_starters_message
+    return nil unless away_stats
+
+    message = "\n#{away_team.alternate_name} Starting XI\n"
+    message += away_stats.starting_eleven.map do |p|
+      "#{p['name']} -- #{p['position']}"
+    end.join("\n")
+    message
+  end
+
+  def home_starters_message
+    return nil unless home_stats
+
+    message = "#{home_team.alternate_name} Starting XI\n"
+    message += home_stats.starting_eleven.map do |p|
+      "#{p['name']} -- #{p['position']}"
+    end.join("\n")
+    message += "\n--\n"
+    message
+  end
+
+  def score_message
+    "#{home_team.alternate_name}: #{home_team_score} -- #{away_team_score} #{away_team.alternate_name}"
+  end
+
+  def penalty_message
+    "Penalties: #{home_team.country} #{home_team_penalties} -- #{away_team_penalties} #{away_team.country}"
+  end
+
+  def slack_message
+    return slack_status_message if status_changed?
+    return score_message if saved_change_to_home_team_score? || saved_change_to_away_team_score?
+    return penalty_message if saved_change_to_home_team_penalties? || saved_change_to_away_team_penalties?
+
+    nil
+  end
+
+  def notify_slack
+    return unless ENV.fetch('SLACK_URL', false)
+    return unless slack_message
+
+    SlackMessageService.new(message: slack_message).notify
+  rescue StandardError => e
+    Rails.logger.warn "Error notifying slack: #{e.message}"
   end
 
   def update_teams

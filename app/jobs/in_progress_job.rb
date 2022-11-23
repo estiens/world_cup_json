@@ -9,18 +9,39 @@ class InProgressJob < ApplicationJob
 
   private
 
-  def scrape_match_details(matches)
+  def scrape_in_progress_match_details(matches)
     return unless matches.count.positive?
 
     Rails.logger.debug { "**SCHEDULER** Single Match Update for #{matches.count} scheduled matches" }
     matches.each do |match|
-      MatchUpdateSelfJob.perform_later(match.id)
-      FetchDataForScheduledMatch.perform_later(match.id)
+      MatchFetcher.scrape_for_scheduled_match(match)
+      sleep(2)
+      match.reload
+      MatchWriter.new(match: match).write_match
     end
   end
 
+  def scrape_match_details(matches)
+    return if matches.count.zero?
+
+    FetchDataForScheduledMatch.perform_later(matches.pluck(:id))
+    MatchUpdateSelfJob.perform_later(matches.pluck(:id))
+  end
+
+  def in_progress_matches
+    matches = Match.in_progress
+    matches = Match.today.where.not(status: :completed) if matches.count.zero?
+    matches.count.positive? ? matches : []
+  end
+
   def scrape_in_progress
-    scrape_match_details(Match.in_progress)
+    matches = in_progress_matches
+    return if matches.count.zero?
+
+    msg = "Scrape In Progress: #{matches.first&.home_team&.country} vs #{matches.first&.away_team&.country}"
+    Rails.logger.info(msg)
+    scrape_in_progress_match_details(matches)
+    self.class.set(wait: 30.seconds).perform_later
   end
 
   def scrape_soon_upcoming

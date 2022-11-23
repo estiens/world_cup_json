@@ -84,10 +84,10 @@ if @details
     if match.home_stats
       json.country match.home_team.country
       json.call(match.home_stats,
-                :attempts_on_goal, :on_target, :off_target, :blocked,
-                :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
-                :passes_completed, :distance_covered, :tackles,
-                :clearances, :yellow_cards, :red_cards, :fouls_committed)
+                :attempts_on_goal, :attempts_on_goal_against, :on_target, :off_target, :blocked,
+                :corners, :offsides, :num_passes, :passes_completed, :tackles,
+                :free_kicks, :goal_kicks, :penalties, :penalties_scored, :throw_ins,
+                :yellow_cards, :red_cards, :fouls_committed)
     else
       []
     end
@@ -97,10 +97,10 @@ if @details
     if match.away_stats
       json.country match.away_team.country
       json.call(match.away_stats,
-                :attempts_on_goal, :on_target, :off_target, :blocked,
-                :corners, :offsides, :ball_possession, :pass_accuracy, :num_passes,
-                :passes_completed, :distance_covered, :tackles,
-                :clearances, :yellow_cards, :red_cards, :fouls_committed)
+                :attempts_on_goal, :attempts_on_goal_against, :on_target, :off_target, :blocked,
+                :corners, :offsides, :num_passes, :passes_completed, :tackles,
+                :free_kicks, :goal_kicks, :penalties, :penalties_scored, :throw_ins,
+                :yellow_cards, :red_cards, :fouls_committed)
     else
       []
     end

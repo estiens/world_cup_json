@@ -4,7 +4,12 @@ class Team < ActiveRecord::Base
   has_many :away_matches, class_name: 'Match', foreign_key: 'away_team_id'
   belongs_to :group
 
-  before_save :write_stats
+  before_validation :write_stats
+
+  def to_s
+    alternate_name
+  end
+  alias name to_s
 
   def home_completed
     home_matches.where('status = ?', 'completed')
@@ -109,10 +114,9 @@ class Team < ActiveRecord::Base
   private
 
   def write_stats
-    attrs = { team_wins: team_wins_count, team_losses: team_losses_count,
-              team_draws: team_draws_count, team_goals_for: team_goals_for_count,
-              games_played: games_played_count, team_points: team_points_count,
-              team_goals_against: team_goals_against_count, team_goal_differential: goal_differential_count }
-    assign_attributes(attrs)
+    assign_attributes(team_wins: team_wins_count, team_losses: team_losses_count, team_draws: team_draws_count)
+    assign_attributes(team_goals_for: team_goals_for_count, team_goals_against: team_goals_against_count)
+    assign_attributes(team_goal_differential: goal_differential_count, games_played: games_played_count,
+                      team_points: team_points_count)
   end
 end
