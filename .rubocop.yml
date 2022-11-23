@@ -19,6 +19,9 @@ AllCops:
     - old/**/*
     - scrapers/*
 
+Metrics/ClassLength:
+  Max: 250
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*

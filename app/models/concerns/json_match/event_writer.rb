@@ -8,6 +8,14 @@ class JsonMatch
     def write!
       try_create_home_events
       try_create_away_events
+      write_stats
+    end
+
+    def write_stats
+      JsonStat.new(match: @match) if @match.home_stats.last_updated < 2.minutes.ago
+    rescue StandardError => e
+      Rails.logger.info "Error writing stats for match #{@match.id}: #{e.inspect}"
+      nil
     end
 
     private
@@ -22,7 +30,7 @@ class JsonMatch
 
     def players_for_event(event_json)
       player = @json_match.find_player_by_id(event_json['IdPlayer'])
-      event_json[:player_name] = player
+      event_json[:player_name] = player&.titlecase
       event_json[:player_off] = event_json['PlayerOffName']&.first&.[]('Description')&.titlecase
       event_json[:player_on] = event_json['PlayerOnName']&.first&.[]('Description')&.titlecase
       event_json

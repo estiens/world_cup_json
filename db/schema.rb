@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_16_000921) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_033116) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -82,17 +82,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_000921) do
     t.integer "on_target"
     t.integer "off_target"
     t.integer "blocked"
-    t.integer "woodwork"
     t.integer "corners"
     t.integer "offsides"
-    t.integer "ball_possession"
-    t.integer "pass_accuracy"
     t.integer "num_passes"
     t.integer "passes_completed"
-    t.integer "distance_covered"
-    t.integer "balls_recovered"
     t.integer "tackles"
-    t.integer "clearances"
     t.integer "yellow_cards"
     t.integer "red_cards"
     t.integer "fouls_committed"
@@ -101,6 +95,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_000921) do
     t.json "starting_eleven"
     t.json "substitutes"
     t.string "tactics"
+    t.integer "attempts_on_goal_against"
+    t.integer "free_kicks"
+    t.integer "goal_kicks"
+    t.integer "penalties"
+    t.integer "penalties_scored"
+    t.integer "throw_ins"
     t.index ["match_id"], name: "index_match_statistics_on_match_id"
     t.index ["team_id", "match_id"], name: "index_match_statistics_on_team_id_and_match_id"
     t.index ["team_id"], name: "index_match_statistics_on_team_id"
@@ -141,6 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_000921) do
     t.datetime "last_checked_at"
     t.json "detailed_time"
     t.json "last_changed", default: []
+    t.integer "old_match_id"
     t.index ["away_team_id"], name: "index_matches_on_away_team_id"
     t.index ["datetime"], name: "index_matches_on_datetime"
     t.index ["fifa_id"], name: "index_matches_on_fifa_id"

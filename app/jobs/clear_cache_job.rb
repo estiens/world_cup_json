@@ -3,5 +3,6 @@ class ClearCacheJob < ApplicationJob
 
   def perform
     Rails.cache.clear
+    Team.all.each(&:save)
   end
 end
