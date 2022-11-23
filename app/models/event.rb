@@ -77,7 +77,7 @@ class Event < ActiveRecord::Base
   end
 
   def goal_text
-    ['GOAL!', 'Goooooooollllllll!', 'Goooooooooooooooooooooal!', 'γκολ!'].sample
+    ['GOAL!', 'Goooooooollllllll!', 'Goooooooooooooooooooooal!'].sample
   end
 
   def booking_text
@@ -85,7 +85,7 @@ class Event < ActiveRecord::Base
   end
 
   def substitution_text
-    "Substitution #{team.country} #{player} on for #{extra_info['player_off']}"
+    "Substitution #{team.country} #{player} on for #{extra_info[:player_off]} at #{time}"
   end
 
   def slack_message_text

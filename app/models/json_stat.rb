@@ -17,7 +17,7 @@ class JsonStat
     @modifier = 0
     @json_stats = match_stats_for_home_team
     @home_stats = @json_stats.present? ? @json_stats[@match.home_team.fifa_code] : nil
-    @away_stats = @json_stats.present? ? @json_stats[@match.home_team.fifa_code] : nil
+    @away_stats = @json_stats.present? ? @json_stats[@match.away_team.fifa_code] : nil
     write_the_stats
   end
 

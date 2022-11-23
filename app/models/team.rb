@@ -80,7 +80,7 @@ class Team < ActiveRecord::Base
   end
 
   def team_draws_count
-    matches.where('status = ? AND home_team_score = away_team_score AND home_team_penalties IS NULL', 'completed').count
+    matches.where('status = ? AND home_team_score = away_team_score AND home_team_penalties < 1', 'completed').count
   end
 
   def team_wins_count
