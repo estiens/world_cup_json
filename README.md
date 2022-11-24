@@ -20,6 +20,8 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 - https://github.com/dg01d/bitbar-worldcup
   (Plugin for xbarapp, displays scores in macos menubar.)
   
+- [CopaInfo](https://github.com/Eslley/copainfo) React.js web app to follow matches, scores, standings and favorite team
+  
 todo:
 
 - scrape match statistics
