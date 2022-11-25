@@ -8,6 +8,9 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
+  
+- [2022 Interactive Bracket](https://worldcup.cole.ws/)
+  (2022 FIFA World Cup Bracket: A simple website designed to help you track 2022's FIFA World Cup bracket.)
 
 - https://github.com/charles-wangkai/betbot_worldcup (Slack App for FIFA World Cup Bets)
 
