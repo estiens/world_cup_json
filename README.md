@@ -24,6 +24,8 @@ We are super up and running for 2022. Note URL change! Please remember to make a
   (Plugin for xbarapp, displays scores in macos menubar.)
   
 - [CopaInfo](https://github.com/Eslley/copainfo) React.js web app to follow matches, scores, standings and favorite team
+
+- [Zero-goal Match Checker](https://matthewmcvickar.com/zero-goal-checker/) ([GitHub repo](https://github.com/matthewmcvickar/world-cup-zero-goal-match-checker)) &mdash; checks if completed matches ended in a 0&ndash;0 score
   
 todo:
 
