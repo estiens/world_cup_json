@@ -26,6 +26,8 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 - [CopaInfo](https://github.com/Eslley/copainfo) React.js web app to follow matches, scores, standings and favorite team
 
 - [Zero-goal Match Checker](https://matthewmcvickar.com/zero-goal-checker/) ([GitHub repo](https://github.com/matthewmcvickar/world-cup-zero-goal-match-checker)) &mdash; checks if completed matches ended in a 0&ndash;0 score
+
+- [World Cup Scores](https://world-cup-score-app.vercel.app/) ([GitHub repo](https://github.com/jgeorge97/world-cup-score-app)) A simple Vue Typescript Web app to show the scores & timings of the current & upcoming matches
   
 todo:
 
