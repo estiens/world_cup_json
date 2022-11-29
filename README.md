@@ -8,7 +8,6 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
-  
 - [2022 Interactive Bracket](https://worldcup.cole.ws/)
   (2022 FIFA World Cup Bracket: A simple website designed to help you track 2022's FIFA World Cup bracket.)
 
@@ -22,11 +21,13 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 
 - https://github.com/dg01d/bitbar-worldcup
   (Plugin for xbarapp, displays scores in macos menubar.)
-  
 - [CopaInfo](https://github.com/Eslley/copainfo) React.js web app to follow matches, scores, standings and favorite team
 
 - [Zero-goal Match Checker](https://matthewmcvickar.com/zero-goal-checker/) ([GitHub repo](https://github.com/matthewmcvickar/world-cup-zero-goal-match-checker)) &mdash; checks if completed matches ended in a 0&ndash;0 score
-  
+
+- [CopaQatar](https://copaqatar-vitor.netlify.app/) [repo](https://github.com/vitorFRE/CopaQatar)
+  (A simple world cup website to see groups, matches, current match.)
+
 todo:
 
 - scrape match statistics
@@ -53,7 +54,7 @@ https://worldcupjson.net/matches/today
 
 [detailed_response](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
 
-** note if match statistics make it in, they are all ints - but I have to find them!
+\*\* note if match statistics make it in, they are all ints - but I have to find them!
 
 (note, the full matches endpoint has up to a 5 minutes cache on it and does not return all events - if you want real time updates please use `/matches/today`, `/matches/id`, or `/matches/current`)
 
@@ -126,7 +127,6 @@ The response includes the same data output as the regular GET call without param
 ## EXAMPLE RESPONSES
 
 [Detailed Match View](https://gist.github.com/estiens/8c8de685fd74821c273cc9160ad9d765)
-
 
 ## PROJECTS USING THIS API IN 2018
 
