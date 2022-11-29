@@ -32,6 +32,8 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 - [CopaQatar](https://copaqatar-vitor.netlify.app/) [repo](https://github.com/vitorFRE/CopaQatar)
   (A simple world cup website to see groups, matches, current match.)
 
+- [WorldCupResults](https://world-cup-results-2022.vercel.app/) [repo](https://github.com/yasincandev/fifa-world-cup-2022)
+  (NextJs, Chackra, React Query based web app to see live results of the matches and details)
 
 todo:
 
