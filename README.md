@@ -31,7 +31,8 @@ We are super up and running for 2022. Note URL change! Please remember to make a
 
 - [CopaQatar](https://copaqatar-vitor.netlify.app/) [repo](https://github.com/vitorFRE/CopaQatar)
   (A simple world cup website to see groups, matches, current match.)
-
+  
+- [World Cup Bar](https://cyrilniobe.gumroad.com/l/world-cup-mac-bar) A Mac menu bar app to watch today's live score and results while working.
 
 todo:
 
