@@ -17,13 +17,13 @@ common: &default_settings
   distributed_tracing:
     enabled: true
 
-  log_level: info
+  log_level: error
 
   application_logging:
     enabled: true
     forwarding:
       enabled: true
-      max_samples_stored: 10000
+      max_samples_stored: 1000
     metrics:
       enabled: true
     local_decorating:

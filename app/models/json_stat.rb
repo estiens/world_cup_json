@@ -109,6 +109,7 @@ class JsonStat
 
       val += 1
     end
+    @match.update_column(:old_match_id, base_match_number + @match.id + val) if @match.old_match_id.nil?
     response
   end
 end
