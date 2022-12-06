@@ -42,6 +42,12 @@ class MatchesController < BaseApiController
     render :index
   end
 
+  def yesterday
+    @matches = @matches.yesterday
+    order_by_params
+    render :index
+  end
+
   def today
     @matches = @matches.today
     order_by_params

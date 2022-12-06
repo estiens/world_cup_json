@@ -12,7 +12,7 @@ class JsonMatch
     end
 
     def write_stats
-      JsonStat.new(match: @match) if @match.home_stats.last_updated < 2.minutes.ago
+      JsonStat.new(match: @match) if @match.home_stats.updated_at < 2.minutes.ago
     rescue StandardError => e
       Rails.logger.info "Error writing stats for match #{@match.id}: #{e.inspect}"
       nil

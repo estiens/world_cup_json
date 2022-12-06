@@ -117,7 +117,8 @@ class JsonMatch
   def convert_to_f(degrees_c)
     return nil unless degrees_c
 
-    ((degrees_c.to_i * (9 / 5)) + 32).to_s
+    degree_f = (degrees_c.to_i * (9 / 5)) + 32
+    degree_f.to_s
   end
 
   def map_official(official)

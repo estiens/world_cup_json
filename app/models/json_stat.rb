@@ -2,19 +2,20 @@ class JsonStat
   attr_reader :home_stats, :away_stats, :possession_stats
 
   def base_match_number
-    132_993
+    128_020
   end
 
-  def base_url(id:, old_code: nil)
+  def base_url(modifier = 0)
     url = 'https://fdh-api.fifa.com/v1/stats/match/'
-    number = old_code || base_match_number + id
+    number = @match.old_match_id || base_match_number + @match.id
+    number += modifier
+    Rails.logger.info("Checking #{url}#{number}/teams.json for stats")
     "#{url}#{number}/teams.json"
   end
 
   def initialize(match:)
     @match = match
-    @url = base_url(id: @match.id, old_code: @match.old_match_id)
-    @modifier = 0
+    @url = base_url
     @json_stats = match_stats_for_home_team
     @home_stats = @json_stats.present? ? @json_stats[@match.home_team.fifa_code] : nil
     @away_stats = @json_stats.present? ? @json_stats[@match.away_team.fifa_code] : nil
@@ -91,7 +92,7 @@ class JsonStat
   end
 
   def find_match_stats_for_home_team(val: 0)
-    @url = base_url(id: @match.id + val)
+    @url = base_url(val)
     response = JSON.parse(http_request)
     response_has_data?(response) ? response : false
   rescue StandardError => _e
@@ -102,7 +103,7 @@ class JsonStat
     response = find_match_stats_for_home_team
     return response if response.present?
 
-    while val < 4
+    while val < 20
       response = find_match_stats_for_home_team(val: val) || find_match_stats_for_home_team(val: (0 - val))
       break if response_has_data?(response)
 

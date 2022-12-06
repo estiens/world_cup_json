@@ -140,9 +140,7 @@ class MatchWriter
     { fifa_id: @json_match.identifiers[:fifa_id],
       fifa_competition_id: @json_match.identifiers[:competition_id],
       fifa_season_id: @json_match.identifiers[:season_id],
-      fifa_group_id: @json_match.identifiers[:group_id],
-      fifa_stage_id: @json_match.identifiers[:stage_id],
-      stage_name: @json_match.identifiers[:stage_name] }
+      fifa_group_id: @json_match.identifiers[:group_id] }
   end
 
   def team_ids

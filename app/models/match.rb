@@ -289,10 +289,8 @@ class Match < ActiveRecord::Base
 
   def update_teams
     return unless status == :completed
-    return if winner_id.present? || draw
+    return unless winner_id
 
-    determine_winner!
-    save
     home_team.reload.save && away_team.reload.save
   end
 end

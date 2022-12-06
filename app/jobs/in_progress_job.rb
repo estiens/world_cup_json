@@ -3,11 +3,24 @@ class InProgressJob < ApplicationJob
 
   def perform
     scrape_in_progress
+    scrape_complete_no_winner
     scrape_soon_upcoming
     scrape_later_today
   end
 
   private
+
+  def scrape_complete_no_winner
+    matches = Match.where(status: :completed).where(winner_id: nil)
+    return if matches.count.zero?
+
+    matches.each do |match|
+      MatchFetcher.scrape_for_scheduled_match(match)
+      sleep(2)
+      match.reload
+      MatchWriter.new(match: match).write_match
+    end
+  end
 
   def scrape_in_progress_match_details(matches)
     return unless matches.count.positive?

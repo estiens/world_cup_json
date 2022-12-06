@@ -4,5 +4,6 @@ class ClearCacheJob < ApplicationJob
   def perform
     Rails.cache.clear
     Team.all.each(&:save)
+    Match.today.each(&:save)
   end
 end

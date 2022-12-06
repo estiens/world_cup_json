@@ -11,6 +11,7 @@ WorldCupJson::Application.routes.draw do
   get '/matches/current', to: 'matches#current'
   get '/matches/future', to: 'matches#future'
   get '/matches/country/:country', to: 'matches#country'
+  get '/matches/yesterday', to: 'matches#yesterday'
   get '/matches/today', to: 'matches#today'
   get '/matches/tomorrow', to: 'matches#tomorrow'
   get '/matches/:id', to: 'matches#show'
