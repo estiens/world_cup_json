@@ -1,6 +1,6 @@
 # FIFA WORLD CUP 2022
 
-## and we made it! 2024 WWC or 2026 is anyone's game :D Congrats to Argentina!
+## and we made it! 2024 WWC or 2026 MWC in US/Canada/Mexico is anyone's game :D Congrats to Argentina!
 
 --
 
