@@ -1,5 +1,9 @@
 # FIFA WORLD CUP 2022
 
+## and we made it! 2024 WWC or 2026 is anyone's game :D Congrats to Argentina!
+
+--
+
 We are super up and running for 2022. Note URL change! Please remember to make a PR with your nice apps, raspberry pi projects, etc. And my favorite part of this whole thing, the students who get super excited about coding something.
 
 Update: Have finally hit 10k RPM for 2022 as well!
