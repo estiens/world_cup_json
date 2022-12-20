@@ -41,6 +41,8 @@ Update: Have finally hit 10k RPM for 2022 as well!
   
 - [World Cup Bar](https://cyrilniobe.gumroad.com/l/world-cup-mac-bar) A Mac menu bar app to watch today's live score and results while working.
 
+- [FIFA World Cup 2022 Encyclopedia] ([repo](https://github.com/mufratkarim/FIFA-World-Cup-2022-Encyclopedia)) (A simple android app that displays complete complete stats of the world cup)
+
 
 todo:
 
