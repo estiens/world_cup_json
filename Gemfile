@@ -8,7 +8,7 @@ gem 'pg', '~> 1.4'
 gem 'chronic', '~> 0.10'
 gem 'good_job', '~> 3.4'
 gem 'haml-rails', '~> 2.1'
-gem 'httparty', '~> 0.20'
+gem 'httparty', '~> 0.21'
 gem 'jbuilder', '~> 2.11'
 gem 'newrelic_rpm', "~> 8.12"
 gem 'oj', '~> 3.1'
