@@ -12,6 +12,9 @@ Update: Have finally hit 10k RPM for 2022 as well!
 
 (Feel free to submit a PR with your project!)
 
+- [2022 World Cup Tracker](https://worldcuptracker.netlify.app)
+  (Simple react web app showcasing the tournament bracket and all the matches of Qatar 2022)
+
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
 - [2022 Interactive Bracket](https://worldcup.cole.ws/)
