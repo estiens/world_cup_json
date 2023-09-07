@@ -14,6 +14,9 @@ Update: Have finally hit 10k RPM for 2022 as well!
 
 - https://github.com/cyrusDev1/qatar-worldcup
   (Vue Js Web App to find the matches, scores and rankings of the Qatar 2022 world cup in real time.)
+
+- [CupInfo](https://github.com/LucasHayashi/cupinfo-angular) (CupInfo: A simple Angular web app for FIFA World Cup enthusiasts, delivering essential match data and standings for Qatar 2022 and beyond.)
+
 - [2022 Interactive Bracket](https://worldcup.cole.ws/)
   (2022 FIFA World Cup Bracket: A simple website designed to help you track 2022's FIFA World Cup bracket.)
 
